@@ -1,0 +1,311 @@
+.spacer {
+  color: white;
+  font-size: larger; 
+  font-weight: 500;
+  text-transform: uppercase;
+  background: url('/SeasonBG.png');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  border-width: 0;
+}
+
+.nav_button {
+  background: var(--inactive);
+  color: white;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  transform-origin: top left;
+  padding: 0.5rem;
+  font-weight: 400;
+  transition: background 250ms;
+
+  &::before, &:after {
+    content: "";
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url('/button_corner.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    opacity: 0;
+    box-shadow: 0px 0px 10px black;
+    transition: left 100ms, right 100ms, opacity 250ms 100ms;
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  &:focus-visible {
+    outline: hsl(0, 0%, 0%, 30%) solid 3px;
+    outline-offset: -3px;
+  }
+
+}
+
+.navbar {
+  position: sticky;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 5fr repeat(6, 1fr);
+  place-items: center;
+  top: 0;
+  height: fit-content;
+  background: var(--inactive);
+  border-bottom: 1px solid #e5e5e5;
+
+  .nav_button {
+    &:hover, &:focus-visible {
+      background: var(--primary);
+      z-index: 2;
+
+      &::before, &::after {
+        opacity: 1;
+        transition: left 100ms 250ms, right 100ms 250ms, opacity 250ms;
+      }
+
+      &::before{
+        left: -0.375em;
+      }
+      
+      &::after {
+        right: -0.375em;
+      }
+
+      & .home_button {
+          .logo_v > path {
+            fill: hsl(47, 100%, 57%);
+          }
+
+          .logo_n, .logo_u {
+            opacity: 1;
+            transition: fill 500ms 250ms;
+            path {
+              fill: var(--off-white);
+            }
+          }
+
+        & + .logo_text {
+          color: white;
+          width: 3.5rem;
+          opacity: 1;
+          left: 0;
+        }
+      }
+    }
+  
+  }
+
+  .home_button_prt {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    &::before, &::after {
+      display: none;
+    }
+
+    .home_button {
+      width: 2rem;
+  
+      .logo_n, .logo_u {
+        opacity: 0;
+        transition: opacity 250ms;
+      }
+  
+      .logo_v > path {
+          fill: vvar(--primary);
+          transition: fill 250ms;
+      }
+  
+    }
+
+    .logo_text {
+      position: relative;
+      top: -0.09375rem;
+      left: -3rem;
+      z-index: -1;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.375rem;
+      color: var(--primary);
+      -webkit-text-stroke: 0.5px black;
+      transition: color 250ms, width 250ms, opacity 500ms, left 250ms;
+      width: 0;
+      opacity: 0;
+    }
+
+  }
+
+}
+
+.navbar_mobile{
+  --off-white: hsl(0, 0%, 90%);
+
+  position: sticky;
+  display: none;
+  grid-template-columns: auto 5fr 1fr;
+  grid-template-areas: "logo space nav";
+  grid-auto-flow: column;
+  place-items: center;
+  top: 0;
+  height: fit-content;
+  background: hsl(0, 0%, 15%);
+  border-bottom: 1px solid #e5e5e5;
+
+  .nav_button {
+    aspect-ratio: 1;
+    height: 3em;
+    .hamburger {
+      width: 50%;
+    }
+  }
+
+  .home_button_prt {
+    display: grid;
+    aspect-ratio: 0;
+    grid-template-columns: auto auto;
+    z-index: 0;
+    background: var(--primary);
+
+    .home_button {
+      width: 2rem;
+      .logo_v > path {
+        fill: hsl(47, 100%, 57%);
+      }
+
+      .logo_n, .logo_u {
+        opacity: 1;
+        path {
+          fill: var(--off-white);
+        }
+      }
+    }
+
+    .logo_text {
+      position: relative;
+      top: -0.09375rem;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.375rem;
+      color: white;
+      -webkit-text-stroke: 0.5px black;
+      transition: color 250ms, width 250ms, opacity 500ms, left 250ms;
+    }
+  }
+}
+
+@media (max-width: 600px){
+  .navbar{
+    display: none;
+  }
+  .navbar_mobile {
+    display: grid;
+  }
+}
+
+.main {
+  min-height: 100vh;
+  width: 100%;
+  padding: 4rem 0;
+  display: grid;
+
+  .mini_gallery {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+  }
+
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1.5fr;
+  grid-template-areas: 
+    "school links para"
+    "school copyright copyright";
+  background-color: var(--inactive);
+  padding: 1rem;
+  padding-bottom: 0;
+  gap: 1rem;
+  text-align: center;
+  color: white;
+  place-items: center;
+
+  a {
+    text-decoration: underline;
+    text-underline-offset: 0.125em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer_details {
+    grid-area: para;
+  }
+
+  .footer_content {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    align-items: flex-start;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "event links_title"
+      "event_links links_links";
+
+    h3 {
+      font-size: clamp(1em, 1.5vw, 2.5rem);
+      margin: 0.5rem 0;
+    }
+    .footer_links {
+      display: flex;
+      flex-direction: column;
+      width: max-content;
+    }
+  }
+
+  .footer_school {
+    grid-area: school; 
+    width: 75%;
+
+    &.large {
+      display: block;
+    }
+
+    &.single {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      &.large {
+        display: none;
+      }
+  
+      &.single {
+        display: block;
+      } 
+    }
+  }
+
+  .footer_copyright {
+    grid-area: copyright;
+    font-size: small;
+    width: 100%;
+    border-top: 2px white solid;
+    padding: 1rem 0;
+  }
+}

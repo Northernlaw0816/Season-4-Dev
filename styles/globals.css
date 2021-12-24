@@ -1,0 +1,22 @@
+:root {
+  --primary: hsl(212, 100%, 48%);
+  --inactive: hsl(240, 17%, 22%);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  font-family: -apple-system, Segoe UI, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
