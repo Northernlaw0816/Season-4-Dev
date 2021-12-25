@@ -39,7 +39,7 @@ const Footer = () => {
         <div className={styles.footer_copyright}>
           <div><div className={styles.copyright}>©</div> Yuvabharathi Public School 2021</div>
           <div>|</div>
-          <div><a href="https://github.com/Team-De-Bug"><Image src="/images/tbd.png" alt="team debug logo" width="24px" height="24px" /></a> Template by Team De-Bug</div>
+          <div><a href="https://sites.google.com/view/team-de-bug"><Image src="/images/tbd.png" alt="team debug logo" width="24px" height="24px" /></a> Template by Team De-Bug</div>
         </div>
       </footer>
     )
