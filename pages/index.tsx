@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Nutopia</title>
+        <title>NuTopia</title>
         <meta name="description" content="Offical Yuvabharathi Nutopia Website" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
