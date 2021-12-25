@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.scss'
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>Nutopia</title>
         <meta name="description" content="Offical Yuvabharathi Nutopia Website" />
@@ -26,8 +26,7 @@ const Home: NextPage = () => {
       </main>
 
       <Footer />
-
-    </div>
+    </>
   )
 }
 

@@ -1,228 +1,378 @@
 .spacer {
-    color: white;
-    font-size: larger; 
-    font-weight: 500;
-    text-transform: uppercase;
-    background: url('/images/SeasonBG.png');
-    background-size: cover;
-    background-position: 50% 50%;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  text-transform: uppercase;
+  background: url('/images/SeasonBG.png');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.nav_button {
+  background: var(--inactive);
+  color: white;
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: 100%;
+  width: 100%;
+  transform-origin: top left;
+  padding: 0.5rem;
+  font-weight: 400;
+  transition: background 250ms;
+
+  &:hover,
+  &:focus-visible {
+    cursor: pointer;
+  }
+
+  &:active {
+    filter: brightness(1.5);
+  }
+}
+
+.button_hover_effect {
+  &::before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-image: url('/images/button_corner.svg');
     background-repeat: no-repeat;
-    height: 100%;
-    width: 100%;
-    display: grid;
-    place-items: center;
+    background-size: 100%;
+    opacity: 0;
+    box-shadow: 0px 0px 10px black;
+    transition: left 100ms, right 100ms, opacity 250ms 100ms;
   }
-  
-  .nav_button {
-    background: var(--inactive);
-    color: white;
-    position: relative;
-    display: grid;
-    place-items: center;
-    height: 100%;
-    width: 100%;
-    transform-origin: top left;
-    padding: 0.5rem;
-    font-weight: 400;
-    transition: background 250ms;
-  
-    &::before, &:after {
-      content: "";
-      position: absolute;
-      width: 0.75rem;
-      height: 0.75rem;
-      background-image: url('/images/button_corner.svg');
-      background-repeat: no-repeat;
-      background-size: 100%;
-      opacity: 0;
-      box-shadow: 0px 0px 10px black;
-      transition: left 100ms, right 100ms, opacity 250ms 100ms;
-    }
-  
-    &::before {
-      top: 0;
-      left: 0;
-    }
-  
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    cursor: pointer;
+
+    &::before,
     &::after {
-      bottom: 0;
-      right: 0;
-      transform: rotate(180deg);
+      opacity: 1;
+      transition:
+        top 100ms 250ms,
+        bottom 100ms 250ms,
+        left 100ms 250ms,
+        right 100ms 250ms,
+        opacity 250ms;
     }
-  
-    &:hover {
-      cursor: pointer;
+
+    &::before {
+      left: -0.375em;
     }
+
+    &::after {
+      right: -0.375em;
+    }
+  }
   
+  &:focus-visible {
+    outline: hsl(0, 0%, 0%, 30%) solid 3px;
+    outline-offset: -3px;
+  }
+
+  &:active {
+    &::before,
+    &::after {
+      transition:
+        top 100ms,
+        bottom 100ms,
+        left 100ms,
+        right 100ms;
+    }
+
+    &::before {
+      top: 0.375em;
+      left: 0.375em;
+    }
+
+    &::after {
+      bottom: 0.375em;
+      right: 0.375em;
+    }
+  }
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: auto 5fr repeat(6, 1fr);
+  place-items: center;
+  height: fit-content;
+  background: var(--inactive);
+
+  .nav_button {
+
+    &:hover,
     &:focus-visible {
-      outline: hsl(0, 0%, 0%, 30%) solid 3px;
-      outline-offset: -3px;
-    }
-  
-  }
-  
-  .navbar {
-    position: sticky;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: auto 5fr repeat(6, 1fr);
-    place-items: center;
-    top: 0;
-    height: fit-content;
-    background: var(--inactive);
-    border-bottom: 1px solid #e5e5e5;
-  
-    .nav_button {
-      &:hover, &:focus-visible {
-        background: var(--primary);
-        z-index: 2;
-  
-        &::before, &::after {
-          opacity: 1;
-          transition: left 100ms 250ms, right 100ms 250ms, opacity 250ms;
-        }
-  
-        &::before{
-          left: -0.375em;
-        }
-        
-        &::after {
-          right: -0.375em;
-        }
-  
-        & .home_button {
-            transform: scale(1);
-  
-            .logo_v > path {
-              fill: hsl(47, 100%, 57%);
-            }
-  
-            .logo_n, .logo_u {
-              opacity: 1;
-              transition: opacity 500ms 250ms;
-            }
-  
-          & + .logo_text {
-            color: white;
-            width: 3.5rem;
-            opacity: 1;
-            left: 0;
-          }
-        }
-      }
-    
-    }
-  
-    .home_button_prt {
-      display: grid;
-      grid-template-columns: auto auto;
-  
-      &::before, &::after {
-        display: none;
-      }
-  
-      .home_button {
-        width: 2rem;
-        transform: scale(1.5) translateX(5%);
-        // transform: ;
-        transition: transform 250ms;
-    
-        .logo_n, .logo_u {
-          opacity: 0;
-          transition: opacity 250ms;
-          path {
-            fill: black;
-          }
-        }
-    
-        .logo_v > path {
-            fill: vvar(--primary);
-            transition: fill 250ms;
-        }
-    
-      }
-  
-      .logo_text {
-        position: relative;
-        top: -0.09375rem;
-        left: -3rem;
-        z-index: -1;
-        text-rendering: optimizeLegibility;
-        font-style: italic;
-        font-weight: 600;
-        font-size: 1.375rem;
-        color: var(--primary);
-        -webkit-text-stroke: 0.5px black;
-        transition: color 250ms, width 250ms, opacity 500ms, left 250ms;
-        width: 0;
-        opacity: 0;
-      }
-  
-    }
-  
-  }
-  
-  .navbar_mobile{
-    --off-white: hsl(0, 0%, 90%);
-  
-    position: sticky;
-    display: none;
-    grid-template-columns: auto 5fr 3rem;
-    grid-template-areas: "logo space nav";
-    grid-auto-flow: column;
-    place-items: center;
-    top: 0;
-    height: fit-content;
-    background: hsl(0, 0%, 15%);
-    border-bottom: 1px solid #e5e5e5;
-  
-    .nav_button {
-      aspect-ratio: 1;
-      height: 3em;
-      .hamburger {
-        width: 1.5rem;
-      }
-    }
-  
-    .home_button_prt {
-      display: grid;
-      aspect-ratio: 0;
-      grid-template-columns: auto auto;
-      z-index: 0;
       background: var(--primary);
-  
+      z-index: 2;
+
+      & .home_button {
+        transform: scale(1);
+
+        .logo_v>path {
+          fill: hsl(47, 100%, 57%);
+        }
+
+        .logo_n,
+        .logo_u {
+          opacity: 1;
+          transition: opacity 500ms 250ms;
+        }
+      }
+
+      & .logo_text {
+        color: white;
+        width: 3.5rem;
+        opacity: 1;
+        left: 0;
+      }
+    }
+
+  }
+
+  .home_button_prt {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    .home_button {
+      width: 2rem;
+      transform: scale(1.5) translateX(5%);
+      transition: transform 250ms;
+
+      .logo_n,
+      .logo_u {
+        opacity: 0;
+        transition: opacity 250ms;
+
+        path {
+          fill: white;
+        }
+      }
+
+      .logo_v > path {
+        fill: vvar(--primary);
+        transition: fill 250ms;
+      }
+
+    }
+
+    .logo_text {
+      position: relative;
+      top: -0.09375rem;
+      left: -3rem;
+      z-index: -1;
+      text-rendering: optimizeLegibility;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.375rem;
+      color: var(--primary);
+      transition: color 250ms, width 250ms, opacity 500ms, left 250ms;
+      width: 0;
+      opacity: 0;
+    }
+
+  }
+
+}
+
+.navbar_mobile {
+  position: sticky;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  grid-template-columns: auto 5fr auto;
+  grid-template-areas: "logo space menu";
+  grid-auto-flow: column;
+  place-items: center;
+  height: fit-content;
+  background: var(--inactive);
+
+  .ham_menu {
+    min-height: 3rem;
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    grid-area: menu;
+
+    &:hover {
+      background: var(--primary);
+    }
+
+    &:active {
+      filter: brightness(1.5);
+    }
+
+    .hamburger {
+      width: 1.5rem;
+    }
+  }
+
+  .home_button_prt {
+    display: grid;
+    grid-template-columns: auto auto;
+    z-index: 0;
+
+    .home_button {
+      width: 2rem;
+
+      .logo_v > path {
+        fill: var(--primary);
+        transition: fill 250ms;
+      }
+
+      .logo_n,
+      .logo_u {
+        opacity: 1;
+
+        path {
+          fill: white;
+        }
+      }
+    }
+
+    .logo_text {
+      position: relative;
+      top: -0.09375rem;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.375rem;
+      color: white;
+      transition: color 250ms, width 250ms, opacity 500ms, left 250ms;
+    }
+
+    &:hover {
+      background: var(--primary);
+      
       .home_button {
-        width: 2rem;
         .logo_v > path {
           fill: hsl(47, 100%, 57%);
         }
-  
-        .logo_n, .logo_u {
-          opacity: 1;
-          path {
-            fill: black;
-          }
-        }
-      }
-  
-      .logo_text {
-        position: relative;
-        top: -0.09375rem;
-        font-style: italic;
-        font-weight: 500;
-        font-size: 1.375rem;
-        color: white;
-        -webkit-text-stroke: 0.5px black;
-        transition: color 250ms, width 250ms, opacity 500ms, left 250ms;
       }
     }
   }
-  
-  @media (max-width: 600px){
-    .navbar{
-      display: none;
+}
+
+@media screen and (max-width: 300px) {
+  .logo_text {
+    display: none;
+  }
+  .spacer {
+    display: none;
+  }
+
+  .navbar_mobile {
+    height: 3rem;
+  }
+}
+
+.nav_menu {
+  display: none;
+  position: fixed;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 3rem;
+  z-index: 2;
+  background-color: hsl(0, 0%, 0%, 30%);
+  transition: opacity 250ms;
+
+  &.nav_menu_active {
+    display: block;
+  }
+
+  &.nav_menu_show {
+    opacity: 1;
+  }
+
+  .nav_menu_bg {
+    background-color: var(--inactive);
+    position: absolute;
+    width: clamp(50%, 20rem, 100%);
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: right 250ms;
+
+    .nav_button {
+      height: fit-content;
+      padding: 1rem;
+
+      background: hsl(0, 0%, 100%, 5%);
+
+      &:hover,
+      &:focus-visible {
+        background: var(--primary);
+      }
+
+      &:focus-visible {
+        outline: hsl(0, 0%, 0%, 30%) solid 3px;
+        outline-offset: -3px;
+      }
+
+      &:active {
+        filter: brightness(1.5);
+      }
+      // background-color: hsl(0, 0%, 100%, 5%);
+      // color: white;
+      // text-decoration: none;
+      // text-align: center;
+      // width: 100%;
+      // font-size: 1rem;
+      // padding: 1rem;
+      // transition: color 250ms;
     }
-    .navbar_mobile {
-      display: grid;
+
+    &.nav_menu_active {
+      right: 0;
     }
   }
+
+}
+
+@media screen and (min-width: 600px) {
+  .nav_menu {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    display: none;
+  }
+
+  .navbar_mobile {
+    display: grid;
+  }
+}
