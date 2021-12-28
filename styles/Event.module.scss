@@ -10,7 +10,7 @@
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
 
         .logo {
-            width: clamp(100px, 90%, calc(50vh));
+            width: clamp(100px, 90%, calc(60vw));
         }
 
         .banner_text {
@@ -192,8 +192,22 @@
 .main_otk {
     .banner {
         background: white;
-        .logo {
-            width: clamp(100px, 90%, calc(80vh));
+
+        .banner_text {
+            h1 {
+                font-family: 'Rock Salt', Impact, fantasy;
+                font-size: clamp(1.5rem, 4vw, 4rem);
+                color: red;
+                text-shadow: 2px 2px 0 yellow;
+            }
+        }
+    }
+
+    .content {
+        .tagline {
+            font-family: 'Rock Salt', fantasy;
+            font-size: clamp(15px, 3vw, 1.5rem);
+            text-align: center;
         }
     }
 }
