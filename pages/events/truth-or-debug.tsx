@@ -35,7 +35,7 @@ const TruthOrDebug: NextPage = () => {
                     </div>
                 </div>
                 <div className={eventStyles.content}>
-                    <p className={eventStyles.tagline}><span className={eventStyles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={eventStyles.grey}>{`);`}</span></p>
+                    <h2 id="tagline" className={eventStyles.tagline}><span className={eventStyles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={eventStyles.grey}>{`);`}</span></h2>
                     <h2 id="about" className={eventStyles.subheading}>About</h2>
                         <p>Are you Sherlock Holmes when it comes to spotting coding errors? then this competition is for you! prepare to put your skills to test in this exciting event!</p> 
                     <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
