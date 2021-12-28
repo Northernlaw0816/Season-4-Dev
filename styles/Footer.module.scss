@@ -9,7 +9,7 @@
   padding-bottom: 0;
   gap: 1rem;
   text-align: center;
-  color: white;
+  color: var(--text-1);
   place-items: center;
 
   a {
@@ -31,13 +31,13 @@
     }
 
     &:hover, &:focus-visible {
-      outline: none;
       &::after {
         top: 0;
       }
     }
 
     &:focus-visible {
+      outline: none;
       &::after {
         border: 3px black solid;
       }
@@ -63,6 +63,32 @@
     
     &::after {
       display: none;
+    }
+    
+    & > * {
+      filter: brightness(10);
+      transition: all 100ms; 
+    }
+
+    &:hover,
+    &:focus-visible {
+      & > * {
+        filter: brightness(1);
+      }
+    }
+
+    &:hover {
+      & > * {
+        transform: scale(1.05);
+      }
+    }
+    
+    &:focus-visible {
+      & > * {
+        padding: 0.5rem;
+        background-color: white;
+        border: 4px black solid;
+      }
     }
 
     &::before {
@@ -124,9 +150,10 @@
       "event links_title"
       "event_links links_links";
 
-    h3 {
+    label {
       font-size: clamp(1rem, 2vw, 1.5rem);
-      margin: 0.5rem 0;
+      font-weight: 500;
+      margin: 0;
     }
 
     a {
@@ -165,6 +192,22 @@
       line-height: 24px;
     }
 
+    .separator {
+      width: 1px;
+      height: 2rem;
+      background-color: white;
+    }
+
+    .TDB {
+      transition: transform 100ms;
+
+      &:hover,
+      &:focus-visible {
+        filter: invert(100%);
+        transform: scale(1.2);
+      }
+    }
+
     a {
       margin: 0;
 
@@ -188,7 +231,7 @@
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 320px) {
   .footer {
     grid-template-columns: 1fr;
     grid-template-areas: 

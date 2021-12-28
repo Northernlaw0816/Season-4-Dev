@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>NuTopia</title>
-        <meta name="description" content="Offical Yuvabharathi Nutopia Website" />
+        <meta name="description" content="Offical Yuvabharathi NuTopia Website" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
 

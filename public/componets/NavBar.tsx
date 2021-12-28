@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+
+//stylesheets
 import styles from '../../styles/Navbar.module.scss'
 
 const NavBar = () => {
@@ -30,7 +32,7 @@ const NavBar = () => {
     return(<>
         {/* landscape navbar */}
         <nav className={styles.navbar}>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.home_button_prt}`} aria-label="NuTopia Homepage">
+            <Link href="/"><a aria-label="Nu Topia Home" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Group 1">
                         <g className={styles.logo_n}>
@@ -47,17 +49,16 @@ const NavBar = () => {
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
             <span className={styles.spacer}>Season 1</span>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Details</a></Link>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
+            <Link href="/events"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
             </nav>
 
             {/* mobile navbar */}
             <nav className={styles.navbar_mobile}>
-            <Link href="/"><a className={`${styles.nav_button} ${styles.home_button_prt}`}>
+            <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Group 1">
                         <g className={styles.logo_n}>
@@ -74,7 +75,7 @@ const NavBar = () => {
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
             <span className={styles.spacer}>Season 1</span>
-            <div className={`${styles.nav_button} ${styles.ham_menu}`} aria-label="Menu" onClick={() => toggleNavMenu()}>
+            <div className={`${styles.nav_button} ${styles.ham_menu}`} aria-label="Toggle Navigation Menu" role="button" onClick={() => toggleNavMenu()}>
                 <svg className={styles.hamburger} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect className={styles.line} id="1" width="32" height="4" fill="white"/>
                     <rect className={styles.line} id="2" width="32" height="4" fill="white" y="14"/>
@@ -84,12 +85,11 @@ const NavBar = () => {
         </nav>
         <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
             <div className={styles.nav_menu_bg}>
-                <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
-                <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
-                <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Details</a></Link>
-                <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
-                <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
-                <Link href="/"><a className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
+                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
+                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
+                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
+                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
             </div>
         </div>
     </>)
