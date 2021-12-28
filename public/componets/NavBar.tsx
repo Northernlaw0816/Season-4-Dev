@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react'
 
 //stylesheets
 import styles from '../../styles/Navbar.module.scss'
+import effects from '../../styles/Effects.module.scss'
 
 const NavBar = () => {
 
@@ -67,14 +68,14 @@ const NavBar = () => {
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
             <span className={styles.spacer}>Season 1</span>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
-            <Link href="/events"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
+            <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
+            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
         </nav>
         <Link href="#tagline">
-            <a tabIndex={0} className={`${styles.skip_to_content} ${styles.button_hover_effect}`}>Skip to Main Content</a>
+            <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`}>Skip to Main Content</a>
         </Link>
     </>)}
 
@@ -113,11 +114,11 @@ const NavBar = () => {
             <FullNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
                 </div>
             </div>
         </>)
@@ -126,11 +127,11 @@ const NavBar = () => {
             <MobNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
                 </div>
             </div>
         </>)

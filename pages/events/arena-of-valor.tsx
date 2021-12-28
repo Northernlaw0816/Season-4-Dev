@@ -7,10 +7,11 @@ import Footer from '../../public/componets/Footer'
 import NavBar from '../../public/componets/NavBar'
 //stylesheet
 import styles from '../../styles/Home.module.scss'
-import eventStyles from '../../styles/Event.module.scss'
+import eventStyles from '../../styles/Events.module.scss'
 //assets
 import logo from '../../public/images/events/aov_logo.png'
 import Link from "next/link"
+import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
 
 const ArenaOfValor: NextPage = () => {
     return (
@@ -41,9 +42,7 @@ const ArenaOfValor: NextPage = () => {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
                     <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p>
-                        <div className={eventStyles.register_link_align}>
-                            <Link href="/"><a className={eventStyles.register_link}>Register Here</a></Link>
-                        </div>
+                        <EventsRegisterButton/>
                 </div>
             </main>
 
