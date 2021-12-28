@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@800&display=swap&text=Arena%20Of%20Valor%20Grab%20The%20Clutch%20And%20Feel%20The%20Power');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap&text=Arena%20Of%20Valor%20Grab%20The%20Clutch%20And%20Feel%20The%20Power');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap&text=Truth%20or%20Debug%20print(%22I%20have%20not%20failed%2C%20I%20have%20found%2010%2C000%20ways%20how%20not%20to%20solve%20a%20problem%22)%3B');
 
 .main {
@@ -76,10 +76,10 @@
             background-clip: text;
     
             h1 {
-                font-family: 'Cinzel', serif;
+                font-family: 'Cinzel Decorative', serif;
                 color: transparent;
                 font-size: clamp(1rem, 8vw, 5rem);
-                font-weight: 800;
+                font-weight: 900;
                 
                 span {
                     color: transparent;
@@ -95,7 +95,7 @@
         .tagline {
             --color: black;
             color: var(--color);
-            font-family: 'Cinzel', serif;
+            font-family: 'Cinzel Decorative', serif;
             font-size: clamp(15px, 3vw, 1.5rem);
             text-align: center;
             text-transform: capitalize;
@@ -186,6 +186,15 @@
             .tagline {
                 --color: white;
             }
+        }
+    }
+}
+
+.main_otk {
+    .banner {
+        background: white;
+        .logo {
+            width: clamp(100px, 90%, calc(80vh));
         }
     }
 }
