@@ -181,7 +181,7 @@
       }
 
       .logo_v > path {
-        fill: vvar(--primary);
+        fill: var(--primary);
         transition: fill 250ms;
       }
 
