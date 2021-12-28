@@ -7,29 +7,47 @@ import styles from '../../styles/Navbar.module.scss'
 const NavBar = () => {
 
     let [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
+    let [windowWidth, setWindowWidth] = useState(700)
+
+    
+    function getWindowWidth() {
+        const {width: width} = screen
+        return width
+    }
     
     let navMenuDOM: any = useRef(null)
     let toggleNavMenu = () => {
-        setIsNavMenuOpen(!isNavMenuOpen);
+        setIsNavMenuOpen(!isNavMenuOpen)
     }
+    
+    useEffect(() => {
+        function handleResize() {
+            setWindowWidth(getWindowWidth())
+        }
+    
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    });
 
     useEffect(() => {
-        if(isNavMenuOpen) {
-            navMenuDOM.current.classList.add(styles.nav_menu_active)
-            setTimeout(() => {
-                navMenuDOM.current.classList.add(styles.nav_menu_show)
-                navMenuDOM.current.children[0].classList.add(styles.nav_menu_active)
-            }, 100);
-        } else {
-            navMenuDOM.current.children[0].classList.remove(styles.nav_menu_active)
-            navMenuDOM.current.classList.remove(styles.nav_menu_show)
-            setTimeout(() => {
-                navMenuDOM.current.classList.remove(styles.nav_menu_active)
-            }, 250);
+        if (windowWidth <= 600) {
+            if(isNavMenuOpen) {
+                navMenuDOM.current.classList.add(styles.nav_menu_active)
+                setTimeout(() => {
+                    navMenuDOM.current.classList.add(styles.nav_menu_show)
+                    navMenuDOM.current.children[0].classList.add(styles.nav_menu_active)
+                }, 100)
+            } else {
+                navMenuDOM.current.children[0].classList.remove(styles.nav_menu_active)
+                navMenuDOM.current.classList.remove(styles.nav_menu_show)
+                setTimeout(() => {
+                    navMenuDOM.current.classList.remove(styles.nav_menu_active)
+                }, 250)
+            }
         }
     }, [isNavMenuOpen])
 
-    return(<>
+    const FullNav = () => {return(<>
         {/* landscape navbar */}
         <nav className={styles.navbar}>
             <Link href="/"><a aria-label="Nu Topia Home" className={`${styles.nav_button} ${styles.home_button_prt}`}>
@@ -54,10 +72,15 @@ const NavBar = () => {
             <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
             <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
             <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
-            </nav>
+        </nav>
+        <Link href="#tagline">
+            <a tabIndex={0} className={`${styles.skip_to_content} ${styles.button_hover_effect}`}>Skip to Main Content</a>
+        </Link>
+    </>)}
 
-            {/* mobile navbar */}
-            <nav className={styles.navbar_mobile}>
+    const MobNav = () => {return(<>
+        {/* mobile navbar */}
+        <nav className={styles.navbar_mobile}>
             <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Group 1">
@@ -83,16 +106,35 @@ const NavBar = () => {
                 </svg>
             </div>
         </nav>
-        <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
-            <div className={styles.nav_menu_bg}>
-                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
-                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
-                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
-                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
-                <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+    </>)}
+
+    if (windowWidth >= 600) { 
+        return (<>
+            <FullNav/>
+            <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
+                <div className={styles.nav_menu_bg}>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+                </div>
             </div>
-        </div>
-    </>)
+        </>)
+    } else {
+         return(<>
+            <MobNav/>
+            <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
+                <div className={styles.nav_menu_bg}>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Gallery</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Events</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Registration</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>About</a></Link>
+                    <Link href="/"><a role="link" className={`${styles.nav_button} ${styles.button_hover_effect}`}>Contact</a></Link>
+                </div>
+            </div>
+        </>)
+    }
 } 
 
 export default NavBar

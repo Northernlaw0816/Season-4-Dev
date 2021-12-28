@@ -32,7 +32,7 @@ const ArenaOfValor: NextPage = () => {
                     </div>
                 </div>
                 <div className={eventStyles.content}>
-                    <p className={eventStyles.tagline}>Grab the Clutch and Feel the Power</p>
+                    <h2 id="tagline" className={eventStyles.tagline}>Grab the Clutch and Feel the Power</h2>
                     <h2 id="about" className={eventStyles.subheading}>About</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
                     <h2 id="rules" className={eventStyles.subheading}>Rules</h2>

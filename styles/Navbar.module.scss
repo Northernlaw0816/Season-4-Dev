@@ -212,7 +212,7 @@
   right: 0;
   left: 0;
   z-index: 999;
-  display: none;
+  display: grid;
   grid-template-columns: auto 5fr auto;
   grid-template-areas: "logo space menu";
   grid-auto-flow: column;
@@ -349,14 +349,6 @@
       &:active {
         filter: brightness(1.5);
       }
-      // background-color: hsl(0, 0%, 100%, 5%);
-      // color: white;
-      // text-decoration: none;
-      // text-align: center;
-      // width: 100%;
-      // font-size: 1rem;
-      // padding: 1rem;
-      // transition: color 250ms;
     }
 
     &.nav_menu_active {
@@ -366,18 +358,24 @@
 
 }
 
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 600px) {
   .nav_menu {
     display: none !important;
   }
 }
 
-@media screen and (max-width: 600px) {
-  .navbar {
-    display: none;
-  }
+.skip_to_content {
+  position: fixed;
+  right: 0;
+  z-index: 2;
+  margin: 0.5em;
+  background-color: var(--primary);
+  color: white;
+  padding: 1em;
+  opacity: 0;
+  transition: opacity 250ms;
 
-  .navbar_mobile {
-    display: grid;
+  &:focus-visible {
+    opacity: 1;
   }
 }
