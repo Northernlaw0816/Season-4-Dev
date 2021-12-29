@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 //stylesheets
 import styles from '../../styles/Navbar.module.scss'
@@ -8,11 +8,12 @@ import effects from '../../styles/Effects.module.scss'
 const NavBar = () => {
 
     let [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
-    let [windowWidth, setWindowWidth] = useState(700)
+    let [isMobile, setIsMobile] = useState(false)
+    let [windowWidth, setWindowWidth] = useState(0)
 
     
     function getWindowWidth() {
-        const {width: width} = screen
+        const {clientWidth: width} = document.body
         return width
     }
     
@@ -20,18 +21,26 @@ const NavBar = () => {
     let toggleNavMenu = () => {
         setIsNavMenuOpen(!isNavMenuOpen)
     }
-    
+
+    function handleResize() {
+        setWindowWidth(getWindowWidth())
+        setIsMobile(windowWidth <= 600)
+        console.log(windowWidth)
+    }
+
     useEffect(() => {
-        function handleResize() {
-            setWindowWidth(getWindowWidth())
-        }
+        handleResize()
+    })
+    
+    useLayoutEffect(() => {
+        handleResize()
     
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
     });
 
     useEffect(() => {
-        if (windowWidth <= 600) {
+        if (isMobile) {
             if(isNavMenuOpen) {
                 navMenuDOM.current.classList.add(styles.nav_menu_active)
                 setTimeout(() => {
@@ -109,7 +118,7 @@ const NavBar = () => {
         </nav>
     </>)}
 
-    if (windowWidth >= 600) { 
+    if (!isMobile) { 
         return (<>
             <FullNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
