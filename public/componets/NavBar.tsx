@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 //stylesheets
 import styles from '../../styles/Navbar.module.scss'
@@ -31,7 +31,7 @@ const NavBar = (props: any) => {
         handleResize()
     })
     
-    useLayoutEffect(() => {
+    useEffect(() => {
         handleResize()
     
         window.addEventListener('resize', handleResize)
