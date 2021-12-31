@@ -30,6 +30,7 @@ const HomeGallery = () => {
                             height={1080} 
                             placeholder="blur"
                             layout='responsive'
+                            priority={true}
                         />
                     )}
                 </div>
