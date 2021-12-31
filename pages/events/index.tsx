@@ -1,5 +1,5 @@
-import { NextPage } from "next";
-import Head from "next/head";
+import { NextPage } from "next"
+import Head from "next/head"
 
 //components
 import Footer from '../../public/componets/Footer'
@@ -15,9 +15,9 @@ const Events: NextPage = () => {
                 <meta name="description" content="NuTopia Events" />
             </Head>
 
-            <NavBar/>
+            <NavBar skipTo="#content"/>
             <main className={styles.main}>
-
+                <h1 id="content">Events</h1>
             </main>
             <Footer/>
         </div>
