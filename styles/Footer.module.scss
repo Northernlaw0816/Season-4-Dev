@@ -4,7 +4,7 @@
   grid-template-areas:
     "school links para"
     "copyright copyright copyright";
-  background-color: var(--inactive);
+  background: var(--inactive);
   padding: 1rem;
   padding-bottom: 0;
   gap: 1rem;
@@ -16,38 +16,7 @@
     margin-bottom: 0.5rem;
     position: relative;
     z-index: 1;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: -0.25rem;
-      top: calc(90% + 0.25rem);
-      left: -0.25rem;
-      right: -0.25rem;
-      z-index: 1;
-      mix-blend-mode: difference;
-      background-color: white;
-      transition: top 250ms;
-    }
-
-    &:hover, &:focus-visible {
-      &::after {
-        top: 0;
-      }
-    }
-
-    &:focus-visible {
-      outline: none;
-      &::after {
-        border: 3px black solid;
-      }
-    }
-
-    &:active {
-      &::after {
-        background-color: black;
-      }
-    }
+    text-align: left;
   }
 
   .footer_school {
@@ -86,7 +55,7 @@
     &:focus-visible {
       & > * {
         padding: 0.5rem;
-        background-color: white;
+        background: white;
         border: 4px black solid;
       }
     }
@@ -98,7 +67,7 @@
       top: 10%;
       bottom: 10%;
       width: 1px;
-      background-color: white;
+      background: white;
     }
 
     .large {
@@ -136,7 +105,11 @@
       top: 10%;
       bottom: 10%;
       width: 1px;
-      background-color: white;
+      background: white;
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 
@@ -145,6 +118,7 @@
     display: grid;
     gap: 1rem;
     place-items: center;
+    align-items: start;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "event links_title"
@@ -195,7 +169,7 @@
     .separator {
       width: 1px;
       height: 2rem;
-      background-color: white;
+      background: white;
     }
 
     .TDB {
@@ -248,7 +222,7 @@
         right: 0;
         height: 1px;
         width: auto;
-        background-color: white;
+        background: white;
       }
     }
   }
