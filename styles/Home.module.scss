@@ -2,12 +2,18 @@
   min-height: 100vh;
   width: 100%;
 
-  background-color: var(--background);
+  padding: 1rem;
+  background: var(--background);
+}
 
-  .mini_gallery {
-    display: grid;
-    place-items: center;
-    width: 100%;
-
+.banner {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: repeat(3, 100%);
+  place-items: center;
+  height: 20rem;
+  overflow-x: hidden;
+  .image {
+    width: 75%;
   }
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap&text=Arena%20Of%20Valor%20Grab%20The%20Clutch%20And%20Feel%20The%20Power');
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap&text=Truth%20or%20Debug%20print(%22I%20have%20not%20failed%2C%20I%20have%20found%2010%2C000%20ways%20how%20not%20to%20solve%20a%20problem%22)%3B');
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap&text=Otakuiz%20Prepare%20for%20trouble%2C%20Make%20it%20double!');
+@import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap&text=2020%20SEASON%201');
 
 :root {
   --primary: hsl(212, 100%, 48%);
@@ -9,7 +10,41 @@
   --background: white;
   --text-1: white;
   --text-2: black;
+  --spacer: url('/images/SeasonBG.png');
 }
+
+/* Purple and Orange */
+/* :root {
+  --primary: #F57600;
+  --secondary: #6F238B;
+  --inactive: #3A2442;
+  --background: white;
+  --text-1: white;
+  --text-2: black;
+  --spacer: url('/images/SeasonBG_purp.png');
+} */
+
+/* Green and Aqua */
+/* :root {
+  --primary: #00CC21;
+  --secondary: #FFCF24;
+  --inactive: #245F6B;
+  --background: white;
+  --text-1: white;
+  --text-2: black;
+  --spacer: url('/images/SeasonBG_green.png');
+} */
+
+/* Grey and Gold */
+/* :root {
+  --primary: #F5B000;
+  --secondary: #0072F5;
+  --inactive: #2C2C2C;
+  --background: white;
+  --text-1: white;
+  --text-2: black;
+  --spacer: url('/images/SeasonBG_gold.png');
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -19,6 +54,7 @@
     --background: hsl(0, 0%, 10%);
     --text-1: white;
     --text-2: white;
+    --spacer: url('/images/SeasonBG.png');
   }
 }
 
