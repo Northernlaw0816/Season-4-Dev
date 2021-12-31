@@ -5,13 +5,12 @@ import Image from "next/image"
 //components
 import Footer from '../../public/componets/Footer'
 import NavBar from '../../public/componets/NavBar'
+import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
 //stylesheet
 import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
 //assets
 import logo from '../../public/images/events/otk_logo.png'
-import Link from "next/link"
-import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
 
 const Otakuiz: NextPage = () => {
     return (
@@ -21,7 +20,7 @@ const Otakuiz: NextPage = () => {
                 <meta name="description" content="NuTopia Events: Otakuiz" />
             </Head>
 
-            <NavBar/>
+            <NavBar skipTo="#tagline"/>
 
             <main className={`${eventStyles.main} ${eventStyles.main_otk}`}>
                 <div className={eventStyles.banner}>

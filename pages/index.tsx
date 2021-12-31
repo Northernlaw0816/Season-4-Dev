@@ -1,8 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import Footer from '../public/componets/Footer'
+import HomeGallery from '../public/componets/HomeGallery'
 import NavBar from '../public/componets/NavBar'
 import styles from '../styles/Home.module.scss'
 
@@ -16,13 +15,10 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <NavBar/>
+      <NavBar skipTo="#content"/>
 
       <main className={styles.main}>
-        {/* <div className={styles.mini_gallery}>
-          <img src="https://singlecolorimage.com/get/33fd8f/400x100.png" alt="" />
-          <img src="https://singlecolorimage.com/get/eeeeee/400x100.png" alt="" />
-        </div> */}
+        <HomeGallery/>
       </main>
 
       <Footer />

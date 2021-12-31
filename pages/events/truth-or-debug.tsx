@@ -5,13 +5,12 @@ import Image from "next/image"
 //components
 import Footer from '../../public/componets/Footer'
 import NavBar from '../../public/componets/NavBar'
+import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
 //stylesheet
 import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
 //assets
 import logo from '../../public/images/events/td_logo.png'
-import Link from "next/link"
-import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
 
 const TruthOrDebug: NextPage = () => {
     return (
@@ -21,7 +20,7 @@ const TruthOrDebug: NextPage = () => {
                 <meta name="description" content="NuTopia Events: Truth or Debug" />
             </Head>
 
-            <NavBar/>
+            <NavBar skipTo="#tagline"/>
 
             <main className={`${eventStyles.main} ${eventStyles.main_td}`}>
                 <div className={eventStyles.banner}>
@@ -32,7 +31,7 @@ const TruthOrDebug: NextPage = () => {
                         <Image src={logo} alt="Truth or Debug" width={1920} height={1080} quality={100} placeholder={"blur"}/>
                     </div>
                     <div className={eventStyles.banner_text}>
-                        <h1 id="title">Truth <span>or</span> Debug</h1>
+                        <h1 id="title">Truth or Debug</h1>
                     </div>
                 </div>
                 <div className={eventStyles.content}>
