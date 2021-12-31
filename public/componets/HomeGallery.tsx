@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Gallery.module.scss'
+import effects from '../../styles/Effects.module.scss'
 import HomeGalleryImages from './HomeGalleryImages';
+import Link from 'next/link';
 
 const HomeGallery = () => {
     const [currentSlide, setCurrentSlide] = useState(0)
@@ -34,12 +36,14 @@ const HomeGallery = () => {
                         />
                     )}
                 </div>
-                {index === currentSlide && (
+                {index === currentSlide && (<>
+                    <h2 className={styles.image_title}>{image.title}</h2>
                     <div className={styles.description} key={`${index}_text`}>
                         <h2>{image.title}</h2>
                         <p>{image.description}</p>
                     </div>
-                )}
+                    <Link href="/"><a className={styles.read_more_button}>Read More</a></Link>
+                </>)}
             </>)
         })}
         <div className={styles.vignette}></div>

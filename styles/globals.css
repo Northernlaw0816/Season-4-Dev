@@ -48,13 +48,9 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --primary: hsl(212, 100%, 48%);
-    --secondary: hsl(47, 100%, 57%);
-    --inactive: hsl(240, 17%, 22%);
     --background: hsl(0, 0%, 10%);
     --text-1: white;
     --text-2: white;
-    --spacer: url('/images/SeasonBG.png');
   }
 }
 
