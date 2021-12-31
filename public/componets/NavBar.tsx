@@ -5,11 +5,11 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import styles from '../../styles/Navbar.module.scss'
 import effects from '../../styles/Effects.module.scss'
 
-const NavBar = () => {
+const NavBar = (props: any) => {
 
-    let [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
-    let [isMobile, setIsMobile] = useState(false)
-    let [windowWidth, setWindowWidth] = useState(0)
+    const [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
+    const [isMobile, setIsMobile] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(0)
 
     
     function getWindowWidth() {
@@ -25,7 +25,6 @@ const NavBar = () => {
     function handleResize() {
         setWindowWidth(getWindowWidth())
         setIsMobile(windowWidth <= 600)
-        console.log(windowWidth)
     }
 
     useEffect(() => {
@@ -37,28 +36,45 @@ const NavBar = () => {
     
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
-    });
+    })
 
     useEffect(() => {
+        let toggleNavMenu: any
         if (isMobile) {
             if(isNavMenuOpen) {
                 navMenuDOM.current.classList.add(styles.nav_menu_active)
-                setTimeout(() => {
+                toggleNavMenu = setTimeout(() => {
                     navMenuDOM.current.classList.add(styles.nav_menu_show)
                     navMenuDOM.current.children[0].classList.add(styles.nav_menu_active)
                 }, 100)
             } else {
                 navMenuDOM.current.children[0].classList.remove(styles.nav_menu_active)
                 navMenuDOM.current.classList.remove(styles.nav_menu_show)
-                setTimeout(() => {
+                toggleNavMenu = setTimeout(() => {
                     navMenuDOM.current.classList.remove(styles.nav_menu_active)
                 }, 250)
             }
         }
-    }, [isNavMenuOpen])
+        return () => {clearTimeout(toggleNavMenu)}
+    })
+
+    const Links = () => {return (<>
+        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
+        <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
+        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
+        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
+    </>)}
+
+    const SkipToContent = (props: any) => {
+        return(
+            <Link href={props.skipTo}>
+                <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`}>Skip to Main Content</a>
+            </Link>
+        )
+    }
 
     const FullNav = () => {return(<>
-        {/* landscape navbar */}
         <nav className={styles.navbar}>
             <Link href="/"><a aria-label="Nu Topia Home" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,20 +92,13 @@ const NavBar = () => {
                 </svg>
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
-            <span className={styles.spacer}>Season 1</span>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
-            <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
-            <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
+            <span className={styles.spacer}>2022 Season 1</span>
+            <Links/>
         </nav>
-        <Link href="#tagline">
-            <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`}>Skip to Main Content</a>
-        </Link>
+        <SkipToContent skipTo={props.skipTo}/>
     </>)}
 
     const MobNav = () => {return(<>
-        {/* mobile navbar */}
         <nav className={styles.navbar_mobile}>
             <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +116,7 @@ const NavBar = () => {
                 </svg>
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
-            <span className={styles.spacer}>Season 1</span>
+            <span className={styles.spacer}>2022 Season 1</span>
             <div className={`${styles.nav_button} ${styles.ham_menu}`} aria-label="Toggle Navigation Menu" role="button" onClick={() => toggleNavMenu()}>
                 <svg className={styles.hamburger} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect className={styles.line} id="1" width="32" height="4" fill="white"/>
@@ -123,11 +132,7 @@ const NavBar = () => {
             <FullNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
+                    <Links/>
                 </div>
             </div>
         </>)
@@ -136,11 +141,7 @@ const NavBar = () => {
             <MobNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
-                    <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
+                    <Links/>
                 </div>
             </div>
         </>)
