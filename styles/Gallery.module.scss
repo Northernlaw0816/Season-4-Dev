@@ -1,0 +1,97 @@
+.gallery {
+  background: var(--inactive);
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(75%, 30rem, 100%);
+  user-select: none;
+  overflow: hidden;
+  margin: auto;
+  z-index: 0;
+
+  .image {
+    position: relative;
+    left: -25%;
+    width: 100%;
+    opacity: 25%;
+    transform: translateX(-10%);
+    transition: opacity 2s ease, transform 1s ease;
+
+    &.active {
+      opacity: 100%;
+      transform: translateX(0%);
+    }
+  }
+
+  .description {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: var(--primary);
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0 100%);
+    color: var(--text-1);
+    padding: 0 5% 0 15%;
+    z-index: 2;
+    
+    h2 {
+      font-size: clamp(0.75rem, 2vw, 2.5rem);
+    }
+    p {
+      font-size: clamp(0.75rem, 2vw, 2rem);
+      text-overflow: ellipsis;
+    }
+  }
+
+  .prev, .next {
+    position: absolute;
+    background: url("../public/images/arrow.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 75%;
+    width: clamp(1em, 4vw, 3em);
+    aspect-ratio: 1;
+    z-index: 3;
+    opacity: 75%;
+    transition: opacity 250ms ease;
+    
+    &:hover {
+      opacity: 100%;
+    }
+  }
+
+  .prev {
+    left: 0;
+    transform: rotateZ(180deg);
+  }
+
+  .next {
+    right: 0;
+  }
+
+  @media screen and (max-width: 600px) {
+    .image {
+      left: 0;
+    }
+
+    .prev, .next {
+      width: clamp(1.5rem, 4vw, 2rem);
+    }
+    
+    .description {
+      display: none;
+    }
+  }
+
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      hsl(0, 0%, 0%, 75%),
+      hsl(0, 0%, 0%, 25%) 25%,
+      hsl(0, 0%, 0%, 0%));
+    z-index: 1;
+  }
+}
