@@ -1,7 +1,7 @@
 .spacer {
   color: var(--text-1);
   font-family: 'Coda Caption', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1rem,  3vw, 1.5rem);
   font-weight: 500;
   text-transform: uppercase;
   background: var(--spacer);
@@ -211,19 +211,6 @@
   }
 }
 
-@media screen and (max-width: 400px) {
-  .logo_text {
-    display: none;
-  }
-  .spacer {
-    display: none;
-  }
-
-  .navbar_mobile {
-    height: 3rem;
-  }
-}
-
 .nav_menu {
   display: none;
   position: fixed;
@@ -284,12 +271,6 @@
 
 }
 
-@media screen and (min-width: 600px) {
-  .nav_menu {
-    display: none !important;
-  }
-}
-
 .skip_to_content {
   position: fixed;
   right: 0;
@@ -298,11 +279,36 @@
   background: var(--primary);
   color: white;
   padding: 1em;
-  opacity: 0;
+  opacity: 0.2;
   transition: opacity 250ms;
 
   &:hover,
   &:focus-visible {
     opacity: 1;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .nav_menu {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .spacer {
+    font-size: clamp(1rem,  4vw, 1.5rem);
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .logo_text {
+    display: none;
+  }
+  .spacer {
+    display: none;
+  }
+
+  .navbar_mobile {
+    height: 3rem;
   }
 }

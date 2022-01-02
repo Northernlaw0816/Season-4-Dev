@@ -3,7 +3,7 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: clamp(75%, 30rem, 100%);
+  width: clamp(60%, 30rem, 100%);
   user-select: none;
   overflow: hidden;
   margin: auto;
@@ -39,8 +39,8 @@
       font-size: clamp(0.75rem, 2vw, 2rem);
     }
     p {
-      font-size: clamp(0.75rem, 3vw, 1.75rem);
-      line-height: clamp(0.75rem, 3vw, 1.75rem);
+      font-size: clamp(0.75rem, 3vw, 1rem);
+      line-height: clamp(0.75rem, 3vw, 1rem);
       height: 25lh;
     }
   }
@@ -60,7 +60,7 @@
   .read_more_button {
     background-color: var(--primary);
     padding: 0.5em 1em;
-    font-size: clamp(0.25rem, 3vw, 1.5rem);
+    font-size: clamp(0.5rem, 2vw, 1rem);
     color: var(--text-1);
     z-index: 3;
     position: absolute;
@@ -79,7 +79,7 @@
 
   .prev, .next {
     position: absolute;
-    background: url("../public/images/arrow.svg");
+    background: url("/images/arrow.svg");
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: 75%;
@@ -103,6 +103,17 @@
     right: 0;
   }
 
+  .vignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to right,
+      hsl(0, 0%, 0%, 75%),
+      hsl(0, 0%, 0%, 25%) 25%,
+      hsl(0, 0%, 0%, 0%));
+    z-index: 1;
+  }
+
   @media screen and (max-width: 600px) {
     .image {
       left: 0;
@@ -121,24 +132,28 @@
     }
 
     .read_more_button {
-      width: 100%;
+      position: absolute;
+      bottom: 1em;
+      left: 0;
+      right: 0;
       z-index: 2;
       text-align: center;
-      position: static;
-      &:hover {
-        padding: 0.5em 1em;
-      }
     }
-  }
 
-  .vignette {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to right,
-      hsl(0, 0%, 0%, 75%),
-      hsl(0, 0%, 0%, 25%) 25%,
-      hsl(0, 0%, 0%, 0%));
-    z-index: 1;
+    .vignette {
+      background:
+      linear-gradient(
+        to right,
+        hsl(0, 0%, 0%, 75%),
+        hsl(0, 0%, 0%, 25%) 25%,
+        hsl(0, 0%, 0%, 0%)
+      ),
+      linear-gradient(
+        to left,
+        hsl(0, 0%, 0%, 75%),
+        hsl(0, 0%, 0%, 25%) 25%,
+        hsl(0, 0%, 0%, 0%)
+      );
+    }
   }
 }
