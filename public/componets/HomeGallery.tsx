@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Gallery.module.scss'
-import effects from '../../styles/Effects.module.scss'
-import HomeGalleryImages from './HomeGalleryImages';
+import HomeGalleryImages from '../data/HomeGalleryImages';
 import Link from 'next/link';
 
 const HomeGallery = () => {
