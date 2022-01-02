@@ -13,7 +13,7 @@ const Events: NextPage = () => {
     return(
         <div className={styles.container}>
             <Head>
-                <title>NuTopia Events</title>
+                <title>NuTopia | Events</title>
                 <meta name="description" content="NuTopia Events" />
                 <link rel="icon" href="/favicon.svg" />
             </Head>

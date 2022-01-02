@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>NuTopia</title>
+        <title>NuTopia | Home</title>
         <meta name="description" content="Offical Yuvabharathi NuTopia Website" />
         <link rel="icon" href="/favicon.svg" />
       </Head>

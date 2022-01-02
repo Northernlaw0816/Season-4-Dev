@@ -17,7 +17,7 @@ const ArenaOfValor: NextPage = () => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Arena of Valor</title>
+                <title>Nutopia | Arena of Valor</title>
                 <meta name="description" content="NuTopia Events: Arena of Valor" />
                 <link rel="icon" href="/favicon.svg" />
             </Head>

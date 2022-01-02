@@ -14,7 +14,7 @@ const LogAndBlog: NextPage= () => {
     return(
         <div className={styles.container}>
             <Head>
-                <title>Log and Blog</title>
+                <title>NuTopia | Log and Blog</title>
                 <meta name="description" content="NuTopia Events: Log and Blog" />
                 <link rel="icon" href="/favicon.svg" />
             </Head>

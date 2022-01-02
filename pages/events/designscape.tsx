@@ -14,7 +14,7 @@ const Designscape: NextPage= () => {
     return(
         <div className={styles.container}>
             <Head>
-                <title>Designscape</title>
+                <title>Nutopia | Designscape</title>
                 <meta name="description" content="NuTopia Events: Designscape" />
                 <link rel="icon" href="/favicon.svg" />
             </Head>
