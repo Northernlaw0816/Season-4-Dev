@@ -7,7 +7,7 @@
     .banner {
         display: grid;
         place-items: center;
-        padding-bottom: 4rem;
+        padding-bottom: clamp(4rem, 4vw, 6rem);
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
 
         .logo {
@@ -118,7 +118,6 @@
 .main_td {
     .banner {
         background: hsl(0, 0%, 14%);
-        padding-bottom: clamp(2rem, 3vw, 4rem);
         .banner_text {
             font-family: 'Inconsolata', monospace;
             font-weight: 800;
