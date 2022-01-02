@@ -29,10 +29,14 @@
     .content {
         color: var(--color);
         margin: auto;
-        padding: clamp(1em, 20vw, 8rem);
+        padding: clamp(1rem, 15vw, 8rem);
+
+        h2 {
+            margin-block-start: 2em;
+        }
         
         p {
-            font-size: clamp(14px, 2vw, 18px);
+            font-size: 18px;
         }
 
         .h2_p, h3 {
@@ -49,7 +53,7 @@
 
             .register_link {
                 position: relative;
-                padding: 0.5em 1em;
+                padding: 1em 2rem;
                 margin: 1rem 0;
                 background: var(--accent);
                 color: white;
@@ -66,7 +70,7 @@
 
 .main_aov {
     .banner {
-        --grad-start: hsl(174deg 100% 20%);
+        --grad-start: hsl(174, 100%, 20%);
         --grad-end: black;
         background: linear-gradient(var(--grad-start), var(--grad-end));
     
@@ -113,9 +117,8 @@
 
 .main_td {
     .banner {
-        $bg:  hsl(0, 0%, 10%);
-        $bgi:  hsl(0, 0%, 20%);
         background: hsl(0, 0%, 14%);
+        padding-bottom: clamp(2rem, 3vw, 4rem);
         .banner_text {
             font-family: 'Inconsolata', monospace;
             font-weight: 800;
@@ -194,14 +197,144 @@
 
 .main_otk {
     .banner {
-        background: white;
+        overflow: hidden;
+        z-index: 1;
+        position: relative;
+        background: hsl(257, 100%, 6%);
+        padding-top: 4rem;
+        // height: 100vh;
+        .logo {
+            z-index: 2;
+            perspective: clamp(2cm, 10vw, 5cm);
+            width: clamp(60%, 60rem, 90%);
+            aspect-ratio: 16/7;
+            display: grid;
+            place-items: center;
+            & > * {
+                transform-origin: bottom;
+                transform-style: preserve-3d;
+                bottom: 0;
+                transform: translateZ(-1rem) rotateX(10deg) ;
+            }
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .banner_background {
+            --circle-size: 70%;
+            position: absolute;
+            top: 0;
+            height: 100%;
+            z-index: -1;
+            margin: auto;
+            border-radius: 100%;
+            aspect-ratio: 1;
+            transform-origin: center;
+            transform: scale(var(--circle-size)) rotateZ(22.5deg);
+            background:
+                radial-gradient(circle at center, transparent 0 63%, hsl(46, 100%, 50%, 25%) 67% 100%),
+                repeating-linear-gradient(transparent 0 1.5%, hsl(305, 100%, 30%, 30%) 1.5% 3.5%, transparent 3.5% 5%),
+                linear-gradient(to top, hsl(305, 100%, 50%) 30%, hsl(49, 100%, 50%));
+            ;
+            box-shadow:
+                0 0 100px hsl(320, 100%, 45%);
+            
+            --blur-radius: clamp(2px, 0.25vw, 4px);
+            filter: blur(var(--blur-radius)) contrast(0.75);
+
+            &::before, &::after {
+                --blur-radius: clamp(2px, 0.25vw, 3px);
+                filter: blur(5px);
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                left: 8px;
+                right: -8px;
+                border-radius: 100%;
+                mix-blend-mode: overlay;
+                background: hsl(0, 100%, 50%, 50%);
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                left: -8px;
+                right: 8px;
+                border-radius: 100%;
+                mix-blend-mode: overlay;
+                background: hsl(180, 100%, 50%, 50%);
+            }
+
+        }
+
+        .grid_ground {
+            position: absolute;
+            z-index: 1;
+            width: 200%;
+            height: 100%;
+            left: -50%;
+            bottom: -20%;
+            perspective: 100px;
+            perspective-origin: center 40%;
+            --blur-radius: clamp(1px, 0.25vw, 3px);
+            filter: blur(var(--blur-radius)) contrast(0.9) saturate(0.75);
+
+            div {
+                position: absolute;
+                transform: scale(2) rotateX(85deg) translateY(60px);
+                inset: 0;
+                --line-width: clamp(0.0625rem, 0.25vw, 0.125rem);
+                // --line-width: 2px;
+                --sizing: clamp(10px, 4vw, 40px);
+                background:
+                linear-gradient(to top, hsl(320, 100%, 45%) 0 var(--line-width), transparent var(--line-width) 20px),
+                linear-gradient(to left, hsl(320, 100%, 45%) var(--line-width), transparent var(--line-width)),
+                linear-gradient(to left, hsl(0, 80%, 50%) 0 var(--line-width), transparent var(--line-width)),
+                linear-gradient(to left, hsl(180, 80%, 50%, 100%) 0 var(--line-width), transparent var(--line-width)),
+                    linear-gradient(to bottom, hsl(0, 0%, 100%) 10%, hsl(320, 100%, 45%), transparent 40%),
+                    hsl(278, 78%, 9%);
+                background-size: 
+                    var(--sizing) calc(var(--sizing)*2),
+                    calc(var(--sizing) * 2 ) calc(var(--sizing)*2),
+                    calc(var(--sizing) * 2) calc(var(--sizing)*2),
+                    calc(var(--sizing) * 2) calc(var(--sizing)*2),
+                    cover, cover
+                ;
+                background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top, top;
+                animation: moveUp 1s 2s forwards ease-in-out;
+            }
+
+            @keyframes moveUp {
+                0% {
+                    background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top, top;
+                }
+                100% {
+                    background-position: var(--sizing) calc(var(--sizing) * 2), -1px -1px, 0px 0px, -2px -1px, top, top;
+                }
+            }
+        }
 
         .banner_text {
+            z-index: 1;
             h1 {
                 font-family: 'Rock Salt', Impact, fantasy;
-                font-size: clamp(1.5rem, 4vw, 4rem);
-                color: red;
-                text-shadow: 2px 2px 0 yellow;
+                font-size: clamp(1.5rem, 5vw, 4rem);
+                // color: hsl(276, 53%, 16%);
+                color: hsl(337, 100%, 50%);
+                text-shadow: 
+                2px -2px 0px hsl(180, 100%, 50%, 75%);
             }
         }
     }

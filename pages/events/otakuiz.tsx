@@ -5,30 +5,35 @@ import Image from "next/image"
 //components
 import Footer from '../../public/componets/Footer'
 import NavBar from '../../public/componets/NavBar'
-import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
+import EventsRegisterButton from "../../public/componets/EventRegisterButton"
 //stylesheet
 import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
 //assets
-import logo from '../../public/images/events/otk_logo.png'
+import logo from '../../public/images/events/otk_retro_logo.png'
 
 const Otakuiz: NextPage = () => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Otakuiz</title>
+                <title>NuTopia | Otakuiz</title>
                 <meta name="description" content="NuTopia Events: Otakuiz" />
+                <link rel="icon" href="/favicon.svg" />
             </Head>
 
             <NavBar skipTo="#tagline"/>
 
             <main className={`${eventStyles.main} ${eventStyles.main_otk}`}>
                 <div className={eventStyles.banner}>
-                    <div className={eventStyles.logo} aria-labelledby="title">
-                        <Image src={logo} alt="Otakuiz" width={1920} height={1080} quality={100} placeholder={"blur"}/>
+                    <div className={eventStyles.background}>
+                        <div className={eventStyles.banner_background} />
+                        <div className={eventStyles.grid_ground}>
+                            <div></div>
+                        </div>
                     </div>
-                    <div className={eventStyles.banner_text}>
-                        <h1 id="title">Otakuiz</h1>
+                    
+                    <div className={eventStyles.logo} aria-labelledby="title">
+                        <Image src={logo} alt="Otakuiz" width={1710} height={288} quality={100} placeholder={"blur"}/>
                     </div>
                 </div>
                 <div className={eventStyles.content}>
