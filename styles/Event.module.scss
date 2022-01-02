@@ -1,6 +1,69 @@
 .main {
     min-height: 100vh;
     width: 100%;
+    color: var(--text-2);
+    padding: 2.5rem;
   
     background: var(--background);
+
+    h1 {
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .cards_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+        gap: 2.5rem;
+
+        @media screen and (max-width: 500px) {
+            grid-template-columns: 1fr;
+        }
+        
+        .card {
+            position: relative;
+            --background-color: var(--inactive);
+            --accent: black;
+            color: var(--text-1);
+            background: var(--background-color);
+
+            h2 {
+                text-align: center;
+            }
+
+            .logo {
+                background: var(--accent);
+                padding: 1rem;
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
+            }
+
+            .info {
+                position: relative;
+                display: grid;
+                padding: 1rem;
+                gap: 1rem;
+                overflow: hidden;
+                font-size: clamp(0.5rem, 5vw, 1rem);
+
+                p {
+                    margin: 0;
+                }
+
+                .read_more {
+                    background: var(--primary);
+                    padding: 1rem;
+                    position: relative;
+                    left: 0;
+                    width: 50%;
+                    transition: left 250ms ease, width 500ms ease;
+                    
+                    &:hover {
+                        left: -1rem;
+                        width: calc(100% + 2rem);
+                    }
+                }
+            }
+        }
+    }
 }
+
