@@ -16,7 +16,7 @@ const TruthOrDebug: NextPage = () => {
     return (
         <div className={styles.container}>
             <Head>
-                <title>Truth or Debug</title>
+                <title>NuTopia | Truth or Debug</title>
                 <meta name="description" content="NuTopia Events: Truth or Debug" />
                 <link rel="icon" href="/favicon.svg" />
             </Head>
@@ -25,8 +25,12 @@ const TruthOrDebug: NextPage = () => {
 
             <main className={`${eventStyles.main} ${eventStyles.main_td}`}>
                 <div className={eventStyles.banner}>
+                    <div className={eventStyles.overlay}/>
                     <div className={eventStyles.banner_text}>
-                        <p><span className={eventStyles.yellow}>{`>`}</span> <span className={eventStyles.blue}>run</span> TD.sh</p>
+                        <p>
+                            {`> run TD.sh`}
+                            <div className={eventStyles.type_blocker} />
+                        </p>
                     </div>
                     <div className={eventStyles.logo}>
                         <Image src={logo} alt="Truth or Debug" width={1920} height={1080} quality={100} placeholder={"blur"}/>

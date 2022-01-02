@@ -8,7 +8,8 @@
         display: grid;
         place-items: center;
         padding-bottom: clamp(4rem, 4vw, 6rem);
-        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
+        user-select: none;
+        overflow: hidden;
 
         .logo {
             width: clamp(100px, 90%, calc(60vw));
@@ -72,6 +73,7 @@
     .banner {
         --grad-start: hsl(174, 100%, 20%);
         --grad-end: black;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
         background: linear-gradient(var(--grad-start), var(--grad-end));
     
         .banner_text {
@@ -117,24 +119,28 @@
 
 .main_td {
     .banner {
-        background: hsl(0, 0%, 14%);
+        position: relative;
+        background: hsl(0, 0%, 7.5%);
+        
+        --blur-radius: clamp(1px, 0.5vw, 2px);
+
+        .logo {
+            filter: blur(calc(var(--blur-radius)/1.5));
+        }
+
         .banner_text {
+            --green: 130, 100%, 60%;
+            filter: blur(calc(var(--blur-radius)/1.5));
             font-family: 'Inconsolata', monospace;
             font-weight: 800;
             display: block;
+
             p {
-                color: white;
+                color: black;
                 position: relative;
                 padding-left: 30%;
-                background: hsl(0, 0%, 20%);
+                background: hsl(var(--green), 75%);
                 font-size: clamp(1rem, 3vw, 2rem);
-                .yellow {
-                    color: hsl(60, 100%, 50%);
-                }
-
-                .blue {
-                    color: hsl(180, 100%, 50%);
-                }
 
                 &::after {
                     content: "";
@@ -143,7 +149,7 @@
                     bottom: calc(0.375em/2);
                     width: 1ch;
                     height: calc(0.375em/4);
-                    background: white;
+                    background: black;
                     // border: calc(0.375em/4) white solid;
                     animation: blink 1s steps(1) infinite;
                 }
@@ -159,12 +165,71 @@
                         opacity: 0;
                     }
                 }
+
+                .type_blocker {
+                    position: absolute;
+                }
             }
+
             h1 {
                 text-align: center;
                 font-size: clamp(1.5rem, 4vw, 4rem);
-                // color: rgb(255, 60, 60);
-                color: #00FF00;
+                color: hsl(var(--green));
+            }
+        }
+
+        .overlay {
+            --line-width: clamp(0.5rem, 1vw, 1rem);
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            touch-action: none;
+            filter: blur(var(--blur-radius));
+            background:
+                url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png'),
+                linear-gradient(to top, hsl(0, 0%, 0%, 20%) 0 25%, hsl(0, 0%, 100%, 10%) 120%),
+                repeating-linear-gradient(hsl(0, 0%, 0%, 30%) 0 var(--line-width), transparent var(--line-width) calc(var(--line-width) * 2));
+            background-repeat: no-repeat;
+            background-position: center bottom;
+
+            background-size: 100% 100%, cover, auto;
+        }
+
+        @media (max-width: 600px) {
+            --blur-radius: calc(0.5rem / 8)
+        }
+
+        @media (prefers-reduced-motion: no-preference) and (min-width: 600px) {
+            .overlay {
+                position: fixed;
+                background-attachment: fixed;
+                background-size: 100% calc(100% - 3rem), cover, auto;
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .logo, .banner_text {
+                transform: scale(0);
+                animation: turnOn 250ms 1s both steps(2);
+            }
+        }
+
+        @keyframes turnOn {
+            0% {
+                transform: scale(0);
+            }
+            49% {
+                transform: scale(0);
+            }
+            50% {
+                transform: scaleX(4) scaleY(0);
+            }
+            75% {
+                transform: scaleX(1) scaleY(0.25);
+            }
+            100% {
+                transform: scaleY(1);
             }
         }
     }
