@@ -5,7 +5,7 @@ import Image from "next/image"
 //components
 import Footer from '../../public/componets/Footer'
 import NavBar from '../../public/componets/NavBar'
-import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
+import EventsRegisterButton from "../../public/componets/EventRegisterButton"
 //stylesheet
 import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
@@ -18,6 +18,7 @@ const TruthOrDebug: NextPage = () => {
             <Head>
                 <title>Truth or Debug</title>
                 <meta name="description" content="NuTopia Events: Truth or Debug" />
+                <link rel="icon" href="/favicon.svg" />
             </Head>
 
             <NavBar skipTo="#tagline"/>

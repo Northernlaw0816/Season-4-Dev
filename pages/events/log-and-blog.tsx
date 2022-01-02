@@ -9,13 +9,14 @@ import eventStyles from '../../styles/Events.module.scss'
 //stylesheet
 import styles from '../../styles/Home.module.scss'
 
-import EventsRegisterButton from "../../public/componets/EventsRegisterButton"
+import EventsRegisterButton from "../../public/componets/EventRegisterButton"
 const LogAndBlog: NextPage= () => {
     return(
         <div className={styles.container}>
             <Head>
                 <title>Log and Blog</title>
                 <meta name="description" content="NuTopia Events: Log and Blog" />
+                <link rel="icon" href="/favicon.svg" />
             </Head>
 
             <NavBar skipTo="#tagline"/>
