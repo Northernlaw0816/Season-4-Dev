@@ -3,15 +3,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap&text=2020%20SEASON%201');
 
-:root {
+/* :root {
   --primary: hsl(212, 100%, 48%);
   --secondary: hsl(47, 100%, 57%);
   --inactive: hsl(240, 17%, 22%);
   --background: white;
-  --text-1: white;
-  --text-2: black;
+  --text-white: white;
+  --text-alt: black;
   --spacer: url('/images/SeasonBG.png');
-}
+} */
 
 /* Purple and Orange */
 /* :root {
@@ -19,38 +19,27 @@
   --secondary: #6F238B;
   --inactive: #3A2442;
   --background: white;
-  --text-1: white;
-  --text-2: black;
+  --text-white: white;
+  --text-alt: black;
   --spacer: url('/images/SeasonBG_purp.png');
 } */
 
 /* Green and Aqua */
-/* :root {
-  --primary: #00CC21;
-  --secondary: #FFCF24;
-  --inactive: #245F6B;
+:root {
+  --primary: hsl(130, 100%, 45%);
+  --secondary: hsl(47, 100%, 57%);
+  --inactive: hsl(190, 100%, 14%);
   --background: white;
-  --text-1: white;
-  --text-2: black;
+  --text-white: white;
+  --text-alt: black;
   --spacer: url('/images/SeasonBG_green.png');
-} */
-
-/* Grey and Gold */
-/* :root {
-  --primary: #F5B000;
-  --secondary: #0072F5;
-  --inactive: #2C2C2C;
-  --background: white;
-  --text-1: white;
-  --text-2: black;
-  --spacer: url('/images/SeasonBG_gold.png');
-} */
+}
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: hsl(0, 0%, 10%);
-    --text-1: white;
-    --text-2: white;
+    --text-white: white;
+    --text-alt: white;
   }
 }
 
