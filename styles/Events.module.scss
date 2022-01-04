@@ -1,5 +1,4 @@
 .main {
-    --color: black;
     --accent: var(--primary);
     background: var(--background);
     min-height: 50vh;
@@ -28,7 +27,7 @@
     }
 
     .content {
-        color: var(--color);
+        color: var(--text-alt);
         margin: auto;
         padding: clamp(1rem, 15vw, 8rem);
 
@@ -57,24 +56,18 @@
                 padding: 1em 2rem;
                 margin: 1rem 0;
                 background: var(--accent);
-                color: white;
+                color: var(--text-white);
                 font-weight: 600;
                 font-size: large;
             }
         }
     }
-
-    @media (prefers-color-scheme: dark) {
-        --color: white;
-    }
 }
 
 .main_aov {
     .banner {
-        --grad-start: hsl(174, 100%, 20%);
-        --grad-end: black;
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
-        background: linear-gradient(var(--grad-start), var(--grad-end));
+        background: linear-gradient(hsl(174, 100%, 20%), black);
     
         .banner_text {
             background: linear-gradient(to bottom, hsl(39, 52%, 58%) 20%, hsl(39, 52%, 20%));
@@ -98,12 +91,21 @@
 
     .content {
         .tagline {
-            --color: black;
-            color: var(--color);
+            color: black;
             font-family: 'Cinzel Decorative', serif;
             font-size: clamp(15px, 3vw, 1.5rem);
             text-align: center;
             text-transform: capitalize;
+        }
+
+        .mobile {
+            padding: 1rem;
+            background: hsl(60, 6%, 12%);
+            display: grid;
+            place-items: center;
+            position: relative;
+            left: 2em;
+            width: calc(100% - 2em);
         }
     }
 
@@ -111,7 +113,7 @@
         --background: black;
         .content {
             .tagline {
-                --color: hsl(0, 0%, 60%);
+                color: hsl(0, 0%, 60%);
             }
         }
     }
@@ -200,14 +202,6 @@
             --blur-radius: calc(0.5rem / 8)
         }
 
-        @media (prefers-reduced-motion: no-preference) and (min-width: 600px) {
-            .overlay {
-                position: fixed;
-                background-attachment: fixed;
-                background-size: 100% calc(100% - 3rem), cover, auto;
-            }
-        }
-
         @media (prefers-reduced-motion: no-preference) {
             .logo, .banner_text {
                 transform: scale(0);
@@ -236,24 +230,14 @@
 
     .content {
         .tagline {
-            --color: black;
-            --color-2: hsl(0, 0%, 40%);
-            color: var(--color);
+            color: var(--text-alt);
             font-family: 'Inconsolata', monospace;
             font-weight: 800;
             font-size: clamp(16px, 3vw, 1.5rem);
             margin: auto;
             width: fit-content;
             .grey {
-                color:var(--color-2);
-            }
-        }
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .content {
-            .tagline {
-                --color: white;
+                color: hsl(0, 0%, 40%);
             }
         }
     }
@@ -266,7 +250,6 @@
         position: relative;
         background: hsl(257, 100%, 6%);
         padding-top: 4rem;
-        // height: 100vh;
         .logo {
             z-index: 2;
             perspective: clamp(2cm, 10vw, 5cm);
@@ -276,9 +259,8 @@
             place-items: center;
             & > * {
                 transform-origin: bottom;
-                transform-style: preserve-3d;
                 bottom: 0;
-                transform: translateZ(-1rem) rotateX(10deg) ;
+                transform: translateZ(-1rem) rotateX(10deg);
             }
         }
 
@@ -357,7 +339,8 @@
 
             div {
                 position: absolute;
-                transform: scale(2) rotateX(85deg) translateY(60px);
+                transform-style: flat;
+                transform: scaleX(2) rotateX(85deg) translateY(60px);
                 inset: 0;
                 --line-width: clamp(0.0625rem, 0.25vw, 0.125rem);
                 // --line-width: 2px;
@@ -377,7 +360,7 @@
                     cover, cover
                 ;
                 background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top, top;
-                animation: moveUp 1s 2s forwards ease-in-out;
+                animation: moveUp 750ms 2s forwards 5 linear;
             }
 
             @keyframes moveUp {
