@@ -58,13 +58,31 @@ const NavBar = (props: any) => {
         return () => {clearTimeout(toggleNavMenu)}
     })
 
-    const Links = () => {return (<>
+    const Links = ({children}: any) => {return (<>
         <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
-        <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+        {children}
         <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
         <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
         <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
     </>)}
+
+    const EventsDropdown = () => {
+        const [isDropActive, setIsDropActive] = useState(false);
+
+        return (
+            <div className={`${styles.nav_button} ${styles.dropdown_container}`} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
+                <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+                <div className={`${styles.dropdown} ${isDropActive ? styles.drop_active : ""}`}>
+                    <Link href="/events/arena-of-valor"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Arena Of Valor</a></Link>
+                    <Link href="/events/knock-out"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Knock Out!</a></Link>
+                    <Link href="/events/truth-or-debug"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Truth or Debug</a></Link>
+                    <Link href="/events/log-and-blog"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Log and Blog</a></Link>
+                    <Link href="/events/designscape"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Designscape</a></Link>
+                    <Link href="/events/otakuiz"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Otakuiz</a></Link>
+                </div>
+            </div>
+        )
+    }
 
     const SkipToContent = (props: any) => {
         return(
@@ -76,7 +94,7 @@ const NavBar = (props: any) => {
 
     const FullNav = () => {return(<>
         <nav className={styles.navbar}>
-            <Link href="/"><a aria-label="Nu Topia Home" className={`${styles.nav_button} ${styles.home_button_prt}`}>
+            <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="Group 1">
                         <g className={styles.logo_n}>
@@ -93,7 +111,9 @@ const NavBar = (props: any) => {
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
             <span className={styles.spacer}>2022 Season 1</span>
-            <Links/>
+            <Links>
+                <EventsDropdown />
+            </Links>
         </nav>
         <SkipToContent skipTo={props.skipTo}/>
     </>)}
@@ -132,7 +152,9 @@ const NavBar = (props: any) => {
             <FullNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Links/>
+                    <Links>
+                        <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+                    </Links>
                 </div>
             </div>
         </>)
@@ -141,7 +163,9 @@ const NavBar = (props: any) => {
             <MobNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Links/>
+                    <Links>
+                        <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
+                    </Links>
                 </div>
             </div>
         </>)
