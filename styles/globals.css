@@ -26,7 +26,7 @@
 
 /* Green and Aqua */
 :root {
-  --primary: hsl(130, 100%, 45%);
+  --primary: hsl(130, 100%, 40%);
   --secondary: hsl(47, 100%, 57%);
   --inactive: hsl(190, 100%, 14%);
   --background: white;
