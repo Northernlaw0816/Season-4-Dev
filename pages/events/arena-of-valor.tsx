@@ -11,7 +11,8 @@ import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
 //assets
 import logo from '../../public/images/events/aov_logo.png'
-import brawl from '../../public/images/events/aov_logo.png'
+import cod from '../../public/images/events/aov_games/cod_logo.png'
+import bgmi from '../../public/images/events/aov_games/bgmi_logo.png'
 
 const ArenaOfValor: NextPage = () => {
     return (
@@ -45,7 +46,7 @@ const ArenaOfValor: NextPage = () => {
                             Console
                         </h3>
                             <p className={eventStyles.h3_p}>
-                                Arena of Valor: Console participants will have to run a gauntlet of several games that will truly test their versatility and experience as players. 
+                                Arena of Valor: Console participants get to run a gauntlet of games that truly tests their versatility and experience as players. 
                             </p>
                         <h3>
                             Mobile
@@ -53,13 +54,19 @@ const ArenaOfValor: NextPage = () => {
                             <p className={eventStyles.h3_p}>
                                 <b>3v3:</b> Call Of Duty Mobile
                             </p>
-                            <Image src={brawl} alt="Call Of Duty Mobile" width={1920*0.3125} height={1080*0.3125}/>
+                            <div className={eventStyles.mobile}>
+                                <Image src={cod}  alt="Call Of Duty Mobile" width={300} height={233*0.5}/>
+                                {/* <Image src={} /> */}
+                            </div>
                             <p className={eventStyles.h3_p}>
                                 <b>3v3:</b> BGMI
                             </p>
-                            <Image src={brawl} alt="Call Of Duty Mobile" width={1920*0.3125} height={1080*0.3125}/>
+                            <div className={eventStyles.mobile}>
+                                <Image src={bgmi} alt="Call Of Duty Mobile" width={300} height={455*0.21}/>
+                                {/* <Image src={} /> */}
+                            </div>
                             <p className={eventStyles.h3_p}>
-                                Arena of Valor: Mobile offers intense team-based combat and strategy, all within a device that fits in the palm of the hand
+                                Arena of Valor: Mobile offers intense team-based combat and strategy, all within a device that fits in the palm of your hands.
                             </p>
                         <h3>
                             PC

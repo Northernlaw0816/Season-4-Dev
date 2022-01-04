@@ -26,9 +26,7 @@ const HomeGallery = () => {
                         <Image
                             key={index} 
                             src={image.src} 
-                            alt={image.alt} 
-                            width={1920} 
-                            height={1080} 
+                            alt={image.alt}
                             placeholder="blur"
                             layout='responsive'
                             priority={true}

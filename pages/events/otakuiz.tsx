@@ -10,7 +10,7 @@ import EventsRegisterButton from "../../public/componets/EventRegisterButton"
 import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
 //assets
-import logo from '../../public/images/events/otk_retro_logo.png'
+import logo from '../../public/images/events/otk_logo.png'
 
 const Otakuiz: NextPage = () => {
     return (
@@ -33,7 +33,7 @@ const Otakuiz: NextPage = () => {
                     </div>
                     
                     <div className={eventStyles.logo} aria-labelledby="title">
-                        <Image src={logo} alt="Otakuiz" width={1710} height={288} quality={100} placeholder={"blur"}/>
+                        <Image src={logo} alt="Otakuiz" quality={100} placeholder={"blur"}/>
                     </div>
                 </div>
                 <div className={eventStyles.content}>

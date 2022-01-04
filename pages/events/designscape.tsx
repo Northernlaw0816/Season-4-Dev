@@ -24,7 +24,7 @@ const Designscape: NextPage= () => {
             <main className={`${eventStyles.main} ${eventStyles.main_Ds}`}>
             <div className={eventStyles.banner}>
                     <div className={eventStyles.logo}>
-                        {/* <Image src={logo} alt="Arena of Valor" width={1920} height={1080} quality={100} placeholder={"blur"}/> */}
+                        {/* <Image src={logo} alt="Arena of Valor" quality={100} placeholder={"blur"}/> */}
                     </div>
                     <div className={eventStyles.banner_text}>
                         <h1 id="title">Arena <span>Of</span> Valor</h1>

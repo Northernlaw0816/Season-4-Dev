@@ -33,7 +33,7 @@ const TruthOrDebug: NextPage = () => {
                         </p>
                     </div>
                     <div className={eventStyles.logo}>
-                        <Image src={logo} alt="Truth or Debug" width={1920} height={1080} quality={100} placeholder={"blur"}/>
+                        <Image src={logo} alt="Truth or Debug" quality={100} placeholder={"blur"}/>
                     </div>
                     <div className={eventStyles.banner_text}>
                         <h1 id="title">Truth or Debug</h1>

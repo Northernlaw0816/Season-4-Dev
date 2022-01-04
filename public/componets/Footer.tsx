@@ -14,10 +14,10 @@ const Footer = () => {
         <footer className={styles.footer}>
         <a role="link" className={styles.footer_school} href="https://yuvabharathi.in">
           <div className={styles.large}>
-            <Image src={YuvaLarge} alt="school logo" width="315" height="90"/>
+            <Image src={YuvaLarge} alt="school logo" width={315} height={90}/>
           </div>
           <div className={styles.single}>
-            <Image src={YuvaSingle} alt="school logo" width="63" height="77"/>
+            <Image src={YuvaSingle} alt="school logo" width={63} height={77}/>
           </div>
         </a>
         <div className={styles.footer_content}>
@@ -45,7 +45,7 @@ const Footer = () => {
         <div className={styles.footer_copyright}>
           <div><div className={styles.copyright}>©</div> Yuvabharathi Public School 2021</div>
           <div className={styles.separator}></div>
-          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TBD} alt="team debug logo" width="24px" height="24px" /></a> Template by Team De-Bug</div>
+          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TBD} alt="team debug logo" width={24} height={24} /></a> Template by Team De-Bug</div>
         </div>
       </footer>
     )
