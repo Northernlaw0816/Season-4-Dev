@@ -23,9 +23,24 @@ const Events: NextPage = () => {
                 <h1 id="content">Events</h1>
                 <p>This season of NuTopia presents 6 events</p>
                 <div className={styles.cards_container}>
-                    {EventsData.map(({title, description, date, venue, time, grades, link, image, accent}, index) => {
+                    {EventsData.map(({title, description, date, venue, time, grades, link, image, width, height, accent, background, selector}, index) => {
                         return(
-                            <EventCard key={`${index}_${title}`} title={title} description={description} date={date} time={time} venue={venue} grades={grades} link={link} image={image} accent={accent}/>
+                            <EventCard
+                                key={`${index}_${title}`}
+                                title={title}
+                                description={description}
+                                date={date}
+                                time={time}
+                                venue={venue}
+                                grades={grades}
+                                link={link}
+                                image={image}
+                                width={width}
+                                height={height}
+                                accent={accent}
+                                background={background}
+                                selector={selector}
+                            />
                         )
                     })
                     }

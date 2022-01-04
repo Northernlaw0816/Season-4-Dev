@@ -3,21 +3,23 @@ import Link from "next/link"
 import { useEffect, useRef } from "react"
 import styles from "../../styles/Event.module.scss"
 
-const EventCard = ({title, description, date, time, venue, grades, link, image, accent}: any) => {
+const EventCard = ({title, description, date, time, venue, grades, link, image, width, height, accent, background, selector}: any) => {
     
     let card: any = useRef(null)
     
     useEffect(() => {
         if(card.current) {
-            card.current.style.setProperty('--accent', accent);
+            let style = card.current.style;
+            style.setProperty('--accent', accent)
+            style.setProperty('--bg-image' , background)
         }
     })
 
     return (
         <div ref={card} className={styles.card}>
             <h2>{title}</h2>
-            <div className={styles.logo}>
-                <Image src={image} alt={title} width={1920} height={1080}/>
+            <div className={[styles.logo, selector].join(" ")}>
+                <Image src={image} alt={title} width={width} height={height}/>
             </div>
             <div className={styles.info}>
                 <p>{description}</p>

@@ -1,6 +1,8 @@
 import AoV from '../images/events/aov_logo.png';
 import TD from '../images/events/td_logo.png';
 import OTK from '../images/events/otk_logo.png';
+import styles from "../../styles/Event.module.scss"
+import OTK_BG from '../images/events/otk_background.png';
 
 const Events = [
     {
@@ -12,8 +14,11 @@ const Events = [
         grades: '8 - 12',
         link: '/events/arena-of-valor',
         image: AoV,
+        width: 1920,
+        height: 1080,
         accent: 'linear-gradient(to bottom, hsl(174, 100%, 20%), black)',
-        background: 'black'
+        selector: styles.aov,
+        background: 'aov'
     },
     {
         title: 'Knock Out!',
@@ -24,8 +29,11 @@ const Events = [
         grades: '9 - 12',
         link: '/events/knock-out',
         image: AoV,
+        width: 1920,
+        height: 1080,
         accent: 'hsl(174, 100%, 20%)',
-        background: 'black'
+        selector: styles.ko,
+        background: 'ko'
     },
     {
         title: 'Truth or Debug',
@@ -36,8 +44,11 @@ const Events = [
         grades: '9 - 12',
         link: '/events/truth-or-debug',
         image: TD,
-        accent: 'hsl(0, 0%, 14%)',
-        background: 'hsl(174, 100%, 20%)'
+        width: 1920,
+        height: 1080,
+        accent: "none",
+        selector: styles.td,
+        background: 'td'
     },
     {
         title: 'Log and Blog',
@@ -48,8 +59,11 @@ const Events = [
         grades: '9 - 12',
         link: '/events/log-and-blog',
         image: TD,
-        accent: 'hsl(0, 0%, 14%)',
-        background: 'white'
+        width: 1920,
+        height: 1080,
+        accent: 'hsl(0, 0%, 14%)',  
+        selector: styles.lab,
+        background: 'lab'
     },
     {
         title: 'Designscape',
@@ -60,8 +74,11 @@ const Events = [
         grades: '9 - 12',
         link: '/events/designscape',
         image: OTK,
+        width: 1710,
+        height: 288,
         accent: 'white',
-        background: 'white'
+        selector: styles.ds,
+        background: 'ds'
     },
     {
         title: 'Otakuiz',
@@ -71,8 +88,11 @@ const Events = [
         grades: '9 - 12',
         link: '/events/otakuiz',
         image: OTK,
-        accent: 'white',
-        background: 'white'
+        width: 1710,
+        height: 288,
+        accent: "none",
+        selector: styles.otk,
+        background: ""
     }
 ]
 

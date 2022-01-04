@@ -1,7 +1,7 @@
 .main {
     min-height: 100vh;
     width: 100%;
-    color: var(--text-2);
+    color: var(--text-alt);
     padding: 2.5rem;
   
     background: var(--background);
@@ -16,7 +16,7 @@
         grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
         gap: 2.5rem;
 
-        @media screen and (max-width: 500px) {
+        @media screen and (max-width: 640px) {
             grid-template-columns: 1fr;
         }
         
@@ -24,7 +24,7 @@
             position: relative;
             --background-color: var(--inactive);
             --accent: black;
-            color: var(--text-1);
+            color: var(--text-white);
             background: var(--background-color);
 
             h2 {
@@ -33,8 +33,33 @@
 
             .logo {
                 background: var(--accent);
+                background-size: 100%;
                 padding: 1rem;
-                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
+                aspect-ratio: 16/9;
+                display: grid;
+                place-items: center;
+                // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2rem), 0 100%);
+                
+            }
+
+            .td {
+                --blur-radius: clamp(0.03125rem, 0.5vw, 0.09rem);
+                --line-width: clamp(0.5rem, 1vw, 1rem);
+                filter: blur(var(--blur-radius));
+                background: no-repeat center/95% 95% url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png'),
+                linear-gradient(to left, black 3%, transparent 3% 97%, black 97% 100%),
+                linear-gradient(to bottom, black 3%, transparent 3% 97%, black 97% 100%),
+                linear-gradient(to top, hsl(0, 0%, 0%, 20%) 0 25%, hsl(0, 0%, 100%, 10%) 120%),
+                repeating-linear-gradient(hsl(0, 0%, 0%, 30%) 0 var(--line-width), transparent var(--line-width) calc(var(--line-width) * 2)),
+                hsl(0, 0%, 7.5%);
+            }
+
+            .otk {
+                background: no-repeat center/100% 100% url('/images/events/otk_background.png');
+                perspective: 200px;
+                & > * {
+                    transform: rotateX(22.5deg) scale(0.9);
+                }
             }
 
             .info {
@@ -66,4 +91,3 @@
         }
     }
 }
-
