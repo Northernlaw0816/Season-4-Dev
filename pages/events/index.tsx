@@ -1,29 +1,26 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import EventCard from "../../public/componets/EventCard"
 
 //components
-import Footer from '../../public/componets/Footer'
-import NavBar from '../../public/componets/NavBar'
+import EventCard from "../../components/EventCard"
 //stylesheets
-import styles from '../../styles/Event.module.scss'
-import EventsData from '../../public/data/Events'
+import EventsData from '../../data/EventsList'
+import Layout from "../../components/Layout"
+import eventStyles from '../../styles/Event.module.scss'
 
 const Events: NextPage = () => {
     return(
-        <div className={styles.container}>
+        <>
             <Head>
                 <title>NuTopia | Events</title>
                 <meta name="description" content="NuTopia Events" />
                 <link rel="icon" href="/favicon.svg" />
             </Head>
 
-            <NavBar skipTo="#content"/>
-            <main className={styles.main}>
-                <h1 id="content">Events</h1>
-                <p>This season of NuTopia presents 6 events</p>
-                <div className={styles.cards_container}>
-                    {EventsData.map(({title, description, date, venue, time, grades, link, image, width, height, accent, background, selector}, index) => {
+            <Layout skipTo="#title" overrideClasses={eventStyles.main}>
+                <h1 id="title">Events</h1>
+                <div className={eventStyles.cards_container}>
+                    {EventsData.map(({title, description, date, venue, time, grades, link, image, width, height, accent, selector}, index) => {
                         return(
                             <EventCard
                                 key={`${index}_${title}`}
@@ -38,16 +35,14 @@ const Events: NextPage = () => {
                                 width={width}
                                 height={height}
                                 accent={accent}
-                                background={background}
                                 selector={selector}
                             />
                         )
                     })
                     }
                 </div>
-            </main>
-            <Footer/>
-        </div>
+            </Layout>
+        </>
     )
 }
 
