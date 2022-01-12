@@ -43,8 +43,28 @@
   }
 }
 
+body::-webkit-scrollbar {
+  background: var(--inactive);
+  width: clamp(0.5rem, 2vw, 1rem);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--inactive);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: hsl(190, 60%, 38%);
+  opacity: 50%;
+  transition: background 250ms;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
 html,
 body {
+  background: var(--background);
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;
