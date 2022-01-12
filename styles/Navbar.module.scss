@@ -35,6 +35,10 @@
   &:active {
     filter: brightness(1.5);
   }
+
+  &.active_link {
+    background: var(--primary);
+  }
 }
 
 .dropdown_container {
@@ -49,14 +53,10 @@
     position: absolute;
     top: 100%;
     left: 0;
-    display: none;
-    // display: grid;
+    display: grid;
     min-width: 100%;
     width: max-content;
     grid-template-rows: repeat(6, 3rem);
-    &.drop_active {
-      display: grid;
-    }
 
     .drop_button {
       filter: contrast(0.9);
@@ -239,7 +239,6 @@
 }
 
 .nav_menu {
-  display: none;
   position: fixed;
   opacity: 0;
   left: 0;
@@ -299,7 +298,7 @@
 }
 
 .skip_to_content {
-  position: fixed;
+  position: fixed !important;
   right: 0;
   z-index: 2;
   margin: 0.5em;
