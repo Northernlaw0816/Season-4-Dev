@@ -1,17 +1,16 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
-import styles from "../../styles/Event.module.scss"
+import styles from "../styles/Event.module.scss"
 
-const EventCard = ({title, description, date, time, venue, grades, link, image, width, height, accent, background, selector}: any) => {
+const EventCard = ({title, description, date, time, venue, grades, link, image, width, height, accent, selector}: any) => {
     
     let card: any = useRef(null)
     
     useEffect(() => {
         if(card.current) {
-            let style = card.current.style;
+            let style = card.current.style
             style.setProperty('--accent', accent)
-            style.setProperty('--bg-image' , background)
         }
     })
 

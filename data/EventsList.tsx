@@ -1,10 +1,9 @@
-import AoV from '../images/events/aov_logo.png';
-import TD from '../images/events/td_logo.png';
-import OTK from '../images/events/otk_logo.png';
-import styles from "../../styles/Event.module.scss"
-import OTK_BG from '../images/events/otk_background.png';
+import AoV from '../public/images/events/aov_logo.png'
+import TD from '../public/images/events/td_logo.png'
+import OTK from '../public/images/events/otk_logo.png'
+import styles from "../styles/Event.module.scss"
 
-const Events = [
+const EventsList = [
     {
         title: 'Arena of Valor',
         description: "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.",
@@ -16,9 +15,8 @@ const Events = [
         image: AoV,
         width: 1920,
         height: 1080,
-        accent: 'linear-gradient(to bottom, hsl(174, 100%, 20%), black)',
+        accent: 'black',
         selector: styles.aov,
-        background: 'aov'
     },
     {
         title: 'Knock Out!',
@@ -33,7 +31,6 @@ const Events = [
         height: 1080,
         accent: 'hsl(174, 100%, 20%)',
         selector: styles.ko,
-        background: 'ko'
     },
     {
         title: 'Truth or Debug',
@@ -46,9 +43,8 @@ const Events = [
         image: TD,
         width: 1920,
         height: 1080,
-        accent: "none",
+        accent: "black",
         selector: styles.td,
-        background: 'td'
     },
     {
         title: 'Log and Blog',
@@ -61,9 +57,8 @@ const Events = [
         image: TD,
         width: 1920,
         height: 1080,
-        accent: 'hsl(0, 0%, 14%)',  
+        accent: 'hsl(0, 0%, 0%)',  
         selector: styles.lab,
-        background: 'lab'
     },
     {
         title: 'Designscape',
@@ -76,9 +71,8 @@ const Events = [
         image: OTK,
         width: 1710,
         height: 288,
-        accent: 'white',
+        accent: 'green',
         selector: styles.ds,
-        background: 'ds'
     },
     {
         title: 'Otakuiz',
@@ -90,10 +84,9 @@ const Events = [
         image: OTK,
         width: 1710,
         height: 288,
-        accent: "none",
+        accent: "#09001F",
         selector: styles.otk,
-        background: ""
     }
 ]
 
-export default Events
+export default EventsList

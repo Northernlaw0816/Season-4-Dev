@@ -2,12 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 //stylesheets
-import styles from "../../styles/Footer.module.scss"
-import effects from "../../styles/Effects.module.scss"
+import styles from "../styles/Footer.module.scss"
+import effects from "../styles/Effects.module.scss"
 //assets
-import YuvaLarge from '../../public/images/footer_logo_color.png'
-import YuvaSingle from '../../public/images/footer_logo_color_single.png'
-import TBD from '../../public/images/tbd.png'
+import Events from '../data/EventsList'
+import YuvaLarge from '../public/images/footer_logo_color.png'
+import YuvaSingle from '../public/images/footer_logo_color_single.png'
+import TBD from '../public/images/tbd.png'
+import NavLinks from '../data/NavLinks'
 
 const Footer = () => {
     return(
@@ -23,24 +25,26 @@ const Footer = () => {
         <div className={styles.footer_content}>
           <label style={{gridArea: "event"}}>Events</label>
           <div className={styles.footer_links} style={{gridArea: "event_links"}}>
-            <Link href="/events/arena-of-valor"><a role="link" className={effects.link_hover_effect}>Arena of Valor</a></Link>
-            <Link href="/events/knock-out"><a role="link" className={effects.link_hover_effect}>Knock Out</a></Link>
-            <Link href="/events/truth-or-debug"><a role="link" className={effects.link_hover_effect}>Truth or Debug</a></Link>
-            <Link href="/events/log-and-blog"><a role="link" className={effects.link_hover_effect}>Log and Blog</a></Link>
-            <Link href="/events/designscape"><a role="link" className={effects.link_hover_effect}>Designscape</a></Link>
-            <Link href="/events/otakuiz"><a role="link" className={effects.link_hover_effect}>Otakuiz</a></Link>
+            {Events.map((event, index) => {
+              return (
+                <Link href={event.link} key={index}><a role="link" className={effects.link_hover_effect}>{event.title}</a></Link>
+              )
+            })}
           </div>
           <label style={{gridArea: "links_title"}}>Links</label>
           <div className={styles.footer_links} style={{gridArea: "links_links"}}>
-            <Link href="/"><a role="link" className={effects.link_hover_effect}>About</a></Link>
-            <Link href="/"><a role="link" className={effects.link_hover_effect}>Registeration</a></Link>
-            <Link href="/"><a role="link" className={effects.link_hover_effect}>Gallery</a></Link>
-            <Link href="/"><a role="link" className={effects.link_hover_effect}>Contact</a></Link>
+            {NavLinks.map((link: any, index: number) => {
+              return (
+                <Link href={link.link} key={index}><a role="link" className={effects.link_hover_effect}>{link.name}</a></Link>
+              )
+            })}
           </div>
         </div>
         <div className={styles.footer_details}>
           <p>An Initiative By The Students For The Students</p>
+          <p>Phone: <a role="link">+91 82200 59603</a></p>
           <p>E-Mail: <a role="link" href="mailto:nutopia.ybps@gmail.com">nutopia.ybps@gmail.com</a></p>
+          <p>Yuvabharathi Public School 17/1. Yuva Enclave, Kanuvai - Thudiyalur Road, Somayampalayam Post, Kanuvai, Coimbatore, Tamil Nadu 641108, India</p>
         </div>
         <div className={styles.footer_copyright}>
           <div><div className={styles.copyright}>©</div> Yuvabharathi Public School 2021</div>

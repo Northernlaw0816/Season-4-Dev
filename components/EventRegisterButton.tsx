@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import styles from '../../styles/Events.module.scss'
-import effects from '../../styles/Effects.module.scss'
+import styles from '../styles/Events.module.scss'
+import effects from '../styles/Effects.module.scss'
 
 const EventsRegisterButton = () => {
     return(

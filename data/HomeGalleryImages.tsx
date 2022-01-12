@@ -1,7 +1,7 @@
-import one from '../images/gallery/1.jpg';
-import two from '../images/gallery/2.jpg';
-import three from '../images/gallery/3.jpg';
-import four from '../images/gallery/4.png';
+import one from '../public/images/home-gallery/1.jpg'
+import two from '../public/images/home-gallery/2.jpg'
+import three from '../public/images/home-gallery/3.jpg'
+import four from '../public/images/home-gallery/4.png'
 
 const HomeGalleryImages = [
     {

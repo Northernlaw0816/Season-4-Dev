@@ -1,15 +1,20 @@
 import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
+import { useRouter } from 'next/router'
 
 //stylesheets
-import styles from '../../styles/Navbar.module.scss'
-import effects from '../../styles/Effects.module.scss'
+import styles from '../styles/Navbar.module.scss'
+import effects from '../styles/Effects.module.scss'
+//Data
+import NavLinks from '../data/NavLinks'
+import EventsList from '../data/EventsList'
 
-const NavBar = (props: any) => {
+const NavBar = ({skipTo}: any) => {
 
     const [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
+    const router = useRouter()
 
     
     function getWindowWidth() {
@@ -58,35 +63,55 @@ const NavBar = (props: any) => {
         return () => {clearTimeout(toggleNavMenu)}
     })
 
-    const Links = ({children}: any) => {return (<>
-        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>About</a></Link>
-        {children}
-        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Registration</a></Link>
-        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Gallery</a></Link>
-        <Link href="/"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Contact</a></Link>
-    </>)}
+    const Links = ({isMobile}: any) => {
+
+        return (<>
+            {NavLinks.map((link: any, index: number) => {
+
+                let classes = [styles.nav_button, effects.button_hover_effect]
+
+                router.pathname.startsWith(link.link) && classes.push(styles.active_link)
+
+                if (!isMobile && link.name === 'Events'){
+                    return <EventsDropdown key={index}/>
+                } else {
+                    return <Link href={link.link} key={index}><a role="link" className={classes.join(" ")}>{link.name}</a></Link>
+                }
+            })}
+        </>)
+    }
 
     const EventsDropdown = () => {
-        const [isDropActive, setIsDropActive] = useState(false);
+        const [isDropActive, setIsDropActive] = useState(false)
+
+        let classes = [styles.nav_button, effects.button_hover_effect]
+
+        router.pathname.startsWith('/events') && classes.push(styles.active_link)
 
         return (
             <div className={`${styles.nav_button} ${styles.dropdown_container}`} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
-                <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
-                <div className={`${styles.dropdown} ${isDropActive ? styles.drop_active : ""}`}>
-                    <Link href="/events/arena-of-valor"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Arena Of Valor</a></Link>
-                    <Link href="/events/knock-out"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Knock Out!</a></Link>
-                    <Link href="/events/truth-or-debug"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Truth or Debug</a></Link>
-                    <Link href="/events/log-and-blog"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Log and Blog</a></Link>
-                    <Link href="/events/designscape"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Designscape</a></Link>
-                    <Link href="/events/otakuiz"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect}`}>Otakuiz</a></Link>
-                </div>
+                
+                <Link href="/events"><a role="link" className={classes.join(" ")}>Events</a></Link>
+                
+                {isDropActive && (<div className={styles.dropdown}>
+                    
+                    {EventsList.map((event, index) => {
+                        
+                        let classes = [styles.nav_button, styles.drop_button, effects.button_hover_effect]
+                        router.pathname == event.link && classes.push(styles.active_link)
+
+                        return <Link href={event.link} key={index}><a role="link" className={classes.join(" ")}>{event.title}</a></Link>
+
+                    })}
+
+                </div>)}
             </div>
         )
     }
 
-    const SkipToContent = (props: any) => {
+    const SkipToContent = () => {
         return(
-            <Link href={props.skipTo}>
+            <Link href={skipTo}>
                 <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`}>Skip to Main Content</a>
             </Link>
         )
@@ -111,11 +136,9 @@ const NavBar = (props: any) => {
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
             <span className={styles.spacer}>2022 Season 1</span>
-            <Links>
-                <EventsDropdown />
-            </Links>
+            <Links/>
         </nav>
-        <SkipToContent skipTo={props.skipTo}/>
+        <SkipToContent/>
     </>)}
 
     const MobNav = () => {return(<>
@@ -152,9 +175,7 @@ const NavBar = (props: any) => {
             <FullNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Links>
-                        <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
-                    </Links>
+                    <Links isMobile={true} />
                 </div>
             </div>
         </>)
@@ -163,9 +184,7 @@ const NavBar = (props: any) => {
             <MobNav/>
             <div className={styles.nav_menu} ref={navMenuDOM} onClick={() => toggleNavMenu()}>
                 <div className={styles.nav_menu_bg}>
-                    <Links>
-                        <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect}`}>Events</a></Link>
-                    </Links>
+                    <Links isMobile={true} />
                 </div>
             </div>
         </>)
