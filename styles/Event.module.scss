@@ -3,12 +3,11 @@
     width: 100%;
     color: var(--text-alt);
     padding: 2.5rem;
+    padding-top: 0;
   
-    background: var(--background);
-
     h1 {
+        font-size: 4rem;
         text-align: center;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     }
 
     .cards_container {
@@ -25,7 +24,7 @@
             --background-color: var(--inactive);
             --accent: black;
             color: var(--text-white);
-            background: var(--background-color);
+            background: var(--accent);
 
             h2 {
                 text-align: center;
@@ -42,16 +41,20 @@
                 
             }
 
+            .aov {
+                background: linear-gradient(hsl(180, 100%, 20%), black);
+            }
+
             .td {
                 --blur-radius: clamp(0.03125rem, 0.5vw, 0.09rem);
                 --line-width: clamp(0.5rem, 1vw, 1rem);
                 filter: blur(var(--blur-radius));
                 background: no-repeat center/95% 95% url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png'),
-                linear-gradient(to left, black 3%, transparent 3% 97%, black 97% 100%),
-                linear-gradient(to bottom, black 3%, transparent 3% 97%, black 97% 100%),
-                linear-gradient(to top, hsl(0, 0%, 0%, 20%) 0 25%, hsl(0, 0%, 100%, 10%) 120%),
-                repeating-linear-gradient(hsl(0, 0%, 0%, 30%) 0 var(--line-width), transparent var(--line-width) calc(var(--line-width) * 2)),
-                hsl(0, 0%, 7.5%);
+                    linear-gradient(to left, black 3%, transparent 3% 97%, black 97% 100%),
+                    linear-gradient(to bottom, black 3%, transparent 3% 97%, black 97% 100%),
+                    linear-gradient(to top, hsl(0, 0%, 0%, 20%) 0 25%, hsl(0, 0%, 100%, 10%) 120%),
+                    repeating-linear-gradient(hsl(0, 0%, 0%, 30%) 0 var(--line-width), transparent var(--line-width) calc(var(--line-width) * 2)),
+                    hsl(0, 0%, 7.5%);
             }
 
             .otk {
@@ -79,12 +82,17 @@
                     padding: 1rem;
                     position: relative;
                     left: 0;
-                    width: 50%;
+                    width: 60%;
                     transition: left 250ms ease, width 500ms ease;
                     
-                    &:hover {
+                    &:hover, &:focus-visible {
                         left: -1rem;
                         width: calc(100% + 2rem);
+                    }
+
+                    &:focus-visible {
+                        outline: hsl(0, 0%, 0%, 30%) solid 3px;
+                        outline-offset: -3px;
                     }
                 }
             }
