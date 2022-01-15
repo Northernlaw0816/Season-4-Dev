@@ -7,7 +7,9 @@ import EventsRegisterButton from "../../components/EventRegisterButton"
 import Layout from "../../components/Layout"
 //stylesheet
 import eventStyles from '../../styles/Events.module.scss'
-import styles from '../../styles/Home.module.scss'
+//assets
+import logo from '../../public/images/events/lab_logo.png'
+import LogAndBlogData from "../../data/pages/events/log-and-blog"
 const LogAndBlog: NextPage= () => {
     return(<>
         <Head>
@@ -18,22 +20,19 @@ const LogAndBlog: NextPage= () => {
         <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_lab}`}>
             <div className={eventStyles.banner}>
                 <div className={eventStyles.logo}>
-                    {/* <Image src={logo} alt="Arena of Valor" quality={100} placeholder={"blur"}/> */}
-                </div>
-                <div className={eventStyles.banner_text}>
-                    <h1 id="title">Arena <span>Of</span> Valor</h1>
+                    <Image src={logo} alt="Log and Blog" quality={100} placeholder={"blur"} layout={"responsive"}/>
                 </div>
             </div>
             <div className={eventStyles.content}>
-                <h2 id="tagline" className={eventStyles.tagline}>Grab the Clutch and Feel the Power</h2>
+                <h2 id="tagline" className={eventStyles.tagline}>{LogAndBlogData.tagline}</h2>
                 <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
+                    <p>{LogAndBlogData.headings.about}</p> 
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
+                    <p>{LogAndBlogData.headings.rules}</p> 
                 <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
+                    <p>{LogAndBlogData.headings.eventCoordinators}</p> 
                 <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p>
+                    <p>{LogAndBlogData.headings.registration}</p>
                     <EventsRegisterButton/>
             </div>
         </Layout>

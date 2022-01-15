@@ -63,6 +63,13 @@
                     hsl(0, 0%, 7.5%);
             }
 
+            .lab {
+                background: 
+                    radial-gradient(90% 20% at 50% 86%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
+                    linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
+                    linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%);
+            }
+
             .otk {
                 background: linear-gradient(transparent 70%, var(--accent)), url('/images/events/otk_background.png');
                 background-repeat: no-repeat;

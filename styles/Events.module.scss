@@ -127,25 +127,10 @@
 
 .main_ko {
     .banner {
-        overflow: hidden;
         z-index: 1;
-        position: relative;
         background: hsl(0, 0%, 40%);
-        perspective: 100px;
-        padding-top: 30%;
-        perspective-origin: center 40%;
         display: grid;
         place-items: center;
-        .alley {
-            position: absolute;
-            inset: 0;
-            left: 25%;
-            height: 200%;
-            width: 50%;
-            transform: rotateX(60deg);
-            background: repeating-linear-gradient(to right,rgba(187,147,56,1) -1.5px 1.5px, rgba(213,166,62,1) 1.5px 48.5px);
-            background-position: center;
-        }
     }
 }
 
@@ -269,6 +254,36 @@
                 color: hsl(0, 0%, 40%);
             }
         }
+    }
+}
+
+.main_lab {
+    background: var(--background);
+    .banner {
+        padding: 0;
+        // padding-top: 6rem;
+        display: grid;
+        place-items: center;
+        background:
+            radial-gradient(50% 20% at 50% 88%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
+            linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
+            linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%),
+        ;
+        @media (max-width: 600px) {
+
+            background:
+                radial-gradient(70% 20% at 50% 88%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
+                linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
+                linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%),
+            ;
+            .logo {
+                width: 100%;
+            }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --background: hsl(30, 18%, 9%);
     }
 }
 
