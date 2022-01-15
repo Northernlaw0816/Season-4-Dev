@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect, useRef } from "react"
 import styles from "../styles/Event.module.scss"
 
-const EventCard = ({title, description, date, time, venue, grades, link, image, width, height, accent, selector}: any) => {
+const EventCard = ({title, description, date, time, venue, grades, link, image, accent, selector}: any) => {
     
     let card: any = useRef(null)
     
@@ -18,7 +18,7 @@ const EventCard = ({title, description, date, time, venue, grades, link, image, 
         <div ref={card} className={styles.card}>
             <h2>{title}</h2>
             <div className={[styles.logo, selector].join(" ")}>
-                <Image src={image} alt={title}/>
+                <Image src={image} alt={title} placeholder={"blur"}/>
             </div>
             <div className={styles.info}>
                 <p>{description}</p>

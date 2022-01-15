@@ -18,7 +18,7 @@ const Events: NextPage = () => {
         <Layout skipTo="#title" overrideClasses={eventStyles.main}>
             <h1 id="title">Events</h1>
             <div className={eventStyles.cards_container}>
-                {EventsData.map(({title, description, date, venue, time, grades, link, image, width, height, accent, selector}, index) => {
+                {EventsData.map(({title, description, date, venue, time, grades, link, image, accent, selector}, index) => {
                     return(
                         <EventCard
                             key={`${index}_${title}`}
@@ -30,8 +30,6 @@ const Events: NextPage = () => {
                             grades={grades}
                             link={link}
                             image={image}
-                            width={width}
-                            height={height}
                             accent={accent}
                             selector={selector}
                         />
