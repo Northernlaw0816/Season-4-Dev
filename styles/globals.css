@@ -38,7 +38,6 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: hsl(0, 0%, 10%);
-    --text-white: white;
     --text-alt: white;
   }
 }
@@ -60,6 +59,10 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: hsl(130, 100%, 50%);
 }
 
 html,
