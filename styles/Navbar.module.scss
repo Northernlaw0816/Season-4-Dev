@@ -248,6 +248,7 @@
   z-index: 2;
   background: hsl(0, 0%, 0%, 30%);
   transition: opacity 250ms;
+  display: none;
 
   &.nav_menu_active {
     display: block;
