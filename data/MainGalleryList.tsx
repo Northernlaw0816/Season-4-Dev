@@ -1,6 +1,6 @@
-import one from "../images/main-gallery/1.png"
-import two from "../images/main-gallery/2.png"
-import three from "../images/main-gallery/3.png"
+import one from "../public/images/main-gallery/1.png"
+import two from "../public/images/main-gallery/2.png"
+import three from "../public/images/main-gallery/3.png"
 
 const MainGalleryList = [
     {
