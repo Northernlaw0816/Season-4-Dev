@@ -18,7 +18,7 @@ const EventCard = ({title, description, date, time, venue, grades, link, image, 
         <div ref={card} className={styles.card}>
             <h2>{title}</h2>
             <div className={[styles.logo, selector].join(" ")}>
-                <Image src={image} alt={title} width={width} height={height}/>
+                <Image src={image} alt={title}/>
             </div>
             <div className={styles.info}>
                 <p>{description}</p>
