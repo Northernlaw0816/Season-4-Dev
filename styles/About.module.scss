@@ -1,0 +1,43 @@
+.main {
+    color: var(--text-alt);
+    text-align: center;
+    margin: 4rem 0;
+
+    .about_us {
+        padding: 0 10%;
+        font-size: clamp(1.25rem, 1.5vw, 1.5rem);
+    }
+
+    h1 {
+        margin-block-start: 3rem;
+    }
+
+    .card_container {
+        padding: 0 15%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+        gap: 2rem;
+        place-items: center;
+
+        &.event_heads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20%, 1fr));
+            & > * {
+                width: 75%;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            grid-template-columns: repeat(1, 1fr);
+            &.event_heads {
+                display: grid;
+                padding: 0 15%;
+                gap: 2rem;
+                grid-template-columns: repeat(1, 1fr);
+                & > * {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
