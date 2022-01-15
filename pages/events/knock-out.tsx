@@ -14,7 +14,6 @@ const KnockOut: NextPage= () => {
         <Head>
             <title>NuTopia | Knock Out</title>
             <meta name="description" content="NuTopia Events: Knock Out" />
-            <link rel="icon" href="/favicon.svg" />
         </Head>
 
         <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_ko}`}>

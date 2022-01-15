@@ -13,7 +13,6 @@ const LogAndBlog: NextPage= () => {
         <Head>
             <title>NuTopia | Log and Blog</title>
             <meta name="description" content="NuTopia Events: Log and Blog" />
-            <link rel="icon" href="/favicon.svg" />
         </Head>
 
         <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_lab}`}>

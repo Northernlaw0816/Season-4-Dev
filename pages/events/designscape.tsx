@@ -17,7 +17,6 @@ const Designscape: NextPage= () => {
         <Head>
             <title>Nutopia | Designscape</title>
             <meta name="description" content="NuTopia Events: Designscape" />
-            <link rel="icon" href="/favicon.svg" />
         </Head>
 
         <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_ds}`}>

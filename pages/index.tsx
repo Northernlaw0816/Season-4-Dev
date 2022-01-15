@@ -10,7 +10,6 @@ const Home: NextPage = () => {
       <Head>
         <title>NuTopia | Home</title>
         <meta name="description" content="Offical Yuvabharathi NuTopia Website" />
-        <link rel="icon" href="/favicon.svg" />
       </Head>
 
       <Layout skipTo="#content">
