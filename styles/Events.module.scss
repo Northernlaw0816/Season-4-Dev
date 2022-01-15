@@ -69,7 +69,7 @@
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
         background: 
         url('../public/images/events/aov_background.png'),
-        linear-gradient(hsl(180, 100%, 20%), black);
+        linear-gradient(hsl(180, 100%, 20%), black 80%);
         background-size: cover;
         background-repeat: no-repeat;
         background-position: 50% 50%;
@@ -167,22 +167,21 @@
             font-weight: 800;
             display: block;
 
-            p {
+            .command_line {
                 color: black;
                 position: relative;
                 padding-left: 30%;
+                margin-top: 1em;
                 background: hsl(var(--green), 75%);
                 font-size: clamp(1rem, 3vw, 2rem);
 
                 &::after {
                     content: "";
                     position: absolute;
-                    // left: 100%;
                     bottom: calc(0.375em/2);
                     width: 1ch;
                     height: calc(0.375em/4);
                     background: black;
-                    // border: calc(0.375em/4) white solid;
                     animation: blink 1s steps(1) infinite;
                 }
 
@@ -198,7 +197,7 @@
                     }
                 }
 
-                .type_blocker {
+                .type_cursor {
                     position: absolute;
                 }
             }
@@ -274,6 +273,7 @@
 }
 
 .main_otk {
+    background: var(--background);
     .banner {
         overflow: hidden;
         z-index: 1;
@@ -325,11 +325,6 @@
             --blur-radius: clamp(2px, 0.25vw, 4px);
             filter: blur(var(--blur-radius)) contrast(0.75);
 
-            &::before, &::after {
-                --blur-radius: clamp(2px, 0.25vw, 3px);
-                filter: blur(var(--blur-radius));
-            }
-
             &::before {
                 content: '';
                 position: absolute;
@@ -372,7 +367,6 @@
                 transform: scaleX(2) rotateX(85deg) translateY(60px);
                 inset: 0;
                 --line-width: clamp(0.0625rem, 0.25vw, 0.125rem);
-                // --line-width: 2px;
                 --sizing: clamp(10px, 4vw, 40px);
                 background:
                     linear-gradient(to top, hsl(320, 100%, 45%) 0 var(--line-width), transparent var(--line-width) 20px),
@@ -381,6 +375,7 @@
                     linear-gradient(to left, hsl(180, 80%, 50%, 100%) 0 var(--line-width), transparent var(--line-width)),
                     linear-gradient(to bottom, hsl(0, 0%, 100%) 10%, hsl(320, 100%, 45%), transparent 40%),
                     hsl(278, 78%, 9%);
+
                 background-size: 
                     var(--sizing) calc(var(--sizing)*2),
                     calc(var(--sizing) * 2 ) calc(var(--sizing)*2),
@@ -388,16 +383,35 @@
                     calc(var(--sizing) * 2) calc(var(--sizing)*2),
                     cover, cover
                 ;
-                background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top, top;
+
+                background-position: 
+                    -1px -1px,
+                    -1px -1px,
+                    0px 0px,
+                    -2px -1px,
+                    top,
+                    top;
                 animation: moveUp 750ms 2s forwards 5 linear;
             }
 
             @keyframes moveUp {
                 0% {
-                    background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top, top;
+                    background-position: 
+                        -1px -1px, 
+                        -1px -1px, 
+                        0px 0px, 
+                        -2px -1px, 
+                        top, 
+                        top;
                 }
                 100% {
-                    background-position: var(--sizing) calc(var(--sizing) * 2), -1px -1px, 0px 0px, -2px -1px, top, top;
+                    background-position:
+                        var(--sizing) calc(var(--sizing) * 2),
+                        -1px -1px,
+                        0px 0px,
+                        -2px -1px,
+                        top,
+                        top;
                 }
             }
         }
@@ -421,5 +435,9 @@
             font-size: clamp(15px, 3vw, 1.5rem);
             text-align: center;
         }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --background: hsl(257, 100%, 6%);
     }
 }

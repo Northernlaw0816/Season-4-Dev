@@ -42,7 +42,13 @@
             }
 
             .aov {
-                background: linear-gradient(hsl(180, 100%, 20%), black);
+                background: 
+                url('../public/images/events/aov_background.png'),
+                linear-gradient(hsl(180, 100%, 20%), black);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                background-blend-mode: darken, normal;
             }
 
             .td {
@@ -58,7 +64,10 @@
             }
 
             .otk {
-                background: no-repeat center/100% 100% url('/images/events/otk_background.png');
+                background: linear-gradient(transparent 70%, var(--accent)), url('/images/events/otk_background.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% 100%;
                 perspective: 200px;
                 & > * {
                     transform: rotateX(22.5deg) scale(0.9);
