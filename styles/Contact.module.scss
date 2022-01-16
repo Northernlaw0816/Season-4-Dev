@@ -1,0 +1,67 @@
+.main {
+    color: var(--text-alt);
+    padding: 0 clamp(1rem, 10vw, 15rem);
+
+    h1 {
+        font-size: clamp(2rem, 4vw, 4rem);
+        text-align: center;
+    }
+
+    h2 {
+        font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    }
+
+    p {
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+
+    .layout {
+        display: grid;
+        place-items: center;
+        grid-template-areas:
+            "school school"
+            "campus campus"
+            "address address"
+            "email phone";
+
+        @media (max-width: 600px) {
+            grid-template-areas:
+                "school"
+                "campus"
+                "address"
+                "email" 
+                "phone";
+        }
+
+        .contact_section {
+            display: grid;
+            place-items: center;
+            text-align: center;
+
+            &.addr {
+                grid-area: address;
+                text-align: justify;
+                padding: 0 2rem;
+            }
+
+            &.email {
+                grid-area: email;
+            }
+
+            &.phone {
+                grid-area: phone;
+            }
+        }
+
+        .school_name {
+            grid-area: school;
+        }
+
+        .campus {
+            grid-area: campus;
+            width: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+    }
+}
