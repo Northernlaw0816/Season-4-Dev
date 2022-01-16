@@ -6,9 +6,9 @@ import styles from "../styles/Footer.module.scss"
 import effects from "../styles/Effects.module.scss"
 //assets
 import Events from '../data/EventsList'
-import YuvaLarge from '../public/images/footer_logo_color.png'
-import YuvaSingle from '../public/images/footer_logo_color_single.png'
-import TBD from '../public/images/tbd.png'
+import YuvaLarge from '../public/images/logos/footer_logo_color.png'
+import YuvaSingle from '../public/images/logos/footer_logo_color_single.png'
+import TBD from '../public/images/logos/tbd.png'
 import NavLinks from '../data/NavLinks'
 
 const Footer = () => {
