@@ -16,7 +16,7 @@ import DesignscapeData from "../../data/pages/events/designscape"
 const Designscape: NextPage= () => {
     return(<>
         <Head>
-            <title>Nutopia | Designscape</title>
+            <title>NuTopia | Designscape</title>
             <meta name="description" content="NuTopia Events: Designscape" />
         </Head>
 

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 //stylesheets
 import styles from '../styles/Navbar.module.scss'
 import effects from '../styles/Effects.module.scss'
-//Data
+//data
 import NavLinks from '../data/NavLinks'
 import EventsList from '../data/EventsList'
 

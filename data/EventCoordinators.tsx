@@ -12,12 +12,12 @@ import aadvika from "../public/images/profile/aadvika.png"
 const EventHeads = [
     {
         name: "Sanjay A.R.",
-        grade: "11 A1",
+        grade: "11",
         src: sanjayAR
     },
     {
         name: "Shakthi Kumar S.",
-        grade: "11 A1",
+        grade: "11",
         src: shakti
     }
 ]
@@ -26,91 +26,91 @@ const EventCoordinators = [
     {
         name: "Sidharth B.P.",
         event: "Arena of Valor: Console",
-        grade: "12 B1",
+        grade: "12",
         src: sidharth
     },
     {
         name: "Shakthi Kumar S.",
         event: "Arena of Valor: PC",
-        grade: "11 A1",
+        grade: "11",
         src: shakti
     },
     {
         name: "Ananya Bansal",
         event: "Arena of Valor: PC",
-        grade: "11 B1",
+        grade: "11",
         src: sidharth
     },
     {
         name: "Samer Rahmaan R.",
         event: "Arena of Valor: Mobile",
-        grade: "12 B1",
+        grade: "12",
         src: samer
     },
     {
         name: "Sanjay Shriram S.",
         event: "Arena of Valor: Mobile",
-        grade: "11 A1",
+        grade: "11",
         src: sanjaySR
     },
     {
         name: "Sanjay A.R.",
         event: "Knock Out",
-        grade: "11 A1",
+        grade: "11",
         src: sanjayAR
     },
     {
         name: "Snigdha S. K.",
         event: "Knock Out",
-        grade: "11 A2",
+        grade: "11",
         src: snigdha
     },
     {
         name: "Marudhu Paandian K.",
         event: "Truth or Debug",
-        grade: "12 A1",
+        grade: "12",
         src: sidharth
     },
     {
         name: "Shabesa K. A.",
         event: "Truth or Debug",
-        grade: "12 A1",
+        grade: "12",
         src: sidharth
     },
     {
         name: "Aadvika R.",
         event: "Log and Blog",
-        grade: "11 A2",
+        grade: "11",
         src: aadvika
     },
     {
         name: "Neha Julius Panakkal",
         event: "Log and Blog",
-        grade: "11 A2",
+        grade: "11",
         src: neha
     },
     {
         name: "Rohit Kanna S.",
         event: "Designscape",
-        grade: "10 E",
+        grade: "1",
         src: sidharth
     },
     {
         name: "Akshay Balaji S.",
         event: "Designscape",
-        grade: "11 A1",
+        grade: "11",
         src: akshay
     },
     {
         name: "Mathangi A. R.",
         event: "Otakuiz",
-        grade: "11 B1",
+        grade: "11",
         src: sidharth
     },
     {
         name: "Diya Tantia S.",
         event: "Otakuiz",
-        grade: "12 A2",
+        grade: "12",
         src: diya
     }
 ]

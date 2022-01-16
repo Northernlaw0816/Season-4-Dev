@@ -11,7 +11,6 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>NuTopia | Home</title>
-        <meta name="description" content="Offical Yuvabharathi NuTopia Website" />
       </Head>
 
       <Layout skipTo="#content">
