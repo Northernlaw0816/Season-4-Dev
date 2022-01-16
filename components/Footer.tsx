@@ -10,8 +10,14 @@ import YuvaLarge from '../public/images/logos/footer_logo_color.png'
 import YuvaSingle from '../public/images/logos/footer_logo_color_single.png'
 import TBD from '../public/images/logos/tbd.png'
 import NavLinks from '../data/NavLinks'
+//data
+import AboutData from '../data/pages/about'
 
 const Footer = () => {
+
+    let date = new Date().getFullYear()
+    console.log(date)
+
     return(
         <footer className={styles.footer}>
         <a role="link" className={styles.footer_school} href="https://yuvabharathi.in">
@@ -42,14 +48,14 @@ const Footer = () => {
         </div>
         <div className={styles.footer_details}>
           <p>An Initiative By The Students For The Students</p>
-          <p>Phone: <a role="link">+91 82200 59603</a></p>
-          <p>E-Mail: <a role="link" href="mailto:nutopia.ybps@gmail.com">nutopia.ybps@gmail.com</a></p>
-          <p>Yuvabharathi Public School 17/1. Yuva Enclave, Kanuvai - Thudiyalur Road, Somayampalayam Post, Kanuvai, Coimbatore, Tamil Nadu 641108, India</p>
+          <p>Phone: <a role="link">{AboutData.contacts.phone}</a></p>
+          <p>E-Mail: <a role="link" href={`mailto:${AboutData.contacts.email}`}>{AboutData.contacts.email}</a></p>
+          <p>{AboutData.contacts.address}</p>
         </div>
         <div className={styles.footer_copyright}>
-          <div><div className={styles.copyright}>©</div> Yuvabharathi Public School 2021</div>
+          <div><div className={styles.copyright}>©</div> Yuvabharathi Public School {date}</div>
           <div className={styles.separator}></div>
-          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TBD} alt="team debug logo" width={24} height={24} /></a> Template by Team De-Bug</div>
+          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TBD} alt="team debug logo" width={24} height={24} /></a>Template by Team De-Bug</div>
         </div>
       </footer>
     )
