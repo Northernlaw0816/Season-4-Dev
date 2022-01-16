@@ -1,5 +1,6 @@
 
 import eventStyles from '../../../styles/Events.module.scss'
+import { EventCoordinators } from '../../EventCoordinators';
 
 const TruthOrDebug = {
     tagline: (<><span className={eventStyles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={eventStyles.grey}>{`);`}</span></>),
@@ -9,9 +10,7 @@ const TruthOrDebug = {
         
         rules: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?",
         
-        eventCoordinators: [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
-        ],
+        eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
 
         registration: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
     }

@@ -14,18 +14,19 @@ const About = () => {
                         {about}
                     </p>)
                 })}
-            
+            <hr />
             <h1>Event Heads</h1>
                 <div className={`${styles.card_container} ${styles.event_heads}`}>
                     {EventHeads.map((profile, index) => {
-                        return <ProfileCard key={index} name={profile.name} grade={profile.class} src={profile.src}/>
+                        return <ProfileCard key={index} profileObject={profile}/>
                     })}
                 </div>
             
+            <hr />
             <h1>Event Coordinators</h1>
                 <div className={styles.card_container}>
                     {EventCoordinators.map((profile, index) => {
-                        return <ProfileCard key={index} name={profile.name} event={profile.event} grade={profile.class} src={profile.src}/>
+                        return <ProfileCard key={index} profileObject={profile}/>
                     })}
                 </div>
 

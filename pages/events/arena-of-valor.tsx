@@ -4,8 +4,8 @@ import Image from "next/image"
 
 //components
 import EventsRegisterButton from "../../components/EventRegisterButton"
+import ProfileCard from "../../components/ProfileCard"
 //stylesheet
-import styles from '../../styles/Home.module.scss'
 import eventStyles from '../../styles/Events.module.scss'
 //assets
 import logo from '../../public/images/events/aov_logo.png'
@@ -93,19 +93,17 @@ const ArenaOfValor: NextPage = () => {
                         </p>
                 
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
-                    <p className={eventStyles.h2_p}>
-                        {ArenaOfValorData.headings.rules}
-                    </p> 
+                    <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.rules}</p> 
                 
                 <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
-                    <p className={eventStyles.h2_p}>
-                        {ArenaOfValorData.headings.eventCoordinators}
-                    </p> 
+                    <div className={eventStyles.card_container}>
+                        {ArenaOfValorData.headings.eventCoordinators.map((coordinator, index) => {
+                            return <ProfileCard key={index} profileObject={coordinator}/>
+                        })}
+                    </div> 
                 
                 <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
-                    <p className={eventStyles.h2_p}>
-                        {ArenaOfValorData.headings.registration}
-                    </p>
+                    <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.registration}</p>
                 
                 <EventsRegisterButton/>
             </div>

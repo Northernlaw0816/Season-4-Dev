@@ -2,11 +2,12 @@ import { NextPage } from "next"
 import Head from "next/head"
 
 //components
+import Layout from "../../components/Layout"
 import EventCard from "../../components/EventCard"
 //stylesheets
-import EventsData from '../../data/EventsList'
-import Layout from "../../components/Layout"
 import eventStyles from '../../styles/Event.module.scss'
+//data
+import EventsData from '../../data/EventsList'
 
 const Events: NextPage = () => {
     return(<>
@@ -17,6 +18,7 @@ const Events: NextPage = () => {
 
         <Layout skipTo="#title" overrideClasses={eventStyles.main}>
             <h1 id="title">Events</h1>
+            
             <div className={eventStyles.cards_container}>
                 {EventsData.map(({title, description, date, venue, time, grades, link, image, accent, selector}, index) => {
                     return(
@@ -34,8 +36,7 @@ const Events: NextPage = () => {
                             selector={selector}
                         />
                     )
-                })
-                }
+                })}
             </div>
         </Layout>
     </>)

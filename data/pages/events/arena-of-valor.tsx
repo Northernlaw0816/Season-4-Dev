@@ -1,3 +1,5 @@
+import { EventCoordinators } from "../../EventCoordinators";
+
 const ArenaOfValor = {
     tagline: "Grab The Clutch And Feel The Power",
     
@@ -26,9 +28,7 @@ const ArenaOfValor = {
         
         rules: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?",
         
-        eventCoordinators: [
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
-        ],
+        eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event.includes("Arena of Valor")),
 
         registration: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
     }

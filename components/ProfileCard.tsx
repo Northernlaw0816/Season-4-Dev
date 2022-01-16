@@ -1,7 +1,10 @@
 import Image from "next/image"
 import styles from "../styles/ProfileCard.module.scss"
 
-const ProfileCard = ({name, event, grade, src}: any) => {
+const ProfileCard = ({profileObject}: any) => {
+
+    const {name, grade, event, src} = profileObject
+
     return (
         <div className={styles.profile_card}>
             <div className={styles.profile_pic}>
