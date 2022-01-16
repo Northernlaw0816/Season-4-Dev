@@ -19,7 +19,7 @@ const ArenaOfValor: NextPage = () => {
 
     return (<>
         <Head>
-            <title>Nutopia | Arena of Valor</title>
+            <title>NuTopia | Arena of Valor</title>
             <meta name="description" content="NuTopia Events: Arena of Valor" />
         </Head>
 
@@ -49,14 +49,14 @@ const ArenaOfValor: NextPage = () => {
                         {ArenaOfValorData.headings.about.description}
                     </p>
                     
-                    <h3>
+                    <h3 id="platform_console">
                         Console
                     </h3>
                         <p className={eventStyles.h3_p}>
                             {ArenaOfValorData.headings.about.console}
                         </p>
                     
-                    <h3>
+                    <h3 id="platform_mobile">
                         Mobile
                     </h3>
                         <p className={eventStyles.h3_p}>
@@ -77,7 +77,7 @@ const ArenaOfValor: NextPage = () => {
                             {ArenaOfValorData.headings.about.mobile[2]}
                         </p>
                     
-                    <h3>
+                    <h3 id="platform_pc">
                         PC
                     </h3>
                         <p className={eventStyles.h3_p}>

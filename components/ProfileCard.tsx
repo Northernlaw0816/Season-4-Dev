@@ -11,13 +11,13 @@ const ProfileCard = ({profileObject}: any) => {
                 <Image src={src} alt={name} quality={50} placeholder={"blur"} layout={"responsive"}/>
             </div>
             <div className={styles.profile_info}>
-                <h2 className={styles.profile_name}>{name}</h2>
+                <h2 id={name} className={styles.profile_name}>{name}</h2>
                 <div className={styles.profile_details}>
                     {event && <span className={styles.info}>
-                        <h3>Event:</h3><p>{event}</p>
+                        <h3 id={`profile_${event}`}>Event:</h3><p>{event}</p>
                     </span>}
                     <span className={styles.info}>
-                        <h3>Grade:</h3><p>{grade}</p>
+                        <h3 id="profile_grade">Grade:</h3><p>{grade}</p>
                     </span>
                 </div>
             </div>

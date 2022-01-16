@@ -38,9 +38,9 @@ const HomeGallery = () => {
                         )}
                     </div>
                     {index === currentSlide && (<>
-                        <h2 className={styles.image_title}>{image.title}</h2>
+                        <h2 id={image.title} className={styles.image_title}>{image.title}</h2>
                         <div className={styles.description} key={`${index}_text`}>
-                            <h2>{image.title}</h2>
+                            <h2 id={`article_${image.title}`}>{image.title}</h2>
                             <p>{image.description}</p>
                         </div>
                         <Link href="/"><a className={styles.read_more_button}>Read More</a></Link>
