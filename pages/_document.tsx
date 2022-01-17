@@ -5,11 +5,16 @@ export default class MyDocument extends Document {
         return <Html lang="en">
             <Head>
                 <link rel="icon" href="/favicon.svg" />
-                <meta name="description" content="Offical NuTopia Website | Season 1" />
-                <meta property="og:image" content="../public/images/home-gallery/1.jpg" />
-                <meta property="og:url" content="https://www/nutopia.in/" />
+                <meta property="og:locale" content="en-US" />
+                <meta property="og:type" content="website" />
                 <meta property="og:title" content="NuTopia" />
+                <meta property="og:site_name" content="NuTopia" />
+                <meta property="og:url" content="https://www/nutopia.in/" />
+                <meta name="description" content="Offical NuTopia Website | Season 1" />
                 <meta property="og:description" content="Offical NuTopia Website | Season 1" />
+                <meta data-react-helmet="true" property="og:image" content="https://nutopia.in/images/home-gallery/1.jpg" />
+                <meta data-react-helmet="true" property="twitter:image" content="https://nutopia.in/images/home-gallery/1.jpg" />
+                <meta property="twitter:car" content="summary_large_image" />
             </Head>
 
             <body>
