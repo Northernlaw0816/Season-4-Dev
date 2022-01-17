@@ -12,7 +12,7 @@ const ArenaOfValor = {
             mobile: [
                 <><b>3v3:</b> Call Of Duty Mobile</>,
                 
-                <><b>3v3:</b> BGMI</>,
+                <><b>3v3:</b> Battlegrounds Mobile India</>,
                 
                 "Arena of Valor: Mobile offers intense team-based combat and strategy, all within a device that fits in the palm of your hands."
             ],
