@@ -25,7 +25,7 @@ const LogAndBlog: NextPage= () => {
             
             <div className={eventStyles.banner}>
                 <div className={eventStyles.logo}>
-                    <Image src={logo} alt="Log and Blog" quality={100} placeholder={"blur"} layout={"responsive"}/>
+                    <Image src={logo} alt="Log and Blog" placeholder={"blur"} layout={"responsive"}/>
                 </div>
             </div>
             
