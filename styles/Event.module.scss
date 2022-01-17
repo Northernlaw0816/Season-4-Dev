@@ -6,7 +6,6 @@
     padding-top: 0;
   
     h1 {
-        font-size: clamp(2rem, 4vw, 4rem);
         text-align: center;
     }
 
@@ -15,10 +14,6 @@
         grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
         gap: 2.5rem;
 
-        @media screen and (max-width: 640px) {
-            grid-template-columns: 1fr;
-        }
-        
         .card {
             position: relative;
             --background-color: var(--inactive);
@@ -27,7 +22,7 @@
             background: var(--accent);
 
             h2 {
-                font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+                font-size: clamp(1.5rem, 2.5vw, 1.75rem);
                 text-align: center;
             }
 
@@ -86,7 +81,7 @@
                 padding: 1rem;
                 gap: 1rem;
                 overflow: hidden;
-                font-size: clamp(0.5rem, 5vw, 1rem);
+                font-size: clamp(0.75rem, 2vw, 1.125rem);
 
                 p {
                     margin: 0;
@@ -109,6 +104,16 @@
                         outline: hsl(0, 0%, 0%, 30%) solid 3px;
                         outline-offset: -3px;
                     }
+                }
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            grid-template-columns: 1fr;
+
+            .card {
+                .info {
+                    font-size: clamp(0.75rem, 3vw, 1.5rem);
                 }
             }
         }
