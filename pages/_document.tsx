@@ -5,6 +5,7 @@ export default class MyDocument extends Document {
         return <Html lang="en">
             <Head>
                 <link rel="icon" href="/favicon.svg" />
+                <meta property="twitter:card" content="summary_large_image" />
                 <meta property="og:locale" content="en-US" />
                 <meta property="og:type" content="website" />
                 <meta property="og:title" content="NuTopia" />
@@ -14,7 +15,6 @@ export default class MyDocument extends Document {
                 <meta property="og:description" content="Offical NuTopia Website | Season 1" />
                 <meta data-react-helmet="true" property="og:image" content="https://nutopia-beta.vercel.app/images/home-gallery/1.jpg" />
                 <meta data-react-helmet="true" property="twitter:image" content="https://nutopia-beta.vercel.app/images/home-gallery/1.jpg" />
-                <meta property="twitter:car" content="summary_large_image" />
             </Head>
 
             <body>
