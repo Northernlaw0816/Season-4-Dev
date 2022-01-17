@@ -3,20 +3,20 @@ import Link from 'next/link'
 
 //stylesheets
 import styles from "../styles/Footer.module.scss"
+import socialStyles from "../styles/Socials.module.scss"
 import effects from "../styles/Effects.module.scss"
 //assets
 import Events from '../data/EventsList'
 import YuvaLarge from '../public/images/logos/footer_logo_color.png'
 import YuvaSingle from '../public/images/logos/footer_logo_color_single.png'
 import TBD from '../public/images/logos/tbd.png'
-import NavLinks from '../data/NavLinks'
 //data
-import AboutData from '../data/pages/about'
+import NavLinks from '../data/NavLinks'
+import ContactData from '../data/pages/contact'
 
 const Footer = () => {
 
     let date = new Date().getFullYear()
-    console.log(date)
 
     return(
         <footer className={styles.footer}>
@@ -48,9 +48,22 @@ const Footer = () => {
         </div>
         <div className={styles.footer_details}>
           <p>An Initiative By The Students For The Students</p>
-          <p>Phone: <a role="link">{AboutData.contacts.phone}</a></p>
-          <p>E-Mail: <a role="link" href={`mailto:${AboutData.contacts.email}`}>{AboutData.contacts.email}</a></p>
-          <p>{AboutData.contacts.address}</p>
+          <p>E-Mail: <a role="link" href={`mailto:${ContactData.contacts.emails[0]}`}>{ContactData.contacts.emails[0]}</a></p>
+          <p>Phone: <a role="link">{ContactData.contacts.phone}</a></p>
+          <div className={socialStyles.social}>
+            <p>Socials:</p> 
+            <div className={socialStyles.icons}>
+              {ContactData.socials.map((social, index) => {
+                return (
+                  <div key={index} className={`${socialStyles.social_icon} ${social.style}`}>
+                    <a href={social.link} target="blank">
+                      <Image src={social.image} alt="instagram link" width={128} height={128}/>
+                    </a>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
         <div className={styles.footer_copyright}>
           <div><div className={styles.copyright}>©</div> Yuvabharathi Public School {date}</div>
