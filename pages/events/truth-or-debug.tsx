@@ -1,6 +1,7 @@
 import type { NextPage } from "next"
 import Head from 'next/head'
 import Image from "next/image"
+import toSlug from "../../data/toSlug"
 
 //components
 import Layout from "../../components/Layout"
@@ -51,7 +52,7 @@ const TruthOrDebug: NextPage = () => {
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
                     <p className={eventStyles.h2_p}>{TruthOrDebugData.headings.rules}</p>
                
-                <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
+                <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
                     <div className={eventStyles.card_container}>
                         {TruthOrDebugData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>

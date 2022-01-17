@@ -1,4 +1,5 @@
 import Image from 'next/image'
+
 //stylesheets
 import styles from '../styles/Banner.module.scss'
 //assets

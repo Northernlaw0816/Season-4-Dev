@@ -1,6 +1,7 @@
 import type { NextPage } from "next"
 import Head from 'next/head'
 import Image from "next/image"
+import toSlug from "../../data/toSlug"
 
 //components
 import EventsRegisterButton from "../../components/EventRegisterButton"
@@ -49,14 +50,14 @@ const ArenaOfValor: NextPage = () => {
                         {ArenaOfValorData.headings.about.description}
                     </p>
                     
-                    <h3 id="platform_console">
+                    <h3 id={toSlug("platform console")}>
                         Console
                     </h3>
                         <p className={eventStyles.h3_p}>
                             {ArenaOfValorData.headings.about.console}
                         </p>
                     
-                    <h3 id="platform_mobile">
+                    <h3 id={toSlug("platform mobile")}>
                         Mobile
                     </h3>
                         <p className={eventStyles.h3_p}>
@@ -77,7 +78,7 @@ const ArenaOfValor: NextPage = () => {
                             {ArenaOfValorData.headings.about.mobile[2]}
                         </p>
                     
-                    <h3 id="platform_pc">
+                    <h3 id={toSlug("platform pc")}>
                         PC
                     </h3>
                         <p className={eventStyles.h3_p}>
@@ -95,7 +96,7 @@ const ArenaOfValor: NextPage = () => {
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
                     <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.rules}</p> 
                 
-                <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
+                <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
                     <div className={eventStyles.card_container}>
                         {ArenaOfValorData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>

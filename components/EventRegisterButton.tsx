@@ -1,4 +1,6 @@
 import Link from 'next/link'
+
+//stylesheets
 import styles from '../styles/Events.module.scss'
 import effects from '../styles/Effects.module.scss'
 

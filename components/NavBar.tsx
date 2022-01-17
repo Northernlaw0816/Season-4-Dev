@@ -1,6 +1,7 @@
-import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
+import toSlug from '../data/toSlug'
 
 //stylesheets
 import styles from '../styles/Navbar.module.scss'
@@ -121,7 +122,7 @@ const NavBar = ({skipTo}: any) => {
         <nav className={styles.navbar}>
             <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Group 1">
+                    <g id={toSlug("Group 1")}>
                         <g className={styles.logo_n}>
                         <path d="M0 57L19 0H33L14 57H0Z" fill="#004799" stroke="black" strokeWidth="0" mask="url(#path-1-inside-1_0_1)"/>
                         </g>
@@ -145,7 +146,7 @@ const NavBar = ({skipTo}: any) => {
         <nav className={styles.navbar_mobile}>
             <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Group 1">
+                    <g id={toSlug("Group 1")}>
                         <g className={styles.logo_n}>
                             <path d="M0 57L19 0H33L14 57H0Z" fill="#004799" stroke="black" strokeWidth="0" mask="url(#path-1-inside-1_0_1)"/>
                         </g>

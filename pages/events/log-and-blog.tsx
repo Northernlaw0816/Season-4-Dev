@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
+import toSlug from "../../data/toSlug"
 
 //components
 import Layout from "../../components/Layout"
@@ -9,9 +10,10 @@ import EventsRegisterButton from "../../components/EventRegisterButton"
 //stylesheet
 import eventStyles from '../../styles/Events.module.scss'
 //assets
-import logo from '../../public/images/events/lab_logo.png'
+import logo from '../../public/images/events/lab_logo_2.png'
 //data
 import LogAndBlogData from "../../data/pages/events/log-and-blog"
+
 const LogAndBlog: NextPage= () => {
     return(<>
         <Head>
@@ -36,7 +38,7 @@ const LogAndBlog: NextPage= () => {
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
                     <p className={eventStyles.h2_p}>{LogAndBlogData.headings.rules}</p> 
                 
-                <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
+                <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
                     <div className={eventStyles.card_container}>
                         {LogAndBlogData.headings.eventCoordinators?.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>
