@@ -25,31 +25,31 @@ const EventHeads = [
 const EventCoordinators = [
     {
         name: "Sidharth B.P.",
-        event: "Arena of Valor: Console",
+        event: "Arena of Valor - Console",
         grade: "12",
         src: sidharth
     },
     {
         name: "Shakthi Kumar S.",
-        event: "Arena of Valor: PC",
+        event: "Arena of Valor - PC",
         grade: "11",
         src: shakti
     },
     {
         name: "Ananya Bansal",
-        event: "Arena of Valor: PC",
+        event: "Arena of Valor - PC",
         grade: "11",
         src: sidharth
     },
     {
         name: "Samer Rahmaan R.",
-        event: "Arena of Valor: Mobile",
+        event: "Arena of Valor - Mobile",
         grade: "12",
         src: samer
     },
     {
         name: "Sanjay Shriram S.",
-        event: "Arena of Valor: Mobile",
+        event: "Arena of Valor - Mobile",
         grade: "11",
         src: sanjaySR
     },

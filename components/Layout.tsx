@@ -1,5 +1,7 @@
+//components
 import Footer from "./Footer"
 import NavBar from "./NavBar"
+//stylesheets
 import styles from "../styles/Home.module.scss"
 
 const Layout = ({skipTo, additionalClasses, overrideClasses, children}: any) => {

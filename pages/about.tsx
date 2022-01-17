@@ -1,4 +1,5 @@
 import Head from "next/head"
+import toSlug from "../data/toSlug"
 
 //components
 import Layout from "../components/Layout"
@@ -24,7 +25,7 @@ const About = () => {
                     </p>)
                 })}
             <hr />
-            <h1 id="event heads">Event Heads</h1>
+            <h1 id={toSlug("event heads")}>Event Heads</h1>
                 <div className={`${styles.card_container} ${styles.event_heads}`}>
                     {EventHeads.map((profile, index) => {
                         return <ProfileCard key={index} profileObject={profile}/>
@@ -32,7 +33,7 @@ const About = () => {
                 </div>
             
             <hr />
-            <h1 id="event coordinators">Event Coordinators</h1>
+            <h1 id={toSlug("event coordinators")}>Event Coordinators</h1>
                 <div className={styles.card_container}>
                     {EventCoordinators.map((profile, index) => {
                         return <ProfileCard key={index} profileObject={profile}/>

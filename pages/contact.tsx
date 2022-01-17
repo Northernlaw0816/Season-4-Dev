@@ -1,15 +1,21 @@
 import Head from "next/head"
 import Image from "next/image"
-import Layout from "../components/Layout"
+import toSlug from "../data/toSlug"
 
+//components
+import Layout from "../components/Layout"
 //stylesheets
 import styles from '../styles/Contact.module.scss'
+import socialStyles from '../styles/Socials.module.scss'
+import Effects from "../styles/Effects.module.scss"
 //assets
 import campus from '../public/images/school_campus.jpg'
+import tdb_logo from '../public/images/logos/team_logo_new.png'
 //data
-import AboutData from "../data/pages/about"
+import ContactData from "../data/pages/contact"
+import ProfileCard from "../components/ProfileCard"
 
-const Contact = () => {
+export const Contact = () => {
     return (<>
         <Head>
             <title>NuTopia | Contact Us</title>
@@ -23,15 +29,58 @@ const Contact = () => {
                 </div>
                 <div className={`${styles.contact_section} ${styles.addr}`}>
                     <h2>Address</h2>
-                    <p>{AboutData.contacts.address}</p>
+                    <p>{ContactData.contacts.address}</p>
                 </div>
                 <div className={`${styles.contact_section} ${styles.email}`}>
-                    <h2>E-Mail</h2>
-                    <p><a href={`mailto:${AboutData.contacts.email}`}>{AboutData.contacts.email}</a></p>
+                    <h2 id="email">E-Mail</h2>
+                    {ContactData.contacts.emails.map((email, index) => {
+                        return <p key={index}><a className={Effects.link_hover_effect} href={`mailto:${email}`}>{email}</a></p>
+                    })}
                 </div>
                 <div className={`${styles.contact_section} ${styles.phone}`}>
-                    <h2>Phone</h2>
-                    <p>{AboutData.contacts.phone}</p>
+                    <h2 id="phone">Phone</h2>
+                    <p>{ContactData.contacts.phone}</p>
+                </div>
+                <div className={`${styles.contact_section} ${socialStyles.social} ${styles.social}`}>
+                    <h2 id="social">Socials</h2> 
+                    <div className={`${socialStyles.icons} ${styles.icons}`}>
+                        {ContactData.socials.map((social, index) => {
+                            return (
+                                <div key={index} className={`${socialStyles.social_icon} ${styles.social_icon} ${social.style}`}>
+                                    <a href={social.link} target="blank">
+                                        <Image src={social.image} alt="instagram link" width={128} height={128}/>
+                                    </a>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <h2 id={toSlug("Team De-Bug heading")} style={{display: "none"}}>Team De-Bug</h2>
+            <div className={styles.tbd_section}>
+                <div id={toSlug("Team De-Bug")} aria-labelledby={toSlug("Team De-Bug heading")} className={styles.tbd_logo}>
+                    <Image src={tdb_logo} alt="Team De-Bug Logo" quality={100} layout={"responsive"}/>
+                </div>
+                <div className={styles.card_container}>
+                    {ContactData.teamDeBug.profiles.map((member, index) => {
+                        return <ProfileCard key={index} profileObject={member}/>
+                    })}
+                </div>
+                <div className={`${socialStyles.social} ${styles.tbd_social}`}>
+                <h3>Connect With Us</h3>
+                    <div className={`${socialStyles.icons} ${styles.tbd_icons}`}>
+                        {ContactData.teamDeBug.socials.map((social, index) => {
+                            return (
+                                <div key={index} className={`${socialStyles.social_icon} ${styles.tbd_social_icons} ${social.style}`}>
+                                    <a href={social.link} target="blank">
+                                        <Image src={social.image} alt="instagram link" width={128} height={128}/>
+                                    </a>
+                                </div>
+                            )
+                        })}
+                    </div>
+                    <a className={`${styles.tbd_email} ${Effects.link_hover_effect}`} href={`mailto:${ContactData.teamDeBug.mail}`}>{ContactData.teamDeBug.mail}</a>
                 </div>
             </div>
         </Layout>
