@@ -6,6 +6,10 @@ export default class MyDocument extends Document {
             <Head>
                 <link rel="icon" href="/favicon.svg" />
                 <meta name="description" content="Offical NuTopia Website | Season 1" />
+                <meta property="og:image" content="/images/home-gallery/1.jpg" />
+                <meta property="og:url" content="https://www/nutopia.in/" />
+                <meta property="og:title" content="NuTopia" />
+                <meta property="og:description" content="Offical NuTopia Website | Season 1" />
             </Head>
 
             <body>
