@@ -4,6 +4,8 @@ import Image from 'next/image'
 import styles from '../styles/components/Banner.module.scss'
 //assets
 import logo from '../public/images/logos/nutopia.png'
+//data
+import Main from '../data/Main'
 
 const Logo = () => {
     return (
@@ -14,6 +16,7 @@ const Logo = () => {
             <div className={styles.logo_img}>
                 <h1 id="welcome">Welcome To</h1>
                 <Image src={logo} alt="NuTopia Logo" quality={100} priority={true}/>
+                <h2 id="tagline">‟{Main.tagline}”</h2>
             </div>
         </div>
     )

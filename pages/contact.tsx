@@ -25,7 +25,7 @@ export const Contact = () => {
             <div className={styles.layout}>
                 <h2 id="school" className={styles.school_name}>Yuvabharathi Public School</h2>
                 <div className={styles.campus}>
-                    <Image src={campus} alt="Yuvabharathi Public School Campus" layout={"responsive"}/>
+                    <Image src={campus} alt="Yuvabharathi Public School Campus" placeholder={"blur"} layout={"responsive"}/>
                 </div>
                 <div className={`${styles.contact_section} ${styles.addr}`}>
                     <h2>Address</h2>

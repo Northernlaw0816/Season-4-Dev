@@ -9,6 +9,7 @@ import effects from '../styles/Effects.module.scss'
 //data
 import NavLinks from '../data/NavLinks'
 import EventsList from '../data/EventsList'
+import Main from '../data/Main'
 
 const NavBar = ({skipTo}: any) => {
 
@@ -136,7 +137,7 @@ const NavBar = ({skipTo}: any) => {
                 </svg>
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
-            <span className={styles.spacer}>2022 Season 1</span>
+            <span className={styles.spacer}>{Main.year} | Season {Main.season}</span>
             <Links/>
         </nav>
         <SkipToContent/>
@@ -160,7 +161,7 @@ const NavBar = ({skipTo}: any) => {
                 </svg>
                 <span className={styles.logo_text}>Topia</span>
             </a></Link>
-            <span className={styles.spacer}>2022 Season 1</span>
+            <span className={styles.spacer}>{Main.year} | Season {Main.season}</span>
             <div className={`${styles.nav_button} ${styles.ham_menu}`} aria-label="Toggle Navigation Menu" role="button" onClick={() => toggleNavMenu()}>
                 <svg className={styles.hamburger} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect className={styles.line} id="1" width="32" height="4" fill="white"/>

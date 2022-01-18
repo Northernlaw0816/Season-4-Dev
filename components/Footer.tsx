@@ -19,7 +19,7 @@ const Footer = () => {
     let date = new Date().getFullYear()
 
     return(
-        <footer className={styles.footer}>
+      <footer className={styles.footer}>
         <a role="link" className={styles.footer_school} href="https://yuvabharathi.in">
           <div className={styles.large}>
             <Image src={YuvaLarge} alt="school logo" width={315} height={90}/>
@@ -46,12 +46,17 @@ const Footer = () => {
             })}
           </div>
         </div>
+
         <div className={styles.footer_details}>
           <p>An Initiative By The Students For The Students</p>
+          
           <p>E-Mail: <a role="link" href={`mailto:${ContactData.contacts.emails[0]}`}>{ContactData.contacts.emails[0]}</a></p>
-          <p>Phone: <a role="link">{ContactData.contacts.phone}</a></p>
+          
+          <p>Phone: {ContactData.contacts.phone}</p>
+          
           <div className={socialStyles.social}>
             <p>Socials:</p> 
+            
             <div className={socialStyles.icons}>
               {ContactData.socials.map((social, index) => {
                 return (
@@ -65,9 +70,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
         <div className={styles.footer_copyright}>
-          <div><div className={styles.copyright}>©</div> Yuvabharathi Public School {date}</div>
+          <div><span className={styles.copyright}>©</span> Yuvabharathi Public School {date}</div>
+          
           <div className={styles.separator}></div>
+          
           <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TBD} alt="team debug logo" width={24} height={24} /></a>Template by Team De-Bug</div>
         </div>
       </footer>
