@@ -1,0 +1,15 @@
+.main {
+    text-align: center;
+    color: var(--text-alt);
+    padding: 0 10%;
+
+    .card_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1rem;
+
+        @media (max-width: 600px) {
+            grid-template-columns: 1fr
+        }
+    }
+}
