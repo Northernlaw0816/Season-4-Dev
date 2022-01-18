@@ -1,10 +1,10 @@
-import conference_1 from "../public/images/main-gallery/conference_1.jpg"
-import conference_2 from "../public/images/main-gallery/conference_2.jpg"
-import conference_3 from "../public/images/main-gallery/conference_3.jpg"
-import conference_4 from "../public/images/main-gallery/conference_4.jpg"
-import conference_5 from "../public/images/main-gallery/conference_5.jpg"
-import conference_6 from "../public/images/main-gallery/conference_6.jpg"
-import conference_7 from "../public/images/main-gallery/conference_7.jpg"
+import conference_1 from "../public/images/main-gallery/conference_01.jpg"
+import conference_2 from "../public/images/main-gallery/conference_02.jpg"
+import conference_3 from "../public/images/main-gallery/conference_03.jpg"
+import conference_4 from "../public/images/main-gallery/conference_04.jpg"
+import conference_5 from "../public/images/main-gallery/conference_05.jpg"
+import conference_6 from "../public/images/main-gallery/conference_06.jpg"
+import conference_7 from "../public/images/main-gallery/conference_07.jpg"
 
 const GalleyAlbumsList = [
     {
