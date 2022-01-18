@@ -2,7 +2,7 @@ import Image from "next/image"
 import toSlug from "../data/toSlug"
 
 //stylesheets
-import styles from "../styles/ProfileCard.module.scss"
+import styles from "../styles/components/ProfileCard.module.scss"
 
 const ProfileCard = ({profileObject}: any) => {
 

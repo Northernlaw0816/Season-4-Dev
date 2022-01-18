@@ -4,7 +4,7 @@ import Link from 'next/link'
 import toSlug from '../data/toSlug'
 
 //stylesheets
-import styles from '../styles/HomeGallery.module.scss'
+import styles from '../styles/components/HomeGallery.module.scss'
 //data
 import HomeGalleryImages from '../data/HomeGalleryImages'
 
@@ -24,7 +24,7 @@ const HomeGallery = () => {
         <div onClick={prevSlide} className={styles.prev}></div>
         <div onClick={nextSlide} className={styles.next}></div>
         {HomeGalleryImages.map((image, index) => {
-            return (<>
+            return (
                 <div key={index} className={styles.slide_container}>
                     <div className={styles.vignette}></div>
                     <div className={index === currentSlide ? `${styles.image_container} ${styles.active}` : `${styles.image_container}`}>
@@ -34,9 +34,8 @@ const HomeGallery = () => {
                                     key={index}
                                     src={image.src}
                                     alt={image.alt}
-                                    placeholder="blur"
-                                    layout='responsive'
-                                    priority={true}
+                                    placeholder={"blur"}
+                                    layout={"responsive"}
                                 />
                             </div>
                         )}
@@ -50,7 +49,7 @@ const HomeGallery = () => {
                         <Link href="/"><a className={styles.read_more_button}>Read More</a></Link>
                     </>)}
                 </div>
-            </>)
+            )
         })}
     </div>)
 }

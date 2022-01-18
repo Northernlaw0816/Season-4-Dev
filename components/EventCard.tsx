@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import toSlug from "../data/toSlug"
 
 //stylehsheet
-import styles from "../styles/Event.module.scss"
+import styles from "../styles/pages/Event.module.scss"
 
 const EventCard = ({title, description, date, time, venue, grades, link, image, accent, selector}: any) => {
     

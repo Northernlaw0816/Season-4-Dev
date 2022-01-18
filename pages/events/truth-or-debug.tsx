@@ -8,7 +8,7 @@ import Layout from "../../components/Layout"
 import ProfileCard from "../../components/ProfileCard"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 //stylesheet
-import eventStyles from '../../styles/Events.module.scss'
+import eventStyles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/td_logo.png'
 //data

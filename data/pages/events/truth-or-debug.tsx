@@ -1,5 +1,5 @@
 
-import eventStyles from '../../../styles/Events.module.scss'
+import eventStyles from '../../../styles/pages/Events.module.scss'
 import { EventCoordinators } from '../../EventCoordinators';
 
 const TruthOrDebug = {

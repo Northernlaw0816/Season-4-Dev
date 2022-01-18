@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 //stylesheets
-import styles from '../styles/Banner.module.scss'
+import styles from '../styles/components/Banner.module.scss'
 //assets
 import logo from '../public/images/logos/nutopia.png'
 

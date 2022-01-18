@@ -6,7 +6,7 @@ import Image from "next/image"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
-import eventStyles from '../../styles/Events.module.scss'
+import eventStyles from '../../styles/pages/Events.module.scss'
 import Layout from "../../components/Layout"
 //assets
 import logo from "../../public/images/events/aov_logo.png"

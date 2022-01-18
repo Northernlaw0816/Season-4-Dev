@@ -7,7 +7,7 @@ import toSlug from "../../data/toSlug"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
-import eventStyles from '../../styles/Events.module.scss'
+import eventStyles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/aov_logo.png'
 import cod from '../../public/images/events/aov_games/cod_logo.png'

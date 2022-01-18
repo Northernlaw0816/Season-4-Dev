@@ -1,4 +1,6 @@
-import styles from '../styles/Banner.module.scss'
+//stylesheets
+import styles from '../styles/components/Banner.module.scss'
+//components
 import Logo from './Logo'
 
 const HomeBanner = () => {

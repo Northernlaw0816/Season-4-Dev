@@ -4,7 +4,7 @@ import Link from 'next/link'
 import toSlug from '../data/toSlug'
 
 //stylesheets
-import styles from '../styles/Navbar.module.scss'
+import styles from '../styles/components/Navbar.module.scss'
 import effects from '../styles/Effects.module.scss'
 //data
 import NavLinks from '../data/NavLinks'

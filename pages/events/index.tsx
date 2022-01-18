@@ -5,7 +5,7 @@ import Head from "next/head"
 import Layout from "../../components/Layout"
 import EventCard from "../../components/EventCard"
 //stylesheets
-import eventStyles from '../../styles/Event.module.scss'
+import eventStyles from '../../styles/pages/Event.module.scss'
 //data
 import EventsData from '../../data/EventsList'
 

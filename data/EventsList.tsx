@@ -1,8 +1,10 @@
+//stylesheets
+import styles from "../styles/pages/Event.module.scss"
+//assets
 import AoV from '../public/images/events/aov_logo.png'
 import TD from '../public/images/events/td_logo.png'
 import LAB from '../public/images/events/lab_logo.png'
 import OTK from '../public/images/events/otk_logo.png'
-import styles from "../styles/Event.module.scss"
 
 const EventsList = [
     {

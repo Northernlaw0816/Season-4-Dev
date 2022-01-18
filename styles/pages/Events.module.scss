@@ -68,12 +68,13 @@
     .banner {
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
         background: 
-        url('../public/images/events/aov_background.png'),
-        linear-gradient(hsl(180, 100%, 20%), black 80%);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-blend-mode: darken, normal;
+            url('../../public/images/events/aov_background.png'),
+            linear-gradient(hsl(180, 100%, 20%), black 80%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-blend-mode: darken, normal
+        ;
     
         .banner_text {
             background: linear-gradient(to bottom, hsl(39, 52%, 58%) 20%, hsl(39, 52%, 20%));

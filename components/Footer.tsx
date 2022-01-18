@@ -2,8 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 //stylesheets
-import styles from "../styles/Footer.module.scss"
-import socialStyles from "../styles/Socials.module.scss"
+import styles from "../styles/components/Footer.module.scss"
+import socialStyles from "../styles/components/Socials.module.scss"
 import effects from "../styles/Effects.module.scss"
 //assets
 import Events from '../data/EventsList'

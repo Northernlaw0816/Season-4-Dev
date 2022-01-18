@@ -1,5 +1,5 @@
 //stylesheets
-import styles from "../../styles/Socials.module.scss"
+import styles from "../../styles/components/Socials.module.scss"
 //assets
 import placeholder from '../../public/images/profile/sidharth.png'
 import IG from '../../public/images/logos/ig_logo.png'

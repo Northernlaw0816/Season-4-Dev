@@ -5,8 +5,8 @@ import toSlug from "../data/toSlug"
 //components
 import Layout from "../components/Layout"
 //stylesheets
-import styles from '../styles/Contact.module.scss'
-import socialStyles from '../styles/Socials.module.scss'
+import styles from '../styles/pages/Contact.module.scss'
+import socialStyles from '../styles/components/Socials.module.scss'
 import Effects from "../styles/Effects.module.scss"
 //assets
 import campus from '../public/images/school_campus.jpg'
