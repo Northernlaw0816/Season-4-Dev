@@ -1,7 +1,7 @@
 //stylesheets
 import styles from "../../styles/components/Socials.module.scss"
 //assets
-import placeholder from '../../public/images/profile/sidharth.png'
+import placeholder from '../../public/images/profile/placeholder.png'
 import IG from '../../public/images/logos/ig_logo.png'
 import FB from '../../public/images/logos/fb_logo.png'
 import YT from '../../public/images/logos/yt_logo.png'
@@ -14,7 +14,7 @@ const ContactUs = {
     contacts: {
         emails: ["info@nutopia.in", "admin@nutopia.in"],
         phone: "+91 82200 59603",
-        address: "Yuvabharathi Public School 17/1. Yuva Enclave, Kanuvai - Thudiyalur Road, Somayampalayam Post, Kanuvai, Coimbatore, Tamil Nadu 641108, India"
+        address: "Yuvabharathi Public School, 17/1, Yuva Enclave, Kanuvai - Thudiyalur Road, Somayampalayam Post, Kanuvai, Coimbatore, Tamil Nadu 641108, India"
     },
 
     socials: [
