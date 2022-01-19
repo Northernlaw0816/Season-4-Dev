@@ -1,5 +1,6 @@
 .main {
     --accent: var(--primary);
+    --button-bg: var(--inactive);
     min-height: 100vh;
 
     .banner {
@@ -54,10 +55,18 @@
                 position: relative;
                 padding: 1em 2rem;
                 margin: 1rem 0;
-                background: var(--accent);
+                background: var(--button-bg);
                 color: var(--text-white);
                 font-weight: 600;
                 font-size: large;
+
+                &:hover {
+                    background: var(--accent);
+                }
+
+                @media (hover: none) {
+                    background: var(--accent);
+                }
             }
         }
     }
@@ -65,6 +74,8 @@
 
 .main_aov {
     background: var(--background);
+    --accent: linear-gradient(to top, hsl(39, 52%, 58%) 20%, transparent), hsl(39, 52%, 35%);
+    --button-bg: linear-gradient(to bottom, hsl(39, 00%, 58%) 20%, transparent), hsl(39, 00%, 35%);
     .banner {
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
         background: 
@@ -114,6 +125,13 @@
             left: 2em;
             width: calc(100% - 2em);
         }
+
+        .register_link_align {
+            .register_link {
+                color: black;
+                font-family: 'Cinzel Decorative', serif;
+            }
+        }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -137,6 +155,9 @@
 
 .main_td {
     background: var(--background);
+    --green: 130, 100%, 60%;
+    --accent: hsl(var(--green));
+    --button-bg: hsl(130, 100%, 50%);
     .banner {
         position: relative;
         background: hsl(0, 0%, 7.5%);
@@ -148,7 +169,6 @@
         }
 
         .banner_text {
-            --green: 130, 100%, 60%;
             filter: blur(calc(var(--blur-radius)/1.5));
             font-family: 'Inconsolata', monospace;
             font-weight: 800;
@@ -256,6 +276,14 @@
                 color: hsl(0, 0%, 40%);
             }
         }
+
+        .register_link_align {
+            .register_link {
+                color: black;
+                font-family: 'Inconsolata', monospace;
+                font-weight: 800;
+            }
+        }
     }
 
     @media (prefers-color-scheme: dark) {
@@ -265,6 +293,8 @@
 
 .main_lab {
     background: var(--background);
+    --accent: hsl(47, 100%, 85%);
+    --button-bg: hsl(47, 100%, 80%);
     .banner {
         padding: 0;
         display: grid;
@@ -277,12 +307,22 @@
         @media (max-width: 600px) {
 
             background:
-                radial-gradient(70% 20% at 50% 88%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
+                radial-gradient(70% 20% at 50% 83%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
                 linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
                 linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%),
             ;
             .logo {
                 width: 100%;
+            }
+        }
+    }
+
+    .content {
+        .register_link_align {
+            .register_link {
+                color: black;
+                font-family: monospace;
+                font-weight: 800;
             }
         }
     }
@@ -294,6 +334,10 @@
 
 .main_otk {
     background: var(--background);
+    --accent:
+        linear-gradient(hsla(0, 0%, 100%, 0.24), hsla(0, 0%, 0%, 0) 30%, hsla(360, 100%, 47%, 0.29) 60%, hsla(360, 100%, 9%, 0.22) 62%,hsla(360, 100%, 9%, 0) 80%),
+        linear-gradient(hsla(257, 100%, 22%),hsl(320, 100%, 45%));
+    --button-bg: hsl(276, 100%, 22%);
     .banner {
         overflow: hidden;
         z-index: 1;
@@ -453,6 +497,14 @@
             font-family: 'Rock Salt', fantasy;
             font-size: clamp(15px, 3vw, 1.5rem);
             text-align: center;
+        }
+
+        .register_link_align {
+            .register_link {
+                color: yellow;
+                font-family: 'Rock Salt', fantasy;
+                font-weight: 800;
+            }
         }
     }
 
