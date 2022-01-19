@@ -85,7 +85,7 @@
         margin-block-end: 3rem;
     }
 
-    .tbd_section {
+    .tdb_section {
         display: grid;
         place-items: center;
         grid-auto-rows: auto auto;
@@ -98,7 +98,7 @@
         background: var(--inactive);
         color: var(--text-white);
 
-        .tbd_logo {
+        .tdb_logo {
             width: 30%;
         }
 
@@ -117,16 +117,16 @@
             }
         }
 
-        .tbd_social {
-            .tbd_icons {
+        .tdb_social {
+            .tdb_icons {
                 gap: 3rem;
-                .tbd_social_icons {
+                .tdb_social_icons {
                     max-width: clamp(3rem, 5vw, 5rem);
                 }
             }
         }
 
-        .tbd_email {
+        .tdb_email {
             position: relative;
             z-index: 0;
             font-size: clamp(0.75rem, 2vw, 1.5rem);

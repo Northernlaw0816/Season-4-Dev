@@ -9,7 +9,7 @@ import effects from "../styles/Effects.module.scss"
 import Events from '../data/EventsList'
 import YuvaLarge from '../public/images/logos/footer_logo_color.png'
 import YuvaSingle from '../public/images/logos/footer_logo_color_single.png'
-import TBD from '../public/images/logos/tbd.png'
+import TDB from '../public/images/logos/tdb.png'
 //data
 import NavLinks from '../data/NavLinks'
 import ContactData from '../data/pages/contact'
@@ -76,7 +76,7 @@ const Footer = () => {
           
           <div className={styles.separator}></div>
           
-          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TBD} alt="team debug logo" width={24} height={24} /></a>Template by Team De-Bug</div>
+          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TDB} alt="team debug logo" width={24} height={24} /></a>Template by Team De-Bug</div>
         </div>
       </footer>
     )

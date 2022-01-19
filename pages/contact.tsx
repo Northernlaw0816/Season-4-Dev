@@ -58,8 +58,8 @@ export const Contact = () => {
             </div>
             <hr/>
             <h2 id={toSlug("Team De-Bug heading")} style={{display: "none"}}>Team De-Bug</h2>
-            <div className={styles.tbd_section}>
-                <div id={toSlug("Team De-Bug")} aria-labelledby={toSlug("Team De-Bug heading")} className={styles.tbd_logo}>
+            <div className={styles.tdb_section}>
+                <div id={toSlug("Team De-Bug")} aria-labelledby={toSlug("Team De-Bug heading")} className={styles.tdb_logo}>
                     <Image src={tdb_logo} alt="Team De-Bug Logo" quality={100} layout={"responsive"}/>
                 </div>
                 <div className={styles.card_container}>
@@ -67,12 +67,12 @@ export const Contact = () => {
                         return <ProfileCard key={index} profileObject={member}/>
                     })}
                 </div>
-                <div className={`${socialStyles.social} ${styles.tbd_social}`}>
+                <div className={`${socialStyles.social} ${styles.tdb_social}`}>
                 <h3>Connect With Us</h3>
-                    <div className={`${socialStyles.icons} ${styles.tbd_icons}`}>
+                    <div className={`${socialStyles.icons} ${styles.tdb_icons}`}>
                         {ContactData.teamDeBug.socials.map((social, index) => {
                             return (
-                                <div key={index} className={`${socialStyles.social_icon} ${styles.tbd_social_icons} ${social.style}`}>
+                                <div key={index} className={`${socialStyles.social_icon} ${styles.tdb_social_icons} ${social.style}`}>
                                     <a href={social.link} target="blank">
                                         <Image src={social.image} alt="instagram link" width={128} height={128}/>
                                     </a>
@@ -80,7 +80,7 @@ export const Contact = () => {
                             )
                         })}
                     </div>
-                    <a className={`${styles.tbd_email} ${Effects.link_hover_effect}`} href={`mailto:${ContactData.teamDeBug.mail}`}>{ContactData.teamDeBug.mail}</a>
+                    <a className={`${styles.tdb_email} ${Effects.link_hover_effect}`} href={`mailto:${ContactData.teamDeBug.mail}`}>{ContactData.teamDeBug.mail}</a>
                 </div>
             </div>
         </Layout>

@@ -9,7 +9,7 @@ import jeyasingh from '../../public/images/profile/jeyasingh.png'
 import IG from '../../public/images/logos/ig_logo.png'
 import FB from '../../public/images/logos/fb_logo.png'
 import YT from '../../public/images/logos/yt_logo.png'
-import TBD from '../../public/images/logos/tbd.png'
+import TDB from '../../public/images/logos/tdb.png'
 import LI from '../../public/images/logos/li_logo.png'
 import GH from '../../public/images/logos/gh_logo.png'
 
@@ -70,7 +70,7 @@ const ContactUs = {
             {
                 name: "Website",
                 link: "https://sites.google.com/view/team-de-bug",
-                image: TBD,
+                image: TDB,
                 style: styles.website
             },
             {
