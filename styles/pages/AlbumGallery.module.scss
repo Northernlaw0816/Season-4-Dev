@@ -5,7 +5,8 @@
 
     .card_container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        margin: 2rem auto;
         gap: 1rem;
 
         @media (max-width: 600px) {
