@@ -46,7 +46,7 @@ const HomeGallery = () => {
                             <h2 id={toSlug(`article ${image.title}`)}>{image.title}</h2>
                             <p>{image.description}</p>
                         </div>
-                        <Link href="/"><a className={styles.read_more_button}>Read More</a></Link>
+                        <Link href="/"><a className={styles.read_more_button} role="link" aria-label={`Mini Gallery ${image.title} Read More Linked Button`}>Read More</a></Link>
                     </>)}
                 </div>
             )

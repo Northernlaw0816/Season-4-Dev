@@ -114,14 +114,14 @@ const NavBar = ({skipTo}: any) => {
     const SkipToContent = () => {
         return(
             <Link href={skipTo}>
-                <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`}>Skip to Main Content</a>
+                <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`} role="link">Skip to Main Content</a>
             </Link>
         )
     }
 
     const FullNav = () => {return(<>
         <nav className={styles.navbar}>
-            <Link href="/"><a aria-label="Nu Topia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
+            <Link href="/"><a aria-label="NuTopia Home" role="link" className={`${styles.nav_button} ${styles.home_button_prt}`}>
                 <svg className={styles.home_button} viewBox="0 0 113 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id={toSlug("Group 1")}>
                         <g className={styles.logo_n}>
