@@ -50,8 +50,8 @@
     }
     
     &:focus-visible {
-      outline: hsl(0, 0%, 0%, 30%) solid 3px;
-      outline-offset: -3px;
+      outline: hsl(0, 0%, 0%, 50%) solid 6px;
+      outline-offset: -6px;
     }
   
     &:active {
