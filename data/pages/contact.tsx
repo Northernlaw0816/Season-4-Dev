@@ -1,7 +1,11 @@
 //stylesheets
 import styles from "../../styles/components/Socials.module.scss"
 //assets
-import placeholder from '../../public/images/profile/placeholder.png'
+import rishi from '../../public/images/profile/rishi.png'
+import shabesa from '../../public/images/profile/shabesa.png'
+import marudhu from '../../public/images/profile/marudhu.png'
+import jeyasingh from '../../public/images/profile/jeyasingh.png'
+
 import IG from '../../public/images/logos/ig_logo.png'
 import FB from '../../public/images/logos/fb_logo.png'
 import YT from '../../public/images/logos/yt_logo.png'
@@ -44,17 +48,22 @@ const ContactUs = {
             {
                 name: "Rishi Menon",
                 role: "Lead Developer",
-                src: placeholder
+                src: rishi
             },
             {
                 name: "Shabesa K. A.",
                 role: "FrontEnd Developer",
-                src: placeholder
+                src: shabesa
             },
             {
                 name: "Marudhu Paandian K.",
                 role: "Advisor",
-                src: placeholder
+                src: marudhu
+            },
+            {
+                name: "Mr. Anand Jeyasingh",
+                role: "Mentor",
+                src: jeyasingh
             }
         ],
         socials: [

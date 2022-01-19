@@ -103,10 +103,10 @@
         }
 
         .card_container {
-            padding: 2rem 10%;
+            padding: 2rem;
             display: grid;
             width: 100%;
-            grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
             gap: 2rem;
             place-items: center;
 
