@@ -9,9 +9,12 @@ const GalleryAlbum = ({album}: any) => {
                 <div className={styles.cover_image}>
                     <Image src={album.images[0].src} alt={album.title} placeholder={"blur"}/>
                 </div>
-                <div className={styles.title}>
+                <div className={styles.title_box}>
                     <h2>{album.title}</h2>
-                    <p>{album.description}</p>
+                    <div className={styles.description}>
+                        <p>{album.description}</p>
+                        <p>{album.images.length} Images</p>
+                    </div>
                 </div>
             </div>
         </a></Link>
