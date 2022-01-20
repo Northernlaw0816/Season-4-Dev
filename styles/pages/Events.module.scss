@@ -6,7 +6,7 @@
     .banner {
         display: grid;
         place-items: center;
-        padding-bottom: clamp(4rem, 4vw, 6rem);
+        padding-bottom: clamp(2rem, 6vw, 6rem);
         user-select: none;
         overflow: hidden;
 
@@ -328,6 +328,19 @@
 
     @media (prefers-color-scheme: dark) {
         --background: hsl(30, 18%, 9%);
+    }
+}
+
+.main_ds {
+    background: var(--background);
+    .banner {
+        background: hsl(260, 67%, 25%);
+        .banner_text {
+            font-family: 'Geostar Fill', monospace;
+            color: white;
+            font-size: clamp(1.5rem, 4vw, 4rem);
+            word-wrap: break-word;
+        }
     }
 }
 
