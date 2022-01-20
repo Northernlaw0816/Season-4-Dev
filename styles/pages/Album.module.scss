@@ -5,6 +5,18 @@
     p {
         font-size: clamp(1rem, 2vw, 2rem);
     }
+
+    .back_button {
+        display: block;
+        position: relative;
+        padding: 1em 2rem;
+        margin: 0.5rem;
+        width: fit-content;
+        background: var(--primary);
+        color: var(--text-white);
+        font-weight: 600;
+        font-size: clamp(0.75rem, 2vw, 1rem);
+    }
     
     .image_grid {
         display: grid;
@@ -22,6 +34,15 @@
             z-index: 0;
 
             cursor: pointer;
+            box-shadow: 0 0 4px 4px transparent;
+
+            transition: transform 100ms, box-shadow 250ms;
+
+            &:hover {
+                transform: scale(1.025);
+                z-index: 1;
+                box-shadow: 0 0 2em 0.5em hsl(0, 0%, 0%, 50%);
+            }
 
             h2 {
                 position: absolute;
