@@ -4,15 +4,13 @@ import Image from "next/image"
 import toSlug from "../../data/toSlug"
 
 //components
+import Layout from "../../components/Layout"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
 import eventStyles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/aov_logo.png'
-import cod from '../../public/images/events/aov_games/cod_logo.png'
-import bgmi from '../../public/images/events/aov_games/bgmi_logo.png'
-import Layout from "../../components/Layout"
 //data
 import ArenaOfValorData from "../../data/pages/events/arena-of-valor"
 
@@ -50,11 +48,32 @@ const ArenaOfValor: NextPage = () => {
                         {ArenaOfValorData.headings.about.description}
                     </p>
                     
-                    <h3 id={toSlug("platform console")}>
+                    {ArenaOfValorData.headings.platforms.map((platform) => {
+                        return (<>
+                            <h3 id={toSlug(`platform ${platform.name}`)}>
+                                {platform.name}
+                            </h3>
+                            <p className={eventStyles.h3_p}>
+                                {platform.description}
+                            </p>
+
+                            {platform.games.map((game) => {
+                                return(<>
+                                    <p className={eventStyles.h3_p}>
+                                        <strong>{game.participants}v{game.participants}</strong> {game.name}
+                                    </p>
+                                    <div className={eventStyles.game_logo}>
+                                        <Image src={game.logo} alt={game.name} placeholder={"blur"}/>
+                                    </div>
+                                </>)
+                            })}
+                        </>)
+                    })}
+
+                    {/* <h3 id={toSlug("platform console")}>
                         Console
                     </h3>
                         <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.console}
                         </p>
                     
                     <h3 id={toSlug("platform mobile")}>
@@ -91,7 +110,7 @@ const ArenaOfValor: NextPage = () => {
                         
                         <p className={eventStyles.h3_p}>
                             {ArenaOfValorData.headings.about.pc[2]}
-                        </p>
+                        </p> */}
                 
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
                     <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.rules}</p> 

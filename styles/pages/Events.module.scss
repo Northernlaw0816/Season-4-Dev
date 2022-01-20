@@ -116,14 +116,13 @@
             text-transform: capitalize;
         }
 
-        .mobile {
-            padding: 1rem;
-            background: hsl(60, 6%, 12%);
+        .game_logo {
             display: grid;
             place-items: center;
-            position: relative;
-            left: 2em;
-            width: calc(100% - 2em);
+            width: calc(80%);
+            padding: 1rem 20%;
+            margin: 0 4rem;
+            background: hsl(60, 6%, 12%);
         }
 
         .register_link_align {
