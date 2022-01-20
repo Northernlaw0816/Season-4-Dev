@@ -1,6 +1,7 @@
 import { NextPage } from "next"
 import Head from "next/head"
-import Link from "next/link"
+import { useRouter } from 'next/router'
+
 //components
 import Layout from "../components/Layout"
 //stylesheets
@@ -8,6 +9,9 @@ import styles from "../styles/pages/404Page.module.scss"
 import Effects from "../styles/Effects.module.scss"
 
 const Custom404: NextPage = () => {
+
+    const router = useRouter()
+
     return (<>
         <Head>
             <title>NuTopia | Home</title>
@@ -19,7 +23,7 @@ const Custom404: NextPage = () => {
                 <h1 id="title">Error 404</h1>
                 <h2 id="content">Page Not Found!</h2>
                 <p>Sorry, but this page does not exist.</p>
-                <Link href="/"><a className={`${styles.go_home} ${Effects.button_hover_effect}`}>Go to Home</a></Link>
+                <div onClick={() => router.back()} className={`${styles.go_home} ${Effects.button_hover_effect}`}>Go Back</div>
             </div>
         </Layout>
     </>)
