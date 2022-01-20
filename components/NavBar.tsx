@@ -69,15 +69,10 @@ const NavBar = ({skipTo}: any) => {
 
         return (<>
             {NavLinks.map((link: any, index: number) => {
-
-                let classes = [styles.nav_button, effects.button_hover_effect]
-
-                router.pathname.startsWith(link.link) && classes.push(styles.active_link)
-
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
                 } else {
-                    return <Link href={link.link} key={index}><a role="link" className={classes.join(" ")}>{link.name}</a></Link>
+                    return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
                 }
             })}
         </>)
@@ -86,27 +81,19 @@ const NavBar = ({skipTo}: any) => {
     const EventsDropdown = () => {
         const [isDropActive, setIsDropActive] = useState(false)
 
-        let classes = [styles.nav_button, effects.button_hover_effect]
-
-        router.pathname.startsWith('/events') && classes.push(styles.active_link)
-
         return (
             <div className={`${styles.nav_button} ${styles.dropdown_container}`} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
                 
-                <Link href="/events"><a role="link" className={classes.join(" ")}>Events</a></Link>
+                <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect} ${router.pathname.startsWith('/events') && styles.active_link}`}>Events</a></Link>
                 
-                {isDropActive && (<div className={styles.dropdown}>
-                    
-                    {EventsList.map((event, index) => {
-                        
-                        let classes = [styles.nav_button, styles.drop_button, effects.button_hover_effect]
-                        router.pathname == event.link && classes.push(styles.active_link)
-
-                        return <Link href={event.link} key={index}><a role="link" className={classes.join(" ")}>{event.title}</a></Link>
-
-                    })}
-
-                </div>)}
+                {isDropActive && (
+                    <div className={styles.dropdown}>
+                        {EventsList.map((event, index) => {
+                            
+                            return <Link href={event.link} key={index}><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect} ${router.pathname == event.link && styles.active_link}`}>{event.title}</a></Link>
+                        })}
+                    </div>
+                )}
             </div>
         )
     }
