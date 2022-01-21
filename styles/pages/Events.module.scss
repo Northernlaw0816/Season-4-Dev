@@ -144,11 +144,48 @@
 }
 
 .main_ko {
+    background: var(--background);
     .banner {
-        z-index: 1;
-        background: hsl(0, 0%, 40%);
+        background: url("../../public/images/events/ko_background_2.png"),
+        url("../../public/images/events/ko_background.png");
+        background-size: 100% 100%;
+        aspect-ratio: 16/8.5;
+        
         display: grid;
-        place-items: center;
+        place-items: end center;
+        padding-bottom: 2rem;
+
+        .logo {
+            width: clamp(100px, 90%, calc(40vw));
+        }
+    }
+
+    .content {
+
+        .tagline {
+            text-align: center;
+        }
+
+        .register_link_align {
+            .register_link {
+                background: linear-gradient(hsl(58, 100%, 40%), hsl(25, 100%, 40%));
+                color: white;
+                font-family: 'Sedgwick Ave Display', cursive;
+                font-size: 1.25rem;
+                letter-spacing: 0.25ch;
+                font-weight: lighter;
+
+                &:hover {
+                    background: hsl(58, 100%, 40%);
+                    color: black;
+                }
+            }
+        }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --background: hsl(240, 70%, 7%);
+        
     }
 }
 
@@ -300,15 +337,15 @@
         place-items: center;
         background:
             radial-gradient(40% 17% at 47% 83%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
-            linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
-            linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%),
+            linear-gradient(hsl(243, 32%, 11%) 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
+            linear-gradient(to top, hsl(243, 31%, 11%) 5%, hsl(243, 31%, 39%) 50%, transparent 50% 100%),
         ;
         @media (max-width: 600px) {
 
             background:
                 radial-gradient(70% 20% at 50% 83%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
                 linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
-                linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%),
+                linear-gradient(to top, hsl(243, 31%, 11%), hsl(243, 31%, 39%) 50%, transparent 50% 100%),
             ;
             .logo {
                 width: 100%;
@@ -327,7 +364,7 @@
     }
 
     @media (prefers-color-scheme: dark) {
-        --background: hsl(30, 18%, 9%);
+        --background: hsl(243, 32%, 11%);
     }
 }
 
@@ -341,6 +378,10 @@
             font-size: clamp(1.5rem, 4vw, 4rem);
             word-wrap: break-word;
         }
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --background: hsl(259, 67%, 11%);    
     }
 }
 

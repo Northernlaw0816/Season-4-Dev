@@ -57,6 +57,17 @@
                 background-blend-mode: darken, normal;
             }
 
+            .ko {
+                background: url("../../public/images/events/ko_background_2.png"),
+                url("../../public/images/events/ko_background.png");
+                background-size: 200% 200%;
+                background-repeat: no-repeat;
+                background-position: 70% 20%;
+                place-items: center end;
+                padding: 0;
+                padding-left: 30%;
+            }
+
             .td {
                 --blur-radius: clamp(0.03125rem, 0.5vw, 0.09rem);
                 --line-width: clamp(0.5rem, 1vw, 1rem);
@@ -73,7 +84,7 @@
                 background: 
                     radial-gradient(90% 20% at 50% 86%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
                     linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
-                    linear-gradient(to top, hsl(41, 12%, 25%) 0 50%, hsl(30, 18%, 9%) 50% 100%);
+                    linear-gradient(to top, hsl(243, 31%, 11%) 5%, hsl(243, 31%, 39%) 50%, transparent 50% 100%),
             }
 
             .otk {

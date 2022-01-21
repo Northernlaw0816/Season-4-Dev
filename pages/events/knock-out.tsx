@@ -9,6 +9,8 @@ import ProfileCard from "../../components/ProfileCard"
 //stylesheet
 import eventStyles from '../../styles/pages/Events.module.scss'
 import Layout from "../../components/Layout"
+//assets
+import logo from '../../public/images/events/ko_logo.png'
 //data
 import KnockOutData from "../../data/pages/events/knock-out"
 
@@ -23,11 +25,7 @@ const KnockOut: NextPage= () => {
             
             <div className={eventStyles.banner}>
                 <div className={eventStyles.logo}>
-                    {/* <Image src={logo} alt="Arena of Valor" quality={100} placeholder={"blur"}/> */}
-                </div>
-
-                <div className={eventStyles.banner_text}>
-                    <h1 id="title">KnockOut</h1>
+                    <Image src={logo} alt="Knock Out" quality={100} placeholder={"blur"} layout={"responsive"}/>
                 </div>
             </div>
 

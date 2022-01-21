@@ -20,13 +20,13 @@ const ArenaOfValor = {
                 games: [
                     {
                         name: "Fortnite",
-                        participants: 2,
+                        participants: 3,
                         logo: cod
                     },
 
                     {
                         name: "Rocket Leagues",
-                        participants: 2,
+                        participants: 3,
                         logo: bgmi
                     }
                 ]
