@@ -10,7 +10,7 @@ import socialStyles from '../styles/components/Socials.module.scss'
 import Effects from "../styles/Effects.module.scss"
 //assets
 import campus from '../public/images/school_campus.jpg'
-import tdb_logo from '../public/images/logos/team_logo_new.png'
+import tdb_logo from '../public/images/logos/team_debug_logo.png'
 //data
 import ContactData from "../data/pages/contact"
 import ProfileCard from "../components/ProfileCard"
