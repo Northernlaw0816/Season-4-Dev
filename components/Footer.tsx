@@ -76,7 +76,7 @@ const Footer = () => {
           
           <div className={styles.separator}></div>
           
-          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TDB} alt="team debug logo" width={24} height={24} /></a>Template by Team De-Bug</div>
+          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TDB} alt="team debug logo" width={24} height={24} /></a>Website by Team De-Bug</div>
         </div>
       </footer>
     )

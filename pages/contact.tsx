@@ -74,13 +74,12 @@ export const Contact = () => {
                             return (
                                 <div key={index} className={`${socialStyles.social_icon} ${styles.tdb_social_icons} ${social.style}`}>
                                     <a href={social.link} target="blank">
-                                        <Image src={social.image} alt="instagram link" width={128} height={128}/>
+                                        <Image src={social.image} alt={social.name} width={128} height={128}/>
                                     </a>
                                 </div>
                             )
                         })}
                     </div>
-                    <a className={`${styles.tdb_email} ${Effects.link_hover_effect}`} href={`mailto:${ContactData.teamDeBug.mail}`}>{ContactData.teamDeBug.mail}</a>
                 </div>
             </div>
         </Layout>

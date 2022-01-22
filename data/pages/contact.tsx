@@ -52,12 +52,12 @@ const ContactUs = {
             },
             {
                 name: "Shabesa K. A.",
-                role: "FrontEnd Developer",
+                role: "Front-End Developer",
                 src: shabesa
             },
             {
                 name: "Marudhu Paandian K.",
-                role: "Advisor",
+                role: "Back-End Developer",
                 src: marudhu
             },
             {
@@ -72,12 +72,6 @@ const ContactUs = {
                 link: "https://sites.google.com/view/team-de-bug",
                 image: TDB,
                 style: styles.website
-            },
-            {
-                name: "LinkedIn",
-                link: "https://www.linkedin.com/company/79782691",
-                image: LI,
-                style: styles.linkedin
             },
             {
                 name: "GitHub",
