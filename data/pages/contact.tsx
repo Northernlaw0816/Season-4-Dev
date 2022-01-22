@@ -72,12 +72,6 @@ const ContactUs = {
                 link: "https://sites.google.com/view/team-de-bug",
                 image: TDB,
                 style: styles.website
-            },
-            {
-                name: "GitHub",
-                link: "https://www.github.com/Team-De-Bug",
-                image: GH,
-                style: styles.github
             }
         ]
     }
