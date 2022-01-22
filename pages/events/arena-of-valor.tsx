@@ -69,48 +69,6 @@ const ArenaOfValor: NextPage = () => {
                             })}
                         </>)
                     })}
-
-                    {/* <h3 id={toSlug("platform console")}>
-                        Console
-                    </h3>
-                        <p className={eventStyles.h3_p}>
-                        </p>
-                    
-                    <h3 id={toSlug("platform mobile")}>
-                        Mobile
-                    </h3>
-                        <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.mobile[0]}
-                        </p>
-                        <div className={eventStyles.mobile}>
-                            <Image src={cod}  alt="Call Of Duty Mobile" width={300} height={233*0.5}/>
-                        </div>
-                        
-                        <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.mobile[1]}
-                        </p>
-                        <div className={eventStyles.mobile}>
-                            <Image src={bgmi} alt="Call Of Duty Mobile" width={300} height={455*0.21}/>
-                        </div>
-                        
-                        <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.mobile[2]}
-                        </p>
-                    
-                    <h3 id={toSlug("platform pc")}>
-                        PC
-                    </h3>
-                        <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.pc[0]}
-                        </p>
-                        
-                        <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.pc[1]}
-                        </p>
-                        
-                        <p className={eventStyles.h3_p}>
-                            {ArenaOfValorData.headings.about.pc[2]}
-                        </p> */}
                 
                 <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
                     <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.rules}</p> 

@@ -40,12 +40,12 @@ const ArenaOfValor = {
                 games: [
                     {
                         name: "Call Of Duty Mobile",
-                        participants: 3,
+                        participants: 2,
                         logo: cod
                     },
                     {
                         name: "Battlegrounds Mobile India",
-                        participants: 3,
+                        participants: 2,
                         logo: bgmi
                     }
                 ]
@@ -76,7 +76,14 @@ const ArenaOfValor = {
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event.includes("Arena of Valor")),
 
-        registration: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
+        registration: <>
+            <p>Students from grades 9 to 12 can register for any ONE platform.</p>
+            <ul>
+                <li>Mobile participants are in teams of TWO</li>
+                <li>Console and PC participants are in teams of THREE</li>
+            </ul>
+            <p>Each of the team member’s names are to be provided at the time of registration.</p>
+        </>
     }
 }
 
