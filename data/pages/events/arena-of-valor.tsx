@@ -76,14 +76,11 @@ const ArenaOfValor = {
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event.includes("Arena of Valor")),
 
-        registration: <>
-            <p>Students from grades 9 to 12 can register for any ONE platform.</p>
-            <ul>
-                <li>Mobile participants are in teams of TWO</li>
-                <li>Console and PC participants are in teams of THREE</li>
-            </ul>
-            <p>Each of the team member’s names are to be provided at the time of registration.</p>
-        </>
+        registration: [
+            "Participants have to reigster as a team.",
+            "Mobile participants have to register in teams of 2.",
+            "Console and PC  participants have to register in teams of 3.",
+        ]
     }
 }
 

@@ -10,7 +10,9 @@ const Designscape = {
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
-        registration: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
+        registration: [
+            "This is a Solo event."
+        ]
     }
 }
 

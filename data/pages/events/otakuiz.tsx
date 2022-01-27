@@ -10,7 +10,9 @@ const Otakuiz = {
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Otakuiz"),
 
-        registration: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?"
+        registration: [
+            "This is a Duo (2 member) event."
+        ]
     }
 }
 
