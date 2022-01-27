@@ -65,7 +65,7 @@ const RegistrationForm = () => {
 		setIsRegistering(true)
 
 		const response = await fetch(
-			`http://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}/mail/register`,
+			`https://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}/mail/register`,
 			{
 				method: 'POST',
 				headers: {
