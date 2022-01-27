@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import { useForm } from "react-hook-form"
-import { getRegistrationsCollection, registerTeam } from "../functions"
-import { query, where, getDocs, QueryDocumentSnapshot, DocumentData } from 'firebase/firestore'
+import anime from "animejs"
+import { registerTeam } from "../functions"
 
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss"
@@ -56,12 +56,16 @@ const RegistrationForm = () => {
 			return el != null
 		})
 
-		const platform = data.platform != undefined ? data.platform : ""
+		let emails = filteredParticipants.map((participant: {name: string, grade:string, email:string}) => {
+			return participant.email
+		})
+
+		const platform = data.platform != undefined ? ` - ${data.platform}` : ""
 
 		setIsRegistering(true)
 
 		const response = await fetch(
-			`http://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}`,
+			`http://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}/mail/register`,
 			{
 				method: 'POST',
 				headers: {
@@ -69,18 +73,17 @@ const RegistrationForm = () => {
 					Authorization: `Token ${process.env.NEXT_PUBLIC_MAILER_API_KEY}`
 				},
 				body : JSON.stringify({
-					recipients: [data.email, /* admin@nutopia.in, info@nutopia.in */],
+					recipients: [...emails, "info@nutopia.in", /* "admin@nutopia.in" */],
 					isTeam: data.teamName ? true : false,
 					teamName: data.teamName ?  data.teamName : "",
 					participants: filteredParticipants,
-					event: data.event + platform
+					event: `${data.event}${platform}`
 				})
 			}
 		).then(response => response.json()).then(data => {return data})
 		
 		if (response.status === 'success') {
 			registerTeam({
-				email: data.email,
 				event: data.event,
 				platform: data.platform ? data.platform : "",
 				teamName: data.teamName ? data.teamName : "",
@@ -129,11 +132,38 @@ const RegistrationForm = () => {
 		participantsLimit < 2 && unregister("participants.1")
 	}, [participantsLimit, unregister])
 
+	useEffect(() => {
+		let timeline = anime.timeline({
+			easing: "linear",
+			direction: "forwards",
+			delay: anime.stagger(200),
+			duration: 1000,
+			loop: true
+		})
+
+		timeline.add({
+			targets: ".throbber_section",
+			keyframes: [
+				{scale: 0},
+				{scale: 1}
+			],
+		})
+	})
+
 	return (
 		<form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)}>
 			{isRegistering && (
 				<div className={styles.disable_form_window}>
 					<h2>Registering...</h2>
+					<div className={styles.throbber}>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+						<div className={`throbber_section ${styles.throbber_section}`}></div>
+					</div>
 				</div>
 			)}
 			<div className={styles.form_title}>
@@ -168,7 +198,7 @@ const RegistrationForm = () => {
 				<h3>Team Details</h3>
 				{showTeamName && <div className={styles.team_input}>
 					<label htmlFor="teamName">Team Name</label>
-					<input type="text" placeholder="Team Name" {...register("teamName", {required: true})}/>
+					<input type="text" placeholder="Team Name" {...register("teamName", {required: true, minLength: 5})}/>
 				</div>}
 				<hr/>
 				<MemberInputs index={0}/>
