@@ -15,6 +15,7 @@ const RegistrationForm = () => {
 	let [showPlatform, setShowPlatform] = useState<boolean>(false)
 	let [showTeamName, setShowTeamName] = useState<boolean>(false)
 	let [isRegistering, setIsRegistering] = useState<boolean>(false)
+	let [isError, setIsError] = useState<boolean>(false)
 
 	const { register, unregister, handleSubmit, reset} = useForm()
 
@@ -93,6 +94,7 @@ const RegistrationForm = () => {
 			setIsRegistering(false)
 			alert("Successfully registered")
 		} else {
+			setIsError(true)
 			console.log(response)
 			alert("Please Try Again. An Error Has Occured.")
 		}
@@ -154,7 +156,9 @@ const RegistrationForm = () => {
 		<form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)}>
 			{isRegistering && (
 				<div className={styles.disable_form_window}>
-					<h2>Registering...</h2>
+					{
+						isError ? <h2>An Error Occured! Please reload and try again</h2> : <h2>Registering...</h2>
+					}
 					<div className={styles.throbber}>
 						<div className={`throbber_section ${styles.throbber_section}`}></div>
 						<div className={`throbber_section ${styles.throbber_section}`}></div>
