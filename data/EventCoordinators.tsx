@@ -10,7 +10,8 @@ import shabesa from "../public/images/profile/shabesa.png"
 import neha from "../public/images/profile/neha.png"
 import aadvika from "../public/images/profile/aadvika.png"
 import akshay from "../public/images/profile/akshay.png"
-import diya from "../public/images/profile/diya.png"
+import mathangi from "../public/images/profile/mathangi.png"
+import diya from "../public/images/profile/diya_2.png"
 
 const EventHeads = [
 	{
@@ -108,7 +109,7 @@ const EventCoordinators = [
 		name: "Mathangi A. R.",
 		event: "Otakuiz",
 		grade: "11",
-		src: placeholder
+		src: mathangi
 	},
 	{
 		name: "Diya Tantia S.",
