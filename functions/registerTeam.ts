@@ -9,7 +9,6 @@ const registerTeam = async (data: any) => {
 		...data,
 		registrationDate: Timestamp.now()
 	})
-	console.log(registration.id)
 }
 
 export default registerTeam
