@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useRef } from "react"
-import toSlug from "../data/toSlug"
+import { toSlug } from "../functions"
 
 //stylehsheet
 import styles from "../styles/pages/Event.module.scss"

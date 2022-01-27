@@ -47,22 +47,22 @@ const ContactUs = {
         profiles: [
             {
                 name: "Rishi Menon",
-                role: "Lead Developer",
+                roles: "Lead Developer",
                 src: rishi
             },
             {
                 name: "Shabesa K. A.",
-                role: "Front-End Developer",
+                roles: ["Front-End Developer", "Audio Director"],
                 src: shabesa
             },
             {
                 name: "Marudhu Paandian K.",
-                role: "Back-End Developer",
+                roles: "Back-End Developer",
                 src: marudhu
             },
             {
                 name: "Mr. Anand Jeyasingh",
-                role: "Mentor",
+                roles: "Mentor",
                 src: jeyasingh
             }
         ],

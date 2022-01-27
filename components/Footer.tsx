@@ -12,7 +12,7 @@ import YuvaSingle from '../public/images/logos/footer_logo_color_single.png'
 import TDB from '../public/images/logos/tdb.png'
 //data
 import NavLinks from '../data/NavLinks'
-import ContactData from '../data/pages/contact'
+import { ContactData } from '../data/pages'
 
 const Footer = () => {
 
@@ -72,7 +72,7 @@ const Footer = () => {
         </div>
 
         <div className={styles.footer_copyright}>
-          <div><span className={styles.copyright}>©</span> Yuvabharathi Public School {date}</div>
+          <div><span className={styles.copyright}>&copy;</span> Yuvabharathi Public School {date}</div>
           
           <div className={styles.separator}></div>
           

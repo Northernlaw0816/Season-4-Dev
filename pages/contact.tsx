@@ -1,9 +1,10 @@
 import Head from "next/head"
 import Image from "next/image"
-import toSlug from "../data/toSlug"
+import { toSlug } from "../functions"
 
 //components
 import Layout from "../components/Layout"
+import ProfileCard from "../components/ProfileCard"
 //stylesheets
 import styles from '../styles/pages/Contact.module.scss'
 import socialStyles from '../styles/components/Socials.module.scss'
@@ -12,15 +13,14 @@ import Effects from "../styles/Effects.module.scss"
 import campus from '../public/images/school_campus.jpg'
 import tdb_logo from '../public/images/logos/team_debug_logo.png'
 //data
-import ContactData from "../data/pages/contact"
-import ProfileCard from "../components/ProfileCard"
+import { ContactData } from '../data/pages'
 
 export const Contact = () => {
     return (<>
         <Head>
             <title>NuTopia | Contact Us</title>
         </Head>
-        <Layout skipTo="#school" additionalClasses={styles.main}>
+        <Layout skipTo="#address" additionalClasses={styles.main}>
             <h1 id="title">Contact Us</h1>
             <div className={styles.layout}>
                 <h2 id="school" className={styles.school_name}>Yuvabharathi Public School</h2>
@@ -28,7 +28,7 @@ export const Contact = () => {
                     <Image src={campus} alt="Yuvabharathi Public School Campus" placeholder={"blur"} layout={"responsive"}/>
                 </div>
                 <div className={`${styles.contact_section} ${styles.addr}`}>
-                    <h2>Address</h2>
+                    <h2 id="address">Address</h2>
                     <p>{ContactData.contacts.address}</p>
                 </div>
                 <div className={`${styles.contact_section} ${styles.email}`}>

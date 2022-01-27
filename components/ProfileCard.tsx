@@ -1,12 +1,12 @@
 import Image from "next/image"
-import toSlug from "../data/toSlug"
+import { toSlug } from "../functions"
 
 //stylesheets
 import styles from "../styles/components/ProfileCard.module.scss"
 
 const ProfileCard = ({profileObject}: any) => {
 
-    const {name, role, event, src} = profileObject
+    const {name, roles, event, src} = profileObject
 
     return (
         <div className={styles.profile_card}>
@@ -19,8 +19,11 @@ const ProfileCard = ({profileObject}: any) => {
                     {event && <span className={styles.info}>
                         <h3 id={toSlug(`profile ${event}`)}>Event</h3><p>{event}</p>
                     </span>}
-                    {role && <span className={styles.info}>
-                        <h3 style={{display: "none"}} id={toSlug(`profile ${role}`)}>Role</h3><p>{role}</p>
+                    {roles && <span className={styles.info}>
+                        <h3 style={{display: "none"}} id={toSlug("profile role")}>Role</h3>
+                        {roles.map((role: string, index: number) => {
+                            return <p key={index}>{role}</p>
+                        })}
                     </span>}
                 </div>
             </div>

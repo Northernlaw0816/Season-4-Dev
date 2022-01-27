@@ -1,5 +1,5 @@
 import Head from "next/head"
-import toSlug from "../data/toSlug"
+import { toSlug } from "../functions"
 
 //components
 import Layout from "../components/Layout"
@@ -8,7 +8,7 @@ import ProfileCard from "../components/ProfileCard"
 import styles from "../styles/pages/About.module.scss"
 //data
 import {EventCoordinators, EventHeads} from "../data/EventCoordinators"
-import AboutData from "../data/pages/about"
+import { AboutData } from "../data/pages"
 
 const About = () => {
     return (<>

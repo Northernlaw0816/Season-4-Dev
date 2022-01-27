@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import toSlug from '../data/toSlug'
+import { toSlug } from '../functions'
 
 //stylesheets
 import styles from '../styles/components/Navbar.module.scss'

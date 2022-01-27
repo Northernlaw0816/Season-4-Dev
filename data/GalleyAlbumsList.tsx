@@ -14,38 +14,38 @@ const GalleyAlbumsList = [
         images: [
             {
                 src: conference_1,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
+                name: "Conference Hall 1",
+                date: new Date(2022, 0, 7).toDateString()
             },
             {
                 src: conference_2,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
+                name: "Conference Hall 2",
+                date: new Date(2022, 0, 7).toDateString()
             },
             {
                 src: conference_3,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
+                name: "Conference Hall 3",
+                date: new Date(2022, 0, 7).toDateString()
             },
             {
                 src: conference_4,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
-            },
-            {
-                src: conference_5,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
+                name: "Conference Hall 4",
+                date: new Date(2022, 0, 7).toDateString()
             },
             {
                 src: conference_6,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
+                name: "Conference Hall 5",
+                date: new Date(2022, 0, 7).toDateString()
+            },
+            {
+                src: conference_5,
+                name: "Dev Group 1",
+                date: new Date(2022, 0, 7).toDateString()
             },
             {
                 src: conference_7,
-                name: "Team De-Bug",
-                date: new Date().toUTCString()
+                name: "Dev Group 2",
+                date: new Date(2022, 0, 7).toDateString()
             }
         ],
     }

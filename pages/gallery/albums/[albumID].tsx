@@ -3,7 +3,7 @@ import { useRouter } from "next/router"
 import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import toSlug from "../../../data/toSlug"
+import { toSlug } from "../../../functions"
 
 //components
 import Layout from "../../../components/Layout"
@@ -18,14 +18,12 @@ const ImagePost = () => {
     const { albumID } = router.query
     let album:any = GalleyAlbumsList.find(imageobject => imageobject.id.toString() === albumID)
 
-    const [expandedImage, setExpandedImage] = useState<any>()
     const [isExpanded, setIsExpanded] = useState<boolean>(false)
     const [showImage, setShowImage] = useState<boolean>(false)
     const [currentIndex, setCurrentIndex] = useState<number>(0)
 
     const expandImage = (image: any, index: number) => {
         setCurrentIndex(index)
-        setExpandedImage(image)
         setIsExpanded(true)
         setTimeout(() => {
             setShowImage(true)
@@ -35,10 +33,8 @@ const ImagePost = () => {
     const nextImage = () => {
         
         if (album && currentIndex != (album?.images.length -1)) {
-            setExpandedImage(album.images[currentIndex + 1].src)
             setCurrentIndex(currentIndex + 1)
         } else {
-            setExpandedImage(album.images[0].src)
             setCurrentIndex(0)
         }
     }
@@ -46,10 +42,8 @@ const ImagePost = () => {
     const prevImage = () => {
 
         if (album && currentIndex != 0) {
-            setExpandedImage(album.images[currentIndex - 1].src)
             setCurrentIndex(currentIndex - 1)
         } else {
-            setExpandedImage(album.images[album.images.length - 1].src)
             setCurrentIndex(album.images.length - 1)
         }
     }
@@ -91,18 +85,20 @@ const ImagePost = () => {
                     </div>)
                 })}
             </div>
-            {
-                isExpanded && <div className={styles.expanded_image_container}>
+            {isExpanded && (
+                <div className={styles.expanded_image_container}>
                     <div className={styles.prev_button}  onClick={() => prevImage()} tabIndex={1}></div>
                     <div className={`${styles.expanded_image} ${showImage && styles.show}`}>
-                        {expandedImage ? <>
+                        {album.images[currentIndex].src ? <>
                             <div className={styles.close_button} onClick={() => closeExpandedImage()} tabIndex={1}>X</div>
-                            <Image src={expandedImage} alt={`Expanded Image: ${album.images[currentIndex].name}`} placeholder={"blur"}/>
+                            <Image src={album.images[currentIndex].src} alt={`Expanded Image: ${album.images[currentIndex].name}`} placeholder={"blur"}/>
                         </>: <h2>Image Not Found</h2>}
+                        <div className={styles.date}>{album.images[currentIndex].date}</div>
+                        <div className={styles.index}>{currentIndex + 1} / {album.images.length}</div>
                     </div>
                     <div className={styles.next_button} onClick={() => nextImage()} tabIndex={1}></div>
                 </div>
-            }
+            )}
         </Layout>
     </>
 }

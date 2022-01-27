@@ -7,6 +7,8 @@ import HomeBanner from '../components/HomeBanner'
 import HomeGallery from '../components/HomeGallery'
 //stylesheets
 import styles from '../styles/pages/Home.module.scss'
+//data
+import { AboutData } from '../data/pages'
 
 const Home: NextPage = () => {
   return (
@@ -17,7 +19,13 @@ const Home: NextPage = () => {
 
       <Layout skipTo="#content" overrideClasses={styles.main}>
         <HomeBanner/>
-        <HomeGallery/>
+        {/* <HomeGallery/> */}
+        <div>
+          {/* Trailer */}
+          <h1>Welcome to NuTopia</h1>
+          {/* content */}
+          {/* event updates */}
+        </div>
       </Layout>
     </>
   )

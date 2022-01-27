@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import toSlug from '../data/toSlug'
+import { toSlug } from '../functions'
 
 //stylesheets
 import styles from '../styles/components/HomeGallery.module.scss'
