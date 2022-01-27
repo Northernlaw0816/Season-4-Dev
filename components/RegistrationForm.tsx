@@ -19,6 +19,15 @@ const RegistrationForm = () => {
 
 	const { register, unregister, handleSubmit, reset} = useForm()
 
+	const resetFields = () => {
+		reset()
+		setParticipantsLimit(1)
+		setShowPlatform(false)
+		unregister("platform")
+		setShowTeamName(false)
+		unregister("teamName")
+	}
+
 
 	const handleEventValue = (event: any) => {
 		switch (event.target.value) {
@@ -90,7 +99,7 @@ const RegistrationForm = () => {
 				teamName: data.teamName ? data.teamName : "",
 				participants: filteredParticipants
 			})
-			reset()
+			resetFields()
 			setIsRegistering(false)
 			alert("Successfully registered")
 		} else {
