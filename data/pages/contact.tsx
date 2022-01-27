@@ -47,7 +47,7 @@ const ContactUs = {
         profiles: [
             {
                 name: "Rishi Menon",
-                roles: "Lead Developer",
+                roles: ["Lead Developer"],
                 src: rishi
             },
             {
@@ -57,12 +57,12 @@ const ContactUs = {
             },
             {
                 name: "Marudhu Paandian K.",
-                roles: "Back-End Developer",
+                roles: ["Back-End Developer"],
                 src: marudhu
             },
             {
                 name: "Mr. Anand Jeyasingh",
-                roles: "Mentor",
+                roles: ["Mentor"],
                 src: jeyasingh
             }
         ],
