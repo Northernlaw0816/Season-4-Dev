@@ -1,6 +1,6 @@
-import placeholder from "../public/images/profile/placeholder.png"
 import sidharth from "../public/images/profile/sidharth.png"
 import shakti from "../public/images/profile/shakti.png"
+import ananya from "../public/images/profile/ananya.png"
 import samer from "../public/images/profile/samer.png"
 import sanjaySR from "../public/images/profile/sanjay_sr.png"
 import sanjayAR from "../public/images/profile/sanjay_ar.png"
@@ -10,8 +10,10 @@ import shabesa from "../public/images/profile/shabesa.png"
 import neha from "../public/images/profile/neha.png"
 import aadvika from "../public/images/profile/aadvika.png"
 import akshay from "../public/images/profile/akshay.png"
+import rohit from "../public/images/profile/rohit.png"
 import mathangi from "../public/images/profile/mathangi.png"
-import diya from "../public/images/profile/diya_2.png"
+import diya from "../public/images/profile/diya.png"
+import diya2 from "../public/images/profile/diya_2.png"
 
 const EventHeads = [
 	{
@@ -43,7 +45,7 @@ const EventCoordinators = [
 		name: "Ananya Bansal",
 		event: "Arena of Valor - PC",
 		grade: "11",
-		src: placeholder
+		src: ananya
 	},
 	{
 		name: "Samer Rahmaan R.",
@@ -97,7 +99,7 @@ const EventCoordinators = [
 		name: "Rohit Kanna S.",
 		event: "Designscape",
 		grade: "1",
-		src: placeholder
+		src: rohit
 	},
 	{
 		name: "Akshay Balaji S.",
