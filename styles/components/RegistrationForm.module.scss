@@ -47,6 +47,21 @@
 		}
 	}
 
+	.error {
+		display: grid;
+		padding: 0.5rem 0;
+		padding-left: 1rem;
+		background-color: hsl(10, 0%, 0%);
+		border-radius: 1ch;
+		color: hsl(0, 100%, 60%);
+		text-decoration: underline;
+		text-underline-offset: 0.25ch;
+
+		p {
+			margin: 0;
+		}
+	}
+
 	.disable_form_window {
 		position: absolute;
 		inset: 0;
@@ -155,6 +170,11 @@
 		.member_input {
 			display: grid;
 			grid-template-columns: max-content  2fr max-content auto;
+			
+			.member_error {
+				grid-row: 3;
+				grid-column: span 4;
+			}
 		}
 
 		.team_input, .member_input {
@@ -172,6 +192,11 @@
 			.member_input {
 				grid-template-columns: max-content auto;
 				grid-auto-flow: row;
+
+				.member_error {
+					grid-row: 4;
+					grid-column: span 2;
+				}
 			}
 		}
 

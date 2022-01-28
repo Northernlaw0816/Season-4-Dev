@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react"
-import { useForm } from "react-hook-form"
+import { useState, useEffect} from "react"
+import { useForm, UseFormRegister } from "react-hook-form"
 import anime from "animejs"
 import { registerTeam } from "../functions"
 
@@ -9,6 +9,87 @@ import styles from "../styles/components/RegistrationForm.module.scss"
 import EventsList from "../data/EventsList"
 import { toSlug } from "../functions"
 
+const MemberInputs = ({index, register, errors}: {index: number, register: UseFormRegister<any>, errors:any}) => {
+
+	const [memberError, setMemberError] = useState<string>("")
+
+	const onChangeHandler = () => {
+		let message = ""
+		setTimeout(() => {
+			if (errors.participants && errors.participants[index]) {
+				const fieldGroup = errors.participants[index]
+				for(let [field] of Object.entries(fieldGroup)) {
+					message = fieldGroup[field].message
+					// console.log(
+					// 	`Inside For Loop: ${fieldGroup[field].message}\nVar Inside For Loop: ${message}`
+					// )
+				}
+			}
+			setMemberError(message)
+		}, 100)
+		// console.log(`Afrer set state: ${memberError}`)
+	}
+
+	return (
+		<div className={styles.member_input}>
+			<label htmlFor={`participant.${index}.name`}>Team Member {index + 1}</label>
+			<input
+				type="text"
+				placeholder="Name"
+				autoComplete="name"
+				{...register("participants."+index+".name", {
+					required: `Team Member ${index+1}'s Name Is Required`,
+					onChange: onChangeHandler,
+					minLength: {
+						value: 3,
+						message: `Team Member ${index+1}'s Name Must Be At Least 3 Characters`
+					}
+				})}
+			/>
+
+			<label htmlFor={`participants.${index}.grade`}>Grade</label>
+			<input
+				type="text"
+				placeholder="Grade"
+				autoComplete="grade"
+				{...register("participants."+index+".grade", {
+					required: "Grade Is Required",
+					onChange: onChangeHandler,
+					pattern: {
+						value: /^([1,2]{2}\s*[A-B]\s*[1,2]|([9]|10)\s*[A-E])$/i,
+						message: "Enter A Valid Grade"
+					}
+				})}
+			/>
+
+			<label htmlFor="email">E-Mail Address</label>
+			<input
+				type="email"
+				placeholder="yourname@example.com"
+				autoComplete="email"
+				{...register("participants."+index+".email", {
+					required: "Email Is Required",
+					onChange: onChangeHandler,
+					minLength: {
+						value: 5,
+						message: "Email Must Be At Least 5 Characters"
+					},
+					pattern: {
+						value: /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/,
+						message: `Enter A Valid Email`
+					}
+				})}
+			/>
+
+			{memberError !== "" && (
+				<div className={`${styles.error} ${styles.member_error}`}>
+					<p>{memberError}</p>
+				</div>
+			)}
+		</div>
+	)
+}
+
 const RegistrationForm = () => {
 
 	let [participantsLimit, setParticipantsLimit] = useState<number>(1)
@@ -17,7 +98,32 @@ const RegistrationForm = () => {
 	let [isRegistering, setIsRegistering] = useState<boolean>(false)
 	let [isError, setIsError] = useState<boolean>(false)
 
-	const { register, unregister, handleSubmit, reset} = useForm()
+	const { register, unregister, handleSubmit, reset, formState: {errors}} = useForm<{
+		event: string,
+		platform: string,
+		teamName: string,
+		participants: {
+			name: string,
+			grade: string,
+			email: string
+		}[]
+	}>({
+		mode: 'onChange',
+		reValidateMode: 'onChange',
+		defaultValues: {
+			event: "default-value",
+			platform: "default-value",
+			teamName: "",
+			participants: [
+				{
+					name: "",
+					grade: "",
+					email: ""
+				}
+			]
+
+		}
+	})
 
 	const resetFields = () => {
 		reset()
@@ -109,35 +215,6 @@ const RegistrationForm = () => {
 		}
 	}
 
-	const MemberInputs = ({index}: {index: number}) => {
-		return (
-			<div className={styles.member_input}>
-				<label htmlFor={`participant.${index}.name`}>Team Member {index + 1}</label>
-				<input
-					type="text"
-					placeholder="Name"
-					autoComplete="name"
-					{...register(`participants.${index}.name`, {required: true})}
-				/>
-
-				<label htmlFor={`participants.${index}.grade`}>Grade</label>
-				<input
-					type="text"
-					placeholder="Grade"
-					{...register(`participants.${index}.grade`, {required: true})}
-				/>
-
-				<label htmlFor="email">E-Mail Address</label>
-				<input
-					type="email"
-					placeholder="yourname@example.com"
-					autoComplete="email"
-					{...register(`participants.${index}.email`, {required: true})}
-				/>
-			</div>
-		)
-	}
-
 	useEffect(() => {
 		participantsLimit < 3 && unregister("participants.2")
 		participantsLimit < 2 && unregister("participants.1")
@@ -198,7 +275,7 @@ const RegistrationForm = () => {
 
 				{showPlatform && <div className={styles.platform_input}>
 						<label>Platform</label>
-						<select disabled={!showPlatform} {...register("platform", {required: true, validate: value => value !== "default-value"})}>
+						<select disabled={!showPlatform} {...register("platform", {required: true, shouldUnregister: true, validate: value => value !== "default-value"})}>
 							<option value="default-value">Select a Platform</option>
 							<option value="Console">Console</option>
 							<option value="Mobile">Mobile</option>
@@ -209,19 +286,27 @@ const RegistrationForm = () => {
 
 			<div className={styles.team_fields}>
 				<h3>Team Details</h3>
-				{showTeamName && <div className={styles.team_input}>
-					<label htmlFor="teamName">Team Name</label>
-					<input type="text" placeholder="Team Name" {...register("teamName", {required: true, minLength: 5})}/>
-				</div>}
+				{showTeamName &&(<>
+					<div className={styles.team_input}>
+						<label htmlFor="teamName">Team Name</label>
+						<input type="text" placeholder="Team Name" {...register("teamName", {required: "Team Name Is Required", minLength: {value: 5, message: "Team Name Needs To Be Atleast 5 Characters."}, shouldUnregister: true})}/>
+					</div>
+					{errors.teamName && (
+						<span className={styles.error}>
+							<p>{errors.teamName.message}</p>
+						</span>
+					)}
+				</>)
+				}
 				<hr/>
-				<MemberInputs index={0}/>
+				<MemberInputs index={0} register={register} errors={errors}/>
 				{
 					participantsLimit > 1 && (<>
 						<hr/>
-						<MemberInputs index={1}/>
+						<MemberInputs index={1} register={register} errors={errors}/>
 						{participantsLimit > 2 && (<>
 							<hr/>
-							<MemberInputs index={2}/>
+							<MemberInputs index={2} register={register} errors={errors}/>
 						</>)}
 					</>)
 				}
