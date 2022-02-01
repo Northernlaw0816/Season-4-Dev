@@ -1,6 +1,6 @@
 .spacer {
   color: var(--text-white);
-  font-family: 'Coda Caption', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Coda Caption', Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
   font-size: clamp(1rem,  3vw, 1.5rem);
   font-weight: 500;
   text-transform: uppercase;
@@ -74,6 +74,7 @@
   grid-template-columns: auto 5fr repeat(5, 1fr);
   place-items: center;
   height: fit-content;
+  max-height: 3.5rem;
   background: var(--inactive);
   box-shadow: 0 4px 8px hsl(0, 0%, 0%, 30%);
 
@@ -175,7 +176,7 @@
 
   .ham_menu {
     min-height: 3rem;
-    width: 100%;
+    max-width: 3rem;
     aspect-ratio: 1;
     padding: 0.5rem;
     grid-area: menu;
