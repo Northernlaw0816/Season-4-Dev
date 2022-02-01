@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react"
 import { useForm, UseFormRegister } from "react-hook-form"
+// import { DevTool } from "@hookform/devtools"
 import anime from "animejs"
 import { registerTeam } from "../functions"
 
@@ -32,11 +33,12 @@ const MemberInputs = ({index, register, errors}: {index: number, register: UseFo
 
 	return (
 		<div className={styles.member_input}>
-			<label htmlFor={`participant.${index}.name`}>Team Member {index + 1}</label>
+			<label htmlFor={"participants."+index+".name"}>Team Member {index + 1}</label>
 			<input
 				type="text"
 				placeholder="Name"
-				autoComplete="name"
+				id={"participants."+index+".name"}
+				className={errors.participants && errors.participants[index] && errors.participants[index].name?.message && styles.error_field}
 				{...register("participants."+index+".name", {
 					required: `Team Member ${index+1}'s Name Is Required`,
 					onChange: onChangeHandler,
@@ -47,14 +49,15 @@ const MemberInputs = ({index, register, errors}: {index: number, register: UseFo
 				})}
 			/>
 
-			<label htmlFor={`participants.${index}.grade`}>Grade</label>
+			<label htmlFor={"participants."+index+".grade"}>Grade</label>
 			<input
 				type="text"
 				placeholder="Grade"
-				autoComplete="grade"
+				id={"participants."+index+".grade"}
+				className={errors.participants && errors.participants[index] && errors.participants[index].grade?.message && styles.error_field}
 				{...register("participants."+index+".grade", {
 					required: "Grade Is Required",
-					onChange: onChangeHandler,
+					onChange:  onChangeHandler,
 					pattern: {
 						value: /^([1,2]{2}\s*[A-B]\s*[1,2]|([9]|10)\s*[A-E])$/i,
 						message: "Enter A Valid Grade"
@@ -62,11 +65,12 @@ const MemberInputs = ({index, register, errors}: {index: number, register: UseFo
 				})}
 			/>
 
-			<label htmlFor="email">E-Mail Address</label>
+			<label htmlFor={"participants."+index+".email"}>E-Mail Address</label>
 			<input
 				type="email"
 				placeholder="yourname@example.com"
-				autoComplete="email"
+				id={"participants."+index+".grade"}
+				className={errors.participants && errors.participants[index] && errors.participants[index].email?.message && styles.error_field}
 				{...register("participants."+index+".email", {
 					required: "Email Is Required",
 					onChange: onChangeHandler,
@@ -98,7 +102,7 @@ const RegistrationForm = () => {
 	let [isRegistering, setIsRegistering] = useState<boolean>(false)
 	let [isError, setIsError] = useState<boolean>(false)
 
-	const { register, unregister, handleSubmit, reset, formState: {errors}} = useForm<{
+	const { register, unregister, handleSubmit, reset, formState: {errors}, control} = useForm<{
 		event: string,
 		platform: string,
 		teamName: string,
@@ -315,6 +319,7 @@ const RegistrationForm = () => {
 			<div className={styles.submit}>
 				<input type="submit" value="Register"/>
 			</div>
+			{/* <DevTool control={control}/> */}
 		</form>
 	)
 }

@@ -175,6 +175,24 @@
 				grid-row: 3;
 				grid-column: span 4;
 			}
+
+			.error_field {
+				color: red;
+				outline: red 3px solid;
+				background: black;
+
+				&::placeholder {
+					color: red;
+				}
+
+				&:hover, &:focus-visible {
+					background: white;
+					color: black;
+					&::placeholder {
+						color: var(--text-white);
+					}
+				}
+			}
 		}
 
 		.team_input, .member_input {
