@@ -195,13 +195,13 @@ const Designscape: NextPage= () => {
             </div>
             
             <div className={eventStyles.content}>
-                <h2 id="tagline" className={eventStyles.tagline}>Grab the Clutch and Feel the Power</h2>
+                <h2 id="tagline" className={eventStyles.tagline}>{DesignscapeData.tagline}</h2>
                 
                 <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={eventStyles.h2_p}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
+                    <p className={eventStyles.h2_p}>{DesignscapeData.headings.about}</p> 
                 
-                <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
-                    <p className={eventStyles.h2_p}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p> 
+                <h2 id="rules" className={eventStyles.subheading}>Guidelines</h2>
+                    <p className={eventStyles.h2_p}>{DesignscapeData.headings.rules}</p> 
                 
                 <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
                 <div className={eventStyles.card_container}>
@@ -211,7 +211,7 @@ const Designscape: NextPage= () => {
                     </div> 
                 
                 <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
-                    <p className={eventStyles.h2_p}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?</p>
+                    <p className={eventStyles.h2_p}>{DesignscapeData.headings.registration}</p>
                 
                 <EventsRegisterButton/>
             </div>
