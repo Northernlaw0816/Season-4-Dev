@@ -5,7 +5,7 @@ import Head from "next/head"
 import Layout from "../../components/Layout"
 import EventCard from "../../components/EventCard"
 //stylesheets
-import eventStyles from '../../styles/pages/Event.module.scss'
+import styles from '../../styles/pages/Event.module.scss'
 //data
 import EventsData from '../../data/EventsList'
 
@@ -16,10 +16,10 @@ const Events: NextPage = () => {
             <meta name="description" content="NuTopia Events" />
         </Head>
 
-        <Layout skipTo="#title" overrideClasses={eventStyles.main}>
+        <Layout skipTo="#title" overrideClasses={styles.main}>
             <h1 id="title">Events</h1>
             
-            <div className={eventStyles.cards_container}>
+            <div className={styles.cards_container}>
                 {EventsData.map(({title, description, date, venue, time, grades, link, image, accent, selector}, index) => {
                     return(
                         <EventCard
