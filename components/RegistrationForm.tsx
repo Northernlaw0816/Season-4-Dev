@@ -20,7 +20,7 @@ const RegistrationForm = ({event}: any) => {
 	let [showTeamName, setShowTeamName] = useState<boolean>(false)
 	let [showGame, setShowGame] = useState<boolean>(false)
 	let [isRegistering, setIsRegistering] = useState<boolean>(false)
-	let [isError, setIsError] = useState<{state:boolean, message:string}>({state: true, message: ""})
+	let [isError, setIsError] = useState<{state:boolean, message:string}>({state: false, message: ""})
 	let [defaultEvent, setDefaultEvent] = useState<string>(event)
 	let [registrations, setRegistrations] = useState<QueryDocumentSnapshot<DocumentData>[]>([])
 
@@ -144,7 +144,7 @@ const RegistrationForm = ({event}: any) => {
 		// loop through the list and check for duplicate teamName
 		registrations.map((registartion: QueryDocumentSnapshot<DocumentData>) => {
 			if (currentTeamName === registartion.get("teamName")) {
-				setError("teamName", {type: "existing", message: "Team Name already exists."}, {shouldFocus: true})
+				setError("teamName", {type: "existing", message: "Team Name already exists."})
 			} else {
 				clearErrors("teamName")
 			}
@@ -190,7 +190,7 @@ const RegistrationForm = ({event}: any) => {
 		})
 
 		//loop through the array and check if the emails are already registered
-		eventMatchedDocs.map((doc: QueryDocumentSnapshot<DocumentData>) => {
+		registrations.length > 0 && eventMatchedDocs.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 			const participants = doc.get("participants")
 			participants.forEach((participant: any) => {
 				if (emails.includes(participant.email) && grades.includes(participant.grade)) {
@@ -225,7 +225,7 @@ const RegistrationForm = ({event}: any) => {
 			})
 
 			//loop through the array and check if the emails are registered for ds and lab
-			registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
+			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 				const participants = doc.get("participants")
 				participants.forEach((participant: any) => {
 					if (emails.includes(participant.email) && grades.includes(participant.grade)) {
@@ -254,7 +254,7 @@ const RegistrationForm = ({event}: any) => {
 			})
 		
 			//loop through the array and check if the emails are registered for otakuiz
-			registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
+			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 				const participants = doc.get("participants")
 				participants.forEach((participant: any) => {
 					if (emails.includes(participant.email) && grades.includes(participant.grade)) {
@@ -286,7 +286,7 @@ const RegistrationForm = ({event}: any) => {
 			})
 
 			// loop through the array and check if the emails are registered for other events
-			registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
+			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 				if (doc.get("event") != "arena-of-valor") {
 					const participants = doc.get("participants")
 					participants.forEach((participant: any) => {
@@ -318,7 +318,7 @@ const RegistrationForm = ({event}: any) => {
 			})
 
 			// loop through registrations and check if the participants are registered for the same platform
-			registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
+			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 				const participants = doc.get("participants")
 				if (data.platform === doc.get("platform")) {
 					participants.forEach((participant: any) => {
