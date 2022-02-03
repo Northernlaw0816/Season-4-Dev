@@ -156,7 +156,7 @@ const RegistrationForm = ({event}: any) => {
 	const onSubmit = async (data: FormFields) => {
 		// filter participants that have empty fields
 		let filteredParticipants = data.participants.filter((el:any) => {
-			el.grade = el.grade.replace(' ', '').toUpperCase()
+			el.grade = el.grade.replaceAll(' ', '').toUpperCase()
 			return el != null
 		})
 
@@ -166,7 +166,7 @@ const RegistrationForm = ({event}: any) => {
 		})
 
 		// make sure the platform sent in the email is not undefined or default value
-		let platform: string | undefined = data.platform === undefined || "default-value" ? "" : ` - ${data.platform?.replace('-', ' ').toLowerCase()}`
+		let platform: string | undefined = data.platform === undefined || "default-value" ? "" : ` - ${data.platform?.replaceAll('-', ' ').toLowerCase()}`
 
 		// set registration status
 		setIsRegistering(true)
@@ -184,7 +184,7 @@ const RegistrationForm = ({event}: any) => {
 					},
 					body : JSON.stringify({
 						recipients: [...emails, "info@nutopia.in"],
-						event: `${data.event.replace('-', ' ').toUpperCase()}${platform}`,
+						event: `${data.event.replaceAll('-', ' ').toUpperCase()}${platform}`,
 						isTeam: data.teamName ? true : false,
 						teamName: data.teamName ?  data.teamName : "",
 						participants: filteredParticipants,
@@ -343,14 +343,14 @@ const RegistrationForm = ({event}: any) => {
 				<hr/>
 				
 				{ participantsLimit > 0 ? (<>
-					<ParticipantFields index={0} register={register} errors={errors}/>
+					<ParticipantFields index={0} register={register} form={{errors, getValues, setError}} participantsLimit={participantsLimit}/>
 					{
 						participantsLimit > 1 && (<>
 							<hr/>
-							<ParticipantFields index={1} register={register} errors={errors}/>
+							<ParticipantFields index={1} register={register} form={{errors, getValues, setError}} participantsLimit={participantsLimit}/>
 							{participantsLimit > 2 && (<>
 								<hr/>
-								<ParticipantFields index={2} register={register} errors={errors}/>
+								<ParticipantFields index={2} register={register} form={{errors, getValues, setError}} participantsLimit={participantsLimit}/>
 							</>)}
 						</>)
 					}

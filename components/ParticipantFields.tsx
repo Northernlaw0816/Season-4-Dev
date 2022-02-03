@@ -4,12 +4,25 @@ import { UseFormRegister } from "react-hook-form"
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss"
 
-const ParticipantFields = ({index, register, errors}: {index: number, register: UseFormRegister<any>, errors:any}) => {
+const ParticipantFields = ({index, register, form: {errors, getValues, setError}, participantsLimit}: {index: number, register: UseFormRegister<any>, form: {errors: any, getValues: any, setError: any}, participantsLimit: number}) => {
 
 	const [memberError, setMemberError] = useState<string>("")
 
 	const onChangeHandler = () => {
 		let message = ""
+
+		let emails: string[] = []
+		getValues("participants").forEach((participant: any) => {
+			emails.push(participant.email)
+		})
+		
+
+		if ((emails[0] === emails[1] || emails[0] === emails[2] || emails[1] === emails[2]) && (emails[0] !== "" && emails[1] !== "" && emails[2] !== "") && (participantsLimit > 1)) {
+			message = "Participants can't have the same email"
+			setError(`participants.${index}.email`, {type: "validate", message: message})
+		}
+
+
 		setTimeout(() => {
 			if (errors.participants && errors.participants[index]) {
 				const fieldGroup = errors.participants[index]
@@ -45,7 +58,7 @@ const ParticipantFields = ({index, register, errors}: {index: number, register: 
 			<label htmlFor={"participants."+index+".grade"}>Grade and Section</label>
 			<input
 				type="text"
-				placeholder="e.g. 11 A2"
+				placeholder="e.g: 11 A2"
 				id={"participants."+index+".grade"}
 				className={errors.participants && errors.participants[index] && errors.participants[index].grade?.message && styles.error_field}
 				{...register("participants."+index+".grade", {
@@ -53,7 +66,7 @@ const ParticipantFields = ({index, register, errors}: {index: number, register: 
 					onChange:  onChangeHandler,
 					shouldUnregister: true,
 					pattern: {
-						value: /^([1,2]{2}\s*[A-B]\s*[1,2]|([9]|10)\s*[A-E])$/i,
+						value: /^((11|12)\s*[A-B]\s*[1,2]|([9]|10)\s*[A-E])$/i,
 						message: "Enter A Valid Grade"
 					}
 				})}
