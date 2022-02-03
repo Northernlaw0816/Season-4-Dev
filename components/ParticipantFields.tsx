@@ -42,10 +42,10 @@ const ParticipantFields = ({index, register, errors}: {index: number, register: 
 				})}
 			/>
 
-			<label htmlFor={"participants."+index+".grade"}>Grade</label>
+			<label htmlFor={"participants."+index+".grade"}>Grade and Section</label>
 			<input
 				type="text"
-				placeholder="Grade"
+				placeholder="e.g. 11 A2"
 				id={"participants."+index+".grade"}
 				className={errors.participants && errors.participants[index] && errors.participants[index].grade?.message && styles.error_field}
 				{...register("participants."+index+".grade", {

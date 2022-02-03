@@ -1,7 +1,7 @@
 import { useState, useEffect} from "react"
 import { useForm } from "react-hook-form"
 import anime from "animejs"
-import { getRegistrationsCollection, registerTeam } from "../functions"
+import { getRegistrationsCollection, registerTeam, validateFields } from "../functions"
 import { FormFields } from "../functions/interface"
 import { toSlug } from "../functions"
 
@@ -13,6 +13,7 @@ import Effects from "../styles/Effects.module.scss"
 //data
 import EventsList from "../data/EventsList"
 import {  DocumentData, getDocs, query, QueryDocumentSnapshot, where } from "firebase/firestore"
+import { useRouter } from "next/router"
 
 const RegistrationForm = ({event}: any) => {
 	let [participantsLimit, setParticipantsLimit] = useState<number>(0)
@@ -20,7 +21,8 @@ const RegistrationForm = ({event}: any) => {
 	let [showTeamName, setShowTeamName] = useState<boolean>(false)
 	let [showGame, setShowGame] = useState<boolean>(false)
 	let [isRegistering, setIsRegistering] = useState<boolean>(false)
-	let [isError, setIsError] = useState<{state:boolean, message:string}>({state: false, message: ""})
+	let [isError, setIsError] = useState<{state:boolean, message:string}>()
+	let [isSuccess, setIsSuccess] = useState<{state:boolean, message:string}>()
 	let [defaultEvent, setDefaultEvent] = useState<string>(event)
 	let [registrations, setRegistrations] = useState<QueryDocumentSnapshot<DocumentData>[]>([])
 
@@ -44,7 +46,6 @@ const RegistrationForm = ({event}: any) => {
 		unregister("teamName")
 		setDefaultEvent("default-value")
 		setShowGame(false)
-		setIsError({state: false, message: ""})
 		setIsRegistering(false)
 	}
 
@@ -151,10 +152,10 @@ const RegistrationForm = ({event}: any) => {
 		})
 	}
 
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (data: FormFields) => {
 		// filter participants that have empty fields
 		let filteredParticipants = data.participants.filter((el:any) => {
-			el.grade = el.grade.toUpperCase()
+			el.grade = el.grade.replace(' ', '').toUpperCase()
 			return el != null
 		})
 
@@ -163,182 +164,20 @@ const RegistrationForm = ({event}: any) => {
 			return participant.email
 		})
 
-		// get grades from filtered participants
-		let grades = filteredParticipants.map((participant: {name: string, grade:string, email:string}) => {
-			return participant.grade
-		})
-
-		/* ------------------------ Firestore ------------------------ */
-
-		// get firestore registrations collection
-		const registrationsCollections = getRegistrationsCollection()
-
-		/**
-		 * Check if registered for same event
-		 */
-
-		// set query
-		const registeredEventsQuery = query(registrationsCollections, where('event', '==', data.event))
-
-		// get docs that match the event
-		const eventMatchedSnapshot = await getDocs(registeredEventsQuery)
-
-		//push the query result to an array
-		const eventMatchedDocs: QueryDocumentSnapshot<DocumentData>[] = []
-		eventMatchedSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-			eventMatchedDocs.push(doc)
-		})
-
-		//loop through the array and check if the emails are already registered
-		registrations.length > 0 && eventMatchedDocs.map((doc: QueryDocumentSnapshot<DocumentData>) => {
-			const participants = doc.get("participants")
-			participants.forEach((participant: any) => {
-				if (emails.includes(participant.email) && grades.includes(participant.grade)) {
-					setIsError({state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for this event`})
-				}
-			})
-		})
-
-		/**
-		 * Check if registered for Otakuiz - Throw error if already registered for Designscape/Log and Blog 
-		 */
-		if (data.event === "otakuiz") {
-			// set query for DS and LAB registration documents
-			const dsRegistrationsQuery = query(registrationsCollections, where('event', '==', "designscape"))
-			const labRegistrationsQuery = query(registrationsCollections, where('event', '==', "log-and-blog"))
-
-			// get docs that match the queries
-			const dsRegistrationSnapshot = await getDocs(dsRegistrationsQuery)
-			const labRegistrationSnapshot = await getDocs(labRegistrationsQuery)
-
-			// create a list to store the registartions
-			const registrations: QueryDocumentSnapshot<DocumentData>[] = []
-
-			// get ds registrations
-			dsRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-				registrations.push(doc)
-			})
-
-			// get lab registrations
-			labRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-				registrations.push(doc)
-			})
-
-			//loop through the array and check if the emails are registered for ds and lab
-			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
-				const participants = doc.get("participants")
-				participants.forEach((participant: any) => {
-					if (emails.includes(participant.email) && grades.includes(participant.grade)) {
-						setIsError({state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for parallel events \"Designscape\" or \"Log and Blog\".`})
-					}
-				})
-			})
-		}
-
-		/**
-		 * Check if registered for Designscape/Log and Blog - Throw error if already registered for Otakuiz
-		 */
-		if (data.event === "designscape" || data.event === "log-and-blog") {
-			// set query for OTK registration documents
-			const otakuizRegistrationsQuery = query(registrationsCollections, where('event', '==', "otakuiz"))
-
-			// get docs that match the query
-			const otakuizRegistrationSnapshot = await getDocs(otakuizRegistrationsQuery)
-
-			// create a list to store the registartions
-			const registrations: QueryDocumentSnapshot<DocumentData>[] = []
-
-			// get otakuiz registrations
-			otakuizRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-				registrations.push(doc)
-			})
-		
-			//loop through the array and check if the emails are registered for otakuiz
-			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
-				const participants = doc.get("participants")
-				participants.forEach((participant: any) => {
-					if (emails.includes(participant.email) && grades.includes(participant.grade)) {
-						setIsError({state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for parallel event \"Otakuiz\".`})
-					}
-				})
-			})
-		}
-
-		/**
-		 * If registering for !AoV Events - Throw error if already registered for !AoV Event
-		 */
-
-		if (data.event !== "arena-of-valor") {
-			// set query for  registration documents that doesn't match current event	
-			const otherRegistrationsQuery = query(registrationsCollections, where('event', "!=", data.event))
-
-			// get docs that match the query
-			const otherRegistrationSnapshot = await getDocs(otherRegistrationsQuery)
-
-			// create a list to store the registartions
-			const registrations: QueryDocumentSnapshot<DocumentData>[] = []
-
-			// get other registrations
-			otherRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-				if (!doc.get('isSample')) {
-					registrations.push(doc)
-				}
-			})
-
-			// loop through the array and check if the emails are registered for other events
-			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
-				if (doc.get("event") != "arena-of-valor") {
-					const participants = doc.get("participants")
-					participants.forEach((participant: any) => {
-						if (emails.includes(participant.email) && grades.includes(participant.grade)) {
-							setIsError({state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for one event. Please register for only one event at a time. This does not apply when registering for \"Arena of Valor\"`})
-						}
-					})
-				}
-			})
-		}
-
-		/**
-		 * If registering for AoV Event - Throw error if already registered for AoV more than 3 times
-		 */
-
-		if (data.event === "arena-of-valor") {
-			// set query for AoV  registration document
-			const aovQuery = query(registrationsCollections, where("event", "==", data.event))
-
-			// get docs that matches the query
-			const aovRegistrationsSnapshot = await getDocs(aovQuery)
-
-			// create list to store aov registrations
-			const registrations: QueryDocumentSnapshot<DocumentData>[] = []
-
-			// loop through the snapshot and add document to registrations list
-			aovRegistrationsSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-				registrations.push(doc)
-			})
-
-			// loop through registrations and check if the participants are registered for the same platform
-			registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
-				const participants = doc.get("participants")
-				if (data.platform === doc.get("platform")) {
-					participants.forEach((participant: any) => {
-						if (emails.includes(participant.email) && grades.includes(participant.grade)) {
-							setIsError({state: true, message: `One or more team members are already registered for this platform (${data.platform}) for \"Arena of Valor\".`})
-						}
-					})
-				}
-			})
-		}
-
-		/* ----------------------------------------------------------- */
+		let prevParticipant = {name: "", grade: ""}
 
 		// make sure the platform sent in the email is not undefined or default value
-		let platform = data.platform === undefined || "default-value" ? "" : ` - ${data.platform}`
+		let platform: string | undefined = data.platform === undefined || "default-value" ? "" : ` - ${data.platform?.replace('-', ' ').toLowerCase()}`
 
 		// set registration status
 		setIsRegistering(true)
-
-		if(!isError.state) {
+		let validationError = await validateFields(data, participantsLimit)
+		console.log("Val Error")
+		console.log(validationError)
+		setIsError(validationError)
+		
+		if(!validationError) {
+			console.log(validationError)
 			const response = await fetch(
 				`https://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}/mail/register`,
 				{
@@ -349,16 +188,20 @@ const RegistrationForm = ({event}: any) => {
 					},
 					body : JSON.stringify({
 						recipients: [...emails, "info@nutopia.in"],
+						event: data.event.replace('-', ' ').toUpperCase(),
+						platform: platform,
+						game: data.game,
 						isTeam: data.teamName ? true : false,
 						teamName: data.teamName ?  data.teamName : "",
 						participants: filteredParticipants,
-						event: `${data.event}${platform}`.toUpperCase()
 					})
 				}
 			).then(response => response.json()).then(data => {return data})
 
 			platform = data.platform === "default-value" ? undefined : data.platform
 			let game  = data.game === "default-value" ? undefined : data.game
+
+			console.log(response)
 
 			if (response.status === 'success') {
 
@@ -370,6 +213,7 @@ const RegistrationForm = ({event}: any) => {
 					participants: filteredParticipants
 				})
 
+				setIsSuccess({state: true, message: "Successfully Registered"})
 				alert("Successfully registered")
 				setIsRegistering(false)
 				resetFields()
@@ -389,8 +233,6 @@ const RegistrationForm = ({event}: any) => {
 	useEffect(() => handleEventValue(), [])
 
 	useEffect(() => {
-
-
 		let timeline = anime.timeline({
 			easing: "linear",
 			direction: "forwards",
@@ -408,15 +250,19 @@ const RegistrationForm = ({event}: any) => {
 		})
 	})
 
+	const router = useRouter()
+
 	return (
 		<form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)}>
 			{isRegistering && (
 				<div className={styles.disable_form_window}>
 					{
-						isError.state ? (<>
+						isError?.state ? (<>
 							<h2>{isError.message}</h2>
-							<div className={`${styles.reset_form_btn} ${Effects.button_hover_effect}`} onClick={resetFields}>Reset Form</div>
-						</>) : (<>
+							<div className={`${styles.reset_form_btn} ${Effects.button_hover_effect}`} onClick={() => router.reload()}>Reset Form</div>
+						</>) : isSuccess?.state ? (
+							<h2>{isSuccess.message}</h2>
+						) : (<>
 						<h2>Registering...</h2>
 						<div className={styles.throbber}>
 							<div className={`throbber_section ${styles.throbber_section}`}></div>
