@@ -145,7 +145,7 @@ const RegistrationForm = ({event}: any) => {
 
 		// loop through the list and check for duplicate teamName
 		registrations.map((registartion: QueryDocumentSnapshot<DocumentData>) => {
-			if (currentTeamName === registartion.get("teamName")) {
+			if (currentTeamName === registartion.get("teamName") && registartion.get("event") !== "arena-of-valor") {
 				setError("teamName", {type: "existing", message: "Team Name already exists."})
 			} else {
 				clearErrors("teamName")
@@ -164,8 +164,6 @@ const RegistrationForm = ({event}: any) => {
 		let emails = filteredParticipants.map((participant: {name: string, grade:string, email:string}) => {
 			return participant.email
 		})
-
-		let prevParticipant = {name: "", grade: ""}
 
 		// make sure the platform sent in the email is not undefined or default value
 		let platform: string | undefined = data.platform === undefined || "default-value" ? "" : ` - ${data.platform?.replace('-', ' ').toLowerCase()}`
@@ -192,12 +190,10 @@ const RegistrationForm = ({event}: any) => {
 						participants: filteredParticipants,
 					})
 				}
-			).then(response => response.json()).then(data => {console.log(data); return data})
+			).then(response => response.json()).then(data => { return data })
 
 			platform = data.platform === "default-value" ? undefined : data.platform
 			let game  = data.game === "default-value" ? undefined : data.game
-
-			console.log(response)
 
 			if (response.status === 'success') {
 
