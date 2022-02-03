@@ -4,32 +4,32 @@ const Registration = {
 	title: "Pre-Registration Information",
 	commonRules: [
 		"Registrations are open for students from classes 9 to 12.",
-		"Participants can register for more than one event.",
+		"Participants can register for only one event.",
 	],
 
 	eventRules: [
 		{
-			title: "Arena Of Valor",
+			title: ArenaOfValor.title,
 			rules: ArenaOfValor.headings.registration
 		},
 		{
-			title: "Knock Out",
+			title: KnockOut.title,
 			rules: KnockOut.headings.registration
 		},
 		{
-			title: "Truth Or Debug",
+			title: TruthOrDebug.title,
 			rules: TruthOrDebug.headings.registration
 		},
 		{
-			title: "Log And Blog",
+			title: LogAndBlog.title,
 			rules: LogAndBlog.headings.registration
 		},
 		{
-			title: "Designscape",
+			title: Designscape.title,
 			rules: Designscape.headings.registration
 		},
 		{
-			title: "Otakuiz",
+			title: Otakuiz.title,
 			rules: Otakuiz.headings.registration
 		}
 	]

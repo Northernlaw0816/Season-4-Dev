@@ -1,11 +1,10 @@
-import { firestore } from "../firebase/clientApp"
-
 import { addDoc, Timestamp } from "firebase/firestore"
 import getRegistrationsCollection from "./getRegistrationsCollection"
+import { FormFields } from "./interface"
 
-const registerTeam = async (data: any) => {
+const registerTeam = async (data: FormFields) => {
 	const collection = getRegistrationsCollection()
-	const registration = await addDoc(collection, {
+	await addDoc(collection, {
 		...data,
 		registrationDate: Timestamp.now()
 	})

@@ -1,6 +1,7 @@
 import Head from "next/head"
 import Link from "next/link"
 import { toSlug } from "../functions"
+import { useRouter } from "next/router"
 
 //components
 import Layout from "../components/Layout"
@@ -9,8 +10,14 @@ import RegistrationForm from "../components/RegistrationForm"
 import styles from "../styles/pages/Registration.module.scss"
 //data
 import { RegistrationData } from "../data/pages"
+import { useState } from "react"
 
 const Registration = () => {
+
+    const router = useRouter()
+    
+    let query = router.query
+    let event = query.event
 
     return (<>
         <Head>
@@ -37,7 +44,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            <RegistrationForm />
+            <RegistrationForm event={event !== undefined ? event : "default-value"} />
 
         </Layout>
     </>)

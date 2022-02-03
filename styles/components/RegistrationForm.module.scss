@@ -72,6 +72,17 @@
 		background:
 			radial-gradient(circle at center, hsl(0, 0%, 0%, 50%) 50%, transparent),
 			#003c4780;
+		backdrop-filter: blur(5px);
+
+		h2 {
+			padding: 0 1rem;
+			text-align: center;
+		}
+
+		.reset_form_btn {
+			background: #00cc22;
+			padding: 1ch;
+		}
 		
 		.throbber {
 			display: grid;
@@ -97,52 +108,55 @@
 	}
 
 	.form_fields {
+
+		--grid-gap: 1rem;
+
 		grid-area: form;
-		padding: 0 1rem;
-		margin: 1rem 0;
+		padding: 0 var(--grid-gap);
+		margin: var(--grid-gap) 0;
 
 		display: grid;
-		grid-template-areas: "email email" "event platform";
-		gap: 1rem;
+		grid-template-areas: "event platform";
+		gap: var(--grid-gap);
 
-		.email_input, .event_input, .platform_input {
+		 .event_field, .platform_field {
 			display: grid;
 			grid-template-rows: 1fr;
-			gap: 1rem;
+			gap: var(--grid-gap);
 		}
 
 		@media (max-width: 768px) {
 			grid-template-areas: "event" "platform";
-			.event_input, .platform_input {
-				gap: 0.5rem;
+			.event_field, .platform_field {
+				gap: calc(var(--grid-gap) / 2);
 			}
 
-			.event_input, .platform_input {
+			.event_field{
 				grid-template-columns: 25% auto;
 				grid-auto-flow: row;
 			}
 		}
 
 		@media (max-width: 400px) {
-			.event_input, .platform_input {
+			.event_field, .platform_field {
 				grid-template-columns: 1fr;
 			}
 		}
 
-		.email_input {
-			grid-area: email
-		}
-
-		.event_input {
+		.event_field {
 			grid-area: event;
 		}
 
-		.platform_input {
+		.platform_field {
 			grid-area: platform;
-		}
+			display: grid;
+			grid-template-rows: auto, auto;
 
-		.event_input[value="default-value"] {
-			display: none;
+			.platform_input {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
+				gap: calc(var(--grid-gap) / 2);
+			}
 		}
 	}
 
@@ -155,12 +169,12 @@
 		gap: 1rem;
 
 		hr {
-			width: 100%;
-			height: 2px;
-			border-radius: 50%;
-			background: var(--text-white);
+			width: 90%;
 			border: none;
-		}
+			height: 4px;
+			border-radius: 100vw;
+			background: var(--text-alt);
+		  }
 		
 		.team_input {
 			display: grid;
@@ -169,7 +183,7 @@
 
 		.member_input {
 			display: grid;
-			grid-template-columns: max-content  2fr max-content auto;
+			grid-template-columns: max-content 1fr max-content 1fr;
 			
 			.member_error {
 				grid-row: 3;
@@ -200,7 +214,7 @@
 			gap: 1rem;
 		}
 
-		@media (max-width: 768px) {
+		@media (max-width: 850px) {
 			.team_input, .member_input {
 				gap: 0.5rem;
 			}
