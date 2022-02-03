@@ -47,6 +47,7 @@ const RegistrationForm = ({event}: any) => {
 		setDefaultEvent("default-value")
 		setShowGame(false)
 		setIsRegistering(false)
+		router.reload()
 	}
 
 	const handleEventValue = () => {
@@ -172,12 +173,9 @@ const RegistrationForm = ({event}: any) => {
 		// set registration status
 		setIsRegistering(true)
 		let validationError = await validateFields(data, participantsLimit)
-		console.log("Val Error")
-		console.log(validationError)
 		setIsError(validationError)
 		
-		if(!validationError) {
-			console.log(validationError)
+		if(!validationError.state) {
 			const response = await fetch(
 				`https://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}/mail/register`,
 				{
@@ -188,15 +186,13 @@ const RegistrationForm = ({event}: any) => {
 					},
 					body : JSON.stringify({
 						recipients: [...emails, "info@nutopia.in"],
-						event: data.event.replace('-', ' ').toUpperCase(),
-						platform: platform,
-						game: data.game,
+						event: `${data.event.replace('-', ' ').toUpperCase()}${platform}`,
 						isTeam: data.teamName ? true : false,
 						teamName: data.teamName ?  data.teamName : "",
 						participants: filteredParticipants,
 					})
 				}
-			).then(response => response.json()).then(data => {return data})
+			).then(response => response.json()).then(data => {console.log(data); return data})
 
 			platform = data.platform === "default-value" ? undefined : data.platform
 			let game  = data.game === "default-value" ? undefined : data.game
@@ -205,19 +201,18 @@ const RegistrationForm = ({event}: any) => {
 
 			if (response.status === 'success') {
 
-				registerTeam({
+				await registerTeam({
 					event: data.event,
 					...(platform) && {platform: platform},
 					...(game) && {game: game},
 					...(data.teamName) && {teamName: data.teamName},
 					participants: filteredParticipants
-				})
-
-				setIsSuccess({state: true, message: "Successfully Registered"})
+				}).catch(() => resetFields)
+				setIsSuccess({state: response, message: "Successfully Registered"})
 				alert("Successfully registered")
 				setIsRegistering(false)
 				resetFields()
-			}  else {
+			} else {
 				setIsError({state: true, message: "Something went wrong. We're not sure what. Please reload and try again."})
 				console.error(response)
 			}

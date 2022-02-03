@@ -42,12 +42,14 @@ const validateFields = async (data: any, participantsLimit: number) => {
 
 	//loop through the array and check if the emails are already registered
 	eventMatchedDocs.map((doc: QueryDocumentSnapshot<DocumentData>) => {
-		const participants = doc.get("participants")
-		participants.forEach((participant: any) => {
-			if (names.includes(participant.name) && grades.includes(participant.grade)) {
-				error = {state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for this event`}
-			}
-		})
+		if(doc.get("event") !== "arena-of-valor") {
+			const participants = doc.get("participants")
+			participants.forEach((participant: any) => {
+				if (names.includes(participant.name) && grades.includes(participant.grade)) {
+					error = {state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for this event`}
+				}
+			})
+		}
 	})
 
 	/**
