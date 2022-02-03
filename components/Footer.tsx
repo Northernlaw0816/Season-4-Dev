@@ -55,7 +55,7 @@ const Footer = () => {
           <p>Phone: {ContactData.contacts.phone}</p>
           
           <div className={socialStyles.social}>
-            <p>Socials:</p> 
+            <p style={{display: "none"}}>Socials:</p> 
             
             <div className={socialStyles.icons}>
               {ContactData.socials.map((social, index) => {

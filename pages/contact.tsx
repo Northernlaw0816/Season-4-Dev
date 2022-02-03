@@ -42,7 +42,7 @@ export const Contact = () => {
                     <p>{ContactData.contacts.phone}</p>
                 </div>
                 <div className={`${styles.contact_section} ${socialStyles.social} ${styles.social}`}>
-                    <h2 id="social">Socials</h2> 
+                    <h2 id="social" style={{display: "none"}}>Socials</h2>
                     <div className={`${socialStyles.icons} ${styles.icons}`}>
                         {ContactData.socials.map((social, index) => {
                             return (
