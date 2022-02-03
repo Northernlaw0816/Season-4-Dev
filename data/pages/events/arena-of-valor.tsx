@@ -38,38 +38,28 @@ const ArenaOfValor = {
                 games: [
                     {
                         name: "Fortnite",
-                        participants: 3,
-                        logo: cod
+                        participants: 2,
+                        logo: cod,
+                        bannedItems: []
                     },
 
                     {
-                        name: "Rocket Leagues",
-                        participants: 3,
-                        logo: bgmi
+                        name: "Rocket League",
+                        participants: 2,
+                        logo: bgmi,
+                        bannedItems: []
                     }
                 ],
 
                 guidelines: [
-                    "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",,
-                    "Controllers and Emulators are NOT allowed.",
+                    "All games will be played in 2v2 format",
+                    "All contestants are supposed to participate in both games (Fortnite, Rocket league)",
+                    "KEYBOARDS, MICE and CONTROLLERS are allowed",
                     "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
-                    "The banned items for the specific game must NOT be used in any part of the event.",
-                    "Failure to comply with these rules will result in DISQUALIFICATION."
-                ],
-
-                bannedItems: {
-                    bgmi: {
-                        "ScoreStreaks Banned" : [
-                            "Sentry Gun",
-                            "VTOL"
-                        ],
-                        
-                        "Guns Banned": [
-                            "NA-45",
-                            "HVK - "
-                        ]
-                    }
-                }
+                    "Failure to comply with these rules will result in DISQUALIFICATION.",
+                    "In multiplayer if both teams are ready , match can start however additional in match breaks will not be allowed.",
+                    "The winning team should carry a screenshot of the scores at the end for proof."
+                ]
             },
            
             {
@@ -80,36 +70,92 @@ const ArenaOfValor = {
                 games: [
                     {
                         name: "Call Of Duty Mobile",
-                        participants: 2,
-                        logo: cod
+                        participants: 3,
+                        logo: cod,
+                        bannedItems: [
+                            {
+                                category: "ScoreStreaks Banned",
+                                items : [
+                                    "Sentry Gun",
+                                    "VTOL"
+                                ]
+                            },
+
+                            {
+                                category: "Guns Banned",
+                                items: [
+                                    "NA-45",
+                                    "HVK - Large Calibre Ammo",
+                                    "Guns Equipped with Akimbo Perk"
+                                ]
+                            },
+    
+                            {
+                                category: "Equipments Banned",
+                                items: [
+                                    "Molotov",
+                                    "TripMine"
+                                ]
+                            },
+    
+                            {
+                                category: "Perks Banned",
+                                items: [
+                                    "Hardline",
+                                    "Restock",
+                                    "Persistent"
+                                ]
+                            }
+                        ]
                     },
                     {
                         name: "Battlegrounds Mobile India",
-                        participants: 2,
+                        participants: 3,
                         logo: bgmi
                     }
                 ],
 
                 guidelines: [
-
-                ]
+                    "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",,
+                    "Controllers and Emulators are NOT allowed.",
+                    "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
+                    "The banned items for the specific game must NOT be used in any part of the event.",
+                    "Failure to comply with these rules will result in DISQUALIFICATION.",
+                    "In multiplayer if both teams are ready , match can start however additional in match breaks will not be allowed.",
+                    "The winning team should carry a screenshot of the scores at the end for proof."
+                ],
             },
             
             {
                 name: "PC",
 
-                description: "Arena of Valor - PC demands a sharp mind and a patient trigger finger.",
+                description: "Arena of Valor - PC demands a sharp mind and trigger discipline.",
 
                 games: [
                     {
                         name: "Valorant",
                         participants: 3,
-                        logo: cod
+                        logo: cod,
+                        bannedItems: [
+                            {
+                                category: "Guns Banned",
+                                items: [
+                                    "Odin"
+                                ]
+                            }
+                        ]
                     }
                 ],
 
                 guidelines: [
-
+                    "All games will be played in 3v3 format ",
+                    "Controllers are allowed ",
+                    "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in the list or take other actions.",
+                    "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
+                    "The banned items for the specific game must NOT be used in any part of the event.",
+                    "Failure to comply with these rules will result in DISQUALIFICATION.",
+                    "In multiplayer if both teams are ready , match can start however additional in match breaks will not be allowed.",
+                    "The winning team should carry a screenshot of the scores at the end for proof."
                 ]
             }
                 
