@@ -23,7 +23,7 @@ const Custom404: NextPage = () => {
                 <h1 id="title">Error 404</h1>
                 <h2 id="content">Page Not Found!</h2>
                 <p>Sorry, but this page does not exist.</p>
-                <div onClick={() => router.back()} className={`${styles.go_home} ${Effects.button_hover_effect}`}>Go Back</div>
+                <div onClick={() => router.back()} className={`${styles.go_home} ${Effects.button_hover_effect}`} tabIndex={0}>Go Back</div>
             </div>
         </Layout>
     </>)
