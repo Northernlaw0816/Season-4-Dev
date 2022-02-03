@@ -1,30 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&display=swap&text=2020%20SEASON%201');
-
-/* :root {
-  --primary: hsl(212, 100%, 48%);
-  --secondary: hsl(47, 100%, 57%);
-  --inactive: hsl(240, 17%, 22%);
-  --background: white;
-  --text-white: white;
-  --text-alt: black;
-  --spacer: url('/images/SeasonBG.png');
-} */
-
-/* Purple and Orange */
-/* :root {
-  --primary: #F57600;
-  --secondary: #6F238B;
-  --inactive: #3A2442;
-  --background: white;
-  --text-white: white;
-  --text-alt: black;
-  --spacer: url('/images/SeasonBG_purp.png');
-} */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 
 /* Green and Aqua */
 :root {
