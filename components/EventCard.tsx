@@ -3,7 +3,7 @@ import Link from "next/link"
 import { useEffect, useRef } from "react"
 import { toSlug } from "../functions"
 
-//stylehsheet
+//stylesheets
 import styles from "../styles/pages/Event.module.scss"
 
 const EventCard = ({title, description, date, time, venue, grades, link, image, accent, selector}: any) => {
