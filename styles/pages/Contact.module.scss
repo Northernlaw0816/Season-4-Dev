@@ -78,9 +78,11 @@
     }
 
     hr {
-        border: 2px solid var(--text-alt);
-        background-color: var(--text-alt);
-        width: 90%;
+        width: 100%;
+        border: none;
+        height: 4px;
+        border-radius: 100vw;
+        background: var(--text-alt);
         margin-block-start: 3rem;
         margin-block-end: 3rem;
     }

@@ -4,8 +4,31 @@
   width: 100%;
   color: var(--text-alt);
 
-  h2 {
-    text-align: center;
+  .content_container {
+    margin-block-start: 2rem;
+    margin-block-end: 2rem;
+
+    display: grid;
+    place-items: center;
+    gap: 2rem;
+
+    h1, h2, h3, h4, h5, h6 {
+      text-align: center;
+    }
+
+    hr {
+      width: 90%;
+      border: none;
+      height: 4px;
+      border-radius: 100vw;
+      background: var(--text-alt);
+    }
+
+    .video_embed {
+      margin: auto;
+      width: clamp(60%, 50rem, 90%);
+      aspect-ratio: 16/9;
+    }
   }
 
 }
