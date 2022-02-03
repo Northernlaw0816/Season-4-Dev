@@ -10,7 +10,6 @@ import RegistrationForm from "../components/RegistrationForm"
 import styles from "../styles/pages/Registration.module.scss"
 //data
 import { RegistrationData } from "../data/pages"
-import { useState } from "react"
 
 const Registration = () => {
 
@@ -33,7 +32,7 @@ const Registration = () => {
 
             <h2>Common Guidelines</h2>
             <ul>
-                {RegistrationData.commonRules.map((rule: string, index: number) => <li key={index}>{rule}</li>)}
+                {RegistrationData.commonRules.map((rule: string, index: number) => <li key={index}><p>{rule}</p></li>)}
             </ul>
             <h2>Event Guidelines</h2>
             {RegistrationData.eventRules.map((event:{title: string, rules: string[]}, index: number) => {
