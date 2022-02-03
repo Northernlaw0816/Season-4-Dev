@@ -38,6 +38,10 @@
         h2 {
             margin-block-start: 2em;
         }
+
+        h4, h5 {
+            font-size: clamp(0.5rem, 2vw, 1.125rem);
+        }
         
         p {
             font-size: 18px;
@@ -55,6 +59,14 @@
             margin-left: 2em;
         }
 
+        .h4_p, h5 {
+            margin-left: 3em;
+        }
+
+        .h5_p {
+            margin-left: 4em;
+        }
+
         .register_link_align {
             display: flex;
             justify-content: center;
@@ -68,7 +80,7 @@
                 font-weight: 600;
                 font-size: large;
 
-                &:hover {
+                &:hover, &:focus-visible  {
                     background: var(--accent);
                 }
 
@@ -172,18 +184,28 @@
 
         .tagline {
             text-align: center;
+            font-family: 'Black Ops One';
+            font-weight: normal;
+
+            .blue {
+                color: hsl(220, 100%, 55%);
+            }
+
+            .red {
+                color: hsl(0, 100%, 50%);
+            }
         }
 
         .register_link_align {
             .register_link {
                 background: linear-gradient(hsl(58, 100%, 40%), hsl(25, 100%, 40%));
                 color: white;
-                font-family: 'Sedgwick Ave Display', cursive;
+                font-family: 'Black Ops One', cursive;
                 font-size: 1.25rem;
-                letter-spacing: 0.25ch;
-                font-weight: lighter;
+                letter-spacing: 0.1ch;
+                font-weight: 100;
 
-                &:hover {
+                &:hover, &:focus-visible  {
                     background: hsl(58, 100%, 40%);
                     color: black;
                 }
@@ -383,6 +405,8 @@
 
 .main_ds {
     background: var(--background);
+    --accent: hsl(320, 67%, 55%);
+    --button-bg: hsl(260, 67%, 25%);
     .banner {
         background: hsl(260, 67%, 25%);
         .banner_text {
@@ -390,6 +414,26 @@
             color: white;
             font-size: clamp(1.5rem, 4vw, 4rem);
             word-wrap: break-word;
+        }
+    }
+
+    .content {
+        .tagline {
+            font-family: 'Geostar Fill', monospace;
+        }
+
+        .register_link_align {
+            .register_link {
+                color: hsl(320, 100%, 100%);
+                font-family: 'Geostar Fill', monospace;
+                border: 4px solid white;
+
+                transition: background 100ms, border-color 100ms;
+
+                &:hover, &:focus-visible  {
+                    border-color: hsl(192, 100%, 50%);
+                }
+            }
         }
     }
 
