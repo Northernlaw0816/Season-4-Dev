@@ -2,7 +2,7 @@ import { DocumentData, getDocs, query, QueryDocumentSnapshot, where } from "fire
 import { getRegistrationsCollection } from "."
 
 const validateFields = async (data: any, participantsLimit: number) => {
-
+	// variable to save and return error 
 	let error = {state: false, message: ""}
 
 	// filter participants that have empty fields
@@ -12,8 +12,8 @@ const validateFields = async (data: any, participantsLimit: number) => {
 	})
 
 	// get names from filtered participants
-	let names = filteredParticipants.map((participant: {name: string, grade:string, email:string}) => {
-		return participant.name
+	let emails = filteredParticipants.map((participant: {name: string, grade:string, email:string}) => {
+		return participant.email
 	})
 
 	// get grades from filtered participants
@@ -45,7 +45,7 @@ const validateFields = async (data: any, participantsLimit: number) => {
 		if(doc.get("event") !== "arena-of-valor") {
 			const participants = doc.get("participants")
 			participants.forEach((participant: any) => {
-				if (names.includes(participant.name) && grades.includes(participant.grade)) {
+				if (emails.includes(participant.email)) {
 					error = {state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for this event`}
 				}
 			})
@@ -81,7 +81,7 @@ const validateFields = async (data: any, participantsLimit: number) => {
 		registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 			const participants = doc.get("participants")
 			participants.forEach((participant: any) => {
-				if (names.includes(participant.names) && grades.includes(participant.grade)) {
+				if (emails.includes(participant.email)) {
 					error = { state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for parallel events \"Designscape\" or \"Log and Blog\".` }
 				}
 			})
@@ -110,7 +110,7 @@ const validateFields = async (data: any, participantsLimit: number) => {
 		registrations.length > 0 && registrations.map((doc: QueryDocumentSnapshot<DocumentData>) => {
 			const participants = doc.get("participants")
 			participants.forEach((participant: any) => {
-				if (names.includes(participant.names) && grades.includes(participant.grade)) {
+				if (emails.includes(participant.email)) {
 					error = {state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for parallel event \"Otakuiz\".`}
 				}
 			})
@@ -143,7 +143,7 @@ const validateFields = async (data: any, participantsLimit: number) => {
 			if (doc.get("event") != "arena-of-valor") {
 				const participants = doc.get("participants")
 				participants.forEach((participant: any) => {
-					if (names.includes(participant.name) && grades.includes(participant.grade)) {
+					if (emails.includes(participant.email)) {
 						error = {state: true, message: `${participantsLimit > 1 ? "One or more team members" : "You"} are already registered for one event. Please register for only one event at a time. This does not apply when registering for \"Arena of Valor\"`}
 					}
 				})
@@ -175,7 +175,7 @@ const validateFields = async (data: any, participantsLimit: number) => {
 			const participants = doc.get("participants")
 			if (data.platform === doc.get("platform")) {
 				participants.forEach((participant: any) => {
-					if (names.includes(participant.name) && grades.includes(participant.grade)) {
+					if (emails.includes(participant.email) && grades.includes(participant.grade)) {
 						error = {state: true, message: `One or more team members are already registered for this platform (${data.platform}) for \"Arena of Valor\".`}
 					}
 				})
