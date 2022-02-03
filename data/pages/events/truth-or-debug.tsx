@@ -1,6 +1,6 @@
 
 //stylesheets
-import eventStyles from '../../../styles/pages/Events.module.scss'
+import styles from '../../../styles/pages/Events.module.scss'
 //data
 import Main from '../../Main';
 import { EventCoordinators } from '../../EventCoordinators';
@@ -10,7 +10,7 @@ import TD from '../../../public/images/events/td_logo.png'
 const TruthOrDebug = {
     title: "Truth or Debug",
 
-    tagline: (<><span className={eventStyles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={eventStyles.grey}>{`);`}</span></>),
+    tagline: (<><span className={styles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={styles.grey}>{`);`}</span></>),
     
     link: '/events/truth-or-debug',
 
@@ -18,7 +18,7 @@ const TruthOrDebug = {
         shortDescription: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug!",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '9:45 AM to 12:35 PM',
-        venue: 'To Be Announced',
+        venue: 'Yuva Enclave',
         grades: '9 - 12',
         image: TD,
         accent: "black",

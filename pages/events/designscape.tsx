@@ -5,7 +5,7 @@ import Head from "next/head"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
-import eventStyles from '../../styles/pages/Events.module.scss'
+import styles from '../../styles/pages/Events.module.scss'
 import Layout from "../../components/Layout"
 //data
 import DesignscapeData from "../../data/pages/events/designscape"
@@ -128,7 +128,7 @@ const Designscape: NextPage= () => {
             ],
             easing: "linear",
             delay: 100,
-            duration: 150
+            duration: 1500
         })
 
         timeline.add({
@@ -162,10 +162,10 @@ const Designscape: NextPage= () => {
             <meta name="description" content="NuTopia Events: Designscape" />
         </Head>
 
-        <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_ds}`}>
+        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_ds}`}>
             
-            <div className={eventStyles.banner}>
-                <div className={eventStyles.logo}>
+            <div className={styles.banner}>
+                <div className={styles.logo}>
                     {/* <Image src={logo} alt="Arena of Valor" quality={100} placeholder={"blur"}/> */}
                     <svg  viewBox="0 0 256 144" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g className="logo_container">
@@ -189,30 +189,35 @@ const Designscape: NextPage= () => {
                     </svg>
                 </div>
 
-                <div className={eventStyles.banner_text}>
+                <div className={styles.banner_text}>
                     <h1 id="title">Designscape</h1>
                 </div>
             </div>
             
-            <div className={eventStyles.content}>
-                <h2 id="tagline" className={eventStyles.tagline}>{DesignscapeData.tagline}</h2>
+            <div className={styles.content}>
+                <h2 id="tagline" className={styles.tagline}>{DesignscapeData.tagline}</h2>
                 
-                <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>{DesignscapeData.headings.about}</p> 
+                <h2 id="about">About</h2>
+                    <p className={`${styles.h2_p} ${styles.description_p}`}>{DesignscapeData.headings.about}</p>  
+
+                <h2 id="details">Details</h2>
+                    <p className={styles.h2_p}><strong>Date:</strong> {DesignscapeData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Time:</strong> {DesignscapeData.details.time}</p>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {DesignscapeData.details.venue}</p>
                 
-                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
+                <h2 id="guidelines">Guidelines</h2>
                     <ul>{DesignscapeData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
                 
-                <h2 id="event-coordinators" className={eventStyles.subheading}>Event Coordinators</h2>
-                <div className={eventStyles.card_container}>
+                <h2 id="event-coordinators">Event Coordinators</h2>
+                <div className={styles.card_container}>
                         {DesignscapeData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>
                         })}
                     </div> 
                 
-                <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
+                <h2 id="registration">Registration</h2>
                     <ul>{DesignscapeData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>

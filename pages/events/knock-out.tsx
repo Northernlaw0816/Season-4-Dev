@@ -7,7 +7,7 @@ import { toSlug } from "../../functions"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
-import eventStyles from '../../styles/pages/Events.module.scss'
+import styles from '../../styles/pages/Events.module.scss'
 import Layout from "../../components/Layout"
 //assets
 import logo from '../../public/images/events/ko_logo.png'
@@ -21,33 +21,40 @@ const KnockOut: NextPage= () => {
             <meta name="description" content="NuTopia Events: Knock Out" />
         </Head>
 
-        <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_ko}`}>
+        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_ko}`}>
             
-            <div className={eventStyles.banner}>
-                <div className={eventStyles.logo}>
+            <div className={styles.banner}>
+                <div className={styles.logo}>
                     <Image src={logo} alt="Knock Out" quality={100} placeholder={"blur"} layout={"responsive"}/>
                 </div>
             </div>
 
-            <div className={eventStyles.content}>
-                <h2 id="tagline" className={eventStyles.tagline}>{KnockOutData.tagline}</h2>
+            <div className={styles.content}>
+                <h2 id="tagline" className={styles.tagline}>{KnockOutData.tagline}</h2>
                 
-                <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>{KnockOutData.headings.about}</p> 
+                <h2 id="about">About</h2>
+                    <p className={`${styles.h2_p} ${styles.description_p}`}>{KnockOutData.headings.about}</p> 
                 
-                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
-                    <ul>{KnockOutData.headings.rules.map((rule, index) => {
-                        return <li key={index}><p>{rule}</p></li>
-                    })}</ul> 
+                <h2 id="guidelines">Guidelines</h2>
+                    {KnockOutData.headings.guidelines.map((round: {title: string, rules: string[]}, index) => {
+                        return (<>
+                            <p className={styles.h2_p}><strong>{round.title}</strong></p>
+                            <ul className={styles.h2_p}>
+                                {round.rules.map((rule: string, index) => {
+                                    return (<li key={index}><p>{rule}</p></li>)
+                                })}
+                            </ul>
+                        </>)
+                    })}
                 
-                <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
-                    <div className={eventStyles.card_container}>
+                <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
+                    <div className={styles.card_container}>
                         {KnockOutData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>
                         })}
                     </div> 
                 
-                <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
+                <h2 id="registration">Registration</h2>
                     <ul>{KnockOutData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>

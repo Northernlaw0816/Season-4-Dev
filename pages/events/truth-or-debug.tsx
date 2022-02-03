@@ -8,7 +8,7 @@ import Layout from "../../components/Layout"
 import ProfileCard from "../../components/ProfileCard"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 //stylesheet
-import eventStyles from '../../styles/pages/Events.module.scss'
+import styles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/td_logo.png'
 //data
@@ -21,47 +21,47 @@ const TruthOrDebug: NextPage = () => {
             <meta name="description" content="NuTopia Events: Truth or Debug" />
         </Head>
 
-        <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_td}`}>
+        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_td}`}>
 
-            <div className={eventStyles.banner}>
-                <div className={eventStyles.overlay}/>
-                <div className={eventStyles.banner_text}>
-                    <div className={eventStyles.command_line}>
+            <div className={styles.banner}>
+                <div className={styles.overlay}/>
+                <div className={styles.banner_text}>
+                    <div className={styles.command_line}>
                         {`> run TD.sh`}
-                        <div className={eventStyles.type_cursor} />
+                        <div className={styles.type_cursor} />
                     </div>
                 </div>
 
-                <div className={eventStyles.logo}>
+                <div className={styles.logo}>
                     <Image src={logo} alt="Truth or Debug" quality={100} placeholder={"blur"}/>
                 </div>
 
-                <div className={eventStyles.banner_text}>
+                <div className={styles.banner_text}>
                     <h1 id="title">Truth or Debug</h1>
                 </div>
             </div>
 
-            <div className={eventStyles.content}>
-                <h2 id="tagline" className={eventStyles.tagline}>
+            <div className={styles.content}>
+                <h2 id="tagline" className={styles.tagline}>
                     {TruthOrDebugData.tagline}
                 </h2>
                 
-                <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>{TruthOrDebugData.headings.about}</p>
+                <h2 id="about">About</h2>
+                    <p className={`${styles.h2_p} ${styles.description_p}`}>{TruthOrDebugData.headings.about}</p>
                 
-                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
+                <h2 id="guidelines">Guidelines</h2>
                     <ul>{TruthOrDebugData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
                
-                <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
-                    <div className={eventStyles.card_container}>
+                <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
+                    <div className={styles.card_container}>
                         {TruthOrDebugData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>
                         })}
                     </div>                    
                 
-                <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
+                <h2 id="registration">Registration</h2>
                     <ul>{TruthOrDebugData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>

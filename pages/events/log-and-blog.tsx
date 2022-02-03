@@ -8,7 +8,7 @@ import Layout from "../../components/Layout"
 import ProfileCard from "../../components/ProfileCard"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 //stylesheet
-import eventStyles from '../../styles/pages/Events.module.scss'
+import styles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/lab_logo_2.png'
 //data
@@ -21,33 +21,37 @@ const LogAndBlog: NextPage= () => {
             <meta name="description" content="NuTopia Events: Log and Blog" />
         </Head>
 
-        <Layout skipTo="#tagline" overrideClasses={`${eventStyles.main} ${eventStyles.main_lab}`}>
+        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_lab}`}>
             
-            <div className={eventStyles.banner}>
-                <div className={eventStyles.logo}>
+            <div className={styles.banner}>
+                <div className={styles.logo}>
                     <Image src={logo} alt="Log and Blog" placeholder={"blur"} layout={"responsive"}/>
                 </div>
             </div>
             
-            <div className={eventStyles.content}>
-                <h2 id="tagline" className={eventStyles.tagline}>{LogAndBlogData.tagline}</h2>
+            <div className={styles.content}>
+                <h2 id="tagline" className={styles.tagline}>{LogAndBlogData.tagline}</h2>
                 
-                <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>{LogAndBlogData.headings.about}</p> 
+                <h2 id="about">About</h2>
+                    <p className={`${styles.h2_p} ${styles.description_p}`}>{LogAndBlogData.headings.about}</p> 
+
+                <h2>Details</h2>
+                    
                 
-                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
+                <h2 id="guidelines">Guidelines</h2>
                     <ul>{LogAndBlogData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
-                    })}</ul>  
+                    })}</ul>
+                    <h3>Assessment Criteria</h3>
                 
-                <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
-                    <div className={eventStyles.card_container}>
+                <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
+                    <div className={styles.card_container}>
                         {LogAndBlogData.headings.eventCoordinators?.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>
                         })}
                     </div>
                     
-                <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
+                <h2 id="registration">Registration</h2>
                     <ul>{LogAndBlogData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>

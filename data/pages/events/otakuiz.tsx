@@ -15,7 +15,7 @@ const Otakuiz = {
         shortDescription: "For all the seasoned Otaku out there, this is an event that will test your knowledge in anime every step of the way. Prepare to battle it out in Otakuiz!",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '1:00 PM to 3:00 PM',
-        venue: 'To Be Announced',
+        venue: 'Yuva Enclave',
         grades: '9 - 12',
         image: OTK,
         accent: "hsl(257, 100%, 6%)",
@@ -26,7 +26,7 @@ const Otakuiz = {
             
         rules: [
             "Open for Grades 9 to 12",
-            "The competitors will participate in groups of 2 and will each come up with a name for their group and a buzzer phrase for the buzzer round.",
+            "The competitors will participate in groups of 2.",
             "No use of the internet or any gadgets will be allowed.",
             "Participants will be allowed to confer within their own teams to answer questions as there will be no individual participation rounds.",
             "They may not, however, confer with any other groups in the middle of any rounds.",

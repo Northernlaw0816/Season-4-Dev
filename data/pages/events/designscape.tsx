@@ -15,7 +15,7 @@ const Designscape = {
         shortDescription: "A moment is beautiful by itself, but what if it could be better? What if the fate of a raw photo is in your hands? What if the image in your head surpasses the beauty of a shot?  Create a potpourri of your imagination and reality.",
         date: Main.dates.day1,
         time: '1:00 PM to 3:00 PM',
-        venue: 'To Be Announced',
+        venue: 'Yuva Enclave',
         grades: '9 - 12',
         image: DS,
         accent: 'hsl(259, 67%, 25%)',
@@ -26,16 +26,16 @@ const Designscape = {
         
         rules: [
             "Solo Event for Grades 9 to 12",
-            "Participants will be given photos to edit.",
+            "Three topics or themes would be given to the participants. They could choose one.",
+            "The participant will work on the topic and come up with a design of their own",
             "The participants are to bring their own devices and are free to use any of the suggested apps/softwares: Adobe Photoshop, Adobe Lightroom, Canva, Adobe Photoshop Elements, Snapseed, PicsArt, Photoshop Express.",
-            "A time limit of 2 hours will be given to the participants to submit their creatives"
+            "A time limit of 2 hours will be given to the participants to submit their creatives."
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
         registration: [
-            "This is a Solo event.",
-            "Participants cannot participate in Designscape simultaneously with Log and Blog.",
+            "This is a Solo event."
         ]
     }
 }
