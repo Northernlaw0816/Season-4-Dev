@@ -20,14 +20,14 @@
                 transition: filter 100ms, transform 250ms;
             }
     
-            &:hover {
+            &:hover, &:focus-visible {
                 transform: scale(1.1);
             }
     
             &.insta {
                 filter: contrast(0%) brightness(50);
     
-                &:hover {
+                &:hover, &:focus-visible  {
                     filter: contrast(100%) brightness(1);
                 }
 
@@ -40,7 +40,7 @@
             &.youtube {
                 filter: invert(1) saturate(0) brightness(2);
     
-                &:hover {
+                &:hover, &:focus-visible  {
                     filter: invert(0) saturate(100%) brightness(1);
                 }
 
@@ -52,14 +52,14 @@
             &.website, &.github {
                 filter: none;
                 
-                &:hover {
+                &:hover, &:focus-visible  {
                     filter: invert(1);
                 }
             }
 
             &.linkedin {
                 filter: saturate(0) brightness(10);
-                &:hover {
+                &:hover, &:focus-visible  {
                     filter: saturate(1);
                 }
             }

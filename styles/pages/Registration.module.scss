@@ -22,7 +22,7 @@
 		color: var(--text-alt);
 		text-decoration: underline;
 
-		&:hover {
+		&:hover, &:focus-visible  {
 			color: var(--primary)
 		}
 	}
