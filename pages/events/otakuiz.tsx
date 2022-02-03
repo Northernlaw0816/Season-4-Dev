@@ -40,10 +40,12 @@ const Otakuiz: NextPage = () => {
                 <h2 id="tagline" className={eventStyles.tagline}>{OtakuizData.tagline}</h2>
                 
                 <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={eventStyles.h2_p}>{OtakuizData.headings.about}</p>
+                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>{OtakuizData.headings.about}</p>
                 
-                <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
-                    <p className={eventStyles.h2_p}>{OtakuizData.headings.rules}</p>
+                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
+                    <ul>{OtakuizData.headings.rules.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul> 
                 
                 <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>EventCoordinators</h2>
                     <div className={eventStyles.card_container}>
@@ -53,9 +55,11 @@ const Otakuiz: NextPage = () => {
                     </div>
                 
                 <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
-                    <p className={eventStyles.h2_p}>{OtakuizData.headings.registration}</p>
+                    <ul>{OtakuizData.headings.registration.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul>
                 
-                <EventsRegisterButton/>
+                <EventsRegisterButton event={toSlug(OtakuizData.title)}/>
             </div>
         </Layout>
     </>)

@@ -1,16 +1,19 @@
 //data
+import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import LAB from '../../../public/images/events/lab_logo_2.png'
 
 const LogAndBlog = {
+    title: "Log and Blog",
+
     tagline: "Curate and Create!",
 
     link: '/events/log-and-blog',
 
     details: {
         shortDescription: "Can microchips control us? Is future-tech scary? Log and Blog is an event which lets you unleash your creative writing skills. Log in, research, review and pen your refreshing thoughts...",
-        date: 'To Be Announced',
+        date: Main.dates.day2,
         time: '1:00 PM to 3:00 PM',
         venue: 'To Be Announced',
         grades: '9 - 12',
@@ -35,7 +38,13 @@ const LogAndBlog = {
             </p>
         </>,
         
-        rules: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?",
+        rules: [
+            "Open for Grades 9 to 12",
+            "Solo Event",
+            "The participants are free to access the internet for resources and information",
+            "and will be given a time period of 2 hours to complete their blog in ‘WordPress’ or ‘Blogger’ ",
+            "Each participant will be given a computer and a variety of topics will be available to choose from"
+        ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Log and Blog"),
 

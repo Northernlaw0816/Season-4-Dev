@@ -1,4 +1,5 @@
 //data
+import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import AoV from '../../../public/images/events/aov_logo.png'
@@ -6,13 +7,15 @@ import cod from '../../../public/images/events/aov_games/cod_logo.png'
 import bgmi from '../../../public/images/events/aov_games/bgmi_logo.png'
 
 const ArenaOfValor = {
+    title: "Arena of Valor",
+
     tagline: "Grab The Clutch And Feel The Power",
     
     link: '/events/arena-of-valor',
 
     details: {
         shortDescription: "Arena of Valor is all set to put your gaming skills on mettle and test your visuospatial and problem-solving skills. Split-second decisions and high-speed reflexes are quintessential to emerge victorious.",
-        date: 'To Be Announced',
+        date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '4:30 PM to 7:30 PM',
         venue: 'Online',
         grades: '9 - 12',
@@ -44,7 +47,29 @@ const ArenaOfValor = {
                         participants: 3,
                         logo: bgmi
                     }
-                ]
+                ],
+
+                guidelines: [
+                    "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",,
+                    "Controllers and Emulators are NOT allowed.",
+                    "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
+                    "The banned items for the specific game must NOT be used in any part of the event.",
+                    "Failure to comply with these rules will result in DISQUALIFICATION."
+                ],
+
+                bannedItems: {
+                    bgmi: {
+                        "ScoreStreaks Banned" : [
+                            "Sentry Gun",
+                            "VTOL"
+                        ],
+                        
+                        "Guns Banned": [
+                            "NA-45",
+                            "HVK - "
+                        ]
+                    }
+                }
             },
            
             {
@@ -63,6 +88,10 @@ const ArenaOfValor = {
                         participants: 2,
                         logo: bgmi
                     }
+                ],
+
+                guidelines: [
+
                 ]
             },
             
@@ -76,25 +105,32 @@ const ArenaOfValor = {
                         name: "Valorant",
                         participants: 3,
                         logo: cod
-                    },
-                    {
-                        name: "Brawlhalla",
-                        participants: 3,
-                        logo: bgmi
                     }
+                ],
+
+                guidelines: [
+
                 ]
             }
                 
         ],
         
-        rules: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?",
+        rules: [
+            "Open for Grades 9 to 12",
+            "Students will participate in a series of matches of video games that they have registered for",
+            "The game competitions will be run across 3 platforms namely CONSOLE (PS4,  Xbox, etc), PC (laptop or desktop), MOBILE (smartphones etc)",
+            "Students can participate using any of the above platforms. Different platforms will not go against each other at any point",
+            "The timing of each game will be different",
+            "Participants are required to have a strong and stable internet connection.",
+        ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event.includes("Arena of Valor")),
 
         registration: [
-            "Participants have to reigster as a team.",
-            "Mobile participants have to register in teams of 2.",
-            "Console and PC  participants have to register in teams of 3.",
+            "Participants can register as a team for all three platforms.",
+            "Registration for each platform has to be done separately.",
+            "2 team members for Console can be chosen from the given names.",
+            "Participants are only allowed to compete in ONE game for the Mobile platform.",
         ]
     }
 }

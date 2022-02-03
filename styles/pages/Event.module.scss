@@ -58,14 +58,23 @@
             }
 
             .ko {
-                background: url("../../public/images/events/ko_background_2.png"),
+                background:
+                linear-gradient(to top, black 25%, transparent),
+                url("../../public/images/events/ko_background_2.png"),
                 url("../../public/images/events/ko_background.png");
                 background-size: 200% 200%;
                 background-repeat: no-repeat;
                 background-position: 70% 20%;
                 place-items: center end;
                 padding: 0;
-                padding-left: 30%;
+                padding-top: 30%;
+                padding-left: 40%;
+
+                & > * {
+                    position: absolute;
+                    bottom: 10%;
+                    right: -10%;
+                }
             }
 
             .td {

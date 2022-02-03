@@ -5,7 +5,7 @@ import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz 
 
 const EventsList = [
     {
-        title: 'Arena of Valor',
+        title: ArenaOfValor.title,
         description: ArenaOfValor.details.shortDescription,
         date: ArenaOfValor.details.date,
         time: ArenaOfValor.details.time,
@@ -17,7 +17,7 @@ const EventsList = [
         selector: styles.aov,
     },
     {
-        title: 'Knock Out!',
+        title: KnockOut.title,
         description: KnockOut.details.shortDescription,
         date: KnockOut.details.date,
         time: KnockOut.details.time,
@@ -29,7 +29,7 @@ const EventsList = [
         selector: styles.ko,
     },
     {
-        title: 'Truth or Debug',
+        title: TruthOrDebug.title,
         description: TruthOrDebug.details.shortDescription,
         date: TruthOrDebug.details.date,
         time: TruthOrDebug.details.time,
@@ -41,7 +41,7 @@ const EventsList = [
         selector: styles.td,
     },
     {
-        title: 'Log and Blog',
+        title: LogAndBlog.title,
         description: LogAndBlog.details.shortDescription,
         date: LogAndBlog.details.date,
         time: LogAndBlog.details.time,
@@ -53,7 +53,7 @@ const EventsList = [
         selector: styles.lab,
     },
     {
-        title: 'Designscape',
+        title: Designscape.title,
         description: Designscape.details.shortDescription,
         date: Designscape.details.date,
         time: Designscape.details.time,
@@ -65,7 +65,7 @@ const EventsList = [
         selector: styles.ds,
     },
     {
-        title: 'Otakuiz',
+        title: Otakuiz.title,
         description: Otakuiz.details.shortDescription,
         date: Otakuiz.details.date,
         time: Otakuiz.details.time,

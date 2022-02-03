@@ -1,17 +1,20 @@
 //data
+import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import DS from '../../../public/images/events/ds_logo.png'
 
 const Designscape = {
+    title: "Designscape",
+
     tagline: "Spell a visual magic!",
 
     link: '/events/designscape',
 
     details: {
         shortDescription: "A moment is beautiful by itself, but what if it could be better? What if the fate of a raw photo is in your hands? What if the image in your head surpasses the beauty of a shot?  Create a potpourri of your imagination and reality.",
-        date: 'To Be Announced',
-        time: '1:00 PM to 3:00 Am',
+        date: Main.dates.day1,
+        time: '1:00 PM to 3:00 PM',
         venue: 'To Be Announced',
         grades: '9 - 12',
         image: DS,
@@ -21,12 +24,18 @@ const Designscape = {
     headings: {
         about: "A moment is beautiful by itself, but what if it could be better? What if the image in your head surpasses the beauty of nature? What if the fate of a raw photo is in your hands? The Designscape event is the perfect opportunity to use your unique magic on a photo and see what comes of it. It's the perfect place to fuse your imagination and reality. So what are you waiting for? Join this event and test your abilities!",
         
-        rules: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nulla quasi esse illo dolores ipsa ipsum? Odio unde repellat assumenda nulla laborum nesciunt quos illum ad sed explicabo, quam asperiores?",
+        rules: [
+            "Solo Event for Grades 9 to 12",
+            "Participants will be given photos to edit.",
+            "The participants are to bring their own devices and are free to use any of the suggested apps/softwares: Adobe Photoshop, Adobe Lightroom, Canva, Adobe Photoshop Elements, Snapseed, PicsArt, Photoshop Express.",
+            "A time limit of 2 hours will be given to the participants to submit their creatives"
+        ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
         registration: [
-            "This is a Solo event."
+            "This is a Solo event.",
+            "Participants cannot participate in Designscape simultaneously with Log and Blog.",
         ]
     }
 }

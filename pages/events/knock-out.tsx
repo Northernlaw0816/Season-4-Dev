@@ -33,10 +33,12 @@ const KnockOut: NextPage= () => {
                 <h2 id="tagline" className={eventStyles.tagline}>{KnockOutData.tagline}</h2>
                 
                 <h2 id="about" className={eventStyles.subheading}>About</h2>
-                    <p className={eventStyles.h2_p}>{KnockOutData.headings.about}</p> 
+                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>{KnockOutData.headings.about}</p> 
                 
-                <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
-                    <p className={eventStyles.h2_p}>{KnockOutData.headings.rules}</p> 
+                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
+                    <ul>{KnockOutData.headings.rules.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul> 
                 
                 <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
                     <div className={eventStyles.card_container}>
@@ -46,9 +48,11 @@ const KnockOut: NextPage= () => {
                     </div> 
                 
                 <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
-                    <p className={eventStyles.h2_p}>{KnockOutData.headings.registration}</p>
+                    <ul>{KnockOutData.headings.registration.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul>
                 
-                <EventsRegisterButton/>
+                <EventsRegisterButton event={toSlug(KnockOutData.title)}/>
             </div>
         </Layout>
     </>)

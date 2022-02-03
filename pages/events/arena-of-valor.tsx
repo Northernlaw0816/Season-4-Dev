@@ -43,13 +43,13 @@ const ArenaOfValor: NextPage = () => {
             <div className={eventStyles.content}>
                 <h2 id="tagline" className={eventStyles.tagline}>{ArenaOfValorData.tagline}</h2>
                 
-                <h2 id="about" className={eventStyles.subheading}>About<span></span></h2>
-                    <p className={eventStyles.h2_p}>
+                <h2 id="about" className={eventStyles.subheading}>About</h2>
+                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>
                         {ArenaOfValorData.headings.about.description}
                     </p>
                     
-                    {ArenaOfValorData.headings.platforms.map((platform) => {
-                        return (<>
+                    {ArenaOfValorData.headings.platforms.map((platform, index: number) => {
+                        return (<div key={index}>
                             <h3 id={toSlug(`platform ${platform.name}`)}>
                                 {platform.name}
                             </h3>
@@ -57,21 +57,29 @@ const ArenaOfValor: NextPage = () => {
                                 {platform.description}
                             </p>
 
-                            {platform.games.map((game) => {
-                                return(<>
+                            {platform.games.map((game, index: number) => {
+                                return(<div key={index}>
+                                    <h4 id={toSlug(`game ${game.name}`)}>{game.name}</h4>
                                     <p className={eventStyles.h3_p}>
                                         <strong>{game.participants}v{game.participants}</strong> {game.name}
                                     </p>
                                     <div className={eventStyles.game_logo}>
                                         <Image src={game.logo} alt={game.name} placeholder={"blur"}/>
                                     </div>
-                                </>)
+                                </div>)
                             })}
-                        </>)
+                        </div>)
                     })}
+
+                <h2 id="details" className={eventStyles.subheading}>Details</h2>
+                    <p className={`${eventStyles.h2_p} ${eventStyles.description_p}`}>
+                        {ArenaOfValorData.details.date}
+                    </p>
                 
-                <h2 id="rules" className={eventStyles.subheading}>Rules</h2>
-                    <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.rules}</p> 
+                <h2 id="guidelines" className={eventStyles.subheading}>Guidelines</h2>
+                    <ul>{ArenaOfValorData.headings.rules.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul> 
                 
                 <h2 id={toSlug("event coordinators")} className={eventStyles.subheading}>Event Coordinators</h2>
                     <div className={eventStyles.card_container}>
@@ -81,9 +89,11 @@ const ArenaOfValor: NextPage = () => {
                     </div> 
                 
                 <h2 id="registration" className={eventStyles.subheading}>Registration</h2>
-                    <p className={eventStyles.h2_p}>{ArenaOfValorData.headings.registration}</p>
+                    <ul>{ArenaOfValorData.headings.registration.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul>
                 
-                <EventsRegisterButton/>
+                <EventsRegisterButton event={toSlug(ArenaOfValorData.title)}/>
             </div>
         </Layout>
     </>)

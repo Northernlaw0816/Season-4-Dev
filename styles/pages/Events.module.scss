@@ -31,6 +31,10 @@
         margin: auto;
         padding: 2rem clamp(1rem, 15vw, 8rem);
 
+        .tagline {
+            text-align: center;
+        }
+
         h2 {
             margin-block-start: 2em;
         }
@@ -39,11 +43,15 @@
             font-size: 18px;
         }
 
+        .description_p {
+            font-size: 24px;
+        }
+
         .h2_p, h3 {
             margin-left: 1em;
         }
 
-        .h3_p {
+        .h3_p, h4 {
             margin-left: 2em;
         }
 
@@ -80,7 +88,7 @@
         clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
         background: 
             url('../../public/images/events/aov_background.png'),
-            linear-gradient(hsl(180, 100%, 20%), black 80%);
+            linear-gradient(#006666, black 80%);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: 50% 50%;
@@ -354,10 +362,15 @@
     }
 
     .content {
+        .tagline {
+            color: var(--text-alt);
+            font-family: 'Courier New', Courier, monospace;
+        }
+
         .register_link_align {
             .register_link {
                 color: black;
-                font-family: monospace;
+                font-family: 'Courier New', Courier, monospace;
                 font-weight: 800;
             }
         }
@@ -381,7 +394,7 @@
     }
 
     @media (prefers-color-scheme: dark) {
-        --background: hsl(259, 67%, 11%);    
+        --background: hsl(259, 61%, 15%);    
     }
 }
 
