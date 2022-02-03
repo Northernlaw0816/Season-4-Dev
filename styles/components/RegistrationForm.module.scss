@@ -137,7 +137,7 @@
 			}
 		}
 
-		@media (max-width: 400px) {
+		@media (max-width: 430px) {
 			.event_field, .platform_field {
 				grid-template-columns: 1fr;
 			}
@@ -232,7 +232,7 @@
 			}
 		}
 
-		@media (max-width: 400px) {
+		@media (max-width: 430px) {
 			.member_input {
 				grid-template-columns: 1fr;
 			}
@@ -253,7 +253,7 @@
 			color: white;
 			font-weight: bold;
 
-			&:hover {
+			&:hover, &:focus-visible {
 				background: hsl(130, 70%, 40%);
 			}
 
