@@ -159,7 +159,7 @@ const NavBar = ({skipTo}: any) => {
                     <rect className={styles.line} id="3" width="32" height="4" fill="white" y="28"/>
                 </svg>
             </div>
-        <ScrollingUpdate message="AHHHHHHHH"/>
+        <ScrollingUpdate message={Main.updateMessage}/>
         </nav>
     </>)}
 
