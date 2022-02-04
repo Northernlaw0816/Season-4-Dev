@@ -139,10 +139,15 @@
         .game_logo {
             display: grid;
             place-items: center;
-            width: calc(80%);
-            padding: 1rem 20%;
             margin: 0 4rem;
             background: hsl(60, 6%, 12%);
+            width: max-content;
+            max-width: 80%;
+
+            @media (max-width: 700px) {
+                max-width: 100%;
+                margin: 0;
+            }
         }
 
         .register_link_align {

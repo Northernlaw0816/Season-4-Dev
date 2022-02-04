@@ -3,8 +3,11 @@ import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import AoV from '../../../public/images/events/aov_logo.png'
-import cod from '../../../public/images/events/aov_games/cod_logo.png'
-import bgmi from '../../../public/images/events/aov_games/bgmi_logo.png'
+import rocket from '../../../public/images/events/aov_games/rocket_league.png'
+import fortnite from '../../../public/images/events/aov_games/fortnite.png'
+import valorant from '../../../public/images/events/aov_games/valorant.jpg'
+import cod from '../../../public/images/events/aov_games/cod.png'
+import bgmi from '../../../public/images/events/aov_games/bgmi.jpg'
 
 const ArenaOfValor = {
     title: "Arena of Valor",
@@ -52,15 +55,13 @@ const ArenaOfValor = {
                     {
                         name: "Fortnite",
                         participants: 2,
-                        logo: cod,
-                        bannedItems: []
+                        image: fortnite
                     },
 
                     {
                         name: "Rocket League",
                         participants: 2,
-                        logo: bgmi,
-                        bannedItems: []
+                        image: rocket
                     }
                 ],
 
@@ -84,7 +85,7 @@ const ArenaOfValor = {
                     {
                         name: "Call Of Duty Mobile",
                         participants: 3,
-                        logo: cod,
+                        image: cod,
                         bannedItems: [
                             {
                                 category: "ScoreStreaks Banned",
@@ -124,7 +125,7 @@ const ArenaOfValor = {
                     {
                         name: "Battlegrounds Mobile India",
                         participants: 3,
-                        logo: bgmi
+                        image: bgmi
                     }
                 ],
 
@@ -148,7 +149,7 @@ const ArenaOfValor = {
                     {
                         name: "Valorant",
                         participants: 3,
-                        logo: cod,
+                        image: valorant,
                         bannedItems: [
                             {
                                 category: "Guns Banned",

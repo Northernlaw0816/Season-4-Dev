@@ -62,11 +62,11 @@ const ArenaOfValor: NextPage = () => {
                                 return(<div key={index}>
                                     <h4 id={toSlug(`game ${game.name}`)}>{game.name}</h4>
                                     <div className={styles.game_logo}>
-                                        <Image src={game.logo} alt={game.name} placeholder={"blur"}/>
+                                        <Image src={game.image} alt={game.name} placeholder={"blur"}/>
                                     </div>
                                     <h5 id={toSlug(`${game.name} details`)}>Details</h5>
                                     <p className={styles.h5_p}>Team Size: {game.participants}</p>
-                                    {game.bannedItems?.length != 0 && (<>
+                                    {game.bannedItems?.length > 0 && (<>
                                         <p className={styles.h5_p}>Banned Items:</p>
                                         <ul>
                                             { game.bannedItems?.map(category => {
