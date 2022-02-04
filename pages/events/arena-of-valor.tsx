@@ -69,15 +69,15 @@ const ArenaOfValor: NextPage = () => {
                                     {game.bannedItems?.length > 0 && (<>
                                         <p className={styles.h5_p}>Banned Items:</p>
                                         <ul>
-                                            { game.bannedItems?.map(category => {
-                                                return(<>
-                                                    <p>{category.category}</p>
-                                                    <ul>
+                                            { game.bannedItems?.map((category, index) => {
+                                                return(<div key={index}>
+                                                    <p className={styles.h4_p}>{category.category}</p>
+                                                    <ul className={styles.h4_p}>
                                                         {category.items.map((item, index) => {
                                                             return (<li key={index}>{item}</li>)
                                                         })}
                                                     </ul>
-                                                </>)
+                                                </div>)
                                             })}
                                         </ul>
                                     </>)}
