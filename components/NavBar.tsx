@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { toSlug } from '../functions'
 
+//components
+import ScrollingUpdate from './ScrollingUpdate'
 //stylesheets
 import styles from '../styles/components/Navbar.module.scss'
 import effects from '../styles/Effects.module.scss'
@@ -126,6 +128,7 @@ const NavBar = ({skipTo}: any) => {
             </a></Link>
             <span className={styles.spacer}>{Main.year} | Season {Main.season}</span>
             <Links/>
+        <ScrollingUpdate message={Main.updateMessage}/>
         </nav>
         <SkipToContent/>
     </>)}
@@ -156,6 +159,7 @@ const NavBar = ({skipTo}: any) => {
                     <rect className={styles.line} id="3" width="32" height="4" fill="white" y="28"/>
                 </svg>
             </div>
+        <ScrollingUpdate message="AHHHHHHHH"/>
         </nav>
     </>)}
 

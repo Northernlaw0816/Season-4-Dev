@@ -1,0 +1,33 @@
+.scrolling_bg {
+	background-color: var(--primary);
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	padding: 0.125rem;
+	overflow: hidden;
+	box-shadow: 0 1em 1em hsl(0, 0%, 0%, 25%);
+
+	.scrolling_text {
+		color: var(--text-white);
+		place-items: center;
+		display: grid;
+		grid-template-columns: 75% 75%;
+
+		p {
+			margin: 0;
+		}
+
+		animation: scroll_left 30s linear infinite;
+
+		@keyframes scroll_left {
+			0% {
+				transform: translateX(100%);
+			}
+
+			100% {
+				transform: translateX(-150%);
+			}
+		}
+	}
+}
