@@ -67,17 +67,17 @@ const ArenaOfValor: NextPage = () => {
                                     <h5 id={toSlug(`${game.name} details`)}>Details</h5>
                                     <p className={styles.h5_p}>Team Size: {game.participants}</p>
                                     {game.bannedItems?.length > 0 && (<>
-                                        <p className={styles.h5_p}>Banned Items:</p>
-                                        <ul>
+                                        <h5 className={styles.h5_p}>Banned Items:</h5>
+                                        <ul className={styles.h5_p}>
                                             { game.bannedItems?.map((category, index) => {
-                                                return(<div key={index}>
-                                                    <p className={styles.h4_p}>{category.category}</p>
-                                                    <ul className={styles.h4_p}>
+                                                return(<li key={index}>
+                                                    <p>{category.category}</p>
+                                                    <ul>
                                                         {category.items.map((item, index) => {
                                                             return (<li key={index}>{item}</li>)
                                                         })}
                                                     </ul>
-                                                </div>)
+                                                </li>)
                                             })}
                                         </ul>
                                     </>)}
