@@ -31,7 +31,7 @@
 
     .button {
       background: var(--primary);
-      font-size: 18px;
+      font-size: clamp(0.75rem, 2vw, 1.25rem);
       padding: 1rem;
       min-width: 10rem;
       text-align: center;
@@ -76,9 +76,14 @@
 
     .navigation {
       display: grid;
-      grid-auto-flow: column;
+      grid-template-columns: 1fr 1fr;
       place-items: center;
-      width: 50%;
+      width: 80%;
+
+      @media (max-width: 400px) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
     }
   }
 
