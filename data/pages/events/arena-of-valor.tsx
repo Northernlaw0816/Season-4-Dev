@@ -195,6 +195,7 @@ const ArenaOfValor = {
             "Registration for each platform has to be done separately.",
             "2 team members for Console can be chosen from the given names.",
             "Participants are only allowed to compete in ONE game for the Mobile platform.",
+            "Participants must use the same Team Name and have the same members if registering for multiple platforms of \"Arena of Valor\".",
         ]
     }
 }
