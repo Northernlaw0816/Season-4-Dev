@@ -35,6 +35,11 @@ const KnockOut: NextPage= () => {
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{KnockOutData.headings.about}</p> 
                 
+                <h2 id="details">Details</h2>
+                    <p className={styles.h2_p}><strong>Date:</strong> {KnockOutData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Time:</strong> {KnockOutData.details.time}</p>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {KnockOutData.details.venue}</p>
+
                 <h2 id="guidelines">Guidelines</h2>
                     {KnockOutData.headings.guidelines.map((round: {title: string, rules: string[]}, index) => {
                         return (<>

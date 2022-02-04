@@ -35,7 +35,10 @@ const LogAndBlog: NextPage= () => {
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{LogAndBlogData.headings.about}</p> 
 
-                <h2>Details</h2>
+                <h2 id="details">Details</h2>
+                    <p className={styles.h2_p}><strong>Date:</strong> {LogAndBlogData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Time:</strong> {LogAndBlogData.details.time}</p>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {LogAndBlogData.details.venue}</p>
                     
                 
                 <h2 id="guidelines">Guidelines</h2>

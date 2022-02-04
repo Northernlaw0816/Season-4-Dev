@@ -16,7 +16,20 @@ const ArenaOfValor = {
     details: {
         shortDescription: "Arena of Valor is all set to put your gaming skills on mettle and test your visuospatial and problem-solving skills. Split-second decisions and high-speed reflexes are quintessential to emerge victorious.",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
-        time: '4:30 PM to 7:30 PM',
+        time: [
+            {
+                name: "PC",
+                time: '4:30 PM to 6:00 PM',
+            },
+            {
+                name: "Console",
+                time: '6:00 PM to 6:45 PM'
+            },
+            {
+                name: "Mobile",
+                time: '6:45 PM to 8:00 PM'
+            }
+        ],
         venue: 'Online',
         grades: '9 - 12',
         image: AoV,
