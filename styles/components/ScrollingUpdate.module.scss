@@ -13,9 +13,26 @@
 		place-items: center;
 		display: grid;
 		grid-template-columns: 75% 75%;
+		
+		@media (max-width: 768px) {
+			grid-template-columns: max-content max-content;
+			gap: 50%;
+
+			animation: scroll_left_mobile 30s linear infinite;
+
+			@keyframes scroll_left_mobile {
+				0% {
+					transform: translateX(100%);
+				}
+				100% {
+					transform: translateX(-400%);
+				}
+			}
+		}
 
 		p {
 			margin: 0;
+			white-space: nowrap;
 		}
 
 		animation: scroll_left 30s linear infinite;
