@@ -241,8 +241,11 @@
 
 
 .navbar_layout {
+  position: sticky;
+  top: 0;
   display: grid;
   grid-template-rows: auto auto;
+  z-index: 10;
 }
 
 .nav_menu {
