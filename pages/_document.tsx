@@ -30,6 +30,7 @@ export default class MyDocument extends Document {
                 {/* Default */}
                 <meta name="title" content={title} />
                 <meta name="description" content={description} />
+                <meta name="theme-color" content="#00cc22" />
             </Head>
 
             <body>
