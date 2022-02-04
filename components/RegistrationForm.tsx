@@ -1,4 +1,4 @@
-import { useState, useEffect} from "react"
+import { useState, useEffect, useLayoutEffect} from "react"
 import { useForm } from "react-hook-form"
 import anime from "animejs"
 import { getRegistrationsCollection, registerTeam, validateFields } from "../functions"
@@ -220,8 +220,6 @@ const RegistrationForm = ({event}: any) => {
 		participantsLimit < 2 && unregister("participants.1")
 		participantsLimit < 1 && unregister("participants.0")
 	}, [participantsLimit, unregister])
-	
-	useEffect(() => handleEventValue(), [])
 
 	useEffect(() => {
 		let timeline = anime.timeline({
@@ -240,6 +238,10 @@ const RegistrationForm = ({event}: any) => {
 			],
 		})
 	})
+
+	useLayoutEffect( () => {
+		handleEventValue()
+	}, [])
 
 	const router = useRouter()
 
