@@ -15,7 +15,7 @@ const LogAndBlog = {
         shortDescription: "Can microchips control us? Is future-tech scary? Log and Blog is an event which lets you unleash your creative writing skills. Log in, research, review and pen your refreshing thoughts...",
         date: Main.dates.day2,
         time: '1:00 PM to 3:00 PM',
-        venue: 'Yuva Enclave',
+        venue: 'Primary & Secondary Computer Lab',
         grades: '9 - 12',
         image: LAB,
         accent: 'hsl(243, 32%, 11%)',  

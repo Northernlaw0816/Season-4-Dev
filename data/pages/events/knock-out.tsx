@@ -17,7 +17,7 @@ const KnockOut = {
         shortDescription: "Knockout is a debate competition on the best of topics relating to technology and the future. It's not about killing your enemy, it's about making them surrender.",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '8:30 AM to 9:30 AM',
-        venue: 'Yuva Enclave',
+        venue: 'Conference Room',
         grades: '9 - 12',
         image: KO,
         accent: 'black',

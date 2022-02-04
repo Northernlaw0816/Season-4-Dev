@@ -15,7 +15,7 @@ const Otakuiz = {
         shortDescription: "For all the seasoned Otaku out there, this is an event that will test your knowledge in anime every step of the way. Prepare to battle it out in Otakuiz!",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '1:00 PM to 3:00 PM',
-        venue: 'Yuva Enclave',
+        venue: 'AV Lab',
         grades: '9 - 12',
         image: OTK,
         accent: "hsl(257, 100%, 6%)",

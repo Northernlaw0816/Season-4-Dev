@@ -15,7 +15,7 @@ const Designscape = {
         shortDescription: "A moment is beautiful by itself, but what if it could be better? What if the fate of a raw photo is in your hands? What if the image in your head surpasses the beauty of a shot?  Create a potpourri of your imagination and reality.",
         date: Main.dates.day1,
         time: '1:00 PM to 3:00 PM',
-        venue: 'Yuva Enclave',
+        venue: 'Yoga Hall',
         grades: '9 - 12',
         image: DS,
         accent: 'hsl(259, 67%, 25%)',

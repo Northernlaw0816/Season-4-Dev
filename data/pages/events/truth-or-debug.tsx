@@ -18,7 +18,7 @@ const TruthOrDebug = {
         shortDescription: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug!",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '9:45 AM to 12:35 PM',
-        venue: 'Yuva Enclave',
+        venue: 'CREYA Lab',
         grades: '9 - 12',
         image: TD,
         accent: "black",
