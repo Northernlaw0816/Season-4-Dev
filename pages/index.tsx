@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>NuTopia | Home</title>
+        <title>NuTopia | Yuvabharathi Public School</title>
       </Head>
 
       <Layout skipTo="#content" overrideClasses={styles.main}>
