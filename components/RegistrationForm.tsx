@@ -206,6 +206,7 @@ const RegistrationForm = ({event}: any) => {
 				}).catch(() => resetFields)
 				setIsSuccess({state: response, message: "Successfully Registered"})
 				alert("Successfully registered")
+				alert("A Confirmation mail has been sent to your email address")
 				setIsRegistering(false)
 				resetFields()
 			} else {
