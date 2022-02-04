@@ -37,7 +37,9 @@ const validateFields = async (data: any, participantsLimit: number) => {
 	//push the query result to an array
 	const eventMatchedDocs: QueryDocumentSnapshot<DocumentData>[] = []
 	eventMatchedSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-		eventMatchedDocs.push(doc)
+		if (!doc.get('isSample')) {
+			eventMatchedDocs.push(doc)
+		}
 	})
 
 	//loop through the array and check if the emails are already registered
@@ -69,12 +71,16 @@ const validateFields = async (data: any, participantsLimit: number) => {
 
 		// get ds registrations
 		dsRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-			registrations.push(doc)
+			if (!doc.get('isSample')) {
+				registrations.push(doc)
+			}
 		})
 
 		// get lab registrations
 		labRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-			registrations.push(doc)
+			if (!doc.get('isSample')) {
+				registrations.push(doc)
+			}
 		})
 
 		//loop through the array and check if the emails are registered for ds and lab
@@ -103,7 +109,9 @@ const validateFields = async (data: any, participantsLimit: number) => {
 
 		// get otakuiz registrations
 		otakuizRegistrationSnapshot.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
-			registrations.push(doc)
+			if (!doc.get('isSample')) {
+				registrations.push(doc)
+			}
 		})
 	
 		//loop through the array and check if the emails are registered for otakuiz
