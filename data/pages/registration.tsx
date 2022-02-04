@@ -4,7 +4,7 @@ const Registration = {
 	title: "Pre-Registration Information",
 	commonRules: [
 		"Registrations are open for students from classes 9 to 12.",
-		"Participants can register for only one event. And Optionally can register for each platform of Arena of Valor.",
+		"Participants can register for only one event. And Optionally can register for ALL platforms of Arena of Valor.",
 		"Participants must use the same email-id for all registrations.",
 		"Participants that submit mis-matched information will be disqualified."
 	],
