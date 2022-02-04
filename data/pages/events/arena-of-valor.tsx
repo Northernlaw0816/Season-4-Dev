@@ -19,7 +19,8 @@ const ArenaOfValor = {
     details: {
         shortDescription: "Arena of Valor is all set to put your gaming skills on mettle and test your visuospatial and problem-solving skills. Split-second decisions and high-speed reflexes are quintessential to emerge victorious.",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
-        time: [
+        time: '4:30 PM - 8:00 PM',
+        times: [
             {
                 name: "PC",
                 time: '4:30 PM to 6:00 PM',
@@ -55,13 +56,15 @@ const ArenaOfValor = {
                     {
                         name: "Fortnite",
                         participants: 2,
-                        image: fortnite
+                        image: fortnite,
+                        bannedItems: []
                     },
 
                     {
                         name: "Rocket League",
                         participants: 2,
-                        image: rocket
+                        image: rocket,
+                        bannedItems: []
                     }
                 ],
 
@@ -125,7 +128,8 @@ const ArenaOfValor = {
                     {
                         name: "Battlegrounds Mobile India",
                         participants: 3,
-                        image: bgmi
+                        image: bgmi,
+                        bannedItems: []
                     }
                 ],
 

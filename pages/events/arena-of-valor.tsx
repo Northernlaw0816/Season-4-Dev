@@ -97,7 +97,7 @@ const ArenaOfValor: NextPage = () => {
                     <p className={styles.h2_p}><strong>Date:</strong> {ArenaOfValorData.details.date}</p>
                     <p className={styles.h2_p}><strong>Time:</strong></p>
                         <ul className={styles.h2_p}>
-                            {ArenaOfValorData.details.time.map((time, index) => {
+                            {ArenaOfValorData.details.times.map((time, index) => {
                                 return (<li key={index}><strong>{time.name}:</strong> {time.time} </li>)
                             })}
                         </ul>
