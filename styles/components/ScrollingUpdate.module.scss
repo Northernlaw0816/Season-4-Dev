@@ -1,9 +1,5 @@
 .scrolling_bg {
 	background-color: var(--primary);
-	position: absolute;
-	top: 100%;
-	left: 0;
-	right: 0;
 	padding: 0.125rem;
 	overflow: hidden;
 	box-shadow: 0 1em 1em hsl(0, 0%, 0%, 25%);

@@ -239,6 +239,12 @@
   }
 }
 
+
+.navbar_layout {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
 .nav_menu {
   position: fixed;
   opacity: 0;
