@@ -42,10 +42,17 @@ const LogAndBlog: NextPage= () => {
                     
                 
                 <h2 id="guidelines">Guidelines</h2>
-                    <ul>{LogAndBlogData.headings.rules.map((rule, index) => {
+                    <ul className={styles.h2_p}>{LogAndBlogData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                     <h3>Assessment Criteria</h3>
+                    <ul className={styles.h2_p}>
+                        {LogAndBlogData.headings.assessment.map((assessment, index) => {
+                            return <li key={index}>
+                                <p>{assessment}</p>
+                            </li>
+                        })}
+                    </ul>
                 
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
