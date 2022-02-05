@@ -17,7 +17,7 @@ const ViewRegistrations: NextPage = () => {
 
 	useEffect(() => {
 
-		// get registrtaions collection
+		// get registrations collection
 		const registrations = getRegistrationsCollection()
 		// set the default query
 		let getEventsQuery = query(registrations, where("event", "==", viewEvent))
