@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { query, where, onSnapshot, QueryDocumentSnapshot, DocumentData } from 'firebase/firestore'
+import { query, where, onSnapshot, QueryDocumentSnapshot, DocumentData, orderBy, Timestamp } from 'firebase/firestore'
 
 //components
 import Layout from '../components/Layout'
@@ -20,22 +20,22 @@ const ViewRegistrations: NextPage = () => {
 		// get registrations collection
 		const registrations = getRegistrationsCollection()
 		// set the default query
-		let getEventsQuery = query(registrations, where("event", "==", viewEvent))
-		// set query based on platform for AoV
-		if (viewEvent == "aov-mobile") {
-			getEventsQuery = query(registrations, where("event", "==", "arena-of-valor"), where("platform" , "==", "mobile"))
-		} else if (viewEvent == "aov-console") {
-			getEventsQuery = query(registrations, where("event", "==", "arena-of-valor"), where("platform" , "==", "console"))
-		} else if (viewEvent == "aov-pc") {
-			getEventsQuery = query(registrations, where("event", "==", "arena-of-valor"), where("platform" , "==", "pc"))
-		}
+		let getEventsQuery = query(registrations, orderBy("registrationDate", "asc"))
 
 		// subscribe to live changes to firestore collection
 		const unsubscribe = onSnapshot(getEventsQuery, (snapshot) => {
 			// get the registration documents from the snapshot
 			const registrations: QueryDocumentSnapshot<DocumentData>[] = []
 			snapshot.forEach(doc => {
-				registrations.push(doc)
+				if (viewEvent === "aov-mobile" && doc.data().event === "arena-of-valor" && doc.get("platform") === "mobile") {
+					registrations.push(doc)
+				} else if (viewEvent === "aov-console" && doc.data().event === "arena-of-valor" && doc.get("platform") === "console") {
+					registrations.push(doc)
+				} else if (viewEvent === "aov-pc" && doc.data().event === "arena-of-valor" && doc.get("platform") === "pc") {
+					registrations.push(doc)
+				} else if (doc.data().event === viewEvent) {
+					registrations.push(doc)
+				}
 			})
 
 			//extract participants from registration documents
@@ -54,6 +54,8 @@ const ViewRegistrations: NextPage = () => {
 					if (["arena-of-valor", "truth-or-debug", "otakuiz"].includes(registration.get("event"))) {
 						participant["teamName"] = registration.get("teamName")
 					}
+
+					participant["date"] = registration.get("registrationDate")
 					// add participant to list
 					participants.push(participant)
 				})
@@ -90,6 +92,7 @@ const ViewRegistrations: NextPage = () => {
 						<thead>
 							<tr>
 								<th>S.No</th>
+								<th>Date</th>
 								<th>Name</th>
 								<th>Grade</th>
 								<th>Email</th>
@@ -99,10 +102,21 @@ const ViewRegistrations: NextPage = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{participants.map((participant, index) => {
+							{participants.map((participant: {
+								name: string,
+								grade: string,
+								email: string,
+								phone: string,
+								event: string,
+								platform: string,
+								game: string,
+								teamName: string,
+								date: Timestamp
+							}, index) => {
 								return(
 									<tr key={index}>
 										<td>{index + 1}</td>
+										<td>{participant.date.toDate().toDateString()} {participant.date.toDate().toLocaleTimeString()}</td>
 										<td>{participant.name}</td>
 										<td>{participant.grade}</td>
 										<td>{participant.email}</td>
