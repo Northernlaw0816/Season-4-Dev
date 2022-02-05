@@ -85,38 +85,40 @@ const ViewRegistrations: NextPage = () => {
 
 				<h1>{participants[0]?.event}</h1>
 
-				<table className={styles.table}>
-					<thead>
-						<tr>
-							<th>S.No</th>
-							<th>Name</th>
-							<th>Grade</th>
-							<th>Email</th>
-							<th>Phone</th>
-							{viewEvent === "aov-mobile" && <th>Game</th>}
-							{["aov-mobile", "aov-console", "aov-pc", "truth-or-debug", "otakuiz"].includes(viewEvent) && <th>Team Name</th>}
-						</tr>
-					</thead>
-					<tbody>
-						{participants.map((participant, index) => {
-							return(
-								<tr key={index}>
-									<td>{index + 1}</td>
-									<td>{participant.name}</td>
-									<td>{participant.grade}</td>
-									<td>{participant.email}</td>
-									<td>{participant.phone}</td>
-									{
-										participant.platform === "mobile" && <td>{participant.game}</td>
-									}
-									{
-										["arena-of-valor", "truth-or-debug", "otakuiz"].includes(participant.event) && <td>{participant.teamName}</td>
-									}
-								</tr>
-							)
-						})}
-					</tbody>
-				</table>
+				<div className={styles.table_scroll_container}>
+					<table className={styles.table}>
+						<thead>
+							<tr>
+								<th>S.No</th>
+								<th>Name</th>
+								<th>Grade</th>
+								<th>Email</th>
+								<th>Phone</th>
+								{viewEvent === "aov-mobile" && <th>Game</th>}
+								{["aov-mobile", "aov-console", "aov-pc", "truth-or-debug", "otakuiz"].includes(viewEvent) && <th>Team Name</th>}
+							</tr>
+						</thead>
+						<tbody>
+							{participants.map((participant, index) => {
+								return(
+									<tr key={index}>
+										<td>{index + 1}</td>
+										<td>{participant.name}</td>
+										<td>{participant.grade}</td>
+										<td>{participant.email}</td>
+										<td>{participant.phone}</td>
+										{
+											participant.platform === "mobile" && <td>{participant.game}</td>
+										}
+										{
+											["arena-of-valor", "truth-or-debug", "otakuiz"].includes(participant.event) && <td>{participant.teamName}</td>
+										}
+									</tr>
+								)
+							})}
+						</tbody>
+					</table>
+				</div>
 			</Layout>
 		</>
 	)

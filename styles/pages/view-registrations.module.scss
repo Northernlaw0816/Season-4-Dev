@@ -20,10 +20,15 @@
 		text-align: center;
 	}
 
+	.table_scroll_container {
+		width: 90%;
+		overflow-x: scroll;
+		margin: 2rem auto;
+	}
+
 	.table {
 		border-collapse: collapse;
-		width: 80%;
-		margin: 2rem auto;
+		width: 100%;
 		td, th {
 			border: 2px solid var(--text-alt);
 			padding: 10px;
