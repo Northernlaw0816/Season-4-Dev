@@ -51,7 +51,7 @@ const LogAndBlog = {
         assessment: [
             "Creativity",
             "Factual Accuracy",
-            "Grammatical Acccuracy",
+            "Grammatical Accuracy",
             "Organisation"
         ],
         
