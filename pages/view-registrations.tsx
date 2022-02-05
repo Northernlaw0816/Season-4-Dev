@@ -30,32 +30,40 @@ const ViewRegistrations: NextPage = () => {
 			getEventsQuery = query(registrations, where("event", "==", "arena-of-valor"), where("platform" , "==", "pc"))
 		}
 
+		// subscribe to live changes to firestore collection
 		const unsubscribe = onSnapshot(getEventsQuery, (snapshot) => {
+			// get the registration documents from the snapshot
 			const registrations: QueryDocumentSnapshot<DocumentData>[] = []
 			snapshot.forEach(doc => {
 				registrations.push(doc)
 			})
 
+			//extract participants from registration documents
 			const participants:any[] = [] 
 			registrations.map(registration => {
 				registration.get("participants").forEach((participant: any) => {
 					participant["event"] = registration.get("event")
+					// conditionally add fields from the registration to each participant
 					if ( registration.get("event") === "arena-of-valor" ) {
 						participant["platform"] = registration.get("platform")
 						if ( registration.get("platform") === "mobile" ) {
 							participant["game"] = registration.get("game")
 						}
 					}
+					//add team name if team event
 					if (["arena-of-valor", "truth-or-debug", "otakuiz"].includes(registration.get("event"))) {
 						participant["teamName"] = registration.get("teamName")
 					}
+					// add participant to list
 					participants.push(participant)
 				})
 			})
+			// set the participant state so that it's rendered on the webpage
 			setParticipants(participants)
 		})
 
 	}, [viewEvent])
+
 
 	return(
 		<>
@@ -74,9 +82,13 @@ const ViewRegistrations: NextPage = () => {
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("designscape")}>DS</button>
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("otakuiz")}>OTK</button>
 				</div>
+
+				<h1>{participants[0]?.event}</h1>
+
 				<table className={styles.table}>
 					<thead>
 						<tr>
+							<th>S.No</th>
 							<th>Name</th>
 							<th>Grade</th>
 							<th>Email</th>
@@ -89,6 +101,7 @@ const ViewRegistrations: NextPage = () => {
 						{participants.map((participant, index) => {
 							return(
 								<tr key={index}>
+									<td>{index + 1}</td>
 									<td>{participant.name}</td>
 									<td>{participant.grade}</td>
 									<td>{participant.email}</td>
