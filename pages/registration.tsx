@@ -45,7 +45,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <p>Registrations are Closed</p> : <RegistrationForm />}
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : <RegistrationForm />}
 
         </Layout>
     </>)
