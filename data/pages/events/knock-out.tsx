@@ -13,6 +13,9 @@ const KnockOut = {
 
     link: '/events/knock-out',
 
+    backgroundGuideDownload: "https://drive.google.com/u/0/uc?id=1-rabcwDUJ0WN8RdAPjDli7_Ern3o8oFK&export=download",
+    backgroundGuideEmbed: "https://drive.google.com/file/d/1-rabcwDUJ0WN8RdAPjDli7_Ern3o8oFK/preview",
+
     details: {
         shortDescription: "Knockout is a debate competition on the best of topics relating to technology and the future. It's not about killing your enemy, it's about making them surrender.",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
@@ -31,7 +34,7 @@ const KnockOut = {
                 title: "Preliminary Round",
                 rules: [
                     "All participants will be divided into 2 teams (For / Against the given topic by the organisers), beforehand. They will be added to a respective Whatsapp group.",
-                    "Participants are expected to have basic knowledge of the topic and may go through the baground guide for the debate which will be released soon.",
+                    "Participants are expected to have basic knowledge of the topic and may go through the background guide for the debate which will be released soon.",
                     "Participants at once will be allowed to make an argument for his/her stance and the opposition will have rebuttals. This cycle would continue. ",
                     "Participants will be notified once at 25 seconds and then at 30 seconds so as to conclude their point.",
                     "If a participant continues to speak even after they are asked to stop by the moderators, they will be negatively marked.",

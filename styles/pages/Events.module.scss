@@ -67,6 +67,23 @@
             margin-left: 4em;
         }
 
+        .button {
+            background: var(--primary);
+            font-size: clamp(0.75rem, 2vw, 1.25rem);
+            padding: 1rem;
+            min-width: 10rem;
+            text-align: center;
+        
+            &:focus-visible {
+                outline: 6px solid hsl(0, 0%, 0%, 50%);
+                outline-offset: -6px;
+            }
+        
+            &:hover {
+                filter: brightness(1.1)
+            }
+        }
+
         .register_link_align {
             display: flex;
             justify-content: center;
@@ -199,6 +216,13 @@
             .red {
                 color: hsl(0, 100%, 50%);
             }
+        }
+
+        .bg_guide {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            place-items: center;
         }
 
         .register_link_align {

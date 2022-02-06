@@ -45,21 +45,6 @@
         filter: brightness(1.1)
       }
     }
-
-    .embed {
-      margin: auto;
-      width: clamp(60%, 50rem, 90%);
-    
-      &.video {
-        aspect-ratio: 16/9;
-      }
-
-      &.pdf {
-        width: clamp(50%, 50rem, 100%);
-        aspect-ratio: 22/17;
-      }
-
-    }
     
     .about {
       padding: 0 10%;

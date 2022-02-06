@@ -23,7 +23,7 @@ const Home: NextPage = () => {
         {/* <HomeGallery/> */}
         <div className={styles.content_container}>
           {/* trailer */}
-          <iframe className={`${styles.embed} ${styles.video}`} src="https://www.youtube.com/embed/cvLqHBbXSKE" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+          <iframe className={"embed video"} src="https://www.youtube.com/embed/cvLqHBbXSKE" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
           <hr />
           <h1>Welcome to NuTopia</h1>
           {/* content */}
@@ -39,7 +39,7 @@ const Home: NextPage = () => {
           <h1>Brochure</h1>
           {/* brochure */}
           <a href="https://drive.google.com/u/0/uc?id=1p0DLOIey7lozPvmZst-RipoMn2G74DNc&export=download" className={`${styles.button} ${Effects.button_hover_effect}`}>Download Brochure</a>
-          <iframe frameBorder={0} className={`${styles.embed} ${styles.pdf}`} src="https://drive.google.com/file/d/1p0DLOIey7lozPvmZst-RipoMn2G74DNc/preview" allow="autoplay"/>
+          <iframe frameBorder={0} className={"embed pdf"} src="https://drive.google.com/file/d/1p0DLOIey7lozPvmZst-RipoMn2G74DNc/preview" allow="autoplay"/>
         </div>
       </Layout>
     </>

@@ -76,3 +76,17 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.embed {
+  margin: auto;
+  width: clamp(60%, 50rem, 90%);
+}
+
+.embed.video {
+  aspect-ratio: 16/9;
+}
+
+.embed.pdf {
+  width: clamp(50%, 50rem, 100%);
+  aspect-ratio: 22/17;
+}

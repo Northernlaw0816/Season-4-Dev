@@ -6,9 +6,10 @@ import { toSlug } from "../../functions"
 //components
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
+import Layout from "../../components/Layout"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
-import Layout from "../../components/Layout"
+import Effects from '../../styles/Effects.module.scss'
 //assets
 import logo from '../../public/images/events/ko_logo.png'
 //data
@@ -51,6 +52,12 @@ const KnockOut: NextPage= () => {
                             </ul>
                         </>)
                     })}
+                
+                <h2 id="background-guide">Background Guide</h2>
+                    <div className={styles.bg_guide}>
+                        <a href={KnockOutData.backgroundGuideDownload} className={`${styles.button} ${Effects.button_hover_effect}`}>Download Background Guide</a>
+                        <iframe frameBorder={0} className={"embed pdf"} src={KnockOutData.backgroundGuideEmbed} allow="autoplay"/>
+                    </div>
                 
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
