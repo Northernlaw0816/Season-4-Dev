@@ -10,6 +10,7 @@ import RegistrationForm from "../components/RegistrationForm"
 import styles from "../styles/pages/Registration.module.scss"
 //data
 import { RegistrationData } from "../data/pages"
+import Main from "../data/Main"
 
 const Registration = () => {
 
@@ -44,7 +45,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            <RegistrationForm event={event !== undefined ? event : "default-value"} />
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <p>Registrations are Closed</p> : <RegistrationForm />}
 
         </Layout>
     </>)
