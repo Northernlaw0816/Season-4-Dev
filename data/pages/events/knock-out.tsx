@@ -13,6 +13,9 @@ const KnockOut = {
 
     link: '/events/knock-out',
 
+    backgroundGuideDownload: "https://drive.google.com/u/0/uc?id=1-rabcwDUJ0WN8RdAPjDli7_Ern3o8oFK&export=download",
+    backgroundGuideEmbed: "https://drive.google.com/file/d/1-rabcwDUJ0WN8RdAPjDli7_Ern3o8oFK/preview",
+
     details: {
         shortDescription: "Knockout is a debate competition on the best of topics relating to technology and the future. It's not about killing your enemy, it's about making them surrender.",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
