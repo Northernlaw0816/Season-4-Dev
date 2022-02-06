@@ -9,7 +9,7 @@ const Main = {
         day2: new Date(2022, 1, 9).toDateString().split(" ").slice(1).join(" ")
     },
     registrationClosingDate: date, // month is 0 indexed; Jan is 0;
-    updateMessage: date.getTime() <= new Date().getTime() ? "IMPORTANT INFORMATION: LAST DATE FOR REGISTRATION - FEBRUARY 6 2022, 3 PM" : "IMPORTANT INFORMATION: REGISTER ARE CLOSED"
+    updateMessage: date.getTime() <= new Date().getTime() ? "IMPORTANT INFORMATION: REGISTER ARE CLOSED" : "IMPORTANT INFORMATION: LAST DATE FOR REGISTRATION - FEBRUARY 6 2022, 3 PM"
 }
 
 export default Main
