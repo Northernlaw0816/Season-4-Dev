@@ -88,5 +88,4 @@ a {
 
 .embed.pdf {
   width: clamp(50%, 50rem, 100%);
-  aspect-ratio: 22/17;
 }

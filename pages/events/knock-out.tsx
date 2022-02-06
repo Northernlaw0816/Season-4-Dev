@@ -43,20 +43,26 @@ const KnockOut: NextPage= () => {
 
                 <h2 id="guidelines">Guidelines</h2>
                     {KnockOutData.headings.guidelines.map((round: {title: string, rules: string[]}, index) => {
-                        return (<>
+                        return (<div key={index}>
                             <p className={styles.h2_p}><strong>{round.title}</strong></p>
                             <ul className={styles.h2_p}>
                                 {round.rules.map((rule: string, index) => {
                                     return (<li key={index}><p>{rule}</p></li>)
                                 })}
                             </ul>
-                        </>)
+                        </div>)
                     })}
+
+                <h2 id="teams-round-1">Teams Round 1</h2>
+                    <div className={styles.bg_guide}>
+                        <a href={KnockOutData.teamsRound1Download} className={`${styles.button} ${Effects.button_hover_effect}`}>Download Teams 1</a>
+                        <iframe style={{aspectRatio: "1/1.29"}} frameBorder={0} className={"embed pdf"} src={KnockOutData.teamsRound1Embed} allow="autoplay"/>
+                    </div>
                 
                 <h2 id="background-guide">Background Guide</h2>
                     <div className={styles.bg_guide}>
                         <a href={KnockOutData.backgroundGuideDownload} className={`${styles.button} ${Effects.button_hover_effect}`}>Download Background Guide</a>
-                        <iframe frameBorder={0} className={"embed pdf"} src={KnockOutData.backgroundGuideEmbed} allow="autoplay"/>
+                        <iframe style={{aspectRatio: "1/1.3"}} frameBorder={0} className={"embed pdf"} src={KnockOutData.backgroundGuideEmbed} allow="autoplay"/>
                     </div>
                 
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
