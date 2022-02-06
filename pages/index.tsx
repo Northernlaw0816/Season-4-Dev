@@ -39,7 +39,7 @@ const Home: NextPage = () => {
           <h1>Brochure</h1>
           {/* brochure */}
           <a href="https://drive.google.com/u/0/uc?id=1p0DLOIey7lozPvmZst-RipoMn2G74DNc&export=download" className={`${styles.button} ${Effects.button_hover_effect}`}>Download Brochure</a>
-          <iframe frameBorder={0} className={"embed pdf"} src="https://drive.google.com/file/d/1p0DLOIey7lozPvmZst-RipoMn2G74DNc/preview" allow="autoplay"/>
+          <iframe style={{aspectRatio: "22/17"}} frameBorder={0} className={"embed pdf"} src="https://drive.google.com/file/d/1p0DLOIey7lozPvmZst-RipoMn2G74DNc/preview" allow="autoplay"/>
         </div>
       </Layout>
     </>

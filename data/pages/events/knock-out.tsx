@@ -13,6 +13,9 @@ const KnockOut = {
 
     link: '/events/knock-out',
 
+    teamsRound1Download: "https://drive.google.com/u/0/uc?id=1iq2TssEw8ycWIQP0QrrNbKJAqyUoCXpn&export=download",
+    teamsRound1Embed: "https://drive.google.com/file/d/1iq2TssEw8ycWIQP0QrrNbKJAqyUoCXpn/preview",
+
     backgroundGuideDownload: "https://drive.google.com/u/0/uc?id=1-rabcwDUJ0WN8RdAPjDli7_Ern3o8oFK&export=download",
     backgroundGuideEmbed: "https://drive.google.com/file/d/1-rabcwDUJ0WN8RdAPjDli7_Ern3o8oFK/preview",
 
