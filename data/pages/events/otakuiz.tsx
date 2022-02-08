@@ -22,6 +22,48 @@ const Otakuiz = {
     },
     
     headings: {
+        finalists: [
+            {
+                teamName: "L and Light",
+                members: [
+                    {
+                        name: "Gagan Arya",
+                        grade: "11B2"
+                    },
+                    {
+                        name: "Jyothir Krishna",
+                        grade: "11B2"
+                    }
+                ]
+            },
+            {
+                teamName: "JoBros",
+                members: [
+                    {
+                        name: "Tejas Rajeev",
+                        grade: "11A2"
+                    },
+                    {
+                        name: "Matthew Presannan M",
+                        grade: "11A2"
+                    }
+                ]
+            },
+            {
+                teamName: "Headless Angels",
+                members: [
+                    {
+                        name: "Prasannaa R.K.V.",
+                        grade: "12B1"
+                    },
+                    {
+                        name: "Nitin Karthick R.P.",
+                        grade: "12A1"
+                    }
+                ]
+            }
+        ],
+
         about: "Aesthetically pleasing scenes, powerful dialogues and stellar battles, anime has always been a world charged with energy and emotion. For all the seasoned anime watchers out there, this is the perfect opportunity for you. Prepare to battle it out in Otakuiz! An event that will test your knowledge in anime every step of the way. Do you have what it takes?",
             
         rules: [
