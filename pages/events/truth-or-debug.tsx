@@ -45,6 +45,20 @@ const TruthOrDebug: NextPage = () => {
                 <h2 id="tagline" className={styles.tagline}>
                     {TruthOrDebugData.tagline}
                 </h2>
+
+                <h2 id="finalists">Finalists</h2>
+                    {TruthOrDebugData.headings.finalists.map((finalist, index) => {
+                        return(<div key={index}>
+                            <h3>{finalist.teamName}</h3>
+                            <ol className={styles.h3_p}>
+                                {finalist.members.map((member, index) => {
+                                    return <li key={index}>
+                                        {member.name} | {member.grade}
+                                    </li>
+                                })}
+                            </ol>
+                        </div>)
+                    })}
                 
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{TruthOrDebugData.headings.about}</p>
