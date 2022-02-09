@@ -30,6 +30,49 @@ const KnockOut = {
     },
     
     headings: {
+        finalists: [
+            {
+                name: "Sibi Adithya Velayudham",
+                grade: "12A1"
+            },
+            {
+                name: "S. K. Navanith",
+                grade: "11A1"
+            },
+            {
+                name: "Aravind S.",
+                grade: "11A1"
+            },
+            {
+                name: "Krishang Agarwal",
+                grade: "11B1"
+            },
+            {
+                name: "M. Smitha Manaswini",
+                grade: "11B1"
+            },
+            {
+                name: "Janani Balaji",
+                grade: "11A2"
+            },
+            {
+                name: "Tharun Pranav",
+                grade: "12A1"
+            },
+            {
+                name: "Vetri Lalithesh",
+                grade: "10A"
+            },
+            {
+                name: "Navya Bhuradia",
+                grade: "10D"
+            },
+            {
+                name: "Shanmugam R. G.",
+                grade: "11A1"
+            }
+        ],
+
         about: "A battlefield where your words become your weapons. A sudden rush of adrenaline in your veins and a desperate need to protect yourself. Knockout is a debate competition on the best of topics relating to technology and the future. It's not about killing your enemy, it's about making them surrender.",
         
         guidelines: [

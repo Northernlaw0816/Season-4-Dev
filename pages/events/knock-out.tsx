@@ -32,6 +32,15 @@ const KnockOut: NextPage= () => {
 
             <div className={styles.content}>
                 <h2 id="tagline" className={styles.tagline}>{KnockOutData.tagline}</h2>
+
+                <h2 id="finalists">Finalists</h2>
+                    <ol className={styles.h3_p}>
+                        {KnockOutData.headings.finalists.map((finalist, index) => {
+                            return <li key={index}>
+                                {finalist.name} | {finalist.grade}
+                            </li>
+                        })}
+                    </ol>
                 
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{KnockOutData.headings.about}</p> 

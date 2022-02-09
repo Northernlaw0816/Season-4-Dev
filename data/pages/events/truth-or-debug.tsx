@@ -25,6 +25,48 @@ const TruthOrDebug = {
     },
 
     headings: {
+        finalists: [
+            {
+                teamName: "RunTime Terror",
+                members: [
+                    {
+                        name: "Atul Binosh Hegde",
+                        grade: "10A"
+                    },
+                    {
+                        name: "Adithya Santhosh P.",
+                        grade: "10B"
+                    }
+                ]
+            },
+            {
+                teamName: "Theatrical Debuggers",
+                members: [
+                    {
+                        name: "Rajaneesh R.",
+                        grade: "10C"
+                    },
+                    {
+                        name: "Vijay S.",
+                        grade: "10D"
+                    }
+                ]
+            },
+            {
+                teamName: "Who's the Boss?",
+                members: [
+                    {
+                        name: "Jinay P. Shah",
+                        grade: "12B1"
+                    },
+                    {
+                        name: "M. K. Surya",
+                        grade: "12A1"
+                    }
+                ]
+            }
+        ],
+
         about: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Expect the pressure to build up as your nimble mind debugs!",
         
         rules: [

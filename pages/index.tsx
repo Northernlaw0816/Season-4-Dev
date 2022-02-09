@@ -10,6 +10,7 @@ import styles from '../styles/pages/Home.module.scss'
 import Effects from '../styles/Effects.module.scss'
 //data
 import { AboutData } from '../data/pages'
+import Main from '../data/Main'
 
 const Home: NextPage = () => {
   return (
@@ -38,8 +39,8 @@ const Home: NextPage = () => {
           <hr />
           <h1>Brochure</h1>
           {/* brochure */}
-          <a href="https://drive.google.com/u/0/uc?id=1p0DLOIey7lozPvmZst-RipoMn2G74DNc&export=download" className={`${styles.button} ${Effects.button_hover_effect}`}>Download Brochure</a>
-          <iframe style={{aspectRatio: "22/17"}} frameBorder={0} className={"embed pdf"} src="https://drive.google.com/file/d/1p0DLOIey7lozPvmZst-RipoMn2G74DNc/preview" allow="autoplay"/>
+          <a href={Main.brochureDownload} className={`${styles.button} ${Effects.button_hover_effect}`}>Download Brochure</a>
+          <iframe style={{aspectRatio: "22/17"}} frameBorder={0} className={"embed pdf"} src={Main.brochurePreview} allow="autoplay"/>
         </div>
       </Layout>
     </>
