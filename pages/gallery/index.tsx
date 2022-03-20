@@ -1,6 +1,7 @@
 import Head from "next/head"
 
 //components
+import HeadTemplate from "../../components/HeadTemplate"
 import GalleryAlbum from "../../components/GalleryAlbumCard"
 import Layout from "../../components/Layout"
 //stylesheets
@@ -10,10 +11,7 @@ import GalleyAlbumsList from "../../data/GalleyAlbumsList"
 
 const Gallery = () => {
     return (<>
-        <Head>
-            <title>Gallery | Next.js</title>
-            <meta name="description" content="NuTopia Album Gallery" />
-        </Head>
+        <HeadTemplate title={`NuTopia | Gallery`} description="NuTopia Album Gallery"/>
 
         <Layout skipTo="#content" overrideClasses={styles.main}>
             <h1 id="#title">Gallery</h1>

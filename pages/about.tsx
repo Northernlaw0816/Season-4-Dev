@@ -2,6 +2,7 @@ import Head from "next/head"
 import { toSlug } from "../functions"
 
 //components
+import HeadTemplate from "../components/HeadTemplate"
 import Layout from "../components/Layout"
 import ProfileCard from "../components/ProfileCard"
 //stylesheets
@@ -12,10 +13,7 @@ import { AboutData } from "../data/pages"
 
 const About = () => {
     return (<>
-        <Head>
-            <title>NuTopia | Who We Are</title>
-            <meta name="description" content="About NuTopia, the Event Heads and the Event Coordinators" />
-        </Head>
+        <HeadTemplate title="NuTopia | Who We Are" description="About NuTopia, the Event Heads and the Event Coordinators"/>
 
         <Layout skipTo="#title" overrideClasses={styles.main}>
             <h1 id="title">Who We Are</h1>

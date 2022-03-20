@@ -1,9 +1,9 @@
 import type { NextPage } from "next"
-import Head from 'next/head'
 import Image from "next/image"
 import { toSlug } from "../../functions"
 
 //components
+import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
@@ -17,10 +17,7 @@ import ArenaOfValorData from "../../data/pages/events/arena-of-valor"
 const ArenaOfValor: NextPage = () => {
 
     return (<>
-        <Head>
-            <title>NuTopia | Arena of Valor</title>
-            <meta name="description" content="NuTopia Events: Arena of Valor" />
-        </Head>
+        <HeadTemplate title="NuTopia | Arena of Valor" description="NuTopia Events: Arena of Valor"/>
 
         <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_aov}`}>
             

@@ -3,6 +3,7 @@ import Image from "next/image"
 import { toSlug } from "../functions"
 
 //components
+import HeadTemplate from "../components/HeadTemplate"
 import Layout from "../components/Layout"
 import ProfileCard from "../components/ProfileCard"
 //stylesheets
@@ -17,9 +18,7 @@ import { ContactData } from '../data/pages'
 
 export const Contact = () => {
     return (<>
-        <Head>
-            <title>NuTopia | Contact Us</title>
-        </Head>
+        <HeadTemplate title="NuTopia | Contact Us" description="View Our Contact Information"/>
         <Layout skipTo="#address" additionalClasses={styles.main}>
             <h1 id="title">Contact Us</h1>
             <div className={styles.layout}>
