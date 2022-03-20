@@ -6,8 +6,8 @@ const Sitemap = () => {
 	return null
 }
 
-export const getServerSideProps = async ({ res, req }: any) => {
-	const BASE_URL = req && req.headers.host
+export const getServerSideProps = async ({ res }: any) => {
+	const BASE_URL = 'https://nutopia.in'
 
 	const staticPaths = fs
 		.readdirSync("pages")
