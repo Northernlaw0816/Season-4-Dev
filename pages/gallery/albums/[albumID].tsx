@@ -12,6 +12,7 @@ import styles from "../../../styles/pages/Album.module.scss"
 import Effects from "../../../styles/Effects.module.scss"
 //data
 import GalleyAlbumsList from "../../../data/GalleyAlbumsList"
+import HeadTemplate from "../../../components/HeadTemplate"
 
 const ImagePost = () => {
     const router = useRouter()
@@ -54,11 +55,8 @@ const ImagePost = () => {
     }
 
     if (!album) {
-
         return (<>
-            <Head>
-                <title>Gallery | Album Not Found</title>
-            </Head>
+            <HeadTemplate title="Gallery | Album Not Found" description="Album Not Found. Check Album ID"/>
 
             <Layout skipTo="#title" overrideClasses={styles.main}>
                 <h1 id="title">Album Not Found</h1>
@@ -67,9 +65,7 @@ const ImagePost = () => {
     }
     
     return <>
-        <Head>
-            <title>Gallery | {album.title}</title>
-        </Head>
+        <HeadTemplate title={`Gallery | ${album.title}`} description={`${album.title}`}/>
 
         <Layout skipTo="#description" overrideClasses={styles.main}>
             <div>

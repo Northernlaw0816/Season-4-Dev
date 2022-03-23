@@ -3,6 +3,7 @@ import Head from "next/head"
 import { useRouter } from 'next/router'
 
 //components
+import HeadTemplate from "../components/HeadTemplate"
 import Layout from "../components/Layout"
 //stylesheets
 import styles from "../styles/pages/404Page.module.scss"
@@ -13,10 +14,7 @@ const Custom404: NextPage = () => {
     const router = useRouter()
 
     return (<>
-        <Head>
-            <title>NuTopia | Home</title>
-            <meta name="description" content="404 | Page Not Found" />
-        </Head>
+        <HeadTemplate title="404 Page Not Found" description="404 | Page Not Found"/>
 
         <Layout skipTo="#content" overrideClasses={styles.main}>
             <div className={styles.main}>

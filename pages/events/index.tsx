@@ -1,7 +1,7 @@
 import { NextPage } from "next"
-import Head from "next/head"
 
 //components
+import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
 import EventCard from "../../components/EventCard"
 //stylesheets
@@ -11,10 +11,7 @@ import EventsData from '../../data/EventsList'
 
 const Events: NextPage = () => {
     return(<>
-        <Head>
-            <title>NuTopia | Events</title>
-            <meta name="description" content="NuTopia Events" />
-        </Head>
+        <HeadTemplate title="NuTopia | Events" description="NuTopia Events"/>
 
         <Layout skipTo="#title" overrideClasses={styles.main}>
             <h1 id="title">Events</h1>

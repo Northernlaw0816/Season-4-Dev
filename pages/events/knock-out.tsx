@@ -4,9 +4,10 @@ import Image from "next/image"
 import { toSlug } from "../../functions"
 
 //components
+import HeadTemplate from "../../components/HeadTemplate"
+import Layout from "../../components/Layout"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
-import Layout from "../../components/Layout"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
 import Effects from '../../styles/Effects.module.scss'
@@ -17,10 +18,7 @@ import KnockOutData from "../../data/pages/events/knock-out"
 
 const KnockOut: NextPage= () => {
     return(<>
-        <Head>
-            <title>NuTopia | Knock Out</title>
-            <meta name="description" content="NuTopia Events: Knock Out" />
-        </Head>
+        <HeadTemplate title="NuTopia | Knock Out" description="NuTopia Events: Knock Out"/>
 
         <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_ko}`}>
             

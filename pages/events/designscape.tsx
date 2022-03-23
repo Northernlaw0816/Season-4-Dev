@@ -1,17 +1,17 @@
 import { NextPage } from "next"
-import Head from "next/head"
+import { useEffect } from "react"
+import { toSlug } from "../../functions"
+import anime from "animejs"
 
 //components
+import HeadTemplate from "../../components/HeadTemplate"
+import Layout from "../../components/Layout"
 import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
-import Layout from "../../components/Layout"
 //data
 import DesignscapeData from "../../data/pages/events/designscape"
-import { useEffect } from "react"
-import anime from "animejs"
-import { toSlug } from "../../functions"
 
 const Designscape: NextPage= () => {
 
@@ -157,10 +157,7 @@ const Designscape: NextPage= () => {
     })
 
     return(<>
-        <Head>
-            <title>NuTopia | Designscape</title>
-            <meta name="description" content="NuTopia Events: Designscape" />
-        </Head>
+        <HeadTemplate title="NuTopia | Designscape" description="NuTopia Events: Designscape"/>
 
         <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_ds}`}>
             

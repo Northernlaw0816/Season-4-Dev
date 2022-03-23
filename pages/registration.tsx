@@ -4,6 +4,7 @@ import { toSlug } from "../functions"
 import { useRouter } from "next/router"
 
 //components
+import HeadTemplate from "../components/HeadTemplate"
 import Layout from "../components/Layout"
 import RegistrationForm from "../components/RegistrationForm"
 //stylesheets
@@ -20,14 +21,12 @@ const Registration = () => {
     let event = query.event
 
     return (<>
-        <Head>
-            <title>NuTopia | Registration</title>
-            <meta name="description" content="Register for the events featured in NuTopia" />
-        </Head>
+        <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
 
         <Layout skipTo="#note" overrideClasses={styles.main}>
             <h1 id="title">{RegistrationData.title}</h1>
             
+            <p id="note" style={{fontSize: "1.5em"}}>Registrations for Season 1 is CLOSED</p>
             <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 1 is open ONLY FOR YUVABHARATHIANS</p>
             <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the <Link href={`#${toSlug("Registration Form")}`}><a>Registration Form</a></Link>.</p>
 

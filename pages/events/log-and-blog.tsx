@@ -4,6 +4,7 @@ import Image from "next/image"
 import { toSlug } from "../../functions"
 
 //components
+import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
 import ProfileCard from "../../components/ProfileCard"
 import EventsRegisterButton from "../../components/EventRegisterButton"
@@ -16,10 +17,7 @@ import LogAndBlogData from "../../data/pages/events/log-and-blog"
 
 const LogAndBlog: NextPage= () => {
     return(<>
-        <Head>
-            <title>NuTopia | Log and Blog</title>
-            <meta name="description" content="NuTopia Events: Log and Blog" />
-        </Head>
+        <HeadTemplate title="NuTopia | Log and Blog" description="NuTopia Events: Log and Blog"/>
 
         <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_lab}`}>
             
