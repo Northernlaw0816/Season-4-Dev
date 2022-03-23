@@ -37,3 +37,4 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+pages/sitemap-generator.xml.tsx
