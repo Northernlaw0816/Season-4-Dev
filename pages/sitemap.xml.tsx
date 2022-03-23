@@ -1,17 +1,17 @@
-import { useRouter } from "next/router"
-
 import * as fs from 'fs'
 
-const Sitemap = () => {
-	return null
-}
+const Sitemap = () => {}
 
 export const getServerSideProps = async ({ res }: any) => {
-	const BASE_URL = 'https://nutopia.in'
+	const BASE_URL = {
+		development: "https://localhost:3000",
+		production: "https://nutopia.in",
+		test: "https://localhost:3000"
+	}[process.env.NODE_ENV]
 
 	const staticPaths = fs.readdirSync({
 		development: 'pages',
-		production: './',
+		production: './next/server/pages/',
 		test: 'pages'
 	}[process.env.NODE_ENV]).filter((staticPage) => {
 		return ![
