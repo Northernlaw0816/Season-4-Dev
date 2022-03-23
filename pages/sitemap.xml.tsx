@@ -11,16 +11,32 @@ export const getServerSideProps = async ({ res }: any) => {
 
 	const staticPaths = fs.readdirSync({
 		development: 'pages',
-		production: './.next/server/pages/',
+		production: './.next/static/chunks/pages',
 		test: 'pages'
 	}[process.env.NODE_ENV]).filter((staticPage) => {
-		return ![
-			"api",
-			"_app.tsx",
-			"_document.tsx",
-			"404.tsx",
-			"sitemap.xml.tsx",
-		].includes(staticPage);
+		return !{
+			development: [
+				"api",
+				"_app.tsx",
+				"_document.tsx",
+				"404.tsx",
+				"sitemap.xml.tsx",
+			],
+			production: [
+				"api",
+				"_app.js",
+				"_document.js",
+				"404.js",
+				"sitemap.xml.js",
+			],
+			test: [
+				"api",
+				"_app.tsx",
+				"_document.tsx",
+				"404.tsx",
+				"sitemap.xml.tsx",
+			]
+		}[process.env.NODE_ENV].includes(staticPage);
 	}).map((staticPagePath) => {
 		return `${BASE_URL}/${staticPagePath}`
 	})
