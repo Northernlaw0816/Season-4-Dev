@@ -14,7 +14,7 @@ import Main from '../data/Main'
 
 const Home: NextPage = () => {
 	return (<>
-		<HeadTemplate title="NuTopia | Yuvabharathi Public School" description="Official NuTopia Website | Season ${Main.season}"/>
+		<HeadTemplate title="NuTopia | Yuvabharathi Public School" description={`Official NuTopia Website | Season ${Main.season}`}/>
 
 		<Layout skipTo="#content" overrideClasses={styles.main}>
 		<HomeBanner/>
