@@ -16,7 +16,7 @@ const Home: NextPage = () => {
 	return (<>
 		<HeadTemplate title="NuTopia | Yuvabharathi Public School" description={`Official NuTopia Website | Season ${Main.season}`}/>
 
-		<Layout skipTo="#content" overrideClasses={styles.main}>
+		<Layout skipTo="#content" overrideClasses={styles.main} landingPage={true}>
 		<HomeBanner/>
 		{/* <HomeGallery/> */}
 		<div className={styles.content_container}>
