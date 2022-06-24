@@ -15,7 +15,7 @@ const About = () => {
     return (<>
         <HeadTemplate title="NuTopia | Who We Are" description="About NuTopia, the Event Heads and the Event Coordinators"/>
 
-        <Layout skipTo="#title" overrideClasses={styles.main}>
+        <Layout overrideClasses={styles.main}>
             <h1 id="title">Who We Are</h1>
                 {AboutData.whoWeAre.map((about, index) => {
                     return (<p key={index} className={styles.about_us}>
