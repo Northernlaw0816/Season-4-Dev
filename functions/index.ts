@@ -1,6 +1,7 @@
 import getRegistrationsCollection from "./getRegistrationsCollection"
-import registerTeam from "./registerTeam"
+import getParticipantCertificate from "./getParticipantCertificate"
+import getAllCertificates from "./getAllCertificates"
+import filterString from "./filterString"
 import toSlug from "./toSlug"
-import validateFields from "./validateFields"
 
-export { getRegistrationsCollection, registerTeam, toSlug, validateFields }
+export { getRegistrationsCollection, getParticipantCertificate, getAllCertificates, toSlug, filterString }
