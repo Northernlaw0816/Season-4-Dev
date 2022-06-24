@@ -37,7 +37,7 @@ const Otakuiz: NextPage = () => {
             <div className={styles.content}>
                 <h2 id="tagline" className={styles.tagline}>{OtakuizData.tagline}</h2>
 
-                <h2 id="finalists">Finalists</h2>
+                {/* <h2 id="finalists">Finalists</h2>
                     {OtakuizData.headings.finalists.map((finalist, index) => {
                         return(<div key={index}>
                             <h3>{finalist.teamName}</h3>
@@ -50,7 +50,7 @@ const Otakuiz: NextPage = () => {
                             </ol>
                         </div>)
                     })}
-                
+                 */}
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{OtakuizData.headings.about}</p>
                 

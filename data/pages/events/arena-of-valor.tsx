@@ -17,21 +17,21 @@ const ArenaOfValor = {
     link: '/events/arena-of-valor',
 
     details: {
-        shortDescription: "Arena of Valor is all set to put your gaming skills on mettle and test your visuospatial and problem-solving skills. Split-second decisions and high-speed reflexes are quintessential to emerge victorious.",
+        shortDescription: "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for battle?",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '4:30 PM - 8:00 PM',
         times: [
             {
                 name: "PC",
-                time: '4:30 PM to 6:00 PM',
+                time: 'TBA',
             },
             {
                 name: "Console",
-                time: '6:00 PM to 6:45 PM'
+                time: 'TBA'
             },
             {
                 name: "Mobile",
-                time: '6:45 PM to 8:00 PM'
+                time: 'TBA'
             }
         ],
         venue: 'Online',
@@ -43,7 +43,7 @@ const ArenaOfValor = {
     headings: {
 
         about: {
-            description: "Arena of Valor is all set to put your gaming skills on mettle and test your visuospatial and problem-solving skills. Split-second decisions and high-speed reflexes are quintessential to emerge victorious. For the first time ever an opportunity is given to the students to showcase their gaming skills.  Make the most of this chance!",
+            description: "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for battle?",
         },
 
         platforms: [

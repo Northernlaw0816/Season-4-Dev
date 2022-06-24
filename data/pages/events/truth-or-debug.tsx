@@ -15,7 +15,7 @@ const TruthOrDebug = {
     link: '/events/truth-or-debug',
 
     details: {
-        shortDescription: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug!",
+        shortDescription: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",
         date: `${Main.dates.day1} - ${Main.dates.day2}`,
         time: '9:45 AM to 12:35 PM',
         venue: 'CREYA Lab',
@@ -67,17 +67,17 @@ const TruthOrDebug = {
             }
         ],
 
-        about: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Expect the pressure to build up as your nimble mind debugs!",
+        about: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",
         
         rules: [
-            "Open for Grades 9 to 12 who have intermediate knowledge in coding and electronics.",
-            "Two participants in a team (Duo Event).",
-            "Each team will be given a desk of its own.",
-            "A bug/random problem will be given on the spot and the first participant to tap their desk with their pen/raise their hand will be given the chance to solve it first."
+            "Participants are allowed to use any programming language (provided the output is suitable) prescribed below for the coding rounds: (Java, C, C++, Python, Javascript, or any)",
+            "Participants must bring their own devices and accessories (Laptops, tablets).",
+            "The participants are allowed only in teams of 3.",
+            "Internet use or getting help from other participating teams is strictly prohibited."
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
-
+        prerequisites:["Intermediate knowledge of at least one of the prescribed programming languages is required.","Basic knowledge of circuit making."],
         registration: [
             "This is a Duo (2 member) event."
         ]

@@ -31,14 +31,15 @@ const KnockOut: NextPage= () => {
             <div className={styles.content}>
                 <h2 id="tagline" className={styles.tagline}>{KnockOutData.tagline}</h2>
 
-                <h2 id="finalists">Finalists</h2>
+                {/* <h2 id="finalists">Finalists</h2>
                     <ol className={styles.h3_p}>
                         {KnockOutData.headings.finalists.map((finalist, index) => {
+                            if((finalist || index)===undefined) return;
                             return <li key={index}>
-                                {finalist.name} | {finalist.grade}
+                                {finalist?.name} | {finalist?.grade}
                             </li>
                         })}
-                    </ol>
+                    </ol> */}
                 
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{KnockOutData.headings.about}</p> 
@@ -60,7 +61,7 @@ const KnockOut: NextPage= () => {
                         </div>)
                     })}
 
-                <h2 id="teams-round-1">Teams Round 1</h2>
+                {/* <h2 id="teams-round-1">Teams Round 1</h2>
                     <div className={styles.bg_guide}>
                         <a href={KnockOutData.teamsRound1Download} className={`${styles.button} ${Effects.button_hover_effect}`}>Download Teams 1</a>
                         <iframe style={{aspectRatio: "1/1.29"}} frameBorder={0} className={"embed pdf"} src={KnockOutData.teamsRound1Embed} allow="autoplay"/>
@@ -70,7 +71,7 @@ const KnockOut: NextPage= () => {
                     <div className={styles.bg_guide}>
                         <a href={KnockOutData.backgroundGuideDownload} className={`${styles.button} ${Effects.button_hover_effect}`}>Download Background Guide</a>
                         <iframe style={{aspectRatio: "1/1.3"}} frameBorder={0} className={"embed pdf"} src={KnockOutData.backgroundGuideEmbed} allow="autoplay"/>
-                    </div>
+                    </div> */}
                 
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
