@@ -11,19 +11,13 @@ const ProfileCard = ({profileObject}: any) => {
     return (
         <div className={styles.profile_card}>
             <div className={styles.profile_pic}>
-                <Image src={src} alt={name} quality={50} placeholder={"blur"} layout={"responsive"}/>
+                <Image src={src} alt={name} quality={2} placeholder={"blur"} layout={"responsive"}/>
             </div>
             <div className={styles.profile_info}>
                 <h2 id={toSlug(name)} className={styles.profile_name}>{name}</h2>
                 <div className={styles.profile_details}>
                     {event && <span className={styles.info}>
                         <h3 id={toSlug(`profile ${event}`)}>Event</h3><p>{event}</p>
-                    </span>}
-                    {roles && <span className={styles.info}>
-                        <h3 style={{display: "none"}} id={toSlug("profile role")}>Role</h3>
-                        {roles.map((role: string, index: number) => {
-                            return <p key={index}>{role}</p>
-                        })}
                     </span>}
                 </div>
             </div>
