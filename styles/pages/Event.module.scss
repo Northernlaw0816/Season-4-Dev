@@ -20,16 +20,19 @@
             --accent: black;
             color: var(--text-white);
             background: var(--accent);
+            border-radius: 1.5em;
 
-            transition: transform 250ms, box-shadow 250ms;
-            box-shadow: 0 0 0em 0em hsl(0, 0%, 0%, 00%);
+            transition: transform 250ms, box-shadow 250ms, border-radius 250ms;
 
             &:hover, &:focus-visible  {
-                transform: scale(1.01);
-                box-shadow: 0 0 1.5rem 0.5rem hsl(0, 0%, 0%, 50%);
+                transform: scale(1.02);
+                border-radius: 1em;
+                box-shadow: 0.5em 0.5em 1.5em 0.25em hsl(0, 0%, 0%, 50%);
                 
                 @media (prefers-color-scheme: dark) {
-                    box-shadow: 0 0 1.5em 0.5em hsl(0, 0%, 50%, 25%);
+                    box-shadow:
+                    -0.5em -0.5em 1.5em 0.25em hsl(0, 0%, 25%, 25%),
+                    0.5em 0.5em 1.5em 0.25em hsl(0, 0%, 0%);
                 }
             }
 
