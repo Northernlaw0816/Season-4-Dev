@@ -28,24 +28,6 @@ const Footer = () => {
             <Image src={YuvaSingle} alt="school logo" width={63} height={77}/>
           </div>
         </a>
-        <div className={styles.footer_content}>
-          <label style={{gridArea: "event"}}>Events</label>
-          <div className={styles.footer_links} style={{gridArea: "event_links"}}>
-            {Events.map((event, index) => {
-              return (
-                <Link href={event.link} key={index}><a role="link" className={effects.link_hover_effect}>{event.title}</a></Link>
-              )
-            })}
-          </div>
-          <label style={{gridArea: "links_title"}}>Links</label>
-          <div className={styles.footer_links} style={{gridArea: "links_links"}}>
-            {NavLinks.map((link: any, index: number) => {
-              return (
-                <Link href={link.link} key={index}><a role="link" className={effects.link_hover_effect}>{link.name}</a></Link>
-              )
-            })}
-          </div>
-        </div>
 
         <div className={styles.footer_details}>
           <p>An Initiative By The Students For The Students</p>
@@ -71,12 +53,33 @@ const Footer = () => {
           </div>
         </div>
 
+        <div className={styles.footer_content}>
+          
+          <label style={{gridArea: "event"}}>Events</label>
+          <div className={styles.footer_links} style={{gridArea: "event_links"}}>
+            {Events.map((event, index) => {
+              return (
+                <Link href={event.link} key={index}><a role="link" className={effects.link_hover_effect}>{event.title}</a></Link>
+              )
+            })}
+          </div>
+
+          <label style={{gridArea: "links_title"}}>Links</label>
+          <div className={styles.footer_links} style={{gridArea: "links_links"}}>
+            {NavLinks.map((link: any, index: number) => {
+              return (
+                <Link href={link.link} key={index}><a role="link" className={effects.link_hover_effect}>{link.name}</a></Link>
+              )
+            })}
+          </div>
+        </div>
+
         <div className={styles.footer_copyright}>
           <div><span className={styles.copyright}>&copy;</span> Yuvabharathi Public School {date}</div>
           
           <div className={styles.separator}></div>
           
-          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TDB} alt="team debug logo" width={24} height={24} /></a>Website by Team De-Bug: Marudhu Paandian K., Rishi Menon and Shabesa K. A.</div>
+          <div><a role="link" className={styles.TDB} href="https://sites.google.com/view/team-de-bug"><Image src={TDB} alt="team debug logo" width={24} height={24} /></a>Website by Team De-Bug: Marudhu Paandian K., Rajaneesh R., Rishi Menon, Shabesa K. A.</div>
         </div>
       </footer>
     )
