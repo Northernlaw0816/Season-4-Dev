@@ -87,7 +87,8 @@
     z-index: 1;
     mix-blend-mode: difference;
     background: white;
-    transition: right 100ms, top 100ms 250ms, bottom 100ms 250ms;
+    border-radius: 0;
+    transition: right 100ms, top 100ms 250ms, bottom 100ms 250ms, border-radius 100ms 250ms;
   }
   
   &:hover, &:focus-visible {
@@ -95,7 +96,8 @@
       right: -0.5em;
       top: 0;
       bottom: -0.25rem;
-      transition: right 250ms 250ms, top 100ms, bottom 100ms;
+      border-radius: 0.5rem;
+      transition: right 250ms 250ms, top 100ms, bottom 100ms, border-radius 250ms;
     }
   }
 
