@@ -1,7 +1,7 @@
 //stylesheets
 import styles from "../styles/pages/Event.module.scss"
 //data
-import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz,bassdrop, pandoraBlocks } from "./pages/events"
+import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz, Bassdrop, PandoraBlocks } from "./pages/events"
 
 const EventsList = [
     {
@@ -77,27 +77,27 @@ const EventsList = [
         selector: styles.otk,
     },
     {
-        title: bassdrop.title,
-        description: bassdrop.details.shortDescription,
-        date: bassdrop.details.date,
-        time: bassdrop.details.time,
-        venue: bassdrop.details.venue,
-        grades: bassdrop.details.grades,
-        link: bassdrop.link,
-        image: bassdrop.details.image,
-        accent: bassdrop.details.accent,
+        title: Bassdrop.title,
+        description: Bassdrop.details.shortDescription,
+        date: Bassdrop.details.date,
+        time: Bassdrop.details.time,
+        venue: Bassdrop.details.venue,
+        grades: Bassdrop.details.grades,
+        link: Bassdrop.link,
+        image: Otakuiz.details.image,
+        accent: Bassdrop.details.accent,
         selector: styles.bd,
     },
     {
-        title: pandoraBlocks.title,
-        description: pandoraBlocks.details.shortDescription,
-        date: pandoraBlocks.details.date,
-        time: pandoraBlocks.details.time,
-        venue: pandoraBlocks.details.venue,
-        grades: pandoraBlocks.details.grades,
-        link: pandoraBlocks.link,
-        image: pandoraBlocks.details.image,
-        accent: pandoraBlocks.details.accent,
+        title: PandoraBlocks.title,
+        description: PandoraBlocks.details.shortDescription,
+        date: PandoraBlocks.details.date,
+        time: PandoraBlocks.details.time,
+        venue: PandoraBlocks.details.venue,
+        grades: PandoraBlocks.details.grades,
+        link: PandoraBlocks.link,
+        image: Otakuiz.details.image,
+        accent: PandoraBlocks.details.accent,
         selector: styles.bd,
     }
 ]

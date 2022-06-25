@@ -191,18 +191,18 @@ const EventCoordinators = [
 	},
 	{
 		name: "Rishi Menon",
-		event: "Pandora Blocks",
+		event: "Pandora's Blocks",
 		grade: "Alumni",
 		src: rishi
 	},
 	{
 		name: "Hariharan",
-		event: "Pandora Blocks",
+		event: "Pandora's Blocks",
 		grade: "11",
 		src: hariharan
 	},{
 		name: "Abishek Siddharth",
-		event: "Pandora Blocks",
+		event: "Pandora's Blocks",
 		grade: "11",
 		src: abishek
 	},

@@ -1,8 +1,7 @@
 //data
-import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 
-const bassdrop = {
+const Bassdrop = {
   title: "Bass Drop",
 
   tagline: "Mix and Remix",
@@ -49,4 +48,4 @@ const bassdrop = {
   },
 };
 
-export default bassdrop;
+export default Bassdrop;

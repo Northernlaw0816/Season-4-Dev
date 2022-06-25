@@ -4,7 +4,7 @@ import KnockOut from "./knock-out"
 import LogAndBlog from "./log-and-blog"
 import Otakuiz from "./otakuiz"
 import TruthOrDebug from "./truth-or-debug"
-import bassdrop from "./bassdrop"
-import pandoraBlocks from "./pandora-blocks"
+import Bassdrop from "./bassdrop"
+import PandoraBlocks from "./pandora-blocks"
 
-export {ArenaOfValor, Designscape, KnockOut, LogAndBlog, Otakuiz, TruthOrDebug, bassdrop, pandoraBlocks}
+export { ArenaOfValor, Designscape, KnockOut, LogAndBlog, Otakuiz, TruthOrDebug, Bassdrop, PandoraBlocks }

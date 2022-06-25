@@ -1,7 +1,7 @@
 //data
-import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
-const pandoraBlocks = {
+
+const PandoraBlocks = {
     title: "Pandora Blocks",
 
     tagline: "Curate and Create!",
@@ -43,4 +43,4 @@ const pandoraBlocks = {
     }
 }
 
-export default pandoraBlocks;
+export default PandoraBlocks;
