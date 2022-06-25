@@ -23,7 +23,7 @@ const Registration = () => {
     return (<>
         <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
 
-        <Layout skipTo="#note" overrideClasses={styles.main}>
+        <Layout overrideClasses={styles.main}>
             <h1 id="title">{RegistrationData.title}</h1>
             
             <p id="note" style={{fontSize: "1.5em"}}>Registrations for Season 1 is CLOSED</p>
