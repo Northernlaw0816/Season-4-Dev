@@ -45,10 +45,6 @@
   position: relative;
   padding: 0;
 
-  &:active {
-    filter: none;
-  }
-  
   .dropdown {
     position: absolute;
     top: 100%;
@@ -56,10 +52,10 @@
     display: grid;
     min-width: 100%;
     width: max-content;
-    grid-template-rows: repeat(6, 3rem);
 
     .drop_button {
       filter: contrast(0.9);
+      height: 3rem;
     }
   }
 }

@@ -38,10 +38,6 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
 
     useEffect(() => {
         handleResize()
-    })
-    
-    useEffect(() => {
-        handleResize()
     
         window.addEventListener('resize', handleResize)
         return () => window.removeEventListener('resize', handleResize)
