@@ -16,9 +16,9 @@ const TruthOrDebug = {
 
     details: {
         shortDescription: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",
-        date: `${Main.dates.day1} - ${Main.dates.day2}`,
-        time: '9:45 AM to 12:35 PM',
-        venue: 'CREYA Lab',
+        date: `TBA`,
+        time: 'TBA',
+        venue: 'TBA',
         grades: '9 - 12',
         image: TD,
         accent: "black",
@@ -26,45 +26,7 @@ const TruthOrDebug = {
 
     headings: {
         finalists: [
-            {
-                teamName: "RunTime Terror",
-                members: [
-                    {
-                        name: "Atul Binosh Hegde",
-                        grade: "10A"
-                    },
-                    {
-                        name: "Adithya Santhosh P.",
-                        grade: "10B"
-                    }
-                ]
-            },
-            {
-                teamName: "Theatrical Debuggers",
-                members: [
-                    {
-                        name: "Rajaneesh R.",
-                        grade: "10C"
-                    },
-                    {
-                        name: "Vijay S.",
-                        grade: "10D"
-                    }
-                ]
-            },
-            {
-                teamName: "Who's the Boss?",
-                members: [
-                    {
-                        name: "Jinay P. Shah",
-                        grade: "12B1"
-                    },
-                    {
-                        name: "M. K. Surya",
-                        grade: "12A1"
-                    }
-                ]
-            }
+            
         ],
 
         about: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",

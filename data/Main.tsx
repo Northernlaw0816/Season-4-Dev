@@ -2,7 +2,7 @@ const date = new Date('Feb 6 2022 15:00:00 GMT+0530')
 
 const Main = {
     year: 2022,
-    season: 1,
+    season: 2,
     tagline: "A Hub For Cyber Geeks!",
     dates: {
         day1: new Date(2022, 1, 8).toDateString().split(" ").slice(1).join(" "),

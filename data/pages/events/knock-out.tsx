@@ -31,7 +31,7 @@ const KnockOut = {
   details: {
     shortDescription:
       "There are no tough opponents, only tough issues! Raise your words, not your voice, and stand up for your stance. Use the weapon of words to wound your opponent. A sudden rush of adrenaline coursing through your veins and the urge to blurt out the plethora of arguments running through your mind.It's not about killing your enemy, it's about making them surrender. 'Nuff said. MIC.DROP!",
-    date: `${Main.dates.day1} - ${Main.dates.day2}`,
+    date: "TBA",
     time: "TBA",
     venue: "TBA",
     grades: "9 - 12",

@@ -13,7 +13,7 @@ const Designscape = {
 
     details: {
         shortDescription: "In this arena you are the one who holds all powers- the fate of the bright colours, the raw picture and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
-        date: Main.dates.day1,
+        date: 'TBA',
         time: 'TBA',
         venue: 'TBA',
         grades: '9 - 12',

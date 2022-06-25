@@ -13,9 +13,9 @@ const LogAndBlog = {
 
     details: {
         shortDescription: "Can human beings and robots coexist? Can harmony be found in such a scenario?Log and Blog is an event which lets you unleash your creative writing skills. Log in, research, review and pen your refreshing thoughts.",
-        date: Main.dates.day2,
+        date: "TBA",
         time: 'TBA',
-        venue: 'Primary & Secondary Computer Lab',
+        venue: 'TBA',
         grades: '9 - 12',
         image: LAB,
         accent: 'hsl(243, 32%, 11%)',  

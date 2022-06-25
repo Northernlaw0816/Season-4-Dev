@@ -1,7 +1,7 @@
 //stylesheets
 import styles from "../styles/pages/Event.module.scss"
 //data
-import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz } from "./pages/events"
+import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz,bassdrop, pandoraBlocks } from "./pages/events"
 
 const EventsList = [
     {
@@ -75,6 +75,30 @@ const EventsList = [
         image: Otakuiz.details.image,
         accent: Otakuiz.details.accent,
         selector: styles.otk,
+    },
+    {
+        title: bassdrop.title,
+        description: bassdrop.details.shortDescription,
+        date: bassdrop.details.date,
+        time: bassdrop.details.time,
+        venue: bassdrop.details.venue,
+        grades: bassdrop.details.grades,
+        link: bassdrop.link,
+        image: bassdrop.details.image,
+        accent: bassdrop.details.accent,
+        selector: styles.bd,
+    },
+    {
+        title: pandoraBlocks.title,
+        description: pandoraBlocks.details.shortDescription,
+        date: pandoraBlocks.details.date,
+        time: pandoraBlocks.details.time,
+        venue: pandoraBlocks.details.venue,
+        grades: pandoraBlocks.details.grades,
+        link: pandoraBlocks.link,
+        image: pandoraBlocks.details.image,
+        accent: pandoraBlocks.details.accent,
+        selector: styles.bd,
     }
 ]
 

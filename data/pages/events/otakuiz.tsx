@@ -13,9 +13,9 @@ const Otakuiz = {
     
     details: {
         shortDescription: "Aesthetically pleasing scenes, powerful dialogues and stellar battles, anime has always been a world charged with energy and emotion. For all the seasoned Otakus out there, this is an event that will test your knowledge in anime every step of the way. Prepare to battle it out in Otakuiz! Otakuiz is a duo event where participants have to put their anime knowledge to test in a series of mind-challenging and fun rounds.",
-        date: `${Main.dates.day1} - ${Main.dates.day2}`,
+        date: "TBA",
         time: 'TBA',
-        venue: 'AV Lab',
+        venue: 'TBA',
         grades: '9 - 12',
         image: OTK,
         accent: "hsl(257, 100%, 6%)",
@@ -23,19 +23,7 @@ const Otakuiz = {
     
     headings: {
         finalists: [
-            {
-                teamName: "",
-                members: [
-                    {
-                        name: "Gagan Arya",
-                        grade: "11B2"
-                    },
-                    {
-                        name: "Jyothir Krishna",
-                        grade: "11B2"
-                    }
-                ]
-            },
+           
         ],
 
         about: "Aesthetically pleasing scenes, powerful dialogues and stellar battles, anime has always been a world charged with energy and emotion. For all the seasoned Otakus out there, this is an event that will test your knowledge in anime every step of the way. Prepare to battle it out in Otakuiz! Otakuiz is a duo event where participants have to put their anime knowledge to test in a series of mind-challenging and fun rounds.",
