@@ -22,7 +22,9 @@ const About = () => {
                         {about}
                     </p>)
                 })}
+
             <hr />
+
             <h1 id={toSlug("event heads")}>Event Heads</h1>
                 <div className={`${styles.card_container} ${styles.event_heads}`}>
                     {EventHeads.map((profile, index) => {
@@ -31,6 +33,7 @@ const About = () => {
                 </div>
             
             <hr />
+            
             <h1 id={toSlug("event coordinators")}>Event Coordinators</h1>
                 <div className={styles.card_container}>
                     {EventCoordinators.map((profile, index) => {

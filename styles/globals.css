@@ -79,7 +79,7 @@ a {
 
 .embed {
   margin: auto;
-  width: clamp(60%, 50rem, 100%);
+  width: clamp(60%, 50rem, 90%);
   border-radius: clamp(1rem, 5vw, 2rem);
 }
 
@@ -88,5 +88,14 @@ a {
 }
 
 .embed.pdf {
-  width: clamp(60%, 50rem, 100%);
+  width: clamp(60%, 50rem, 90%);
+}
+
+hr {
+  width: 100%;
+  border: none;
+  height: 4px;
+  border-radius: 100vw;
+  background: var(--text-alt);
+  opacity: 25%;
 }
