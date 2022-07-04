@@ -11,7 +11,7 @@ const ProfileCard = ({profileObject}: any) => {
     return (
         <div className={styles.profile_card}>
             <div className={styles.profile_pic}>
-                <Image src={src} alt={name} quality={2} placeholder={"blur"} layout={"responsive"}/>
+                <Image src={src} alt={name} quality={5} placeholder={"blur"} layout={"responsive"}/>
             </div>
             <div className={styles.profile_info}>
                 <h2 id={toSlug(name)} className={styles.profile_name}>{name}</h2>
