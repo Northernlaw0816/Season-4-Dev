@@ -1,0 +1,22 @@
+.registerationForm {
+  div {
+    background-color: hsl(130, 100%, 40%);
+    padding: 5px 5px 5px;
+  }
+  .form_body {
+    background-color: white;
+  }
+  .submit {
+    background-color: white;
+    border-radius: 5px;
+  }
+  h2 {
+    color: black;
+  }
+  input,
+  select {
+    border-radius: 0;
+	outline: black 1px;
+	width: 250px;
+  }
+}

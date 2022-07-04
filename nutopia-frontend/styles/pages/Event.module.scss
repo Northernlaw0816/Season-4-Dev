@@ -1,0 +1,156 @@
+.main {
+    min-height: 100vh;
+    width: 100%;
+    color: var(--text-alt);
+    padding: 2.5rem;
+    padding-top: 0;
+  
+    h1 {
+        text-align: center;
+    }
+
+    .cards_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+        gap: 2.5rem;
+
+        .card {
+            position: relative;
+            --background-color: var(--inactive);
+            --accent: black;
+            color: var(--text-white);
+            background: var(--accent);
+            border-radius: 1.5em;
+
+            transition: transform 250ms, box-shadow 250ms, border-radius 250ms;
+
+            &:hover, &:focus-visible  {
+                transform: scale(1.02);
+                border-radius: 1em;
+                box-shadow: 0.5em 0.5em 1.5em 0.25em hsl(0, 0%, 0%, 50%);
+                
+                @media (prefers-color-scheme: dark) {
+                    box-shadow:
+                    -0.5em -0.5em 1.5em 0.25em hsl(0, 0%, 25%, 25%),
+                    0.5em 0.5em 1.5em 0.25em hsl(0, 0%, 0%);
+                }
+            }
+
+            h2 {
+                font-size: clamp(1.5rem, 2.5vw, 1.75rem);
+                text-align: center;
+            }
+
+            .logo {
+                background: var(--accent);
+                background-size: 100%;
+                padding: 1rem;
+                aspect-ratio: 16/9;
+                display: grid;
+                place-items: center;
+            }
+
+            .aov {
+                background: 
+                url('../../public/images/events/aov_background.png'),
+                linear-gradient(hsl(180, 100%, 20%), black);
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: 50% 50%;
+                background-blend-mode: darken, normal;
+            }
+
+            .ko {
+                background:
+                linear-gradient(to top, black 25%, transparent),
+                url("../../public/images/events/ko_background_2.png"),
+                url("../../public/images/events/ko_background.png");
+                background-size: 200% 200%;
+                background-repeat: no-repeat;
+                background-position: 70% 20%;
+                place-items: center end;
+                padding: 0;
+                padding-top: 30%;
+                padding-left: 40%;
+
+                & > * {
+                    position: absolute;
+                    bottom: 10%;
+                    right: -10%;
+                }
+            }
+
+            .td {
+                --blur-radius: clamp(0.03125rem, 0.5vw, 0.09rem);
+                --line-width: clamp(0.5rem, 1vw, 1rem);
+                filter: blur(var(--blur-radius));
+                background: no-repeat center/95% 95% url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png'),
+                    linear-gradient(to left, black 3%, transparent 3% 97%, black 97% 100%),
+                    linear-gradient(to bottom, black 3%, transparent 3% 97%, black 97% 100%),
+                    linear-gradient(to top, hsl(0, 0%, 0%, 20%) 0 25%, hsl(0, 0%, 100%, 10%) 120%),
+                    repeating-linear-gradient(hsl(0, 0%, 0%, 30%) 0 var(--line-width), transparent var(--line-width) calc(var(--line-width) * 2)),
+                    hsl(0, 0%, 7.5%);
+            }
+
+            .lab {
+                background: 
+                    radial-gradient(70% 20% at 48% 82%, hsl(47, 100%, 85%, 34.9%) 13.33%, hsl(57, 82%, 85%, 1.4%) 60%, transparent 70%),
+                    linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%),
+                    linear-gradient(to top, hsl(243, 31%, 11%) 5%, hsl(243, 31%, 39%) 50%, transparent 50% 100%),
+            }
+
+            .otk {
+                background: linear-gradient(transparent 70%, var(--accent)), url('/images/events/otk_background.png');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% 100%;
+                perspective: 200px;
+                & > * {
+                    transform: rotateX(22.5deg) scale(0.9);
+                }
+            }
+
+            .info {
+                position: relative;
+                display: grid;
+                padding: 1rem;
+                gap: 1rem;
+                overflow: hidden;
+                font-size: clamp(0.75rem, 2vw, 1.125rem);
+
+                p {
+                    margin: 0;
+                }
+
+                .read_more {
+                    background: var(--primary);
+                    padding: 1rem;
+                    position: relative;
+                    left: 0;
+                    width: 60%;
+                    transition: left 250ms ease, width 500ms ease;
+                    
+                    &:hover, &:focus-visible {
+                        left: -1rem;
+                        width: calc(100% + 2rem);
+                    }
+
+                    &:focus-visible {
+                        outline: hsl(0, 0%, 0%, 30%) solid 3px;
+                        outline-offset: -3px;
+                    }
+                }
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            grid-template-columns: 1fr;
+
+            .card {
+                .info {
+                    font-size: clamp(0.75rem, 3vw, 1.5rem);
+                }
+            }
+        }
+    }
+}

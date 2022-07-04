@@ -1,0 +1,23 @@
+.main {
+    min-height: 100vh;
+    text-align: center;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    color: var(--text-alt);
+
+    .go_home {
+        position: relative;
+        padding: 1em 2rem;
+        margin: 1rem 0;
+        background: var(--inactive);
+        color: var(--text-white);
+        font-weight: 600;
+        font-size: large;
+        transition: background 200ms;
+
+        &:hover, &:focus-visible  {
+            background: var(--primary);
+        }
+    }
+}

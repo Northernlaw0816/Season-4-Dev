@@ -1,0 +1,735 @@
+.main {
+  --accent: var(--primary);
+  --button-bg: var(--inactive);
+  min-height: 100vh;
+
+  .banner {
+    display: grid;
+    place-items: center;
+    padding-bottom: clamp(2rem, 6vw, 6rem);
+    user-select: none;
+    overflow: hidden;
+
+    .logo {
+      width: clamp(100px, 90%, calc(60vw));
+    }
+
+    .banner_text {
+      height: max-content;
+      display: grid;
+      place-items: center;
+      width: 100%;
+
+      h1 {
+        margin: 0%;
+      }
+    }
+  }
+
+  .content {
+    color: var(--text-alt);
+    margin: auto;
+    padding: 2rem clamp(1rem, 15vw, 8rem);
+
+    .tagline {
+      text-align: center;
+    }
+
+    h2 {
+      margin-block-start: 2em;
+    }
+
+    h4,
+    h5 {
+      font-size: clamp(0.5rem, 2vw, 1.125rem);
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .description_p {
+      font-size: 24px;
+    }
+
+    .h2_p,
+    h3 {
+      margin-left: 1em;
+    }
+
+    .h3_p,
+    h4 {
+      margin-left: 2em;
+    }
+
+    .h4_p,
+    h5 {
+      margin-left: 3em;
+    }
+
+    .h5_p {
+      margin-left: 4em;
+    }
+
+    .button {
+      background: var(--primary);
+      font-size: clamp(0.75rem, 2vw, 1.25rem);
+      padding: 1rem;
+      min-width: 10rem;
+      text-align: center;
+
+      &:focus-visible {
+        outline: 6px solid hsl(0, 0%, 0%, 50%);
+        outline-offset: -6px;
+      }
+
+      &:hover {
+        filter: brightness(1.1);
+      }
+    }
+
+    .register_link_align {
+      display: flex;
+      justify-content: center;
+
+      .register_link {
+        position: relative;
+        padding: 1em 2rem;
+        margin: 1rem 0;
+        background: var(--button-bg);
+        color: var(--text-white);
+        font-weight: 600;
+        font-size: large;
+
+        &:hover,
+        &:focus-visible {
+          background: var(--accent);
+        }
+
+        @media (hover: none) {
+          background: var(--accent);
+        }
+      }
+    }
+  }
+}
+
+.main_aov {
+  background: var(--background);
+  --accent: linear-gradient(to top, hsl(39, 52%, 58%) 20%, transparent),
+    hsl(39, 52%, 35%);
+  --button-bg: linear-gradient(to bottom, hsl(39, 00%, 58%) 20%, transparent),
+    hsl(39, 00%, 35%);
+  .banner {
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
+    background: url("../../public/images/events/aov_background.png"),
+      linear-gradient(#006666, black 80%);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-blend-mode: darken, normal;
+
+    .banner_text {
+      background: linear-gradient(
+        to bottom,
+        hsl(39, 52%, 58%) 20%,
+        hsl(39, 52%, 20%)
+      );
+      background-clip: text;
+
+      h1 {
+        font-family: "Cinzel Decorative", serif;
+        color: transparent;
+        font-size: clamp(1rem, 8vw, 5rem);
+        font-weight: 900;
+
+        span {
+          color: transparent;
+          font-size: clamp(1rem, 6vw, 4rem);
+          background: linear-gradient(
+            to bottom,
+            hsl(0, 0%, 58%),
+            hsl(0, 0%, 40%)
+          );
+          background-clip: text;
+        }
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      color: black;
+      font-family: "Cinzel Decorative", serif;
+      font-size: clamp(15px, 3vw, 1.5rem);
+      text-align: center;
+      text-transform: capitalize;
+    }
+
+    .game_logo {
+      display: grid;
+      place-items: center;
+      margin: 0 4rem;
+      background: hsl(60, 6%, 12%);
+      width: max-content;
+      max-width: 80%;
+
+      @media (max-width: 700px) {
+        max-width: 100%;
+        margin: 0;
+      }
+    }
+
+    .register_link_align {
+      .register_link {
+        color: black;
+        font-family: "Cinzel Decorative", serif;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background: black;
+    .content {
+      .tagline {
+        color: hsl(0, 0%, 60%);
+      }
+    }
+  }
+}
+
+.main_ko {
+  background: var(--background);
+  .banner {
+    background: url("../../public/images/events/ko_background_2.png"),
+      url("../../public/images/events/ko_background.png");
+    background-size: 100% 100%;
+    aspect-ratio: 16/8.5;
+
+    display: grid;
+    place-items: end center;
+    padding-bottom: 2rem;
+
+    .logo {
+      width: clamp(100px, 90%, calc(40vw));
+    }
+  }
+
+  .content {
+    .tagline {
+      text-align: center;
+      font-family: "Black Ops One";
+      font-weight: normal;
+
+      .blue {
+        color: hsl(220, 100%, 55%);
+      }
+
+      .red {
+        color: hsl(0, 100%, 50%);
+      }
+    }
+
+    .bg_guide {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      place-items: center;
+    }
+
+    .register_link_align {
+      .register_link {
+        background: linear-gradient(hsl(58, 100%, 40%), hsl(25, 100%, 40%));
+        color: white;
+        font-family: "Black Ops One", cursive;
+        font-size: 1.25rem;
+        letter-spacing: 0.1ch;
+        font-weight: 100;
+
+        &:hover,
+        &:focus-visible {
+          background: hsl(58, 100%, 40%);
+          color: black;
+        }
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background: hsl(240, 70%, 7%);
+  }
+}
+
+.main_td {
+  background: var(--background);
+  --green: 130, 100%, 60%;
+  --accent: hsl(var(--green));
+  --button-bg: hsl(130, 100%, 50%);
+  .banner {
+    position: relative;
+    background: hsl(0, 0%, 7.5%);
+
+    --blur-radius: clamp(1px, 0.5vw, 2px);
+
+    .logo {
+      filter: blur(calc(var(--blur-radius) / 1.5));
+    }
+
+    .banner_text {
+      filter: blur(calc(var(--blur-radius) / 1.5));
+      font-family: "Inconsolata", monospace;
+      font-weight: 800;
+      display: block;
+
+      .command_line {
+        color: black;
+        position: relative;
+        padding-left: 30%;
+        margin-top: 1em;
+        background: hsl(var(--green), 75%);
+        font-size: clamp(1rem, 3vw, 2rem);
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: calc(0.375em / 2);
+          width: 1ch;
+          height: calc(0.375em / 4);
+          background: black;
+          animation: blink 1s steps(1) infinite;
+        }
+
+        @keyframes blink {
+          0% {
+            opacity: 0;
+          }
+          50% {
+            opacity: 100%;
+          }
+          100% {
+            opacity: 0;
+          }
+        }
+
+        .type_cursor {
+          position: absolute;
+        }
+      }
+
+      h1 {
+        text-align: center;
+        font-size: clamp(1.5rem, 4vw, 4rem);
+        color: hsl(var(--green));
+      }
+    }
+
+    .overlay {
+      --line-width: clamp(0.5rem, 1vw, 1rem);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      touch-action: none;
+      filter: blur(var(--blur-radius));
+      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png"),
+        linear-gradient(
+          to top,
+          hsl(0, 0%, 0%, 20%) 0 25%,
+          hsl(0, 0%, 100%, 10%) 120%
+        ),
+        repeating-linear-gradient(
+          hsl(0, 0%, 0%, 30%) 0 var(--line-width),
+          transparent var(--line-width) calc(var(--line-width) * 2)
+        );
+      background-repeat: no-repeat;
+      background-position: center bottom;
+
+      background-size: 100% 100%, cover, auto;
+    }
+
+    @media (max-width: 600px) {
+      --blur-radius: calc(0.5rem / 8);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .logo,
+      .banner_text {
+        transform: scale(0);
+        animation: turnOn 250ms 1s both steps(2);
+      }
+    }
+
+    @keyframes turnOn {
+      0% {
+        transform: scale(0);
+      }
+      49% {
+        transform: scale(0);
+      }
+      50% {
+        transform: scaleX(4) scaleY(0);
+      }
+      75% {
+        transform: scaleX(1) scaleY(0.25);
+      }
+      100% {
+        transform: scaleY(1);
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      color: var(--text-alt);
+      font-family: "Inconsolata", monospace;
+      font-weight: 800;
+      font-size: clamp(16px, 3vw, 1.5rem);
+      margin: auto;
+      width: fit-content;
+      .grey {
+        color: hsl(0, 0%, 40%);
+      }
+    }
+
+    .register_link_align {
+      .register_link {
+        color: black;
+        font-family: "Inconsolata", monospace;
+        font-weight: 800;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background: black;
+  }
+}
+
+.main_lab {
+  background: var(--background);
+  --accent: hsl(47, 100%, 85%);
+  --button-bg: hsl(47, 100%, 80%);
+  .banner {
+    padding: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+        40% 17% at 47% 83%,
+        hsl(47, 100%, 85%, 34.9%) 13.33%,
+        hsl(57, 82%, 85%, 1.4%) 60%,
+        transparent 70%
+      ),
+      linear-gradient(
+        hsl(243, 32%, 11%) 0%,
+        hsl(0, 0%, 2%) 15% 60%,
+        transparent 100%
+      ),
+      linear-gradient(
+        to top,
+        hsl(243, 31%, 11%) 5%,
+        hsl(243, 31%, 39%) 50%,
+        transparent 50% 100%
+      );
+    @media (max-width: 600px) {
+      background: radial-gradient(
+          70% 20% at 50% 83%,
+          hsl(47, 100%, 85%, 34.9%) 13.33%,
+          hsl(57, 82%, 85%, 1.4%) 60%,
+          transparent 70%
+        ),
+        linear-gradient(
+          transparent 0%,
+          hsl(0, 0%, 2%) 15% 60%,
+          transparent 100%
+        ),
+        linear-gradient(
+          to top,
+          hsl(243, 31%, 11%),
+          hsl(243, 31%, 39%) 50%,
+          transparent 50% 100%
+        );
+      .logo {
+        width: 100%;
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      color: var(--text-alt);
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .register_link_align {
+      .register_link {
+        color: black;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 800;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background: hsl(243, 32%, 11%);
+  }
+}
+
+.main_ds {
+  background: var(--background);
+  --accent: hsl(320, 67%, 55%);
+  --button-bg: hsl(260, 67%, 25%);
+  .banner {
+    background: hsl(260, 67%, 25%);
+    .banner_text {
+      font-family: "Geostar Fill", monospace;
+      color: white;
+      font-size: clamp(1.5rem, 4vw, 4rem);
+      word-wrap: break-word;
+    }
+  }
+
+  .content {
+    .tagline {
+      font-family: "Geostar Fill", monospace;
+    }
+
+    .register_link_align {
+      .register_link {
+        color: hsl(320, 100%, 100%);
+        font-family: "Geostar Fill", monospace;
+        border: 4px solid white;
+
+        transition: background 100ms, border-color 100ms;
+
+        &:hover,
+        &:focus-visible {
+          border-color: hsl(192, 100%, 50%);
+        }
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background: hsl(259, 61%, 15%);
+  }
+}
+
+.main_otk {
+  background: var(--background);
+  --accent: linear-gradient(
+      hsla(0, 0%, 100%, 0.24),
+      hsla(0, 0%, 0%, 0) 30%,
+      hsla(360, 100%, 47%, 0.29) 60%,
+      hsla(360, 100%, 9%, 0.22) 62%,
+      hsla(360, 100%, 9%, 0) 80%
+    ),
+    linear-gradient(hsla(257, 100%, 22%), hsl(320, 100%, 45%));
+  --button-bg: hsl(276, 100%, 22%);
+  .banner {
+    overflow: hidden;
+    z-index: 1;
+    position: relative;
+    background: hsl(257, 100%, 6%);
+    padding-top: 4rem;
+    .logo {
+      z-index: 2;
+      perspective: clamp(2cm, 10vw, 5cm);
+      width: clamp(60%, 60rem, 90%);
+      aspect-ratio: 16/7;
+      display: grid;
+      place-items: center;
+      & > * {
+        transform-origin: bottom;
+        bottom: 0;
+        transform: translateZ(-1rem) rotateX(10deg);
+      }
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .banner_background {
+      --circle-size: 70%;
+      position: absolute;
+      top: 0;
+      height: 100%;
+      z-index: -1;
+      margin: auto;
+      border-radius: 100%;
+      aspect-ratio: 1;
+      transform-origin: center;
+      transform: scale(var(--circle-size)) rotateZ(22.5deg);
+      background: radial-gradient(
+          circle at center,
+          transparent 0 63%,
+          hsl(46, 100%, 50%, 25%) 67% 100%
+        ),
+        repeating-linear-gradient(
+          transparent 0 1.5%,
+          hsl(305, 100%, 30%, 30%) 1.5% 3.5%,
+          transparent 3.5% 5%
+        ),
+        linear-gradient(to top, hsl(305, 100%, 50%) 30%, hsl(49, 100%, 50%));
+      box-shadow: 0 0 100px hsl(320, 100%, 45%);
+
+      --blur-radius: clamp(2px, 0.25vw, 4px);
+      filter: blur(var(--blur-radius)) contrast(0.75);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: 8px;
+        right: -8px;
+        border-radius: 100%;
+        mix-blend-mode: overlay;
+        background: hsl(0, 100%, 50%, 50%);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        left: -8px;
+        right: 8px;
+        border-radius: 100%;
+        mix-blend-mode: overlay;
+        background: hsl(180, 100%, 50%, 50%);
+      }
+    }
+
+    .grid_ground {
+      position: absolute;
+      z-index: 1;
+      width: 200%;
+      height: 100%;
+      left: -50%;
+      bottom: -20%;
+      perspective: 100px;
+      perspective-origin: center 40%;
+      --blur-radius: clamp(1px, 0.25vw, 3px);
+      filter: blur(var(--blur-radius)) contrast(0.9) saturate(0.75);
+
+      div {
+        position: absolute;
+        transform-style: flat;
+        transform: scaleX(2) rotateX(85deg) translateY(60px);
+        inset: 0;
+        --line-width: clamp(0.0625rem, 0.25vw, 0.125rem);
+        --sizing: clamp(10px, 4vw, 40px);
+        background: linear-gradient(
+            to top,
+            hsl(320, 100%, 45%) 0 var(--line-width),
+            transparent var(--line-width) 20px
+          ),
+          linear-gradient(
+            to left,
+            hsl(320, 100%, 45%) var(--line-width),
+            transparent var(--line-width)
+          ),
+          linear-gradient(
+            to left,
+            hsl(0, 80%, 50%) 0 var(--line-width),
+            transparent var(--line-width)
+          ),
+          linear-gradient(
+            to left,
+            hsl(180, 80%, 50%, 100%) 0 var(--line-width),
+            transparent var(--line-width)
+          ),
+          linear-gradient(
+            to bottom,
+            hsl(0, 0%, 100%) 10%,
+            hsl(320, 100%, 45%),
+            transparent 40%
+          ),
+          hsl(278, 78%, 9%);
+
+        background-size: var(--sizing) calc(var(--sizing) * 2),
+          calc(var(--sizing) * 2) calc(var(--sizing) * 2),
+          calc(var(--sizing) * 2) calc(var(--sizing) * 2),
+          calc(var(--sizing) * 2) calc(var(--sizing) * 2), cover, cover;
+
+        background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top, top;
+        animation: moveUp 750ms 2s forwards 5 linear;
+      }
+
+      @keyframes moveUp {
+        0% {
+          background-position: -1px -1px, -1px -1px, 0px 0px, -2px -1px, top,
+            top;
+        }
+        100% {
+          background-position: var(--sizing) calc(var(--sizing) * 2), -1px -1px,
+            0px 0px, -2px -1px, top, top;
+        }
+      }
+    }
+
+    .banner_text {
+      z-index: 1;
+      h1 {
+        font-family: "Rock Salt", Impact, fantasy;
+        font-size: clamp(1.5rem, 5vw, 4rem);
+        color: hsl(337, 100%, 50%);
+        text-shadow: 2px -2px 0px hsl(180, 100%, 50%, 75%);
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      font-family: "Rock Salt", fantasy;
+      font-size: clamp(15px, 3vw, 1.5rem);
+      text-align: center;
+    }
+
+    .register_link_align {
+      .register_link {
+        color: yellow;
+        font-family: "Rock Salt", fantasy;
+        font-weight: 800;
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    --background: hsl(257, 100%, 6%);
+  }
+}
+
+.card_container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 2rem;
+  place-items: center;
+
+  @media screen and (max-width: 500px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.bg_blur {
+    background-color: #c9c9c90c;
+    filter: blur(--blur-radius);
+    border-radius: 15px;
+    // padding-top: 1px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .bg_blur_prof {
+    background-color: #c9c9c90c;
+    filter: blur(--blur-radius);
+    border-radius: 15px;
+    // padding-top: 1px;
+    padding-bottom: 3rem;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
