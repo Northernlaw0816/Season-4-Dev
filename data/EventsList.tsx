@@ -17,7 +17,7 @@ const EventsList = [
     title: ArenaOfValor.title,
     description: ArenaOfValor.details.shortDescription,
     date: ArenaOfValor.details.date,
-    time: ArenaOfValor.details.times,
+    time: ArenaOfValor.details.time,
     venue: ArenaOfValor.details.venue,
     grades: ArenaOfValor.details.grades,
     link: ArenaOfValor.link,
