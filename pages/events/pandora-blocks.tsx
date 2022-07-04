@@ -13,20 +13,20 @@ import styles from "../../styles/pages/Events.module.scss";
 //assets
 import logo from "../../public/images/events/td_logo.png";
 //data
-import TruthOrDebugData from "../../data/pages/events/truth-or-debug";
+import PandoraBlocksData from "../../data/pages/events/pandora-blocks";
 const pandoraBlocks: NextPage = () => {
   return (
     <>
       <HeadTemplate
-        title="NuTopia | Truth or Debug"
-        description="NuTopia Events: Truth or Debug"
+        title="NuTopia | Pandora Blocks"
+        description="NuTopia Events: Pandora Blocks"
       />
 
       <Layout
         skipTo="#tagline"
         overrideClasses={`${styles.main} ${styles.main_td}`}
       >
-        <div className={styles.banner}>
+        {/* <div className={styles.banner}>
           <div className={styles.overlay} />
           <div className={styles.banner_text}>
             <div className={styles.command_line}>
@@ -47,15 +47,15 @@ const pandoraBlocks: NextPage = () => {
           <div className={styles.banner_text}>
             <h1 id="title">Truth or Debug</h1>
           </div>
-        </div>
+        </div> */}
 
         <div className={styles.content}>
           <h2 id="tagline" className={styles.tagline}>
-            {TruthOrDebugData.tagline}
+            {PandoraBlocksData.tagline}
           </h2>
 
           {/* <h2 id="finalists">Finalists</h2>
-          {TruthOrDebugData.headings.finalists.map((finalist, index) => {
+          {PandoraBlocksData.headings.finalists.map((finalist, index) => {
             return (
               <div key={index}>
                 <h3>{finalist.teamName}</h3>
@@ -74,23 +74,23 @@ const pandoraBlocks: NextPage = () => {
 
           <h2 id="about">About</h2>
           <p className={`${styles.h2_p} ${styles.description_p}`}>
-            {TruthOrDebugData.headings.about}
+            {PandoraBlocksData.headings.about}
           </p>
 
           <h2 id="details">Details</h2>
           <p className={styles.h2_p}>
-            <strong>Date:</strong> {TruthOrDebugData.details.date}
+            <strong>Date:</strong> {PandoraBlocksData.details.date}
           </p>
           <p className={styles.h2_p}>
-            <strong>Time:</strong> {TruthOrDebugData.details.time}
+            <strong>Time:</strong> {PandoraBlocksData.details.time}
           </p>
           <p className={styles.h2_p}>
-            <strong>Venue:</strong> {TruthOrDebugData.details.venue}
+            <strong>Venue:</strong> {PandoraBlocksData.details.venue}
           </p>
 
           <h2 id="guidelines">Guidelines</h2>
           <ul>
-            {TruthOrDebugData.headings.rules.map((rule, index) => {
+            {PandoraBlocksData.headings.rules.map((rule, index) => {
               return (
                 <li key={index}>
                   <p>{rule}</p>
@@ -101,7 +101,7 @@ const pandoraBlocks: NextPage = () => {
 
           <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
           <div className={styles.card_container}>
-            {TruthOrDebugData.headings.eventCoordinators.map(
+            {PandoraBlocksData.headings.eventCoordinators.map(
               (coordinator, index) => {
                 return <ProfileCard key={index} profileObject={coordinator} />;
               }
@@ -110,7 +110,7 @@ const pandoraBlocks: NextPage = () => {
 
           <h2 id="registration">Registration</h2>
           <ul>
-            {TruthOrDebugData.headings.registration.map((rule, index) => {
+            {PandoraBlocksData.headings.registration.map((rule, index) => {
               return (
                 <li key={index}>
                   <p>{rule}</p>
@@ -119,7 +119,7 @@ const pandoraBlocks: NextPage = () => {
             })}
           </ul>
 
-          <EventsRegisterButton event={toSlug(TruthOrDebugData.title)} />
+          <EventsRegisterButton event={toSlug(PandoraBlocksData.title)} />
         </div>
       </Layout>
     </>

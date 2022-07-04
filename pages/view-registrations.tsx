@@ -12,7 +12,7 @@ import { getRegistrationsCollection } from '../functions'
 
 const ViewRegistrations: NextPage = () => {
 
-	const [viewEvent, setViewEvent] = useState<"aov-mobile" | "aov-console" | "aov-pc" | "knock-out" | "truth-or-debug" | "log-and-blog" | "designscape" | "otakuiz">("aov-pc")
+	const [viewEvent, setViewEvent] = useState<"aov-mobile" | "aov-console" | "aov-pc" | "knockout" | "truth-or-debug" | "log-and-blog" | "designscape" | "otakuiz">("aov-pc")
 	const [participants, setParticipants] = useState<Array<any>>([])
 
 	useEffect(() => {
@@ -78,7 +78,7 @@ const ViewRegistrations: NextPage = () => {
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("aov-mobile")}>AOV Mobile</button>
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("aov-console")}>AOV Console</button>
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("aov-pc")}>AOV PC</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("knock-out")}>KO</button>
+					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("knockout")}>KO</button>
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("truth-or-debug")}>TD</button>
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("log-and-blog")}>Lab</button>
 					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("designscape")}>DS</button>

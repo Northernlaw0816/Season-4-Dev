@@ -5,10 +5,11 @@ import { toSlug } from "../functions"
 import HeadTemplate from "../components/HeadTemplate"
 import Layout from "../components/Layout"
 import ProfileCard from "../components/ProfileCard"
+import SMProfile from "../components/SMProfile"
 //stylesheets
 import styles from "../styles/pages/About.module.scss"
 //data
-import {EventCoordinators, EventHeads} from "../data/EventCoordinators"
+import {EventCoordinators, EventHeads, MediaTeam} from "../data/EventCoordinators"
 import { AboutData } from "../data/pages"
 
 const About = () => {
@@ -38,6 +39,15 @@ const About = () => {
                 <div className={styles.card_container}>
                     {EventCoordinators.map((profile, index) => {
                         return <ProfileCard key={index} profileObject={profile}/>
+                    })}
+                </div>
+
+            <hr />
+
+            <h1 id={toSlug("Social Media Team")}>Social Media Team</h1>
+                <div className={styles.card_container}>
+                    {MediaTeam.map((profile, index) => {
+                        return <SMProfile key={index} profileObject={profile}/>
                     })}
                 </div>
 

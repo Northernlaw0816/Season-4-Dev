@@ -13,7 +13,7 @@ import styles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/td_logo.png'
 //data
-import TruthOrDebugData from "../../data/pages/events/bassdrop"
+import BassDropData from "../../data/pages/events/bassdrop"
 
 const BassDrop: NextPage = () => {
     return (<>
@@ -41,11 +41,11 @@ const BassDrop: NextPage = () => {
 
             <div className={styles.content}>
                 <h2 id="tagline" className={styles.tagline}>
-                    {TruthOrDebugData.tagline}
+                    {BassDropData.tagline}
                 </h2>
 
                 {/* <h2 id="finalists">Finalists</h2>
-                    {TruthOrDebugData.headings.finalists.map((finalist, index) => {
+                    {BassDropData.headings.finalists.map((finalist, index) => {
                         return(<div key={index}>
                             <h3>{finalist.teamName}</h3>
                             <ol className={styles.h3_p}>
@@ -59,31 +59,31 @@ const BassDrop: NextPage = () => {
                     })} */}
                 
                 <h2 id="about">About</h2>
-                    <p className={`${styles.h2_p} ${styles.description_p}`}>{TruthOrDebugData.headings.about}</p>
+                    <p className={`${styles.h2_p} ${styles.description_p}`}>{BassDropData.headings.about}</p>
                 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {TruthOrDebugData.details.date}</p>
-                    <p className={styles.h2_p}><strong>Time:</strong> {TruthOrDebugData.details.time}</p>
-                    <p className={styles.h2_p}><strong>Venue:</strong> {TruthOrDebugData.details.venue}</p>
+                    <p className={styles.h2_p}><strong>Date:</strong> {BassDropData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Time:</strong> {BassDropData.details.time}</p>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {BassDropData.details.venue}</p>
 
                 <h2 id="guidelines">Guidelines</h2>
-                    <ul>{TruthOrDebugData.headings.rules.map((rule, index) => {
+                    <ul>{BassDropData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
                     
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
-                        {TruthOrDebugData.headings.eventCoordinators.map((coordinator, index) => {
+                        {BassDropData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator}/>
                         })}
                     </div>                    
                 
                 <h2 id="registration">Registration</h2>
-                    <ul>{TruthOrDebugData.headings.registration.map((rule, index) => {
+                    <ul>{BassDropData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                     
-                <EventsRegisterButton event={toSlug(TruthOrDebugData.title)}/>
+                <EventsRegisterButton event={toSlug(BassDropData.title)}/>
             </div>
         </Layout>
 

@@ -2,7 +2,7 @@
 import { EventCoordinators } from "../../EventCoordinators";
 
 const PandoraBlocks = {
-    title: "Pandora Blocks",
+    title: "Pandora's Blocks",
 
     tagline: "Curate and Create!",
 
@@ -35,7 +35,7 @@ const PandoraBlocks = {
             "Organisation"
         ],
         
-        eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Log and Blog"),
+        eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pandora's Blocks"),
 
         registration: [
             "This is a Solo event."
