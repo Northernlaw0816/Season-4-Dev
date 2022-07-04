@@ -22,20 +22,8 @@ const ArenaOfValor = {
       
     date: "TBA",
 
-    times: [
-      {
-        name: "PC",
-        time: "TBA",
-      },
-      {
-        name: "Console",
-        time: "TBA",
-      },
-      {
-        name: "Mobile",
-        time: "TBA",
-      },
-    ],
+    time: "TBA",
+    
     venue: "Online",
     grades: "9 - 12",
     image: AoV,
