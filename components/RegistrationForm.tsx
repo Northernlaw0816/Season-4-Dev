@@ -106,7 +106,7 @@ const RegistrationForm = ({ event }: any) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={`${styles.registerationForm}`}>
+      className={`${styles.registrationForm}`}>
       <div>
         <h1>Registration</h1>
       </div>
@@ -129,7 +129,6 @@ const RegistrationForm = ({ event }: any) => {
             );
           })}
         </select>
-        // Add team
         <button type={"button"} onClick={addTeam}>
           Add Team
         </button>
