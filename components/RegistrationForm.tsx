@@ -10,7 +10,7 @@ import { FormFields } from "../functions/interface";
 import { toSlug } from "../functions";
 
 //components
-import ParticipantFields from "./ParticipantFields";
+// import ParticipantFields from "./ParticipantFields";
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss";
 import Effects from "../styles/Effects.module.scss";
@@ -23,6 +23,26 @@ import {
   QueryDocumentSnapshot,
   where,
 } from "firebase/firestore";
+
+const TeamFields = ({ eventName, register }: any) => {
+  let [teamName, setTeamName] = useState<string>("");
+  const event = EventsList.find((e) => toSlug(e.title) === eventName);
+
+  const memberFields = [];
+  if (event) {
+    for (let i = 0; i < event.maxMembers.default; i++) {
+      memberFields.push(
+        <input {...register(`participants.${i + 1}`, { required: true })} key={i} />
+      );
+    }
+  }
+  return (
+    <div>
+      <input {...register("teamName", {required:true})}/>
+      {memberFields}
+    </div>
+  );
+};
 
 const RegistrationForm = ({ event }: any) => {
   let tempt = 0;
@@ -69,35 +89,39 @@ const RegistrationForm = ({ event }: any) => {
   };
 
   const EventNameChange = () => {
-    console.log(getValues("event"));
     switch (getValues("event")) {
       case "arena-of-valor":
         setShowTeamName(true);
+        setShowPlatform(true);
+        break;
+      default:
+        setShowTeamName(false);
+        setShowPlatform(false);
         break;
     }
   };
 
-	let selectedEvent = EventsList.find((event) => event.title === eventName);
+  let selectedEvent = EventsList.find((event) => event.title === eventName);
 
-	const addTeam = () => {
-		const teamDefault = [
-			...teams,
-			{
-			teamName: "string",
-			members: [{ name: "string", grade: "string" }],
-			},
-		]
+  const addTeam = () => {
+    const teamDefault = [
+      ...teams,
+      {
+        teamName: "string",
+        members: [{ name: "string", grade: "string" }],
+      },
+    ];
 
-		const indivdualDefault = [
-			...teams,
-			{
-				name: "string",
-				grade: "string"
-			}
-		]
+    const indivdualDefault = [
+      ...teams,
+      {
+        name: "string",
+        grade: "string",
+      },
+    ];
 
-		event?.isTeam ? setTeams(teamDefault) : setTeams(indivdualDefault)
-	};
+    event?.isTeam ? setTeams(teamDefault) : setTeams(indivdualDefault);
+  };
 
   useLayoutEffect(() => {
     EventNameChange();
@@ -129,28 +153,35 @@ const RegistrationForm = ({ event }: any) => {
             );
           })}
         </select>
+        <h2>Platform</h2>
+        <select
+          {...register("platform", {
+            validate: (value) => value !== "default-value",
+            required: true,
+          })}>
+          <option value="default-value">Select an platform</option>
+          {showPlatform &&
+            ["Console", "Mobile", "PC"].map((platform: any, index: number) => {
+              return (
+                <option key={index} value={toSlug(platform)}>
+                  {platform}
+                </option>
+              );
+            })}
+        </select>
         <button type={"button"} onClick={addTeam}>
           Add Team
         </button>
         <div id="Teams">
-          {teams.map((value, index) => {
-            return (
-              <div key={index}>
-                <input
-                  {...register("teamName", {
-                    maxLength: {
-                      value: 32,
-                      message: "Team Name must be less than 32 characters",
-                    },
-                    minLength: {
-                      value: 5,
-                      message: "Team Name must be more than 5 characters",
-                    },
-                  })}
-                />
-              </div>
-            );
-          })}
+          {showTeamName &&
+            teams.map((value, index) => {
+              const eve = EventsList.filter(
+                (e) => toSlug(e.title) === getValues("event")
+              )[0];
+              return (
+                <TeamFields eventName={eventName} register={register}/>
+              );
+            })}
         </div>
         <input type={"submit"} className={`${styles.submit}`} />
       </div>

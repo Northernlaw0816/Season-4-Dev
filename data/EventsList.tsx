@@ -26,9 +26,10 @@ const EventsList = [
     selector: styles.aov,
     isTeamEvent: true,
     maxMembers: {
-      mobile: { cod: 3, bgmi: 3 },
-      pc: { valorant: 3, csgo: 3 },
-      console: { rocket_league: 2, fortnite: 2 },
+      default:3,
+      mobile: 3,
+      pc: 5,
+      console: 2,
     },
   },
   {
@@ -75,7 +76,7 @@ const EventsList = [
     accent: LogAndBlog.details.accent,
     selector: styles.lab,
     isTeam: false,
-    maxDefault: {
+    maxMembers: {
       default: 1,
     },
   },
@@ -91,7 +92,7 @@ const EventsList = [
     accent: Designscape.details.accent,
     selector: styles.ds,
     isTeam: false,
-    maxDefault: {
+    maxMembers: {
       default: 1,
     },
   },
@@ -107,8 +108,8 @@ const EventsList = [
     accent: Otakuiz.details.accent,
     selector: styles.otk,
     isTeam: true,
-    maxDefault: {
-      default: 2,
+    maxMembers: {
+      default: 1,
     },
   },
   {
@@ -123,7 +124,7 @@ const EventsList = [
     accent: Bassdrop.details.accent,
     selector: styles.bd,
     isTeam: false,
-    maxDefault: {
+    maxMembers: {
       default: 1,
     },
   },
@@ -139,8 +140,8 @@ const EventsList = [
     accent: PandoraBlocks.details.accent,
     selector: styles.bd,
     isTeam: true,
-    maxDefault: {
-      default: 3,
+    maxMembers: {
+      default: 1,
     },
   },
 ];
