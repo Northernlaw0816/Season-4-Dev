@@ -4,7 +4,7 @@ import { EventCoordinators } from "../../EventCoordinators";
 const PandoraBlocks = {
     title: "Pandora's Blocks",
 
-    tagline: "Curate and Create!",
+    tagline: "Build your curiosity",
 
     link: '/events/pandora-blocks',
 
@@ -22,10 +22,17 @@ const PandoraBlocks = {
         about: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once.Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
         
         rules: [
-            "Bass drop is a solo offline event, with no access to the internet",
-            "The tracks created by the participants should be for 2 minutes",
-            "Participants are to bring their own laptops, and accessories(No loudspeakers allowed).",
-            "Participants can decide on the genre of the track for remixing.","Participants can use any DAW (Digital Audio Workstation) of their choice, and that doesn't have smart suggestion programs. (FL Studio, Ableton, Virtual DJ, Logic Pro, Cubase, Presonus Studio One, etc).", "Paid Plugins are not allowed, in order to conduct a fair event.","There is only 1 round, which lasts for the duration of 5 hours.", "Songs to be exported in the format of  .mp3 or .wav","*rules might change based on the problems found while using software for testing out the tracks."
+            "This is a team event. A team must have 3 players.",
+            "Participants from grade 9 and above can participate.",
+            "Teams will be allotted their respective sandstone plots.",
+            "Participants are supposed to use version 1.17.1 only.", 
+            "Creative mode will be allowed to all teams.",
+            "Participants are not allowed to make changes to the island, they are only allowed to build on top of the sandstone platform.", 
+            "Participants shall not build in ways that will disturb the terrain [like making changes to the water under].",
+            "Teams are not allowed to change/move/go to another plot belonging to a different team.",
+            "The time allotted is 3 hours to build.",
+            "Teams are not allowed to use any sort of hacks/cheats/clients. Use of such malpractices will result in immediate disqualification.",
+            "If any participant is found to be disturbing other teams, the team will be disqualified."
         ],
 
         assessment: [
@@ -38,7 +45,7 @@ const PandoraBlocks = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pandora's Blocks"),
 
         registration: [
-            "This is a Solo event."
+            "This is a Trio event."
         ]
     }
 }
