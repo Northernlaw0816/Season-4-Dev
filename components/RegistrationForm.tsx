@@ -101,7 +101,7 @@ const RegistrationForm = ({ event }: any) => {
 
   useLayoutEffect(() => {
     EventNameChange();
-  }, []);
+  });
 
   return (
     <form

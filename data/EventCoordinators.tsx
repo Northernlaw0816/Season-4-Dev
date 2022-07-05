@@ -105,7 +105,7 @@ const EventCoordinators = [
     src: sanjayAR,
   },
   {
-    name: "Neha Julius",
+    name: "Neha Julius Panakkal",
     event: "Knockout",
     grade: "12",
     src: neha,
@@ -123,13 +123,13 @@ const EventCoordinators = [
     src: rajaneesh,
   },
   {
-    name: "Thanish Bandari",
+    name: "Thanish Bhandari V.",
     event: "Truth or Debug",
     grade: "12",
     src: thanish,
   },
   {
-    name: "Aditi.S.Jain",
+    name: "Aditi Sandeep Kumar",
     event: "Log and Blog",
     grade: "12",
     src: aditi,
@@ -141,7 +141,7 @@ const EventCoordinators = [
     src: pooja,
   },
   {
-    name: "Priya Sahana",
+    name: "Priya Sahana S.M.",
     event: "Designscape",
     grade: "12",
     src: priya,
@@ -159,7 +159,7 @@ const EventCoordinators = [
     src: mathangi,
   },
   {
-    name: "Saharsh",
+    name: "Saharsh Thandassery",
     event: "Otakuiz",
     grade: "11",
     src: saharsh,
