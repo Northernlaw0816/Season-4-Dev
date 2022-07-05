@@ -1,20 +1,24 @@
 //data
 import { EventCoordinators } from "../../EventCoordinators";
 
+import BD from "../../../public/images/events/bass_drop.png"
+
+import Main from "../../Main"
+
 const Bassdrop = {
   title: "Bass Drop",
 
-  tagline: "Mix and Remix",
+  tagline: "A Mix of Magic",
 
   link: "/events/bassdrop",
 
   details: {
     shortDescription: "Are you someone who constantly taps their feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
-    date: "TBA",
-    time: "TBA",
-    venue: "TBA",
-    grades: "",
-    image: "",
+    date: `${Main.dates.day2}`,
+    time: "9:30 a.m. - 12:30 p.m.",
+    venue: "Creya Lab",
+    grades: "9-12",
+    image: BD,
     accent: "hsl(243, 32%, 11%)",
   },
 
