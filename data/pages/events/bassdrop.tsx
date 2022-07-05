@@ -9,7 +9,7 @@ const Bassdrop = {
   link: "/events/bassdrop",
 
   details: {
-    shortDescription: "",
+    shortDescription: "Are you someone who constantly taps their feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
     date: "TBA",
     time: "TBA",
     venue: "TBA",
@@ -30,7 +30,6 @@ const Bassdrop = {
       "Paid Plugins are not allowed, in order to conduct a fair event.",
       "There is only 1 round, which lasts for the duration of 5 hours.",
       "Songs to be exported in the format of  .mp3 or .wav",
-      "*rules might change based on the problems found while using software for testing out the tracks.",
     ],
 
     assessment: [
