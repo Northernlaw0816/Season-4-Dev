@@ -11,7 +11,7 @@ import EventsRegisterButton from "../../components/EventRegisterButton";
 //stylesheet
 import styles from "../../styles/pages/Events.module.scss";
 //assets
-import logo from "../../public/images/events/td_logo.png";
+import logo from "../../public/images/events/pandora_blocks.png";
 //data
 import PandoraBlocksData from "../../data/pages/events/pandora-blocks";
 const pandoraBlocks: NextPage = () => {
@@ -26,51 +26,14 @@ const pandoraBlocks: NextPage = () => {
         skipTo="#tagline"
         overrideClasses={`${styles.main} ${styles.main_td}`}
       >
-        {/* <div className={styles.banner}>
-          <div className={styles.overlay} />
-          <div className={styles.banner_text}>
-            <div className={styles.command_line}>
-              {`> run TD.sh`}
-              <div className={styles.type_cursor} />
+        <div className={styles.banner}>
+                <div className={styles.logo}>
+                    <Image src={logo} alt="Pandora's Blocks" quality={100} placeholder={"blur"} layout={"responsive"}/>
+                </div>
             </div>
-          </div>
 
-          <div className={styles.logo}>
-            <Image
-              src={logo}
-              alt="Truth or Debug"
-              quality={100}
-              placeholder={"blur"}
-            />
-          </div>
-
-          <div className={styles.banner_text}>
-            <h1 id="title">Truth or Debug</h1>
-          </div>
-        </div> */}
-
-        <div className={styles.content}>
-          <h2 id="tagline" className={styles.tagline}>
-            {PandoraBlocksData.tagline}
-          </h2>
-
-          {/* <h2 id="finalists">Finalists</h2>
-          {PandoraBlocksData.headings.finalists.map((finalist, index) => {
-            return (
-              <div key={index}>
-                <h3>{finalist.teamName}</h3>
-                <ol className={styles.h3_p}>
-                  {finalist.members.map((member, index) => {
-                    return (
-                      <li key={index}>
-                        {member.name} | {member.grade}
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
-            );
-          })} */}
+            <div className={styles.content}>
+                <h2 id="tagline" className={styles.tagline}>{PandoraBlocksData.tagline}</h2>
 
           <h2 id="about">About</h2>
           <p className={`${styles.h2_p} ${styles.description_p}`}>

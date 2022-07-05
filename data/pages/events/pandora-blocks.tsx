@@ -1,6 +1,10 @@
 //data
 import { EventCoordinators } from "../../EventCoordinators";
 
+import Main from "../../Main"
+
+import PB from "../../../public/images/events/pandora_blocks.png"
+
 const PandoraBlocks = {
     title: "Pandora's Blocks",
 
@@ -10,11 +14,11 @@ const PandoraBlocks = {
 
     details: {
         shortDescription: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once.Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
-        date: 'TBA',
-        time: 'TBA',
-        venue: 'TBA',
-        grades: '',
-        image: undefined,
+        date: `${Main.dates.day1}`,
+        time: '10:40 a.m. - 3:00 p.m.',
+        venue: 'Online',
+        grades: '9-12',
+        image: PB,
         accent: 'hsl(243, 32%, 11%)',  
     },
     
