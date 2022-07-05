@@ -15,7 +15,7 @@ const Designscape = {
         shortDescription: "In this arena you are the one who holds all powers- the fate of the bright colours, the raw picture and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
         date: `${Main.dates.day2}`,
         time: '9:30 a.m. - 12:30 p.m.',
-        venue: 'Computer Lab',
+        venue: 'Computer Lab (Main Block)',
         grades: '9 - 12',
         image: DS,
         accent: 'hsl(259, 67%, 25%)',

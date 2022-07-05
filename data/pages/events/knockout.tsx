@@ -21,9 +21,9 @@ const KnockOut = {
   details: {
     shortDescription:
       "There are no tough opponents, only tough issues! Raise your words, not your voice, and stand up for your stance. Use the weapon of words to wound your opponent. A sudden rush of adrenaline coursing through your veins and the urge to blurt out the plethora of arguments running through your mind.It's not about killing your enemy, it's about making them surrender. 'Nuff said. MIC.DROP!",
-    date: "TBA",
-    time: "TBA",
-    venue: "TBA",
+    date: `${Main.dates.day1} - ${Main.dates.day2}`,
+    time: "10:40 a.m. - 3:00 p.m. / 9:30 a.m. - 12:30 p.m.",
+    venue: "A.V. Hall",
     grades: "9 - 12",
     image: KO,
     accent: "black",
@@ -41,6 +41,7 @@ const KnockOut = {
         rules: [
           "Preliminary debate rounds (Solo 1 v 1) will be conducted.",
           "Subsequent rounds may be held for qualifying students.",
+          "Just one category (For all age groups).",
           "Topics of the preliminary round will be announced before the competition.",
           "Use of diplomatic language encouraged.",
         ],

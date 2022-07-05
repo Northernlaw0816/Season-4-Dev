@@ -16,9 +16,9 @@ const TruthOrDebug = {
 
     details: {
         shortDescription: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",
-        date: `TBA`,
-        time: 'TBA',
-        venue: 'TBA',
+        date: `${Main.dates.day1} - ${Main.dates.day2}`,
+        time: '1:00 p.m. - 4:00 p.m.',
+        venue: 'ATAL Lab',
         grades: '9 - 12',
         image: TD,
         accent: "black",
