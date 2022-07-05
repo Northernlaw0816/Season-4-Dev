@@ -26,8 +26,8 @@ const EventsList = [
     selector: styles.aov,
     isTeamEvent: true,
     maxMembers: {
-      default:3,
-      mobile: 3,
+      default: 3,
+      mobile: 4,
       pc: 5,
       console: 2,
     },
