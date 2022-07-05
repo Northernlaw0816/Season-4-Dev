@@ -38,8 +38,8 @@ const RegistrationForm = ({ event }: any) => {
   const onSubmit = () => {};
   const handleEventValue = () =>{
     switch(getValues("eventSelect")){
-      case "arena-of-valour":
-        
+      case "arena-of-valour":``
+
         break;
         default:
         break;
