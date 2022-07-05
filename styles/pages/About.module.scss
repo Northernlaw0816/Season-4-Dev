@@ -34,7 +34,7 @@
         padding: 0 15%;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-        gap: 2rem;
+        gap: 3rem;
         place-items: center;
 
         &.event_heads {

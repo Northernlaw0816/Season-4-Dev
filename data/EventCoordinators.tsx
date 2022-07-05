@@ -20,6 +20,7 @@ import aditi from "../public/images/profile/aditi.png";
 // DS
 import akshay from "../public/images/profile/akshay.png";
 import priya from "../public/images/profile/priya.png";
+import nadeen from "../public/images/profile/nadeen.png"
 // OTK
 import mathangi from "../public/images/profile/mathangi.png";
 import diya from "../public/images/profile/diya.png";
@@ -151,6 +152,12 @@ const EventCoordinators = [
     event: "Designscape",
     grade: "12",
     src: akshay,
+  },
+  {
+    name: "Nadeen",
+    event: "Designscape",
+    grade: "12",
+    src: nadeen,
   },
   {
     name: "Mathangi A. R.",
