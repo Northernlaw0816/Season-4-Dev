@@ -5,8 +5,8 @@ const Main = {
     season: 2,
     tagline: "A Hub For Cyber Geeks!",
     dates: {
-        day1: new Date(2022, 1, 8).toDateString().split(" ").slice(1).join(" "),
-        day2: new Date(2022, 1, 9).toDateString().split(" ").slice(1).join(" ")
+        day1: new Date(2022, 7, 22).toDateString().split(" ").slice(1).join(" "),
+        day2: new Date(2022, 7, 23).toDateString().split(" ").slice(1).join(" ")
     },
     registrationClosingDate: date, // month is 0 indexed; Jan is 0;
     brochureDownload: "https://drive.google.com/u/0/uc?id=1ceSZtWD9UyQy3UQBFprOEDmPUGyrOZTu&export=download",

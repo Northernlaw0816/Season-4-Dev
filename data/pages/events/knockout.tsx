@@ -16,7 +16,7 @@ const KnockOut = {
     </>
   ),
 
-  link: "/events/knocout",
+  link: "/events/knockout",
 
   details: {
     shortDescription:
