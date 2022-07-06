@@ -98,8 +98,12 @@
         margin: 1rem 0;
         background: var(--button-bg);
         color: var(--text-white);
-        font-weight: 600;
-        font-size: large;
+        
+        p {
+          font-weight: 600;
+          font-size: large;
+          margin: 0;
+        }
 
         &:hover,
         &:focus-visible {
@@ -398,6 +402,11 @@
         font-weight: 800;
       }
     }
+
+    .profile_card {
+      background: black;
+      outline: 0.25em solid var(--accent);
+    }
   }
 
   @media (prefers-color-scheme: dark) {
@@ -466,6 +475,12 @@
         font-family: "Courier New", Courier, monospace;
         font-weight: 800;
       }
+    }
+
+    .profile_card {
+      background: var(--accent);
+      color: black;
+      font-family: 'Courier New', Courier, monospace;
     }
   }
 
@@ -705,6 +720,192 @@
   }
 }
 
+.main_bd {
+  background: var(--background);
+  --accent: #d400ff;
+  --button-bg: black;
+
+  .banner {
+    position: relative;
+    background: center center/100% no-repeat url('/images/events/bd_background.png');
+    
+    .banner_text {
+      font-family: "SoundWave";
+      color: hsl(58, 100%, 58%);
+      h1 { font-size: clamp(1.5rem, 7vw, 6rem); }
+      word-wrap: break-word;
+      
+      @media screen and (min-width: 600px) {
+        position: absolute;
+        top: 20%;
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      font-family: "SoundWave";
+      font-weight: normal;
+    }
+
+    .register_link_align {
+      .register_link {
+        background: var(--button-bg);
+        color: hsl(58, 100%, 58%);
+        font-family: "SoundWave";
+        
+        --outline-width: 0.15em;
+        
+        transition: outline 250ms ease, outline-offset 250ms ease;
+        outline: 0 solid var(--accent);
+        outline-offset: 0;
+
+        @keyframes text_bop {
+          0% {
+            transform: scale(1) rotate(0deg);
+          }
+          
+          25% {
+            transform: scale(1.1) rotate(5deg);
+          }
+
+          50% {
+            transform: scale(1) rotate(0deg);
+          }
+
+          75% {
+            transform: scale(1.1) rotate(-5deg);
+          }
+          
+          100% {
+            transform: scale(1) rotate(0deg);
+          }
+        }
+
+        p {
+          font-weight: normal;
+          font-size: clamp(0.75rem, 5vw, 2rem);
+        }
+
+        &:hover {
+          background: var(--button-bg);
+          outline: var(--outline-width) solid var(--accent);
+          outline-offset: calc(-1 * var(--outline-width));
+
+          animation: text_bop 750ms ease-in infinite;
+        }
+      
+      }
+    }
+
+    .profile_card {
+      background: black;
+      outline: 0.25em solid var(--accent);
+    }
+  }
+  
+
+  @media (prefers-color-scheme: dark) {
+    --background: black;
+  }
+}
+
+.main_pb {
+  background: var(--background);
+  --accent: #ca88d7;
+  --button-bg: black;
+
+  .banner {
+    position: relative;
+    background: center center/100% no-repeat url('/images/events/pb_background.png');
+    
+    .banner_text {
+      font-family: "SoundWave";
+      color: hsl(58, 100%, 58%);
+      h1 { font-size: clamp(1.5rem, 7vw, 6rem); }
+      word-wrap: break-word;
+      
+      @media screen and (min-width: 600px) {
+        position: absolute;
+        top: 20%;
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      font-family: "Imagine";
+      font-weight: normal;
+    }
+
+    .register_link_align {
+      .register_link {
+        position: relative;
+        color: hsl(58, 100%, 58%);
+        font-family: "Imagine";
+
+        // background: linear-gradient(hsl(0, 0%, 100%, 10%) 20%, transparent 10% 100%);
+        background: radial-gradient(
+          15em 1.5em at center 75%,
+          hsl(0, 0%, 0%, 25%) 20%,
+          transparent 10%
+        );
+
+        transition: background-position 250ms infinite steps(6);
+
+        @keyframes floaty_text {
+          from {
+            top: 0;
+          }
+
+          to {
+            top: -0.75em;
+          }
+        }
+
+        @keyframes text_pop {
+          0% {
+            transform: scaleX(0) scaleY(1);
+          }
+          50% {
+            transform: scaleX(1.1) scaleY(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        p {
+          position: relative;
+          font-weight: normal;
+          font-size: clamp(0.75rem, 5vw, 2rem);
+          animation: floaty_text 1s infinite alternate ease-in-out;
+        
+        }
+
+        &:hover {
+          background: hsl(0, 0%, 0%, 20%);
+          outline: hsl(0, 0%, 60%) groove 0.5em;
+          outline-offset: -0.5em;
+        
+          p {
+            animation: text_pop 0.25s 1 forwards linear;
+          }
+        }
+      }
+    }
+
+    .profile_card {
+      background: #577d93;
+    }
+  }
+  
+
+  @media (prefers-color-scheme: dark) {
+    --background: #25415e;
+  }
+}
+
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -715,21 +916,3 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
-.bg_blur {
-    background-color: #c9c9c90c;
-    filter: blur(--blur-radius);
-    border-radius: 15px;
-    // padding-top: 1px;
-    padding-bottom: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .bg_blur_prof {
-    background-color: #c9c9c90c;
-    filter: blur(--blur-radius);
-    border-radius: 15px;
-    // padding-top: 1px;
-    padding-bottom: 3rem;
-    padding-left: 15px;
-    padding-right: 15px;
-  }

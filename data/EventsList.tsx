@@ -138,7 +138,7 @@ const EventsList = [
     link: PandoraBlocks.link,
     image: PandoraBlocks.details.image,
     accent: PandoraBlocks.details.accent,
-    selector: styles.bd,
+    selector: styles.pb,
     isTeam: true,
     maxMembers: {
       default: 3,

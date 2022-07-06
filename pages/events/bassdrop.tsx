@@ -25,6 +25,9 @@ const BassDrop: NextPage = () => {
                 <div className={styles.logo}>
                     <Image src={logo} alt="Bass Drop" quality={100} placeholder={"blur"} layout={"responsive"}/>
                 </div>
+                <div className={styles.banner_text}>
+                    <h1 id="title">Bass Drop</h1>
+                </div>
             </div>
 
             <div className={styles.content}>
@@ -46,7 +49,7 @@ const BassDrop: NextPage = () => {
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
                         {BassDropData.headings.eventCoordinators.map((coordinator, index) => {
-                            return <ProfileCard key={index} profileObject={coordinator}/>
+                            return <ProfileCard key={index} profileObject={coordinator} colorOverrideSelector={styles.profile_card}/>
                         })}
                     </div>                    
                 

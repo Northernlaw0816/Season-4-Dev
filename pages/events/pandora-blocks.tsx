@@ -14,6 +14,7 @@ import styles from "../../styles/pages/Events.module.scss";
 import logo from "../../public/images/events/pandora_blocks.png";
 //data
 import PandoraBlocksData from "../../data/pages/events/pandora-blocks";
+
 const pandoraBlocks: NextPage = () => {
   return (
     <>
@@ -24,7 +25,7 @@ const pandoraBlocks: NextPage = () => {
 
       <Layout
         skipTo="#tagline"
-        overrideClasses={`${styles.main} ${styles.main_td}`}
+        overrideClasses={`${styles.main} ${styles.main_pb}`}
       >
         <div className={styles.banner}>
                 <div className={styles.logo}>
@@ -66,7 +67,7 @@ const pandoraBlocks: NextPage = () => {
           <div className={styles.card_container}>
             {PandoraBlocksData.headings.eventCoordinators.map(
               (coordinator, index) => {
-                return <ProfileCard key={index} profileObject={coordinator} />;
+                return <ProfileCard key={index} profileObject={coordinator} colorOverrideSelector={styles.profile_card}/>;
               }
             )}
           </div>

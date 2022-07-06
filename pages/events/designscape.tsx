@@ -315,7 +315,7 @@ const Designscape: NextPage = () => {
               {DesignscapeData.headings.eventCoordinators.map(
                 (coordinator, index) => {
                   return (
-                    <ProfileCard key={index} profileObject={coordinator} />
+                    <ProfileCard key={index} profileObject={coordinator} colorOverrideSelector={styles.profile_card}/>
                   );
                 }
               )}

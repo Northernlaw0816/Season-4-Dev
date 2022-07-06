@@ -4,12 +4,12 @@ import { toSlug } from "../functions"
 //stylesheets
 import styles from "../styles/components/ProfileCard.module.scss"
 
-const ProfileCard = ({profileObject}: any) => {
+const ProfileCard = ({profileObject, colorOverrideSelector}: any) => {
 
     const {name, roles, event, src} = profileObject
 
     return (
-        <div className={styles.profile_card}>
+        <div className={`${styles.profile_card} ${colorOverrideSelector}`}>
             <div className={styles.profile_pic}>
                 <Image src={src} alt={name} quality={5} placeholder={"blur"} layout={"responsive"}/>
             </div>

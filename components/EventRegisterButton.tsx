@@ -21,7 +21,7 @@ const EventsRegisterButton = ({event}: {event: string}) => {
                 }} as={{
                     pathname: "/registration",
                     hash: "registration-form"
-                }}><a className={styles.register_link}>Register Here</a></Link>}
+                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
     )
 }

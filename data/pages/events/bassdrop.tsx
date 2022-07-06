@@ -19,7 +19,7 @@ const Bassdrop = {
     venue: "Creya Lab",
     grades: "9-12",
     image: BD,
-    accent: "hsl(243, 32%, 11%)",
+    accent: "hsl(0, 0%, 0%)",
   },
 
   headings: {

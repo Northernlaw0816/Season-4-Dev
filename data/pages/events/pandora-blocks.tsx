@@ -13,17 +13,17 @@ const PandoraBlocks = {
     link: '/events/pandora-blocks',
 
     details: {
-        shortDescription: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once.Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
+        shortDescription: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once. Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
         date: `${Main.dates.day1}`,
         time: '10:40 a.m. - 3:00 p.m.',
         venue: 'Online',
         grades: '9-12',
         image: PB,
-        accent: 'hsl(243, 32%, 11%)',  
+        accent: '#1d3249',  
     },
     
     headings: {
-        about: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once.Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
+        about: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once. Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
         
         rules: [
             "This is a team event. A team must have 3 players.",
