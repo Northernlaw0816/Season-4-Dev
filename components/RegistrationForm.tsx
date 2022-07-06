@@ -127,15 +127,19 @@ const RegistrationForm = ({ event }: any) => {
               required: true,
               onChange: onEventChange,
               validate: (e: any) => e !== "default-event",
-            })}>
+            })}
+          >
             <option value="default-event">Select an Event</option>
-            {EventsList.map((e) => {
-              return <option value={toSlug(e.title)}> {e.title}</option>;
+            {EventsList.map((event, index) => {
+              return (
+                <option value={toSlug(event.title)} key={index}>
+                  {event.title}
+                </option>
+              );
             })}
           </select>
+          <br />
         </div>
-
-        <br />
       </form>
     </>
   );
