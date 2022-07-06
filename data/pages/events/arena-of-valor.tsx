@@ -8,6 +8,7 @@ import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
 import bgmi from "../../../public/images/events/aov_games/bgmi.jpg";
+import csgo from "../../../public/images/events/aov_games/csgo.png";
 
 const ArenaOfValor = {
   title: "Arena of Valor",
@@ -19,11 +20,11 @@ const ArenaOfValor = {
   details: {
     shortDescription:
       "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for battle?",
-      
+
     date: `${Main.dates.day1} - ${Main.dates.day2}`,
 
     time: "TBA",
-    
+
     venue: "Online",
     grades: "9 - 12",
     image: AoV,
@@ -36,6 +37,19 @@ const ArenaOfValor = {
       description:
         "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for battle?",
     },
+
+    commonGuidelines: [
+      "The usage of cheats, hacks, or any other third-party applications that give you an unfair advantage over your opponents will result in immediate disqualification",
+      "Teams that attempt to use players which are not registered in their team (as shown in the team profile in the Discord Bot) may be disqualified.",
+      "Account sharing will be met with disqualification.",
+      "Abusing in-game glitches that give a team an unfair advantage is not permitted. Teams caught doing so may be disqualified.",
+      "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items. If any special rules apply, then they may be found in the tournament’s registration article on this website.",
+      "If two teams fail to schedule their match during the given time limit, one or both teams may be disqualified.",
+      "During an on-going tournament, players are not allowed to change their in-game name. Clan Tags before in-game names are allowed to be changed.",
+      "It is prohibited to spam or use offensive messages or language on any of the  platforms and doing so may result in us taking punitive measures against you.",
+      "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
+      "Participants are to join the Discord server link that will be sent to them via Whatsapp."
+    ],
 
     platforms: [
       {
@@ -80,31 +94,52 @@ const ArenaOfValor = {
         games: [
           {
             name: "Call Of Duty Mobile",
-            participants: 3,
+            participants: 4,
             image: cod,
             bannedItems: [
               {
                 category: "ScoreStreaks Banned",
-                items: ["Sentry Gun", "VTOL"],
-              },
-
-              {
-                category: "Guns Banned",
                 items: [
-                  "NA-45",
-                  "HVK - Large Calibre Ammo",
-                  "Guns Equipped with Akimbo Perk",
+                  "Sentry Gun",
+                  "VTOL",
+                  "Care Package",
+                  "Stealth Chopper",
+                  "Hawk X3",
+                  "Lightning Strike",
+                  "Orbital Laser",
                 ],
               },
 
               {
-                category: "Equipments Banned",
-                items: ["Molotov", "TripMine"],
+                category: "Weapons Banned",
+                items: [
+                  "NA-45",
+                  "RYTEC AMR",
+                  "PPSH-41",
+                  "Cross-Bow",
+                  "D13 Sector",
+                  "Weapons attached with akimbo",
+                ],
+              },
+
+              {
+                category: "Lethal utility Banned",
+                items: ["Thermite", "TripMine"],
               },
 
               {
                 category: "Perks Banned",
-                items: ["Hardline", "Restock", "Persistent"],
+                items: ["Martyrdom", "Restock", "Persistent"],
+              },
+              {
+                category: "Operator Skills Banned",
+                items: [
+                  "H.I.V.E",
+                  "Bull Charge",
+                  "Ballistic shield",
+                  "Kinetic armour",
+                  "Tak-5",
+                ],
               },
             ],
           },
@@ -137,22 +172,23 @@ const ArenaOfValor = {
         games: [
           {
             name: "Valorant",
-            participants: 3,
+            participants: 5,
             image: valorant,
             bannedItems: [
-              {
-                category: "Guns Banned",
-                items: ["Odin"],
-              },
             ],
           },
+          {
+            name: "CSGO",
+            participants: 5,
+            image: csgo,
+            bannedItems: [
+            ],
+          }
         ],
 
         guidelines: [
           "All games will be played in 5v5 format.",
           "Controllers are allowed.",
-          "Valorant (games will be played in an 'unrated'  format).",
-          "CSGO (games will be played in 'plant the bomb' format).",
           "The use of the following programs is considered cheating: Wallhacks, Aimbot. These are only examples , other programs or methods may be considered cheats as well.",
           "Toxic behaviour will not be tolerated and will be dealt with strictly.",
           "In multiplayer if both teams are ready, the match may start before the scheduled time, however no timeouts will be provided.",

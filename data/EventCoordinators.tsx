@@ -45,9 +45,9 @@ import placeholder from "../public/images/profile/placeholder.png";
 
 const EventHeads = [
   {
-    name: "Samer Rahmaan R.",
-    grade: "Alumni",
-    src: samer,
+    name: "Sanjay A.R.",
+    grade: "12",
+    src: sanjayAR,
   },
   {
     name: "Shakthi Kumar S.",
@@ -98,6 +98,12 @@ const EventCoordinators = [
     event: "Arena of Valor - Mobile",
     grade: "12",
     src: laksh,
+  },
+  {
+    name: "Surya",
+    event: "Arena of Valor - Mobile",
+    grade: "12",
+    src: placeholder,
   },
   {
     name: "Sanjay A.R.",
@@ -154,7 +160,7 @@ const EventCoordinators = [
     src: akshay,
   },
   {
-    name: "Nadeen",
+    name: "Nadeen P.",
     event: "Designscape",
     grade: "12",
     src: nadeen,
@@ -208,7 +214,7 @@ const EventCoordinators = [
     src: hariharan,
   },
   {
-    name: "Abishek Siddharth",
+    name: "Abhishek Siddharth",
     event: "Pandora's Blocks",
     grade: "11",
     src: abishek,
@@ -229,7 +235,7 @@ const MediaTeam = [
     src: nila,
   },
   {
-    name: "Rhagav Kotecha",
+    name: "Raghav Kotecha",
     grade: "12",
 	roles: "Photography",
     src: raghav,

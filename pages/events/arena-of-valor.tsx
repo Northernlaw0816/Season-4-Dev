@@ -44,6 +44,11 @@ const ArenaOfValor: NextPage = () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>
                         {ArenaOfValorData.headings.about.description}
                     </p>
+                
+                <h2 id="commonGUI">Common Guidelines</h2>
+                    <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul> 
                     
                     {ArenaOfValorData.headings.platforms.map((platform, index: number) => {
                         return (<div key={index}>

@@ -27,7 +27,7 @@ const Designscape = {
         rules: [
             "Participants are allowed to make use of any application (such as Adobe Lightroom, Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) of their choice for designing their artwork.",
             "Participants are required to bring their own devices and accessories(Laptops,tablets).",
-            "All the participants will be given 2 hours (including the time of rendering) to create their final artwork.",
+            "All the participants will be given 3 hours (including the time of rendering) to create their final artwork.",
             "The participants will be given a few topics on the spot, based on which they have to create a digital artwork.",
             "There will be only one round conducted.", 
             "The images after editing are to be submitted via e-mail as .jpg files."

@@ -31,10 +31,10 @@
     }
 
     .card_container {
-        padding: 0 15%;
+        padding: 0 10%;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
-        gap: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(27%, 1fr));
+        gap: 2.5rem;
         place-items: center;
 
         &.event_heads {
