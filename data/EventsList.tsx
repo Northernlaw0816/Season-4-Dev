@@ -109,7 +109,7 @@ const EventsList = [
     selector: styles.otk,
     isTeam: true,
     maxMembers: {
-      default: 1,
+      default: 3,
     },
   },
   {
@@ -141,7 +141,7 @@ const EventsList = [
     selector: styles.bd,
     isTeam: true,
     maxMembers: {
-      default: 1,
+      default: 3,
     },
   },
 ];
