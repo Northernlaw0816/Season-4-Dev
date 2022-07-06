@@ -7,12 +7,12 @@ import OTK from '../../../public/images/events/otk_logo.png'
 const Otakuiz = {
     title: "Otakuiz",
 
-    tagline: "You don't stand a single chance to win unless you fight!",
+    tagline: "Give up on your dreams and make it a reality",
     
     link: '/events/otakuiz',
     
     details: {
-        shortDescription: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title It's time to put all the hours spent watching anime in front of your screen for off-screen use! Yuva Nu Topia provides all the weebs in our school an opportunity to shine and show off their anime knowledge! Are you ready to give a shot at otakuiz, meet fellow weebs and have the time of your life?",
+        shortDescription: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title “Super Sannin”. It’s finally your time to prove that all those hours spent watching anime are not in vain by showing off the knowledge you’ve gained in the ultimate anime quiz. Are you ready to give Otakuiz a shot? Meet fellow weebs and have the time of your life? So join us for the ride and let’s have a blast together.",
         date: `${Main.dates.day1}`,
         time: "10:40 a.m. - 3:00 p.m.",
         venue: 'Auditorium',
@@ -26,13 +26,12 @@ const Otakuiz = {
            
         ],
 
-        about: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title It's time to put all the hours spent watching anime in front of your screen for off-screen use! Yuva Nu Topia provides all the weebs in our school an opportunity to shine and show off their anime knowledge! Are you ready to give a shot at otakuiz, meet fellow weebs and have the time of your life?",
+        about: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title “Super Sannin”. It’s finally your time to prove that all those hours spent watching anime are not in vain by showing off the knowledge you’ve gained in the ultimate anime quiz. Are you ready to give Otakuiz a shot? Meet fellow weebs and have the time of your life? So join us for the ride and let’s have a blast together.",
             
         rules: [
-            "The competitors will participate in groups of 3 and will each come up with a name for their group and a buzzer phrase for the buzzer round.",
+            "The competitors will participate in groups of 3 and will each come up with a name for your team.",
             "No use of the internet or any gadgets will be allowed.",
-            "Participants will be allowed to confer within their own teams to answer questions as there will be no individual participation rounds.  However, they may not confer with any other groups in the middle of any rounds.",
-            "Attempt to answer before completion of the question or out of turn leads to deduction of points."
+            "Participants will be allowed to confer within their own teams to answer questions as there will be no individual participation rounds. However, they may not confer with any other groups in the middle of any rounds."
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Otakuiz"),
