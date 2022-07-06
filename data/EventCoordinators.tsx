@@ -50,7 +50,7 @@ const EventHeads = [
     src: sanjayAR,
   },
   {
-    name: "Shakthi Kumar S.",
+    name: "ShakthiKumar S.",
     grade: "12",
     src: shakti,
   },
@@ -70,7 +70,7 @@ const EventCoordinators = [
     src: shivanth,
   },
   {
-    name: "Shakthi Kumar S.",
+    name: "ShakthiKumar S.",
     event: "Arena of Valor - PC",
     grade: "12",
     src: shakti,
