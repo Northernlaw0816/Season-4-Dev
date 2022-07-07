@@ -35,23 +35,22 @@ const Participants = ({
   const participants: any = [];
   for (let i = 0; i < maxParticipants; i++) {
     participants.push(
-      <>
-        <h4>Participant {maxParticipants === 1 ? teamIndex : i + 1}</h4>
+      <div key={i} className={styles.member_input}>
         {/* NAME */}
         <label
           htmlFor={`${
             maxParticipants > 1
-              ? `team${teamIndex}.participant${i}.name`
-              : `participants${teamIndex}.name`
+              ? `teams.${teamIndex}.participant.${i}.name`
+              : `participants.${teamIndex}.name`
           }`}>
-          Name:{" "}
+          Participant {maxParticipants === 1 ? teamIndex + 1 : i + 1}:{" "}
         </label>
         <input
           {...register(
             `${
               maxParticipants > 1
-                ? `team${teamIndex}.participant${i}.name`
-                : `participants${teamIndex}.name`
+                ? `teams.${teamIndex}.participant.${i}.name`
+                : `participants.${teamIndex}.name`
             }`,
             { required: true }
           )}
@@ -60,8 +59,8 @@ const Participants = ({
         <label
           htmlFor={`${
             maxParticipants > 1
-              ? `team${teamIndex}.participant${i}.grade`
-              : `participants${teamIndex}.grade`
+              ? `teams.${teamIndex}.participant.${i}.grade`
+              : `participants.${teamIndex}.grade`
           }`}>
           Grade:{" "}
         </label>
@@ -69,8 +68,8 @@ const Participants = ({
           {...register(
             `${
               maxParticipants > 1
-                ? `team${teamIndex}.participant${i}.grade`
-                : `participants${teamIndex}.grade`
+                ? `teams.${teamIndex}.participant.${i}.grade`
+                : `participants.${teamIndex}.grade`
             }`,
             {
               pattern: {
@@ -84,8 +83,8 @@ const Participants = ({
         <label
           htmlFor={`${
             maxParticipants > 1
-              ? `team${teamIndex}.participant${i}.phone`
-              : `participants${teamIndex}.phone`
+              ? `teams.${teamIndex}.participant.${i}.phone`
+              : `participants.${teamIndex}.phone`
           }`}>
           Phone:{" "}
         </label>
@@ -93,8 +92,8 @@ const Participants = ({
           {...register(
             `${
               maxParticipants > 1
-                ? `team${teamIndex}.participant${i}.phone`
-                : `participants${teamIndex}.phone`
+                ? `teams.${teamIndex}.participant.${i}.phone`
+                : `participants.${teamIndex}.phone`
             }`,
             {
               pattern: {
@@ -104,11 +103,12 @@ const Participants = ({
             }
           )}
         />
-      </>
+      </div>
     );
   }
   return participants;
 };
+
 const Teams = ({
   maxTeams,
   maxParticipants,
@@ -123,8 +123,8 @@ const Teams = ({
 
     if (platEvent) {
       if (platEvent === "pc") {
-        if (i === 0) h3 = "Valorant Registration";
-        if (i === 1) h3 = "CS:GO Registration";
+        if (i === 0) h3 = "Valorant";
+        if (i === 1) h3 = "CS:GO";
       }
       if (platEvent === "mobile") {
         if (i === 0) h3 = "BattleGround Mobile India";
@@ -136,54 +136,44 @@ const Teams = ({
       }
     }
 
-    teams.push(
-      <>
-        {maxParticipants > 1 ? (
-          <>
-            {platEvent === "mobile" && i % 2 === 0 ? (
-              <>
-                <h3>{h3}</h3>
-                <h3>Team {(i%2) + 1}</h3>
-              </>
-            ) : (
-              <h3>{platEvent === "mobile" ? `Team ${(i % 2) + 1}` : h3}</h3>
-            )}
+    let teamIndex = 
 
-            <input
-              {...register(
-                `team${(platEvent === "mobile" ? i % 2 : i) + 1}.teamName`,
-                {
-                  required: true,
-                  maxLength: {
-                    value: 32,
-                    message: "Max characters in team name is 32",
-                  },
-                  minLength: {
-                    value: 4,
-                    message: "Min characters in team name is 4",
-                  },
-                }
-              )}
-            />
-            <br />
-            <Participants
-              teamIndex={i}
-              register={register}
-              maxTeams={maxTeams}
-              maxParticipants={maxParticipants}
-            />
-          </>
-        ) : (
+    teams.push(
+      <div key={i}>
+        {maxParticipants > 1 && (
           <>
-            <Participants
-              teamIndex={i + 1}
-              register={register}
-              maxTeams={maxTeams}
-              maxParticipants={maxParticipants}
-            />
+            <hr/>
+            {platEvent === "mobile" && i % 2 === 0 && <h3>{h3}</h3>}
+            <h3>{platEvent === "mobile" ? `Team ${(i % 2) + 1}` : h3}</h3>
+
+            <div className={styles.team_input}>
+              <label htmlFor={`teams.${(platEvent === "mobile" ? i % 2 : i)}.teamName`}>Team Name: </label>
+              <input
+                {...register(
+                  `teams.${(platEvent === "mobile" ? i % 2 : i)}.teamName`,
+                  {
+                    required: true,
+                    maxLength: {
+                      value: 32,
+                      message: "Max characters in team name is 32",
+                    },
+                    minLength: {
+                      value: 4,
+                      message: "Min characters in team name is 4",
+                    },
+                  }
+                )}
+              />
+            </div>
           </>
         )}
-      </>
+        <Participants
+          teamIndex={i}
+          register={register}
+          maxTeams={maxTeams}
+          maxParticipants={maxParticipants}
+        />
+      </div>
     );
   }
   return teams;
@@ -195,8 +185,19 @@ const RegistrationForm = ({ event }: any) => {
   let [formBody, setFormBody] = useState<any>(<></>);
   const router = useRouter();
   // Handlers
-  const onSubmit = (data: any) => {
+  const onSubmit = async (data: any) => {
     console.log(data);
+
+    const response = await fetch(
+      `http://192.168.3.91:4000/validate`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      }
+    )
   };
   const {
     register,
@@ -210,13 +211,13 @@ const RegistrationForm = ({ event }: any) => {
   } = useForm({ mode: "onSubmit", shouldUnregister: true });
   const resetFields = () => {
     reset();
-    setShowPlatform(false);
     unregister("platform");
-    unregister("teamName");
     router.reload();
   };
   const onEventPlatformChange = () => {
-    const platVal = getValues("aov-platform");
+    const platVal = getValues("platform");
+    unregister("teams")
+    unregister("participants")
     setPlatEvent(platVal);
     switch (platVal) {
       case "pc":
@@ -260,17 +261,22 @@ const RegistrationForm = ({ event }: any) => {
     }
   };
   const onEventChange = () => {
-    const eventVal = getValues("events");
+    const eventVal = getValues("event");
+    unregister("teams")
+    unregister("participants")
+    console.log(eventVal)
+    
     switch (eventVal) {
       case "arena-of-valor":
         setShowPlatform(true);
         setFormBody(<></>);
+        console.log("aov")
         break;
 
       case "knockout":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={1} />
+          <Teams register={register} maxTeams={1} maxParticipants={1} />
         );
         unregister("platform");
         break;
@@ -302,7 +308,7 @@ const RegistrationForm = ({ event }: any) => {
       case "otakuiz":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={3} />
+          <Teams register={register} maxTeams={1} maxParticipants={3} />
         );
         unregister("platform");
         break;
@@ -318,7 +324,7 @@ const RegistrationForm = ({ event }: any) => {
       case "pandoras-blocks":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={3} />
+          <Teams register={register} maxTeams={1} maxParticipants={3} />
         );
         unregister("platform");
         break;
@@ -326,43 +332,42 @@ const RegistrationForm = ({ event }: any) => {
       case "default-value":
         setShowPlatform(false);
         unregister("platform");
-        unregister("teamName");
         setFormBody(<></>);
         break;
 
       default:
         setShowPlatform(false);
         unregister("platform");
-        unregister("teamName");
         setFormBody(<></>);
         break;
     }
   };
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className={`${styles.form}`}>
+      <form onSubmit={handleSubmit(onSubmit)} className={`${styles.registration_form}`}>
         <div>
-          <h1>Form Registration</h1>
-          <select
-            {...register("events", {
-              required: true,
-              onChange: onEventChange,
-              validate: (e: any) => e !== "default-event",
-            })}>
-            <option value="default-event">Select an Event</option>
-            {EventsList.map((event, index) => {
-              return (
-                <option value={toSlug(event.title)} key={index}>
-                  {event.title}
-                </option>
-              );
-            })}
-          </select>
-          {!showPlatform && formBody}
-          {showPlatform && (
-            <>
+          <h1 className={styles.form_title}>Form Registration</h1>
+          <div className={styles.form_fields}>
+            <div className={styles.event_field}>
               <select
-                {...register("aov-platform", {
+                {...register("event", {
+                  required: true,
+                  onChange: onEventChange,
+                  validate: (e: any) => e !== "default-event",
+                })}>
+                <option value="default-event">Select an Event</option>
+                {EventsList.map((event, index) => {
+                  return (
+                    <option value={toSlug(event.title)} key={index}>
+                      {event.title}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            {(
+              <select
+                {...register("platform", {
                   required: true,
                   onChange: onEventPlatformChange,
                   validate: (val) => val !== "default-platform",
@@ -372,10 +377,14 @@ const RegistrationForm = ({ event }: any) => {
                 <option value="mobile">Mobile</option>
                 <option value="console">Console</option>
               </select>
+            )}
+            </div>
+            <div className={styles.team_fields}>
               {formBody}
-            </>
-          )}
-          <button type={"submit"}>Submit</button>
+            </div>
+            <div className={styles.submit}>
+              <input type={'submit'} value="Register"/>
+            </div>
         </div>
       </form>
     </>
