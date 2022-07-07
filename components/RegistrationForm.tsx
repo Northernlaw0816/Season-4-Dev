@@ -19,6 +19,8 @@ import Effects from "../styles/Effects.module.scss";
 //data
 import EventsList from "../data/EventsList";
 import {
+  addDoc,
+  collection,
   DocumentData,
   getDocs,
   query,
@@ -28,7 +30,7 @@ import {
 import { useRouter } from "next/router";
 
 const getEventRegistrations = () => {
-
+  collection(firestore, "school_login_accounts")
 }
 
 const Participants = ({
@@ -37,8 +39,11 @@ const Participants = ({
   errors,
   register,
   teamIndex,
+  getValues,
+  required
 }: any) => {
   const participants: any = [];
+
   for (let i = 0; i < maxParticipants; i++) {
     participants.push(
       <div key={i} className={styles.member_input}>
@@ -46,7 +51,7 @@ const Participants = ({
         <label
           htmlFor={`${
             maxParticipants > 1
-              ? `teams.${teamIndex}.participant.${i}.name`
+              ? `teams.${teamIndex}.participants.${i}.name`
               : `participants.${teamIndex}.name`
           }`}>
           Participant {maxParticipants === 1 ? teamIndex + 1 : i + 1}:{" "}
@@ -55,17 +60,17 @@ const Participants = ({
           {...register(
             `${
               maxParticipants > 1
-                ? `teams.${teamIndex}.participant.${i}.name`
+                ? `teams.${teamIndex}.participants.${i}.name`
                 : `participants.${teamIndex}.name`
             }`,
-            { required: true }
+            { required: required }
           )}
         />
         {/* GRADE */}
         <label
           htmlFor={`${
             maxParticipants > 1
-              ? `teams.${teamIndex}.participant.${i}.grade`
+              ? `teams.${teamIndex}.participants.${i}.grade`
               : `participants.${teamIndex}.grade`
           }`}>
           Grade:{" "}
@@ -74,7 +79,7 @@ const Participants = ({
           {...register(
             `${
               maxParticipants > 1
-                ? `teams.${teamIndex}.participant.${i}.grade`
+                ? `teams.${teamIndex}.participants.${i}.grade`
                 : `participants.${teamIndex}.grade`
             }`,
             {
@@ -82,6 +87,7 @@ const Participants = ({
                 value: /^(9|10|11|12)/i,
                 message: "Please enter a valid grade",
               },
+              required: required
             }
           )}
         />
@@ -89,7 +95,7 @@ const Participants = ({
         <label
           htmlFor={`${
             maxParticipants > 1
-              ? `teams.${teamIndex}.participant.${i}.phone`
+              ? `teams.${teamIndex}.participants.${i}.phone`
               : `participants.${teamIndex}.phone`
           }`}>
           Phone:{" "}
@@ -98,7 +104,7 @@ const Participants = ({
           {...register(
             `${
               maxParticipants > 1
-                ? `teams.${teamIndex}.participant.${i}.phone`
+                ? `teams.${teamIndex}.participants.${i}.phone`
                 : `participants.${teamIndex}.phone`
             }`,
             {
@@ -106,6 +112,7 @@ const Participants = ({
                 value: /\d{10}/i,
                 message: "Please enter a valid phone number",
               },
+              required: required
             }
           )}
         />
@@ -121,6 +128,7 @@ const Teams = ({
   errors,
   register,
   platEvent,
+  getValues,
 }: any) => {
   const teams: any = [];
 
@@ -142,7 +150,14 @@ const Teams = ({
       }
     }
 
-    let teamIndex = 
+    let required = false
+
+    const handleTeamName = () => {
+      required = getValues(`teams.${i}.teamName`) !== ""
+
+      console.log(required)
+    }
+
 
     teams.push(
       <div key={i}>
@@ -158,7 +173,6 @@ const Teams = ({
                 {...register(
                   `teams.${(platEvent === "mobile" ? i % 2 : i)}.teamName`,
                   {
-                    required: true,
                     maxLength: {
                       value: 32,
                       message: "Max characters in team name is 32",
@@ -167,6 +181,7 @@ const Teams = ({
                       value: 4,
                       message: "Min characters in team name is 4",
                     },
+                    onchange: handleTeamName
                   }
                 )}
               />
@@ -178,12 +193,15 @@ const Teams = ({
           register={register}
           maxTeams={maxTeams}
           maxParticipants={maxParticipants}
+          getValues={getValues}
+          required={required}
         />
       </div>
     );
   }
   return teams;
 };
+
 const RegistrationForm = ({ event }: any) => {
   // ? REACT HOOKS
   let [showPlatform, setShowPlatform] = useState<boolean>(false);
@@ -192,18 +210,41 @@ const RegistrationForm = ({ event }: any) => {
   const router = useRouter();
   // Handlers
   const onSubmit = async (data: any) => {
-    console.log(data);
+    const registrationsCollection = collection(firestore, "registrations_season_2")
+
+    const userData = await fetch(
+      `https://localhost:4000/user`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          userToken: localStorage.getItem("userToken")
+        })
+      }
+    ).then(res => res.json()).then(data => {return data})
 
     const response = await fetch(
-      `http://192.168.3.91:4000/validate`,
+      `http://localhost:4000/validate`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify({
+          ...data,
+          userToken: localStorage.getItem("userToken")
+        })
       }
-    )
+    ).then(res => res.json()).then(data => {
+      console.log(data)
+      return data
+    })
+
+    if (response.success) {
+      addDoc(registrationsCollection, { ...data, schoolId: userData.schoolId })
+    }
   };
   const {
     register,
@@ -234,6 +275,7 @@ const RegistrationForm = ({ event }: any) => {
             maxParticipants={5}
             errors={errors}
             platEvent={"pc"}
+            getValues={getValues}
             required={1}
           />
         );
@@ -246,6 +288,7 @@ const RegistrationForm = ({ event }: any) => {
             maxParticipants={4}
             errors={errors}
             platEvent={"mobile"}
+            getValues={getValues}
             required={1}
           />
         );
@@ -258,6 +301,7 @@ const RegistrationForm = ({ event }: any) => {
             maxParticipants={2}
             errors={errors}
             platEvent={"console"}
+            getValues={getValues}
             required={1}
           />
         );
@@ -290,6 +334,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={1}
             maxParticipants={1}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
@@ -304,6 +349,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={2}
             maxParticipants={3}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
@@ -318,6 +364,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={2}
             maxParticipants={1}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
@@ -332,6 +379,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={2}
             maxParticipants={1}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
@@ -346,6 +394,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={1}
             maxParticipants={3}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
@@ -360,6 +409,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={2}
             maxParticipants={1}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
@@ -374,6 +424,7 @@ const RegistrationForm = ({ event }: any) => {
             maxTeams={1}
             maxParticipants={3}
             errors={errors}
+            getValues={getValues}
             required={1}
           />
         );
