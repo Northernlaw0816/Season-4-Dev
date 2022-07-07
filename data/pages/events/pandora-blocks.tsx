@@ -13,7 +13,7 @@ const PandoraBlocks = {
     link: '/events/pandora-blocks',
 
     details: {
-        shortDescription: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once. Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
+        shortDescription: "Welcome to the ultimate Minecraft building challenge where you will face adversity that will test your team communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         date: `${Main.dates.day1}`,
         time: '10:40 a.m. - 3:00 p.m.',
         venue: 'Online',
@@ -23,7 +23,7 @@ const PandoraBlocks = {
     },
     
     headings: {
-        about: "Survival of the fastest. This event will test your speed, intelligence and creativity all at once. Minecraft is a video game in which players create and break apart various kinds of blocks in three-dimensional worlds.",
+        about: "Welcome to the ultimate Minecraft building challenge where you will face adversity that will test your team communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         
         rules: [
             "This is a team event. A team must have 3 players.",
