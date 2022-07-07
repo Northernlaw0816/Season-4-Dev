@@ -14,18 +14,30 @@ import Effects from "../styles/Effects.module.scss";
 import EventsList from "../data/EventsList";
 import { DocumentData, getDocs, query, QueryDocumentSnapshot, where } from "firebase/firestore";
 import { useRouter } from "next/router";
+
 const Participants = ({ maxTeams, maxParticipants, errors, register, teamIndex }: any) => {
   const participants: any = [];
   for (let i = 0; i < maxParticipants; i++) {
     participants.push(
       <>
-        <h4>Participant {i + 1}</h4>
-        <label htmlFor={`${teamIndex > 0 ? `team${teamIndex}.` : ""}participant${i}.name`}>Name: </label>
-        <input {...register(`${teamIndex > 0 ? `team${teamIndex}.` : ""}participant${i}.name`)} />
-        <label htmlFor={`${teamIndex > 0 ? `team${teamIndex}.` : ""}participant${i}.grade`}>Grade: </label>
-        <input {...register(`${teamIndex > 0 ? `team${teamIndex}.` : ""}participant${i}.grade`)} />
-        <label htmlFor={`${teamIndex > 0 ? `team${teamIndex}.` : ""}participant${i}.phone`}>Phone: </label>
-        <input {...register(`${teamIndex > 0 ? `team${teamIndex}.` : ""}participant${i}.phone`)} />
+        <h4>Participant {maxParticipants === 1 ? teamIndex : i + 1}</h4>
+        {/* NAME */}
+        <label htmlFor={`${maxParticipants > 1 ? `team${teamIndex}.participant${i}.name` : `participants${teamIndex}.name`}`}>Name: </label>
+        <input {...register(`${maxParticipants > 1 ? `team${teamIndex}.participant${i}.name` : `participants${teamIndex}.name`}`, { required: true })} />
+        {/* GRADE */}
+        <label htmlFor={`${maxParticipants > 1 ? `team${teamIndex}.participant${i}.grade` : `participants${teamIndex}.grade`}`}>Grade: </label>
+        <input
+          {...register(`${maxParticipants > 1 ? `team${teamIndex}.participant${i}.grade` : `participants${teamIndex}.grade`}`, {
+            pattern: { value: /^(9|10|11|12)/i, message: "Please enter a valid grade" },
+          })}
+        />
+        {/* PHONE */}
+        <label htmlFor={`${maxParticipants > 1 ? `team${teamIndex}.participant${i}.phone` : `participants${teamIndex}.phone`}`}>Phone: </label>
+        <input
+          {...register(`${maxParticipants > 1 ? `team${teamIndex}.participant${i}.phone` : `participants${teamIndex}.phone`}`, {
+            pattern: { value: /\d{10}/i, message: "Please enter a valid phone number" },
+          })}
+        />
       </>,
     );
   }
@@ -47,11 +59,11 @@ const Teams = ({ maxTeams, maxParticipants, errors, register }: any) => {
               })}
             />
             <br />
-            <Participants teamIndex={0} register={register} maxTeams={maxTeams} maxParticipants={maxParticipants} />
+            <Participants teamIndex={i} register={register} maxTeams={maxTeams} maxParticipants={maxParticipants} />
           </>
         ) : (
           <>
-            <Participants teamIndex={0} register={register} maxTeams={maxTeams} maxParticipants={maxParticipants} />
+            <Participants teamIndex={i} register={register} maxTeams={maxTeams} maxParticipants={maxParticipants} />
           </>
         )}
       </>,
@@ -66,7 +78,9 @@ const RegistrationForm = ({ event }: any) => {
   let [formBody, setFormBody] = useState<any>(<></>);
   const router = useRouter();
   // Handlers
-  const onSubmit = (data: any) => {};
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
   const {
     register,
     formState: { errors },
@@ -77,6 +91,13 @@ const RegistrationForm = ({ event }: any) => {
     getValues,
     handleSubmit,
   } = useForm({ mode: "onSubmit", shouldUnregister: true });
+  const resetFields = () => {
+    reset();
+    setShowPlatform(false);
+    unregister("platform");
+    unregister("teamName");
+    router.reload();
+  };
   const onEventPlatformChange = () => {
     const platVal = getValues("aov-platform");
     setPlatEvent(platVal);
@@ -195,6 +216,7 @@ const RegistrationForm = ({ event }: any) => {
               {formBody}
             </>
           )}
+          <button type={"submit"}>Submit</button>
         </div>
       </form>
     </>
