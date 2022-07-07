@@ -13,7 +13,7 @@ const Bassdrop = {
   link: "/events/bassdrop",
 
   details: {
-    shortDescription: "Are you someone who constantly taps their feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
+    shortDescription: "Are you someone who constantly taps your feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
     date: `${Main.dates.day2}`,
     time: "9:30 a.m. - 12:30 p.m.",
     venue: "Creya Lab",
@@ -24,7 +24,7 @@ const Bassdrop = {
 
   headings: {
     about:
-      "Are you someone who constantly taps their feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
+      "Are you someone who constantly taps your feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
     rules: [
       "Bass drop is a solo offline event, with no access to the internet",
       "The tracks created by the participants should be for 2 minutes",

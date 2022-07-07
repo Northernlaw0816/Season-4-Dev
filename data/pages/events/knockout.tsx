@@ -37,29 +37,22 @@ const KnockOut = {
 
     guidelines: [
       {
-        title: "Preliminary Round",
+        title: "Day 1",
         rules: [
-          "Preliminary debate rounds (Solo 1 v 1) will be conducted.",
-          "Subsequent rounds may be held for qualifying students.",
-          "Just one category (For all age groups).",
-          "Topics of the preliminary round will be announced before the competition.",
-          "Use of diplomatic language encouraged.",
+          "Round 1 (Solo 1 v 1 debate) will be conducted, whose detalis will be announced in the WhatsaApp group.",
+          "A Second Round will be conducted with all participants, which will be a on the spot round.",
+          "At the end of round 2, 20 participants will be disqualified."
         ],
       },
 
-      // {
-      //     title: "Final Round",
-      //     rules: [
-      //         "Only 10 participants will be selected for the finals",
-      //         "They will be divided into 5 pairs",
-      //         "Each pair will be given a debate topic and each participant a \"For\" or \"Against\" stance",
-      //         "A one-on-one formal debate will be held for each pair wherein each participant has to make a speech of 2 to 3 minutes.",
-      //         "Each participant will be allowed to ask 1 question and 1 follow up question to their respective partners ",
-      //         "The topics and the finalists list will be released on Feb 8 2022",
-      //         "From the 10 finalists 1 winner and 1 runner up will be awarded.",
-      //         "Finals will be held on the following day (Feb 9) and topics will be announced by 8th Feb itself"
-      //     ]
-      // }
+      {
+          title: "Day 2",
+          rules: [
+              "Two on the spot rounds will be conducted.",
+              "10 participants will be disqualified at the end of round 3",
+              "At the end of Round 4, the top three participants will be adjudged as winners."
+          ]
+      }
     ],
 
     eventCoordinators: EventCoordinators.filter(

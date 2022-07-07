@@ -7,7 +7,7 @@ import rocket from "../../../public/images/events/aov_games/rocket_league.png";
 import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
-import bgmi from "../../../public/images/events/aov_games/bgmi.jpg";
+import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
 
 const ArenaOfValor = {
@@ -187,6 +187,7 @@ const ArenaOfValor = {
         ],
 
         guidelines: [
+          "DAY 1 - VALORANT ONLY, DAY 2 - CS:GO ONLY",
           "All games will be played in 5v5 format.",
           "Controllers are allowed.",
           "The use of the following programs is considered cheating: Wallhacks, Aimbot. These are only examples , other programs or methods may be considered cheats as well.",

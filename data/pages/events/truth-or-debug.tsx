@@ -35,7 +35,8 @@ const TruthOrDebug = {
             "Participants are allowed to use any programming language (provided the output is suitable) prescribed below for the coding rounds: (Java, C, C++, Python, Javascript, or any)",
             "Participants must bring their own devices and accessories (Laptops, tablets).",
             "The participants are allowed only in teams of 3.",
-            "Internet use or getting help from other participating teams is strictly prohibited."
+            "Internet use or getting help from other participating teams is strictly prohibited.",
+            "Components required for the circuit rounds will be provided."
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),

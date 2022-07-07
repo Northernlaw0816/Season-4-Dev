@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 		{/* <HomeGallery/> */}
 		<div className={styles.content_container}>
 			{/* trailer */}
-			<iframe className={"embed video"} src="https://www.youtube.com/embed/cvLqHBbXSKE" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+			<iframe className={"embed video"} src="https://www.youtube.com/embed/oiwRXKfj5jk" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 			
 			<h1>Welcome to NuTopia</h1>
 			
