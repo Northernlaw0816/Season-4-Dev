@@ -9,6 +9,8 @@ import {
 import { FormFields } from "../functions/interface";
 import { toSlug } from "../functions";
 
+import { firestore } from "../firebase/clientApp";
+
 //components
 import ParticipantFields from "./ParticipantFields";
 //stylesheets
@@ -24,6 +26,10 @@ import {
   where,
 } from "firebase/firestore";
 import { useRouter } from "next/router";
+
+const getEventRegistrations = () => {
+
+}
 
 const Participants = ({
   maxTeams,
@@ -228,6 +234,7 @@ const RegistrationForm = ({ event }: any) => {
             maxParticipants={5}
             errors={errors}
             platEvent={"pc"}
+            required={1}
           />
         );
         break;
@@ -239,6 +246,7 @@ const RegistrationForm = ({ event }: any) => {
             maxParticipants={4}
             errors={errors}
             platEvent={"mobile"}
+            required={1}
           />
         );
         break;
@@ -250,6 +258,7 @@ const RegistrationForm = ({ event }: any) => {
             maxParticipants={2}
             errors={errors}
             platEvent={"console"}
+            required={1}
           />
         );
         break;
@@ -276,7 +285,13 @@ const RegistrationForm = ({ event }: any) => {
       case "knockout":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={1} maxParticipants={1} />
+          <Teams
+            register={register}
+            maxTeams={1}
+            maxParticipants={1}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -284,7 +299,13 @@ const RegistrationForm = ({ event }: any) => {
       case "truth-or-debug":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={3} />
+          <Teams
+            register={register}
+            maxTeams={2}
+            maxParticipants={3}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -292,7 +313,13 @@ const RegistrationForm = ({ event }: any) => {
       case "log-and-blog":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={1} />
+          <Teams
+            register={register}
+            maxTeams={2}
+            maxParticipants={1}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -300,7 +327,13 @@ const RegistrationForm = ({ event }: any) => {
       case "designscape":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={1} />
+          <Teams
+            register={register}
+            maxTeams={2}
+            maxParticipants={1}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -308,7 +341,13 @@ const RegistrationForm = ({ event }: any) => {
       case "otakuiz":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={1} maxParticipants={3} />
+          <Teams
+            register={register}
+            maxTeams={1}
+            maxParticipants={3}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -316,7 +355,13 @@ const RegistrationForm = ({ event }: any) => {
       case "bass-drop":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={2} maxParticipants={1} />
+          <Teams
+            register={register}
+            maxTeams={2}
+            maxParticipants={1}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -324,7 +369,13 @@ const RegistrationForm = ({ event }: any) => {
       case "pandoras-blocks":
         setShowPlatform(false);
         setFormBody(
-          <Teams register={register} maxTeams={1} maxParticipants={3} />
+          <Teams
+            register={register}
+            maxTeams={1}
+            maxParticipants={3}
+            errors={errors}
+            required={1}
+          />
         );
         unregister("platform");
         break;
@@ -365,7 +416,7 @@ const RegistrationForm = ({ event }: any) => {
                 })}
               </select>
             </div>
-            {(
+            {showPlatform && (
               <select
                 {...register("platform", {
                   required: true,
@@ -378,13 +429,13 @@ const RegistrationForm = ({ event }: any) => {
                 <option value="console">Console</option>
               </select>
             )}
-            </div>
-            <div className={styles.team_fields}>
-              {formBody}
-            </div>
-            <div className={styles.submit}>
-              <input type={'submit'} value="Register"/>
-            </div>
+          </div>
+          <div className={styles.team_fields}>
+            {formBody}
+          </div>
+          <div className={styles.submit}>
+            <input type={'submit'} value="Register"/>
+          </div>
         </div>
       </form>
     </>
