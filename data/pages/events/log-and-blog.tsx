@@ -31,7 +31,6 @@ const LogAndBlog = {
             "However, any kind of plagiarism will strictly be dealt with.",
             "Participants are given a time period of 2 hours to complete their blog in 'Blogger'.",
             "Each participant will be given a computer, hence they do not have to bring their own gadgets.",
-            "School will not be responsible for any damages to the provided computer."
         ],
 
         assessment: [

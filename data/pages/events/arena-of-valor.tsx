@@ -19,7 +19,7 @@ const ArenaOfValor = {
 
   details: {
     shortDescription:
-      "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for battle?",
+      "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intense competitive gaming event in town. For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for the battle?",
 
     date: `${Main.dates.day1} - ${Main.dates.day2}`,
 
@@ -35,7 +35,7 @@ const ArenaOfValor = {
   headings: {
     about: {
       description:
-        "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intensely competitive gaming event in town.For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for battle?",
+        "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intense competitive gaming event in town. For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for the battle?",
     },
 
     commonGuidelines: [

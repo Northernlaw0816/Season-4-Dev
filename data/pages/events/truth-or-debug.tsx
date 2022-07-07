@@ -29,7 +29,7 @@ const TruthOrDebug = {
             
         ],
 
-        about: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",
+        about: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
         
         rules: [
             "Participants are allowed to use any programming language (provided the output is suitable) prescribed below for the coding rounds: (Java, C, C++, Python, Javascript, or any)",
@@ -42,7 +42,7 @@ const TruthOrDebug = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
         prerequisites:["Intermediate knowledge of at least one of the prescribed programming languages is required.","Basic knowledge of circuit making."],
         registration: [
-            "This is a Duo (2 member) event."
+            "This is a Trio (3 member) event."
         ]
     }
 }

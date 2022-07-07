@@ -20,6 +20,7 @@ const ProfileCard = ({profileObject, colorOverrideSelector}: any) => {
                         <h3 id={toSlug(`profile ${event}`)}>Event</h3><p>{event}</p>
                     </span>}
                 </div>
+                <div>{roles}</div>
             </div>
         </div>
     )
