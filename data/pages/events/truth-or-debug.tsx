@@ -15,7 +15,7 @@ const TruthOrDebug = {
     link: '/events/truth-or-debug',
 
     details: {
-        shortDescription: "Is troubleshooting your cup of tea? Do you have razor sharp instinct to spot the error? Join the clan at Truth or Debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Prepare your nimble minds to debug as you race against the pressure of time!",
+        shortDescription: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
         dateAndTime: `${Main.dates.day1} | ${Main.dates.day2}, 1:00 p.m. - 4:00 p.m.`,
         date: `${Main.dates.day1} | ${Main.dates.day2}`,
         time: '1:00 p.m. - 4:00 p.m.',
