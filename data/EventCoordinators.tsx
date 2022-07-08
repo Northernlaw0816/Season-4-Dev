@@ -7,6 +7,7 @@ import sanjaySR from "../public/images/profile/sanjay_sr.png";
 import jyothir from "../public/images/profile/jyothir.png";
 import laksh from "../public/images/profile/laksh.png";
 import shivanth from "../public/images/profile/shivanth.png";
+import surya from "../public/images/profile/surya.png"
 // KO
 import sanjayAR from "../public/images/profile/sanjay_ar.png";
 import neha from "../public/images/profile/neha.png";
@@ -103,7 +104,7 @@ const EventCoordinators = [
     name: "Surya",
     event: "Arena of Valor - Mobile",
     grade: "12",
-    src: placeholder,
+    src: surya,
   },
   {
     name: "Sanjay A.R.",
