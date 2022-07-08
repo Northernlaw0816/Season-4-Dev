@@ -15,6 +15,7 @@ const PandoraBlocks = {
     details: {
         shortDescription: "Welcome to the ultimate Minecraft building challenge where you will face adversity that will test your team communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         date: `${Main.dates.day1}`,
+        dateAndTime: `${Main.dates.day1} -> 10:40 a.m. - 3:00 p.m.`,
         time: '10:40 a.m. - 3:00 p.m.',
         venue: 'Online',
         grades: '9-12',

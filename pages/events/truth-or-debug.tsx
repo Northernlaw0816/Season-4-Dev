@@ -62,7 +62,7 @@ const TruthOrDebug: NextPage = () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{TruthOrDebugData.headings.about}</p>
                 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {TruthOrDebugData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Date:</strong> {TruthOrDebugData.details.dateAndTime}</p>
                     <p className={styles.h2_p}><strong>Time:</strong> {TruthOrDebugData.details.time}</p>
                     <p className={styles.h2_p}><strong>Venue:</strong> {TruthOrDebugData.details.venue}</p>
 

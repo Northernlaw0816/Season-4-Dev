@@ -16,7 +16,7 @@ const EventsList = [
   {
     title: ArenaOfValor.title,
     description: ArenaOfValor.details.shortDescription,
-    date: ArenaOfValor.details.date,
+    date: ArenaOfValor.details.dateAndTime,
     time: ArenaOfValor.details.time,
     venue: ArenaOfValor.details.venue,
     grades: ArenaOfValor.details.grades,
@@ -35,7 +35,7 @@ const EventsList = [
   {
     title: KnockOut.title,
     description: KnockOut.details.shortDescription,
-    date: KnockOut.details.date,
+    date: KnockOut.details.dateAndTime,
     time: KnockOut.details.time,
     venue: KnockOut.details.venue,
     grades: KnockOut.details.grades,
@@ -51,7 +51,7 @@ const EventsList = [
   {
     title: TruthOrDebug.title,
     description: TruthOrDebug.details.shortDescription,
-    date: TruthOrDebug.details.date,
+    date: TruthOrDebug.details.dateAndTime,
     time: TruthOrDebug.details.time,
     venue: TruthOrDebug.details.venue,
     grades: TruthOrDebug.details.grades,
@@ -67,7 +67,7 @@ const EventsList = [
   {
     title: LogAndBlog.title,
     description: LogAndBlog.details.shortDescription,
-    date: LogAndBlog.details.date,
+    date: LogAndBlog.details.dateAndTime,
     time: LogAndBlog.details.time,
     venue: LogAndBlog.details.venue,
     grades: LogAndBlog.details.grades,
@@ -83,7 +83,7 @@ const EventsList = [
   {
     title: Designscape.title,
     description: Designscape.details.shortDescription,
-    date: Designscape.details.date,
+    date: Designscape.details.dateAndTime,
     time: Designscape.details.time,
     venue: Designscape.details.venue,
     grades: Designscape.details.grades,
@@ -99,7 +99,7 @@ const EventsList = [
   {
     title: Otakuiz.title,
     description: Otakuiz.details.shortDescription,
-    date: Otakuiz.details.date,
+    date: Otakuiz.details.dateAndTime,
     time: Otakuiz.details.time,
     venue: Otakuiz.details.venue,
     grades: Otakuiz.details.grades,
@@ -115,7 +115,7 @@ const EventsList = [
   {
     title: Bassdrop.title,
     description: Bassdrop.details.shortDescription,
-    date: Bassdrop.details.date,
+    date: Bassdrop.details.dateAndTime,
     time: Bassdrop.details.time,
     venue: Bassdrop.details.venue,
     grades: Bassdrop.details.grades,
@@ -131,7 +131,7 @@ const EventsList = [
   {
     title: PandoraBlocks.title,
     description: PandoraBlocks.details.shortDescription,
-    date: PandoraBlocks.details.date,
+    date: PandoraBlocks.details.dateAndTime,
     time: PandoraBlocks.details.time,
     venue: PandoraBlocks.details.venue,
     grades: PandoraBlocks.details.grades,
