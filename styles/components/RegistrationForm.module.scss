@@ -40,17 +40,17 @@
 		}
 	}
 
-	input[required] {
-		border-bottom: red 4px solid;
-
-		&:valid {
-			border-bottom: none;
-		}
-	}
-
 	input, select {
 		&:focus, &:focus-visible {
 			outline: black 3px solid;
+		}
+	}
+
+	input[required] {
+		border-bottom: rgb(255, 153, 0) 4px solid !important;
+
+		&:valid {
+			border-bottom: none;
 		}
 	}
 
