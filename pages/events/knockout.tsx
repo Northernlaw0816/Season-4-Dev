@@ -36,8 +36,8 @@ const KnockOut: NextPage= () => {
                 
                 <h2 id="details">Details</h2>
                     <p className={styles.h2_p}><strong>Date:</strong></p>
-                    <ul>{KnockOutData.details.dateAndTime.map((dateAndTime, index) => {
-                        return <li key={index}><p>{dateAndTime}</p></li>
+                    <ul>{KnockOutData.details.date.map((date, index) => {
+                        return <li key={index}><p>{date}</p></li>
                     })}</ul>
                     {/* <p className={styles.h2_p}><strong>Time:</strong> {KnockOutData.details.time}</p> */}
                     <p className={styles.h2_p}><strong>Venue:</strong> {KnockOutData.details.venue}</p>
