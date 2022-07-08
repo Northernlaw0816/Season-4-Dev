@@ -24,20 +24,20 @@ const Home: NextPage = () => {
 		<div className={styles.content_container}>
 			{/* trailer */}
 			<iframe className={"embed video"} src="https://www.youtube.com/embed/oiwRXKfj5jk" title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-			
+
 			<h1>Welcome to NuTopia</h1>
-			
+
 			{/* content */}
 			<div className={styles.about}>{AboutData.whoWeAre.map((para, index) => {
 				return <p key={index}>{para}</p>
 			})}</div>
-			
+
 			{/* View Events */}
 			<div className={styles.navigation}>
 				<Button href="/events">View Events</Button>
 				<Button  href="/registration">Register</Button>
 			</div>
-			
+
 			<h1>Brochure</h1>
 			{/* brochure */}
 			<Button href={Main.brochureDownload}>Download Brochure</Button>
