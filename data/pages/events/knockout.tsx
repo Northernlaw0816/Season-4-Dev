@@ -41,7 +41,7 @@ const KnockOut = {
       {
         title: "Day 1",
         rules: [
-          "Round 1 (Solo 1 v 1 debate) will be conducted, whose detalis will be announced in the WhatsaApp group.",
+          "Round 1 (Solo 1 v 1 debate) will be conducted, whose details will be announced in the WhatsaApp group.",
           "Round 2 will be conducted with all participants, which will be an on-the-spot round.",
           "Eliminations will take place after Round 2."
         ],
