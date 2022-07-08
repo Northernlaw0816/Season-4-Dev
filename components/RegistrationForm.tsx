@@ -118,7 +118,7 @@ const RegistrationForm = ({ event }: any) => {
 
     setIsRegistering(true);
 
-    await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/register`, {
+    await fetch(`https://api.nutopia.in/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

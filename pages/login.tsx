@@ -16,7 +16,7 @@ const Login = () => {
 	const onSubmit = async (data: any) => {
 		console.log(data)
 
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`, {
+		const response = await fetch(`https://api.nutopia.in/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

@@ -16,7 +16,7 @@ const Logout = () => {
 
 	const logout = async () => {
 
-		const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/logout`, {
+		const response = await fetch(`https://api.nutopia.in/logout`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
