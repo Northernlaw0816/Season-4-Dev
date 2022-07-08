@@ -6,7 +6,7 @@ import styles from '../styles/pages/Events.module.scss'
 
 /**
  * Registration button on event page to redirect to registration
- * @param event - Event TItle to pass as default event value
+ * @param event - Event Title to pass as default event value
 */
 const EventsRegisterButton = ({event}: {event: string}) => {
     return(
