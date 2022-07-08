@@ -12,13 +12,13 @@ const NavLinks = [
         link: '/registration'
     },
     {
-        name: 'Gallery',
-        link: '/gallery'
-    },
-    {
         name: 'Contact',
         link: '/contact'
-    }
+    },
+    {
+        name: 'Login',
+        link: '/login'
+    },
 ]
 
 export default NavLinks
