@@ -3,8 +3,8 @@
 	background: var(--inactive);
 	margin: 2rem auto;
 	color: var(--text-white);
-  border-radius: 1.5em;
-  overflow: hidden;
+	border-radius: 1.5em;
+	overflow: hidden;
 
 	h2, h3, h4 {
 		text-align: center;
@@ -26,14 +26,14 @@
 		border: none;
 		transition: background 100ms;
 
-    border-radius: 0.5em;
+		border-radius: 0.5em;
 
-    transition: border-radius 500ms ease;
+		transition: border-radius 500ms ease;
     
 		&:hover, &:focus-visible {
-      background: hsl(130, 90%, 40%);
+			background: hsl(130, 90%, 40%);
 			color: var(--text-white);
-      border-radius: 0.25em;
+			border-radius: 0.25em;
 			&::placeholder {
 				color: hsl(0, 0%, 90%);
 			}
@@ -107,7 +107,7 @@
 	.form_title {
 		grid-area: title;
 		padding: 1ch;
-    margin-block-start: 0;
+		margin-block-start: 0;
 		background: var(--primary);
 
 		h2 {
