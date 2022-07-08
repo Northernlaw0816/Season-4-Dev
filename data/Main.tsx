@@ -11,7 +11,7 @@ const Main = {
     registrationClosingDate: date, // month is 0 indexed; Jan is 0;
     brochureDownload: "https://drive.google.com/u/0/uc?id=1LochKjLSKWeb0_rC4IUECCPCxMtjS3_w&export=download",
     brochurePreview: "https://drive.google.com/file/d/1LochKjLSKWeb0_rC4IUECCPCxMtjS3_w/preview",
-    updateMessage: date.getTime() <= new Date().getTime() ? "IMPORTANT INFORMATION: REGISTRATIONS ARE CLOSED | BACKGROUND GUIDE FOR KNOCK OUT IS RELEASED" : "IMPORTANT INFORMATION: LAST DATE FOR REGISTRATION - JULY 16 2022, 3 PM"
+    updateMessage: ""
 }
 
 export default Main
