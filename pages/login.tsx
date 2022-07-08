@@ -20,7 +20,7 @@ const Login = () => {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				"Access-Controll-Allow-Origin": "*",
+				"Access-Control-Allow-Origin": "*",
 			},
 			body: JSON.stringify({...data})
 		})

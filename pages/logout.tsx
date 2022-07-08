@@ -20,7 +20,7 @@ const Logout = () => {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				"Access-Controll-Allow-Origin": "*",
+				"Access-Control-Allow-Origin": "*",
 			},
 			body: JSON.stringify({
 				userToken: userToken
