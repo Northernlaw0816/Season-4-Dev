@@ -1,5 +1,4 @@
 import { NextPage } from "next"
-import Head from "next/head"
 import Image from "next/image"
 import { toSlug } from "../../functions"
 

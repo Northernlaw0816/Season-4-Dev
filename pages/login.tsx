@@ -8,8 +8,6 @@ import styles from '../styles/pages/Login.module.scss'
 const Login = () => {
 	const {
 		register,
-		formState: { errors },
-		getValues,
 		handleSubmit,
 	} = useForm({ mode: "onSubmit", shouldUnregister: true})
 

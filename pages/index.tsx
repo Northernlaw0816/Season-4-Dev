@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
 
 //components
 import HeadTemplate from '../components/HeadTemplate'
@@ -12,7 +11,6 @@ import Effects from '../styles/Effects.module.scss'
 //data
 import { AboutData } from '../data/pages'
 import Main from '../data/Main'
-import download from '../public/images/icons/arrow.svg'
 
 const Home: NextPage = () => {
 	return (<>
