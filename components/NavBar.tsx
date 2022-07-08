@@ -75,10 +75,7 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
                 } else if (link.name === 'Login') {
-                    let finalName = userToken && userToken !== "undefined"  ? 'Logout' : 'Login'
-                    let finalLink = userToken && userToken !== "undefined" ? '/logout' : '/login' 
-
-                    return <Link href={finalLink} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(finalLink) && styles.active_link}`}>{finalName}</a></Link>
+                    return userToken && userToken !== "undefined" ? <LoggedInDropdown key={index} userToken={userToken}/> : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
                 } else {
                     return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
                 }
@@ -86,21 +83,70 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         </>)
     }
 
+    const LoggedInDropdown = ({userToken}: any) => {
+        const [isDropActive, setIsDropActive] = useState(false)
+        const [userData, setUserData] = useState<any>({
+            schoolName: "",
+            schoolId: "",
+            email: ""
+        })
+
+        useEffect(() => {
+            getUserData()
+        }, [])
+        
+        const getUserData = async () => { 
+            const data = await fetch('https://api.nutopia.in/user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    "Access-Control-Allow-Origin": "*",
+                },
+                body: JSON.stringify({
+                    userToken: localStorage.getItem('userToken')
+                })
+            }).then(response => response.json()).then(data => {return data})
+    
+            if (data.success) {
+                console.log(data)
+                setUserData(data.user)
+            }
+        }
+
+        function titleCase(string: string) {
+            var sentence = string.toLowerCase().split(" ");
+            for(var i = 0; i< sentence.length; i++){
+               sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
+            }
+            
+            return sentence.join(" ");
+         }
+
+        return (
+            <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
+                <a className={`${styles.nav_button} ${styles.active_link} ${isDropActive && styles.drop_active_link}`}>{userData.schoolName !== "" ? titleCase(userData.schoolName).split(' ')[0] : "..."}</a>
+
+                <div className={styles.dropdown}>
+                    <Link href="/dashboard"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/dashboard') && styles.active_link}`}>Dashboard</a></Link>
+                    <Link href="/logout"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/logout') && styles.active_link}`}>Logout</a></Link>
+                </div>
+            </div>
+        )
+    }
+
     const EventsDropdown = () => {
         const [isDropActive, setIsDropActive] = useState(false)
 
         return (
-            <div className={`${styles.dropdown_container}`} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
+            <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
                 
                 <Link href="/events"><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/events') && styles.active_link} ${isDropActive && styles.drop_active_link}`}>Events</a></Link>
                 
-                {(
-                    <div className={styles.dropdown}>
-                        {EventsList.map((event, index) => {
-                            return <Link href={event.link} key={index}><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname == event.link && styles.active_link}`}>{event.title}</a></Link>
-                        })}
-                    </div>
-                )}
+                <div className={styles.dropdown}>
+                    {EventsList.map((event, index) => {
+                        return <Link href={event.link} key={index}><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname == event.link && styles.active_link}`}>{event.title}</a></Link>
+                    })}
+                </div>
             </div>
         )
     }
