@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import anime from "animejs";
 import { toSlug } from "../functions";
@@ -72,6 +72,14 @@ const Teams = ({ maxTeams, maxParticipants, register, platEvent, index, teamTitl
     console.log(`isTeam${index}Required: ${getValues(`teams.${index}.teamName`) !== ""}`)
   };
 
+  useEffect(() => {
+    if (!platEvent) {
+      if(index === 0) {
+        setRequired(true)
+      }
+    }
+  })
+
   return (
     <div key={index}>
       {maxParticipants > 1 && (
@@ -83,6 +91,7 @@ const Teams = ({ maxTeams, maxParticipants, register, platEvent, index, teamTitl
           <div className={styles.team_input}>
             <label htmlFor={`teams.${index}.teamName`}>Team Name: </label>
             <input
+              required={required}
               {...register(`teams.${index}.teamName`, {
                 maxLength: {
                   value: 32,
@@ -118,7 +127,7 @@ const RegistrationForm = ({ event }: any) => {
 
     setIsRegistering(true);
 
-    await fetch(`https://api.nutopia.in/register`, {
+    await fetch(`https://api.nutopia./register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -129,7 +138,6 @@ const RegistrationForm = ({ event }: any) => {
         userToken: localStorage.getItem("userToken"),
       }),
     }).then(response => response.json()).then(data => {
-      setIsRegistering(false);
       if (!data.success) {
         console.log(data.message)
         setIsError({state: true, message: data.message})
@@ -139,6 +147,24 @@ const RegistrationForm = ({ event }: any) => {
     }).catch(err => console.error(err));
     
   };
+
+  // useEffect(() => {
+	// 	let timeline = anime.timeline({
+	// 		easing: "linear",
+	// 		direction: "forwards",
+	// 		delay: anime.stagger(200),
+	// 		duration: 1000,
+	// 		loop: true
+	// 	})
+
+	// 	timeline.add({
+	// 		targets: ".throbber_section",
+	// 		keyframes: [
+	// 			{scale: 0},
+	// 			{scale: 1}
+	// 		],
+	// 	})
+	// })
 
   const {
     register,
@@ -154,6 +180,10 @@ const RegistrationForm = ({ event }: any) => {
     unregister("platform");
     router.reload();
   };
+
+  const goBack = () => {
+    setIsRegistering(false)
+  }
 
   const onEventPlatformChange = () => {
     const platVal = getValues("platform");
@@ -222,6 +252,7 @@ const RegistrationForm = ({ event }: any) => {
     const eventVal = getValues("event");
     unregister("teams");
     unregister("participants");
+    unregister("platform")
     console.log(eventVal);
     let maxTeams = 0
     let teams: any = []
@@ -347,24 +378,35 @@ const RegistrationForm = ({ event }: any) => {
         {isRegistering && (
           <div className={styles.disable_form_window}>
             {
-              isError.state ? (<>
-                <h2>{isError.message}</h2>
-                <div className={styles.reset_form_btn} onClick={() => resetFields()}>Reset Form</div>
-              </>) : isSuccess?.state ? (<>
-                <h2>{isSuccess.message}</h2>
-                <div className={styles.reset_form_btn} onClick={() => resetFields()}>Ok</div>
-              </>) : (<>
-                <h2>Registering...</h2>
-                <div className={styles.throbber}>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                  <div className={`throbber_section ${styles.throbber_section}`}></div>
-                </div>
-              </>)}
+              isError.state ? (
+                <>
+                  <h2>{isError.message}</h2>
+                  <div style={{display: "flex", flexDirection: "row", gap: "1rem"}}>
+                    <div className={styles.reset_form_btn} onClick={() => resetFields()}>Reset Form</div>
+                    <div className={styles.reset_form_btn} onClick={() => goBack()}>Go Back</div>
+                  </div>
+                </>
+              ) :
+              isSuccess.state ? (
+                <>
+                  <h2>{isSuccess.message}</h2>
+                  <div className={styles.reset_form_btn} onClick={() => resetFields()}>Ok</div>
+                </>
+              ): (
+                <>
+                  <h2>Registering...</h2>
+                  <div className={styles.throbber}>
+                    <div className={`throbber_section ${styles.throbber_setion}`}></div>
+                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  </div>
+                </>
+              )
+            }
           </div>
         )}
         <div>
