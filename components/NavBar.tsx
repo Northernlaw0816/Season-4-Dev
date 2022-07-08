@@ -75,8 +75,8 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
                 } else if (link.name === 'Login') {
-                    let finalName = userToken !== "undefined"  ? 'Logout' : 'Login'
-                    let finalLink = userToken !== "undefined" ? '/logout' : '/login' 
+                    let finalName = userToken || userToken !== "undefined"  ? 'Logout' : 'Login'
+                    let finalLink = userToken || userToken !== "undefined" ? '/logout' : '/login' 
 
                     return <Link href={finalLink} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(finalLink) && styles.active_link}`}>{finalName}</a></Link>
                 } else {
