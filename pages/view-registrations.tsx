@@ -75,14 +75,14 @@ const ViewRegistrations: NextPage = () => {
 
 			<Layout skipTo="" overrideClasses={styles.main}>
 				<div className={styles.view_button_container}>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("aov-mobile")}>AOV Mobile</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("aov-console")}>AOV Console</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("aov-pc")}>AOV PC</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("knockout")}>KO</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("truth-or-debug")}>TD</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("log-and-blog")}>Lab</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("designscape")}>DS</button>
-					<button className={`${styles.view_button} ${Effects.button_hover_effect}`} onClick={() => setViewEvent("otakuiz")}>OTK</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("aov-mobile")}>AOV Mobile</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("aov-console")}>AOV Console</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("aov-pc")}>AOV PC</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("knockout")}>KO</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("truth-or-debug")}>TD</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("log-and-blog")}>Lab</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("designscape")}>DS</button>
+					<button className={styles.view_button} onClick={() => setViewEvent("otakuiz")}>OTK</button>
 				</div>
 
 				<h1>{participants[0]?.event}</h1>

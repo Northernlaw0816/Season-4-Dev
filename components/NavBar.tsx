@@ -18,6 +18,7 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
     const [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
+    const [userToken, setUserToken] = useState<string | null>('')
     const router = useRouter()
 
     
@@ -25,6 +26,10 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         const {clientWidth: width} = document.body
         return width
     }
+
+    useEffect(() => {
+        setUserToken(localStorage.getItem('userToken'))
+    }, [])
     
     let navMenuDOM: any = useRef(null)
     let toggleNavMenu = () => {
@@ -69,8 +74,13 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
             {NavLinks.map((link: any, index: number) => {
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
+                } else if (link.name === 'Login') {
+                    let finalName = userToken !== "undefined"  ? 'Logout' : 'Login'
+                    let finalLink = userToken !== "undefined" ? '/logout' : '/login' 
+
+                    return <Link href={finalLink} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(finalLink) && styles.active_link}`}>{finalName}</a></Link>
                 } else {
-                    return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
+                    return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
                 }
             })}
         </>)
@@ -80,15 +90,14 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         const [isDropActive, setIsDropActive] = useState(false)
 
         return (
-            <div className={`${styles.nav_button} ${styles.dropdown_container}`} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
+            <div className={`${styles.dropdown_container}`} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
                 
-                <Link href="/events"><a role="link" className={`${styles.nav_button} ${effects.button_hover_effect} ${router.pathname.startsWith('/events') && styles.active_link}`}>Events</a></Link>
+                <Link href="/events"><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/events') && styles.active_link} ${isDropActive && styles.drop_active_link}`}>Events</a></Link>
                 
-                {isDropActive && (
+                {(
                     <div className={styles.dropdown}>
                         {EventsList.map((event, index) => {
-                            
-                            return <Link href={event.link} key={index}><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${effects.button_hover_effect} ${router.pathname == event.link && styles.active_link}`}>{event.title}</a></Link>
+                            return <Link href={event.link} key={index}><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname == event.link && styles.active_link}`}>{event.title}</a></Link>
                         })}
                     </div>
                 )}

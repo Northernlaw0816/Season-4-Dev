@@ -44,7 +44,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : <RegistrationForm />}
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : localStorage.getItem("userToken") && localStorage.getItem("userToken") !== "undefined" ? <RegistrationForm /> : <h1>Please Login to Register</h1>}
 
         </Layout>
     </>)

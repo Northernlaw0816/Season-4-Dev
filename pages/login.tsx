@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import HeadTemplate from "../components/HeadTemplate";
 import Layout from "../components/Layout";
+import { useRouter } from "next/router";
 
 const Login = () => {
 	const {
@@ -9,20 +10,28 @@ const Login = () => {
 		getValues,
 		handleSubmit,
 	} = useForm({ mode: "onSubmit", shouldUnregister: true})
+
+	const router = useRouter()
 	
 	const onSubmit = async (data: any) => {
-		const response = await fetch('http://192.168.3.91:4000/login', {
+		console.log(data)
+
+		const response = await fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}/login`, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+				"Access-Controll-Allow-Origin": "*",
 			},
-			body: JSON.stringify(data)
+			body: JSON.stringify({...data})
 		})
 		.then(response => response.json())
 		.then(data => {return data})
 		.catch(err => console.log(err))
 
-		localStorage.setItem("userToken", response.userToken)
+		if (response.success) {
+			localStorage.setItem("userToken", response.userToken)
+			router.push("/")
+		}
 	}
 
 	return (<>
