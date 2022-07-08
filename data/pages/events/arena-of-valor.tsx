@@ -51,7 +51,10 @@ const ArenaOfValor = {
       "During an on-going tournament, players are not allowed to change their in-game name. Clan Tags before in-game names are allowed to be changed.",
       "It is prohibited to spam or use offensive messages or language on any of the  platforms and doing so may result in us taking punitive measures against you.",
       "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
-      "Participants are to join the Discord server link that will be sent to them via Whatsapp."
+      "Participants are to join the Discord server link that will be sent to them via Whatsapp.",
+      "Failure to comply with these rules will result in DISQUALIFICATION.",
+      "The winning team should carry a screenshot of the scores at the end for proof.",
+      "Match breaks will not be provided."
     ],
 
     platforms: [
@@ -79,12 +82,9 @@ const ArenaOfValor = {
 
         guidelines: [
           "All games will be played in 2v2 format",
-          "All contestants are supposed to participate in both games (Fortnite, Rocket league)",
-          "KEYBOARDS, MICE are not allowed",
+          "All contestants are supposed to participate in only one game (Fortnite or Rocket league)",
+          "KEYBOARDS, MICE are NOT allowed",
           "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
-          "Failure to comply with these rules will result in DISQUALIFICATION.",
-          "In multiplayer if both teams are ready , match can start however additional in match breaks will not be allowed.",
-          "The winning team should carry a screenshot of the scores at the end for proof.",
         ],
       },
 
@@ -156,13 +156,9 @@ const ArenaOfValor = {
 
         guidelines: [
           "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",
-          ,
           "Controllers and Emulators are NOT allowed.",
           "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
           "The banned items for the specific game must NOT be used in any part of the event.",
-          "Failure to comply with these rules will result in DISQUALIFICATION.",
-          "In multiplayer if both teams are ready , match can start however additional in match breaks will not be allowed.",
-          "The winning team should carry a screenshot of the scores at the end for proof.",
         ],
       },
 
@@ -192,13 +188,11 @@ const ArenaOfValor = {
         guidelines: [
           "DAY 1 - VALORANT ONLY, DAY 2 - CS:GO ONLY",
           "All games will be played in 5v5 format.",
-          "Controllers are allowed.",
-          "The use of the following programs is considered cheating: Wallhacks, Aimbot. These are only examples , other programs or methods may be considered cheats as well.",
+          "Controllers ARE allowed.",
+          "The use of the following programs is considered cheating: Wallhacks, Aimbot. These are only examples, other programs or methods may be considered cheats as well.",
           "Toxic behaviour will not be tolerated and will be dealt with strictly.",
-          "In multiplayer if both teams are ready, the match may start before the scheduled time, however no timeouts will be provided.",
           "In case a team member is not ready by the scheduled time , an additional time of maximum 2 mins will be given after which the team will have to proceed with/without the unready team member.",
           "All participants are to join the discord server link sent to them and use either valorant voice chat or discord voice chat.",
-          "The winning team should carry a screenshot of the scores at the end for proof.",
         ],
       },
     ],

@@ -12,7 +12,7 @@ const Designscape = {
     link: '/events/designscape',
 
     details: {
-        shortDescription: "In this arena you are the one who holds all powers- the fate of the bright colours, the raw picture and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
+        shortDescription: "In this arena, you are the one who holds all powers- the fate of the bright colours and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
         date: `${Main.dates.day2}`,
         dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`,
         time: '9:30 a.m. - 12:30 p.m.',
@@ -23,7 +23,7 @@ const Designscape = {
     },
 
     headings: {
-        about: "In this arena you are the one who holds all powers- the fate of the bright colours, the raw picture and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
+        about: "In this arena, you are the one who holds all powers- the fate of the bright colours and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
 
         rules: [
             "Participants are allowed to make use of any application (such as Adobe Lightroom, Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) of their choice for designing their artwork.",

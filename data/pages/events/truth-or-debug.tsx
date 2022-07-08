@@ -33,7 +33,7 @@ const TruthOrDebug = {
         about: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
         
         rules: [
-            "Participants are allowed to use any programming language (provided the output is suitable) prescribed below for the coding rounds: (Java, C, C++, Python, Javascript, or any)",
+            "Participants are allowed to use any programming language (provided the output is suitable).",
             "Participants must bring their own devices and accessories (Laptops, tablets).",
             "The participants are allowed only in teams of 3.",
             "Internet use or getting help from other participating teams is strictly prohibited.",
