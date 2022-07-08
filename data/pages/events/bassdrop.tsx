@@ -15,6 +15,7 @@ const Bassdrop = {
   details: {
     shortDescription: "Are you someone who constantly taps your feet to rhythmic beats and hums to the melodious tunes of songs? This is the opportunity for you to unleash your inner maestro, to take a basic track and transform it into something fresh that makes us want to come-back for more!",
     date: `${Main.dates.day2}`,
+    dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`,
     time: "9:30 a.m. - 12:30 p.m.",
     venue: "Creya Lab",
     grades: "9-12",

@@ -44,6 +44,13 @@ const ArenaOfValor: NextPage = () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>
                         {ArenaOfValorData.headings.about.description}
                     </p>
+
+                <h2 id="details">Details</h2>
+                    <p className={styles.h2_p}><strong>Date and Time:</strong></p>
+                    <ul>{ArenaOfValorData.details.date.map((date, index) => {
+                        return <li key={index}><p>{date}</p></li>
+                    })}</ul>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
                 
                 <h2 id="commonGUI">Common Guidelines</h2>
                     <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
@@ -94,11 +101,6 @@ const ArenaOfValor: NextPage = () => {
                             </ul>
                         </div>)
                     })}
-                    
-                <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {ArenaOfValorData.details.date}</p>
-                    <p className={styles.h2_p}><strong>Time:</strong> {ArenaOfValorData.details.time}</p>
-                    <p className={styles.h2_p}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
                 
                 <h2 id="guidelines">Guidelines</h2>
                     <ul>{ArenaOfValorData.headings.rules.map((rule, index) => {

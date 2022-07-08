@@ -55,7 +55,10 @@ const Otakuiz: NextPage = () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{OtakuizData.headings.about}</p>
                 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {OtakuizData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Date:</strong></p>
+                    <ul>{OtakuizData.details.date.map((date, index) => {
+                        return <li key={index}><p>{date}</p></li>
+                    })}</ul>
                     <p className={styles.h2_p}><strong>Time:</strong> {OtakuizData.details.time}</p>
                     <p className={styles.h2_p}><strong>Venue:</strong> {OtakuizData.details.venue}</p>
                 
