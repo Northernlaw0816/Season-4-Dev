@@ -148,7 +148,7 @@ const ArenaOfValor = {
           },
           {
             name: "Battlegrounds Mobile India",
-            participants: 3,
+            participants: 4,
             image: bgmi,
             bannedItems: [],
           },
