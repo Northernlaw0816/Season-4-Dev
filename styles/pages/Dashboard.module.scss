@@ -1,0 +1,26 @@
+.main {
+    color: var(--text-alt);
+    text-align: center;
+    padding-inline: clamp(1rem, 7.5vw, 15rem);
+	min-height: 100vh;
+
+	h1 {
+        text-align: center;
+    }
+
+    p {
+        font-size: clamp(1rem, 1.5vw, 1.5rem);
+    }
+
+	.user_card, .registration_card {
+		background: var(--inactive);
+		border-radius: 1.5em;
+		overflow: hidden;
+
+		h2 {
+			background: var(--primary);
+			margin: 0;
+			padding: 1em;
+		}
+	}
+}
