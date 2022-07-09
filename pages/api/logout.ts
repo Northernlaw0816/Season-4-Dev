@@ -1,4 +1,3 @@
-import axios from "axios";
 import { collection, deleteField, doc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { firestore } from "../../firebase/clientApp";
 
