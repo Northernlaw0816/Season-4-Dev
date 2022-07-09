@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { toSlug } from '../functions'
+import { titleCase, toSlug } from '../functions'
 
 //components
 import ScrollingUpdate from './ScrollingUpdate'
@@ -75,9 +75,16 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
             {NavLinks.map((link: any, index: number) => {
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
-                } else if (link.name === 'Login') {
+                } else if (!isMobile && link.name === 'Login') {
                     return userToken && userToken !== "undefined" ? <LoggedInDropdown key={index}/> : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
-                } else {
+                } else if (isMobile && link.name === 'Login') {
+                    return userToken && userToken !== "undefined" ? (
+                        <>
+                            <Link href="/dashboard"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/dashboard') && styles.active_link}`}>Dashboard</a></Link>
+                            <a role="link" className={`${styles.nav_button} ${styles.drop_button}`} onClick={logout}>Logout</a>
+                        </>
+                    ) : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
+                }else {
                     return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
                 }
             })}
@@ -95,26 +102,6 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
             localStorage.removeItem("email")
             router.push("/login") 
         }
-
-		// await fetch(`api/logout`, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json',
-		// 		"Access-Control-Allow-Origin": "*",
-		// 	},
-		// 	body: JSON.stringify({
-		// 		userToken: userToken
-		// 	})
-		// }).then(res => res.json())
-		// .then(data => {
-		// 	if(data.success) {
-		// 		localStorage.removeItem("userToken")
-		// 		localStorage.removeItem("schoolName")
-		// 		localStorage.removeItem("schoolId")
-		// 		localStorage.removeItem("email")
-        //         router.push("/login")       
-		// 	}
-		// })
 	}
 
     const LoggedInDropdown = () => {
@@ -138,15 +125,6 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
 
             setUserData(data)
         }
-
-        function titleCase(string: string) {
-            var sentence = string.toLowerCase().split(" ");
-            for(var i = 0; i< sentence.length; i++){
-               sentence[i] = sentence[i][0].toUpperCase() + sentence[i].slice(1);
-            }
-            
-            return sentence.join(" ");
-         }
 
         return (
             <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
