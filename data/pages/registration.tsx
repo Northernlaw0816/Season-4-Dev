@@ -16,7 +16,7 @@ const Registration = {
 	eventRules: [
 		{
 			title: ArenaOfValor.title,
-			rules: ArenaOfValor.headings.registrationSec
+			rules: ArenaOfValor.headings.registration
 		},
 		{
 			title: KnockOut.title,

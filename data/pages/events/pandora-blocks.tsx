@@ -50,7 +50,7 @@ const PandoraBlocks = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pandora's Blocks"),
 
         registration: [
-            "This is a Trio event."
+            "This is a Trio event - 1 team per school"
         ]
     }
 }
