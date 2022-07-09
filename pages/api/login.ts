@@ -27,10 +27,31 @@ export default async function handler(req: any, res: any) {
   });
 
   if (accounts.length === 0) {
-    return res.status(200).json({
+    success = false
+    return res.status(400).json({
       success,
       message: "SchoolID is incorrect. Please try again",
     });
+  } else {
+    success = true
+  }
+
+  let userTokens: any[] = [];
+
+  accounts.forEach((usr) => {
+      userTokens.push(usr.get("userToken"));
+  });
+
+  if (userTokens.length > 0 && userTokens[0] !== undefined) {
+
+    success = false
+    return res.status(400).json({
+      success: false,
+      message: "Already logged in on a different device",
+    });
+    
+  } else {
+    success = true
   }
 
   const user = accounts[0];
@@ -41,28 +62,29 @@ export default async function handler(req: any, res: any) {
   const hashedBuffer = scryptSync(password, salt, 64);
   const keyBuffer = Buffer.from(key, "hex");
 
-  success = timingSafeEqual(hashedBuffer, keyBuffer);
+  let passwordMatch = timingSafeEqual(hashedBuffer, keyBuffer);
+
+  if (!passwordMatch) {
+    success = false
+    return res.status(400).json({
+      success: false,
+      message: "Password is incorrect. Please try again",
+    });
+  }
+
   let UserToken = userToken.toString("hex");
-  const checkUsrDocumentSnapshot = await getDocs(query(accountsCollection, where("schoolId", "==", schoolId)));
 
-  checkUsrDocumentSnapshot.forEach((usr) => {
-    if (usr.get("userToken")) {
-      return res.status(200).json({
-        success: false,
-        message: "Already logged in on a different device",
-      });
-    }
-  });
-
-  try {
-    if (success) {
+  if (success) {
+    try {
       await updateDoc(doc(accountsCollection, schoolId), {
         userToken: userToken.toString("hex"),
       });
       return res.status(200).json({ message: "Successfully logged in", success: true, userToken: UserToken });
+    } catch (err) {
+      console.error(err)
+      return res.status(500).json({ message: "Couldn't log in. Please try again", success: false });
     }
-  } catch (e) {
-    return res.status(500).json({ message: e, success: false });
   }
-  return res.status(400).json({ message: "Couldn't log in", success: false });
+
+  return res.status(200).json({ message: "Couldn't log in. Please try again", success: false });
 }
