@@ -6,7 +6,6 @@ import axios from "axios";
 
 import styles from '../styles/pages/Login.module.scss'
 import { useState } from "react";
-import useSWR from "swr";
 
 const Login = () => {
 	const {
