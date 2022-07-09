@@ -1,4 +1,3 @@
-import Head from "next/head"
 import Link from "next/link"
 import { toSlug } from "../functions"
 import { useRouter } from "next/router"
@@ -12,13 +11,21 @@ import styles from "../styles/pages/Registration.module.scss"
 //data
 import { RegistrationData } from "../data/pages"
 import Main from "../data/Main"
+import { useEffect, useState } from "react"
 
 const Registration = () => {
+
+    const [userToken, setUserToken] = useState<string | null>('')
 
     const router = useRouter()
     
     let query = router.query
     let event = query.event
+
+    useEffect(() => {
+        setUserToken(localStorage.getItem('userToken'))
+    }, [])
+
 
     return (<>
         <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
@@ -44,7 +51,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : localStorage.getItem("userToken") && localStorage.getItem("userToken") !== "undefined" ? <RegistrationForm /> : <h1>Please Login to Register</h1>}
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : userToken && userToken !== "undefined" ? <RegistrationForm /> : <h1>Please Login to Register</h1>}
 
         </Layout>
     </>)
