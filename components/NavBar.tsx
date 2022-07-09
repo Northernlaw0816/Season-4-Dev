@@ -18,7 +18,8 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
     const [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
-    const [userToken, setUserToken] = useState<string | null>('')
+    const [message, setMessage] = useState("")
+	const [userToken, setUserToken] = useState<string | null>('')
     const router = useRouter()
 
     
@@ -75,7 +76,7 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
                 } else if (link.name === 'Login') {
-                    return userToken && userToken !== "undefined" ? <LoggedInDropdown key={index} userToken={userToken}/> : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
+                    return userToken && userToken !== "undefined" ? <LoggedInDropdown key={index}/> : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
                 } else {
                     return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
                 }
@@ -83,7 +84,31 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         </>)
     }
 
-    const LoggedInDropdown = ({userToken}: any) => {
+	const logout = async () => {
+
+		await fetch(`https://api.nutopia.in/logout`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				"Access-Control-Allow-Origin": "*",
+			},
+			body: JSON.stringify({
+				userToken: userToken
+			})
+		}).then(res => res.json())
+		.then(data => {
+			if(data.success) {
+				localStorage.removeItem("userToken")
+				localStorage.removeItem("schoolName")
+				localStorage.removeItem("schoolId")
+				localStorage.removeItem("email")
+				setMessage(data.message)
+                router.push("/login")       
+			}
+		})
+	}
+
+    const LoggedInDropdown = () => {
         const [isDropActive, setIsDropActive] = useState(false)
         const [userData, setUserData] = useState<any>({
             schoolName: "",
@@ -95,22 +120,14 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
             getUserData()
         }, [])
         
-        const getUserData = async () => { 
-            const data = await fetch('https://api.nutopia.in/user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    "Access-Control-Allow-Origin": "*",
-                },
-                body: JSON.stringify({
-                    userToken: localStorage.getItem('userToken')
-                })
-            }).then(response => response.json()).then(data => {return data})
-    
-            if (data.success) {
-                console.log(data)
-                setUserData(data.user)
+        const getUserData = () => { 
+            const data = {
+                schoolName: localStorage.getItem("schoolName"),
+                schoolId: localStorage.getItem("schoolName"),
+                email: localStorage.getItem("schoolName")
             }
+
+            setUserData(data)
         }
 
         function titleCase(string: string) {
@@ -124,11 +141,11 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
 
         return (
             <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
-                <a className={`${styles.nav_button} ${styles.active_link} ${isDropActive && styles.drop_active_link}`}>{userData.schoolName !== "" ? titleCase(userData.schoolName).split(' ')[0] : "..."}</a>
+                <a className={`${styles.nav_button} ${styles.active_link} ${isDropActive && styles.drop_active_link}`}>{userData.schoolName ? titleCase(userData.schoolName).split(' ')[0] : "..."}</a>
 
                 <div className={styles.dropdown}>
                     <Link href="/dashboard"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/dashboard') && styles.active_link}`}>Dashboard</a></Link>
-                    <Link href="/logout"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/logout') && styles.active_link}`}>Logout</a></Link>
+                    <a role="link" className={`${styles.nav_button} ${styles.drop_button}`} onClick={logout}>Logout</a>
                 </div>
             </div>
         )
