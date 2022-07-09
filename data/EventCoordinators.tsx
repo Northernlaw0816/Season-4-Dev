@@ -226,37 +226,37 @@ const MediaTeam = [
   {
     name: "Ananya Bansal",
     grade: "12",
-	roles: "Media Handle",
+	  roles: "Media Manager",
     src: ananya,
   },
   {
     name: "Nila M.",
     grade: "11",
-	roles: "Media Handle",
+	  roles: "Media Manager",
     src: nila,
   },
   {
     name: "Raghav Kotecha",
     grade: "12",
-	roles: "Photography",
+	  roles: "Videographer",
     src: raghav,
   },
   {
     name: "Pranav S.A.",
     grade: "12",
-	roles: "Photography",
+	  roles: "Photographer",
     src: pranav,
   },
   {
     name: "Thilagan I",
     grade: "12",
-	roles: "Photography",
+	  roles: "Photographer",
     src: thilagan,
   },
   {
     name: "Mukunda Shiyamalan V",
     grade: "12",
-	roles: "Photography",
+	  roles: "Photographer",
     src: mukunda,
   },
 ];

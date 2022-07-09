@@ -3,10 +3,14 @@ import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz 
 const Registration = {
 	title: "Pre-Registration Information",
 	commonRules: [
-		"Registrations are open for students from classes 9 to 12.",
-		"Participants can register for only one event. And Optionally can register for ALL platforms of Arena of Valor.",
-		"Participants must use the same email-id for all registrations.",
-		"Participants that submit mis-matched information will be disqualified."
+		"Registrations are open for students from grades 9 to 12. Teacher in charge should fill in the details of the teams/participants from the respective school.",
+		"An individual is allowed to participate in ONLY ONE event.",
+		"Each event is to be registered SEPARATELY in the respective columns",
+		"Only WhatsApp enabled numbers to be submitted in the registration form",
+		"Participants are to join the Whatsapp group through the link which will be sent to your respective mail ID after registration",
+		"Further instructions for the event will be sent via WhatsApp group ONLY.",
+		"Any queries regarding registration and any problems to be addressed on the SAME DAY through EMAIL ONLY",
+		"Participants who submit mismatched information will be disqualified."
 	],
 
 	eventRules: [
