@@ -5,7 +5,7 @@ import BD from "../../../public/images/events/bass_drop.png"
 
 import Main from "../../Main"
 
-const Bassdrop = {
+const BassDrop = {
   title: "Bass Drop",
 
   tagline: "A Mix of Magic",
@@ -52,4 +52,4 @@ const Bassdrop = {
   },
 };
 
-export default Bassdrop;
+export default BassDrop;
