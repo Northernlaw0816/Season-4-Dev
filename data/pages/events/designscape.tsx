@@ -37,7 +37,7 @@ const Designscape = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
         registration: [
-            "This is a Solo event - 2 participants per school"
+            "This is a Solo event - 2 participants per school "
         ]
     }
 }
