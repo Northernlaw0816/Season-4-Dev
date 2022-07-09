@@ -179,6 +179,8 @@ const RegistrationForm = ({ event }: any) => {
   };
 
   const goBack = () => {
+    setIsSuccess({ state: false, message: "" });
+    setIsError({ state: false, message: "" });
     setIsRegistering(false);
   };
 
