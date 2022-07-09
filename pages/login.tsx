@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 import styles from '../styles/pages/Login.module.scss'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Login = () => {
 	const {
@@ -17,13 +17,36 @@ const Login = () => {
 	const [message, setMessage] = useState("")
 	const [showPassword, setShowPassword] = useState(false)
 
+	const [isMobile, setIsMobile] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(0)
+
+	function getWindowWidth() {
+        const {clientWidth: width} = document.body
+        return width
+    }
+
+	function handleResize() {
+        setWindowWidth(getWindowWidth())
+        setIsMobile(windowWidth <= 600)
+    }
+
+	useEffect(() => {
+        handleResize()
+    
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    })
+
 	const router = useRouter()
 
 	const onSubmit = async (data: any) => {
 		setIsLoading(true)
-		let response = await axios.post("/api/login", {...data}).then(res => res.data)
+		let response = await axios.post("/api/login", {...data}).then(res => res.data).catch(err => {
+			setIsLoading(false)
+			setMessage(err.response.data.message)
+		})
 
-		if (response.success) {
+		if (response && response.success) {
 			localStorage.setItem("userToken", response.userToken)
 
 			const userData = await axios.post("/api/user", {userToken: response.userToken}).then(res => res.data)
@@ -34,9 +57,6 @@ const Login = () => {
 				localStorage.setItem("email", userData.user.email)
 				router.push("/")
 			}
-
-		} else {
-			setMessage(response.message)
 		}
 
 		setIsLoading(false)
@@ -58,7 +78,7 @@ const Login = () => {
 						<label htmlFor="user.password">Password</label>
 						<div className={styles.password_field}>
 							<input {...register("user.password", {required: true})} type={showPassword ? "text" : "password"}/>
-							<div onMouseDown={() => {setShowPassword(true)}} onMouseUp={() => {setShowPassword(false)}} onMouseLeave={() => {setShowPassword(false)}} className={styles.eye}>{showPassword ? "" : ""}</div>
+							{!isMobile ? <div onMouseDown={() => {setShowPassword(true)}} onMouseUp={() => {setShowPassword(false)}} onMouseLeave={() => {setShowPassword(false)}} className={styles.eye}>{showPassword ? "" : ""}</div> : <div onClick={() => {setShowPassword(!showPassword)}} className={styles.eye}>{showPassword ? "" : ""}</div>}
 						</div>
 					</div>
 
