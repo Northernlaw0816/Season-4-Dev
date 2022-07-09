@@ -138,11 +138,6 @@
 			.event_field, .platform_field {
 				gap: calc(var(--grid-gap) / 2);
 			}
-
-			.event_field{
-				grid-template-columns: 25% auto;
-				grid-auto-flow: row;
-			}
 		}
 
 		@media (max-width: 430px) {

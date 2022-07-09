@@ -33,7 +33,7 @@ const Participants = ({ maxParticipants, register, teamIndex, errors, required }
           Participant {maxParticipants === 1 ? teamIndex + 1 : i + 1}:{" "}
         </label>
         <input
-          className={required && styles.required}
+          className={`${required && styles.required}`}
           required={required}
           {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.name` : `participants.${teamIndex}.name`}`)}
         />
@@ -41,7 +41,7 @@ const Participants = ({ maxParticipants, register, teamIndex, errors, required }
         <label htmlFor={`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.grade` : `participants.${teamIndex}.grade`}`}>Grade: </label>
 
         <input
-          className={required && styles.required}
+          className={`${required && styles.required}`}
           required={required}
           {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participant.${i}.grade` : `participants.${teamIndex}.grade`}`, {
             pattern: { value: /^(9|10|11|12)$/i },
@@ -50,7 +50,7 @@ const Participants = ({ maxParticipants, register, teamIndex, errors, required }
         {/* PHONE */}
         <label htmlFor={`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.phone` : `participants.${teamIndex}.phone`}`}>Phone: </label>
         <input
-          className={required && styles.required}
+          className={`${required && styles.required}`}
           required={required}
           {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.phone` : `participants.${teamIndex}.phone`}`, {
             pattern: {
@@ -70,9 +70,6 @@ const Teams = ({ maxTeams, maxParticipants, register, platEvent, index, teamTitl
 
   const handleTeamName = () => {
     setRequired(getValues(`teams.${index}.teamName`) !== "");
-
-    console.log(`team${index}Name: ${getValues(`teams.${index}.teamName`)}`);
-    console.log(`isTeam${index}Required: ${getValues(`teams.${index}.teamName`) !== ""}`);
   };
 
   useEffect(() => {
@@ -139,13 +136,12 @@ const RegistrationForm = ({ event }: any) => {
     const response = await axios.post("/api/register", {
       ...data,
       userToken:localStorage.getItem("userToken")
-    }).then(response => response.data).catch((err) => console.error(err))
+    }).then(response => response.data)
 
     if (!response.success) {
-      console.log(data.message);
-      setIsError({ state: true, message: data.message });
+      setIsError({ state: true, message: response.message });
     } else {
-      setIsSuccess({ state: true, message: data.message });
+      setIsSuccess({ state: true, message: response.message });
     }
   }
 
@@ -287,7 +283,6 @@ const RegistrationForm = ({ event }: any) => {
     unregister("teams");
     unregister("participants");
     unregister("platform");
-    console.log(eventVal);
     let maxTeams = 0;
     let teams: any = [];
 
@@ -295,7 +290,6 @@ const RegistrationForm = ({ event }: any) => {
       case "arena-of-valor":
         setShowPlatform(true);
         setFormBody(<></>);
-        console.log("aov");
         break;
 
       case "knockout":
