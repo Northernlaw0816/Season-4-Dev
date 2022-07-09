@@ -43,7 +43,7 @@ const Participants = ({ maxParticipants, register, teamIndex, errors, required }
         <input
           className={`${required && styles.required}`}
           required={required}
-          {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participant.${i}.grade` : `participants.${teamIndex}.grade`}`, {
+          {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.grade` : `participants.${teamIndex}.grade`}`, {
             pattern: { value: /^(9|10|11|12)$/i },
           })}
         />
@@ -136,7 +136,9 @@ const RegistrationForm = ({ event }: any) => {
     const response = await axios.post("/api/register", {
       ...data,
       userToken:localStorage.getItem("userToken")
-    }).then(response => response.data)
+    }).then(response => response.data).catch(err => {
+      setIsError({state: true, message: err.message});
+    })
 
     if (!response.success) {
       setIsError({ state: true, message: response.message });
