@@ -15,6 +15,7 @@ const Login = () => {
 
 	const [isLoading, setIsLoading] = useState(false)
 	const [message, setMessage] = useState("")
+	const [showPassword, setShowPassword] = useState(false)
 
 	const router = useRouter()
 
@@ -55,7 +56,10 @@ const Login = () => {
 
 					<div className={styles.field_section}>
 						<label htmlFor="user.password">Password</label>
-						<input {...register("user.password", {required: true})}/>
+						<div className={styles.password_field}>
+							<input {...register("user.password", {required: true})} type={showPassword ? "text" : "password"}/>
+							<div onMouseDown={() => {setShowPassword(true)}} onMouseUp={() => {setShowPassword(false)}} onMouseLeave={() => {setShowPassword(false)}} className={styles.eye}>{showPassword ? "" : ""}</div>
+						</div>
 					</div>
 
 					<div className={styles.submit}>

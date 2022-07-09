@@ -14,6 +14,11 @@
   src: url('/fonts/Imagine_Font.ttf');
 }
 
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/fira_code.ttf');
+}
+
 /* Green and Aqua */
 :root {
   --primary: hsl(130, 100%, 40%);
