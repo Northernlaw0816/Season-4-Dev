@@ -19,8 +19,10 @@ const ProfileCard = ({profileObject, colorOverrideSelector}: any) => {
                     {event && <span className={styles.info}>
                         <h3 id={toSlug(`profile ${event}`)}>Event</h3><p>{event}</p>
                     </span>}
+                    <div>{roles.map((role:string, index:number) => {
+                        return <p key={index} className={styles.role}>{role}</p>
+                    })}</div>
                 </div>
-                <div>{roles}</div>
             </div>
         </div>
     )

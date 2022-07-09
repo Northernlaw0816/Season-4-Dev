@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import HeadTemplate from "../components/HeadTemplate";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
+import axios from "axios";
 
 import styles from '../styles/pages/Login.module.scss'
 import { useState } from "react";
@@ -14,47 +15,31 @@ const Login = () => {
 
 	const [isLoading, setIsLoading] = useState(false)
 	const [message, setMessage] = useState("")
+	const [showPassword, setShowPassword] = useState(false)
 
 	const router = useRouter()
-	
+
 	const onSubmit = async (data: any) => {
 		setIsLoading(true)
-
-		const response = await fetch(`https://api.nutopia.in/login`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				"Access-Control-Allow-Origin": "*",
-			},
-			body: JSON.stringify({...data})
-		})
-		.then(response => response.json())
-		.then(data => {return data})
+		let response = await axios.post("/api/login", {...data}).then(res => res.data)
 
 		if (response.success) {
 			localStorage.setItem("userToken", response.userToken)
-			const userData = await fetch(`https://api.nutopia.in/user`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					"Access-Control-Allow-Origin": "*",
-				},
-				body: JSON.stringify({userToken: response.userToken})
-			}).then(response => response.json()).then(data => {
-				return data
-			})
+
+			const userData = await axios.post("/api/user", {userToken: response.userToken}).then(res => res.data)
 
 			if (userData.success) {
 				localStorage.setItem("schoolName", userData.user.schoolName)
 				localStorage.setItem("schoolId", userData.user.schoolId)
 				localStorage.setItem("email", userData.user.email)
-				setIsLoading(false)
 				router.push("/")
 			}
-			
+
 		} else {
-			setMessage("Wrong ID or Password. Please Try again.")
+			setMessage(response.message)
 		}
+
+		setIsLoading(false)
 	}
 
 	return (<>
@@ -68,10 +53,13 @@ const Login = () => {
 						<label htmlFor="user.schoolId">School ID</label>
 						<input {...register("user.schoolId", {required: true})}/>
 					</div>
-					
+
 					<div className={styles.field_section}>
 						<label htmlFor="user.password">Password</label>
-						<input {...register("user.password", {required: true})}/>
+						<div className={styles.password_field}>
+							<input {...register("user.password", {required: true})} type={showPassword ? "text" : "password"}/>
+							<div onMouseDown={() => {setShowPassword(true)}} onMouseUp={() => {setShowPassword(false)}} onMouseLeave={() => {setShowPassword(false)}} className={styles.eye}>{showPassword ? "" : ""}</div>
+						</div>
 					</div>
 
 					<div className={styles.submit}>

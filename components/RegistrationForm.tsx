@@ -1,26 +1,27 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import anime from "animejs";
+import axios from "axios";
 import { toSlug } from "../functions";
-import { useRouter } from "next/router"
+import { useRouter } from "next/router";
 
 //stylesheets
-import styles from "../styles/components/RegistrationForm.module.scss"
+import styles from "../styles/components/RegistrationForm.module.scss";
 //data
-import EventsList from "../data/EventsList"
+import EventsList from "../data/EventsList";
 
 const Participants = ({ maxParticipants, register, teamIndex, errors, required }: any) => {
   const participants: any = [];
 
-  const fieldErrors: any[] = [] 
+  const fieldErrors: any[] = [];
 
   if (maxParticipants > 1) {
-    if(errors && errors.teams){
+    if (errors && errors.teams) {
       errors.teams[teamIndex].participants.forEach((participant: any, index: number) => {
-        fieldErrors.push(participant.name)
-        fieldErrors.push(participant.grade)
-        fieldErrors.push(participant.phone)
-      })
+        fieldErrors.push(participant.name);
+        fieldErrors.push(participant.grade);
+        fieldErrors.push(participant.phone);
+      });
     }
   }
 
@@ -32,30 +33,32 @@ const Participants = ({ maxParticipants, register, teamIndex, errors, required }
           Participant {maxParticipants === 1 ? teamIndex + 1 : i + 1}:{" "}
         </label>
         <input
-          className={required && styles.required}
+          className={`${required && styles.required}`}
           required={required}
           {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.name` : `participants.${teamIndex}.name`}`)}
         />
         {/* GRADE */}
         <label htmlFor={`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.grade` : `participants.${teamIndex}.grade`}`}>Grade: </label>
 
-        <input 
-          className={required && styles.required}
+        <input
+          className={`${required && styles.required}`}
           required={required}
-          {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participant.${i}.grade` : `participants.${teamIndex}.grade`}`, { pattern: {value: /^(9|10|11|12)$/i} })} />
+          {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participant.${i}.grade` : `participants.${teamIndex}.grade`}`, {
+            pattern: { value: /^(9|10|11|12)$/i },
+          })}
+        />
         {/* PHONE */}
         <label htmlFor={`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.phone` : `participants.${teamIndex}.phone`}`}>Phone: </label>
         <input
-          className={required && styles.required}
+          className={`${required && styles.required}`}
           required={required}
           {...register(`${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.phone` : `participants.${teamIndex}.phone`}`, {
             pattern: {
               value: /\d{10}/i,
               message: "Please enter a valid phone number",
-            }
+            },
           })}
         />
-
       </div>,
     );
   }
@@ -66,19 +69,16 @@ const Teams = ({ maxTeams, maxParticipants, register, platEvent, index, teamTitl
   const [required, setRequired] = useState(false);
 
   const handleTeamName = () => {
-    setRequired(getValues(`teams.${index}.teamName`) !== "")
-
-    console.log(`team${index}Name: ${getValues(`teams.${index}.teamName`)}`)
-    console.log(`isTeam${index}Required: ${getValues(`teams.${index}.teamName`) !== ""}`)
+    setRequired(getValues(`teams.${index}.teamName`) !== "");
   };
 
   useEffect(() => {
     if (!platEvent) {
-      if(index === 0) {
-        setRequired(true)
+      if (index === 0) {
+        setRequired(true);
       }
     }
-  })
+  });
 
   return (
     <div key={index}>
@@ -107,7 +107,15 @@ const Teams = ({ maxTeams, maxParticipants, register, platEvent, index, teamTitl
           </div>
         </>
       )}
-      <Participants index={index} register={register} maxTeams={maxTeams} maxParticipants={maxParticipants} teamIndex={index} getValues={getValues} required={required} />
+      <Participants
+        index={index}
+        register={register}
+        maxTeams={maxTeams}
+        maxParticipants={maxParticipants}
+        teamIndex={index}
+        getValues={getValues}
+        required={required}
+      />
     </div>
   );
 };
@@ -118,53 +126,42 @@ const RegistrationForm = ({ event }: any) => {
   let [platEvent, setPlatEvent] = useState<string>("");
   let [formBody, setFormBody] = useState<any>(<></>);
   let [isRegistering, setIsRegistering] = useState<boolean>(false);
-  let [isError, setIsError] = useState({state: false, message: ""});
-  let [isSuccess, setIsSuccess] = useState({state: false, message: ""});
+  let [isError, setIsError] = useState({ state: false, message: "" });
+  let [isSuccess, setIsSuccess] = useState({ state: false, message: "" });
   const router = useRouter();
 
   // Handlers
   const onSubmit = async (data: any) => {
-
     setIsRegistering(true);
+    const response = await axios.post("/api/register", {
+      ...data,
+      userToken:localStorage.getItem("userToken")
+    }).then(response => response.data)
 
-    await fetch(`https://api.nutopia.in/register`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        ...data,
-        userToken: localStorage.getItem("userToken"),
-      }),
-    }).then(response => response.json()).then(data => {
-      if (!data.success) {
-        console.log(data.message)
-        setIsError({state: true, message: data.message})
-      } else {
-        setIsSuccess({state: true, message: data.message})
-      }
-    }).catch(err => console.error(err));
-    
-  };
+    if (!response.success) {
+      setIsError({ state: true, message: response.message });
+    } else {
+      setIsSuccess({ state: true, message: response.message });
+    }
+  }
 
   // useEffect(() => {
-	// 	let timeline = anime.timeline({
-	// 		easing: "linear",
-	// 		direction: "forwards",
-	// 		delay: anime.stagger(200),
-	// 		duration: 1000,
-	// 		loop: true
-	// 	})
+  // 	let timeline = anime.timeline({
+  // 		easing: "linear",
+  // 		direction: "forwards",
+  // 		delay: anime.stagger(200),
+  // 		duration: 1000,
+  // 		loop: true
+  // 	})
 
-	// 	timeline.add({
-	// 		targets: ".throbber_section",
-	// 		keyframes: [
-	// 			{scale: 0},
-	// 			{scale: 1}
-	// 		],
-	// 	})
-	// })
+  // 	timeline.add({
+  // 		targets: ".throbber_section",
+  // 		keyframes: [
+  // 			{scale: 0},
+  // 			{scale: 1}
+  // 		],
+  // 	})
+  // })
 
   const {
     register,
@@ -182,59 +179,94 @@ const RegistrationForm = ({ event }: any) => {
   };
 
   const goBack = () => {
-    setIsRegistering(false)
-  }
+    setIsSuccess({ state: false, message: "" });
+    setIsError({ state: false, message: "" });
+    setIsRegistering(false);
+  };
 
   const onEventPlatformChange = () => {
     const platVal = getValues("platform");
     unregister("teams");
     unregister("participants");
     setPlatEvent(platVal);
-    let maxTeams = 0
-    let teams: any = []
+    let maxTeams = 0;
+    let teams: any = [];
 
     switch (platVal) {
       case "pc":
-        maxTeams = 2
-        teams = []
+        maxTeams = 2;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`
+          let teamTitle = `Team ${index + 1}`;
 
-          if (index === 0) teamTitle = "Valorant"
-          if (index === 1) teamTitle = "CS:GO"
+          if (index === 0) teamTitle = "Valorant";
+          if (index === 1) teamTitle = "CS:GO";
 
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={5} errors={errors} platEvent={"pc"} getValues={getValues} teamTitle={teamTitle} index={index} />)
+          teams.push(
+            <Teams
+              register={register}
+              maxTeams={maxTeams}
+              maxParticipants={5}
+              errors={errors}
+              platEvent={"pc"}
+              getValues={getValues}
+              teamTitle={teamTitle}
+              index={index}
+            />,
+          );
         }
         setFormBody(teams);
         break;
 
       case "mobile":
-        maxTeams = 4
-        teams = []
+        maxTeams = 4;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`
+          let teamTitle = `Team ${index + 1}`;
 
-          if (index === 0) teamTitle = "BattleGround Mobile India"
-          if (index === 2) teamTitle = "Call Of Duty"
+          if (index === 0) teamTitle = "BattleGround Mobile India";
+          if (index === 2) teamTitle = "Call Of Duty";
 
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={4} errors={errors} platEvent={"mobile"} getValues={getValues} teamTitle={teamTitle} index={index} />)
+          teams.push(
+            <Teams
+              register={register}
+              maxTeams={maxTeams}
+              maxParticipants={4}
+              errors={errors}
+              platEvent={"mobile"}
+              getValues={getValues}
+              teamTitle={teamTitle}
+              index={index}
+            />,
+          );
         }
         setFormBody(teams);
         break;
 
       case "console":
-        maxTeams = 2
-        teams = []
+        maxTeams = 2;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`
+          let teamTitle = `Team ${index + 1}`;
 
-          if (index === 0) teamTitle = "Fortnite"
-          if (index === 1) teamTitle = "Rocket League"
+          if (index === 0) teamTitle = "Fortnite";
+          if (index === 1) teamTitle = "Rocket League";
 
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={2} errors={errors} platEvent={"console"} getValues={getValues} teamTitle={teamTitle} index={index} />)
+          teams.push(
+            <Teams
+              register={register}
+              maxTeams={maxTeams}
+              maxParticipants={2}
+              errors={errors}
+              platEvent={"console"}
+              getValues={getValues}
+              teamTitle={teamTitle}
+              index={index}
+            />,
+          );
         }
         setFormBody(teams);
         break;
@@ -252,24 +284,22 @@ const RegistrationForm = ({ event }: any) => {
     const eventVal = getValues("event");
     unregister("teams");
     unregister("participants");
-    unregister("platform")
-    console.log(eventVal);
-    let maxTeams = 0
-    let teams: any = []
+    unregister("platform");
+    let maxTeams = 0;
+    let teams: any = [];
 
     switch (eventVal) {
       case "arena-of-valor":
         setShowPlatform(true);
         setFormBody(<></>);
-        console.log("aov");
         break;
 
       case "knockout":
-        maxTeams = 1
-        teams = []
+        maxTeams = 1;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -278,11 +308,11 @@ const RegistrationForm = ({ event }: any) => {
         break;
 
       case "truth-or-debug":
-        maxTeams = 2
-        teams = []
+        maxTeams = 2;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={3} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={3} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -291,11 +321,11 @@ const RegistrationForm = ({ event }: any) => {
         break;
 
       case "log-and-blog":
-        maxTeams = 2
-        teams = []
+        maxTeams = 2;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -304,11 +334,11 @@ const RegistrationForm = ({ event }: any) => {
         break;
 
       case "designscape":
-        maxTeams = 2
-        teams = []
+        maxTeams = 2;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -317,12 +347,11 @@ const RegistrationForm = ({ event }: any) => {
         break;
 
       case "otakuiz":
-
-        maxTeams = 1
-        teams = []
+        maxTeams = 1;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={3} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={3} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -331,12 +360,11 @@ const RegistrationForm = ({ event }: any) => {
         break;
 
       case "bass-drop":
-
-        maxTeams = 2
-        teams = []
+        maxTeams = 2;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={1} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -345,12 +373,11 @@ const RegistrationForm = ({ event }: any) => {
         break;
 
       case "pandoras-blocks":
-
-        maxTeams = 1
-        teams = []
+        maxTeams = 1;
+        teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={3} index={index} errors={errors} getValues={getValues} />)
+          teams.push(<Teams register={register} maxTeams={maxTeams} maxParticipants={3} index={index} errors={errors} getValues={getValues} />);
         }
         setFormBody(teams);
 
@@ -377,36 +404,39 @@ const RegistrationForm = ({ event }: any) => {
       <form onSubmit={handleSubmit(onSubmit)} className={`${styles.registration_form}`}>
         {isRegistering && (
           <div className={styles.disable_form_window}>
-            {
-              isError.state ? (
-                <>
-                  <h2>{isError.message}</h2>
-                  <div style={{display: "flex", flexDirection: "row", gap: "1rem"}}>
-                    <div className={styles.reset_form_btn} onClick={() => resetFields()}>Reset Form</div>
-                    <div className={styles.reset_form_btn} onClick={() => goBack()}>Go Back</div>
+            {isError.state ? (
+              <>
+                <h2>{isError.message}</h2>
+                <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+                  <div className={styles.reset_form_btn} onClick={() => resetFields()}>
+                    Reset Form
                   </div>
-                </>
-              ) :
-              isSuccess.state ? (
-                <>
-                  <h2>{isSuccess.message}</h2>
-                  <div className={styles.reset_form_btn} onClick={() => resetFields()}>Ok</div>
-                </>
-              ): (
-                <>
-                  <h2>Registering...</h2>
-                  <div className={styles.throbber}>
-                    <div className={`throbber_section ${styles.throbber_setion}`}></div>
-                    <div className={`throbber_section ${styles.throbber_section}`}></div>
-                    <div className={`throbber_section ${styles.throbber_section}`}></div>
-                    <div className={`throbber_section ${styles.throbber_section}`}></div>
-                    <div className={`throbber_section ${styles.throbber_section}`}></div>
-                    <div className={`throbber_section ${styles.throbber_section}`}></div>
-                    <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={styles.reset_form_btn} onClick={() => goBack()}>
+                    Go Back
                   </div>
-                </>
-              )
-            }
+                </div>
+              </>
+            ) : isSuccess.state ? (
+              <>
+                <h2>{isSuccess.message}</h2>
+                <div className={styles.reset_form_btn} onClick={() => resetFields()}>
+                  Ok
+                </div>
+              </>
+            ) : (
+              <>
+                <h2>Registering...</h2>
+                <div className={styles.throbber}>
+                  <div className={`throbber_section ${styles.throbber_setion}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                </div>
+              </>
+            )}
           </div>
         )}
         <div>

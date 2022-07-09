@@ -12,13 +12,13 @@ import effects from '../styles/Effects.module.scss'
 import NavLinks from '../data/NavLinks'
 import EventsList from '../data/EventsList'
 import Main from '../data/Main'
+import axios from 'axios'
 
 const NavBar = ({skipTo}: {skipTo?: string}) => {
 
     const [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
-    const [message, setMessage] = useState("")
 	const [userToken, setUserToken] = useState<string | null>('')
     const router = useRouter()
 
@@ -86,26 +86,35 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
 
 	const logout = async () => {
 
-		await fetch(`https://api.nutopia.in/logout`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				"Access-Control-Allow-Origin": "*",
-			},
-			body: JSON.stringify({
-				userToken: userToken
-			})
-		}).then(res => res.json())
-		.then(data => {
-			if(data.success) {
-				localStorage.removeItem("userToken")
-				localStorage.removeItem("schoolName")
-				localStorage.removeItem("schoolId")
-				localStorage.removeItem("email")
-				setMessage(data.message)
-                router.push("/login")       
-			}
-		})
+        const response = await axios.post('/api/logout', { userToken: userToken }).then(res => res.data)
+
+        if (response.success) {
+            localStorage.removeItem("userToken")
+            localStorage.removeItem("schoolName")
+            localStorage.removeItem("schoolId")
+            localStorage.removeItem("email")
+            router.push("/login") 
+        }
+
+		// await fetch(`api/logout`, {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json',
+		// 		"Access-Control-Allow-Origin": "*",
+		// 	},
+		// 	body: JSON.stringify({
+		// 		userToken: userToken
+		// 	})
+		// }).then(res => res.json())
+		// .then(data => {
+		// 	if(data.success) {
+		// 		localStorage.removeItem("userToken")
+		// 		localStorage.removeItem("schoolName")
+		// 		localStorage.removeItem("schoolId")
+		// 		localStorage.removeItem("email")
+        //         router.push("/login")       
+		// 	}
+		// })
 	}
 
     const LoggedInDropdown = () => {

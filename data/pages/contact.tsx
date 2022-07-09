@@ -48,7 +48,7 @@ const ContactUs = {
         profiles: [
             {
                 name: "Rishi Menon",
-                roles: ["Lead Developer"],
+                roles: ["Front-End Developer"],
                 src: rishi
             },
             {
