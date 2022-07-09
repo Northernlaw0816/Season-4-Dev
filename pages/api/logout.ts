@@ -3,9 +3,9 @@ import { firestore } from "../../firebase/clientApp";
 
 export default async function handler(req:any, res:any) {
 
-	if (req.method === 'GET') {
-		res.status(200).json({
-			message: "Logout endpoint"
+	if (req.method !== 'POST') {
+		res.status(400).json({
+			message: "Invalid method"
 		})
 	}
 
