@@ -1,57 +1,45 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { randomBytes, scryptSync, timingSafeEqual } from "crypto";
-import "dotenv/config";
-import { initializeApp } from "firebase/app";
-import { addDoc, collection, deleteField, doc, getDocs, getFirestore, query, setDoc, updateDoc, where, orderBy } from "firebase/firestore";
-import _ from "lodash";
-const app = initializeApp({
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.FIREBASE_PROJECT_ID,
-  storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.FIREBASE_APP_ID,
-  measurementId: process.env.FIREBASE_MEASUREMENT_ID,
-});
-const firestore = getFirestore(app);
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+
+import { firestore } from "../../firebase/clientApp";
+
 export default async function logout(req: NextApiRequest, res: NextApiResponse) {
   const { event, participants, teams, platform, userToken } = req.body;
-  req.body.participants.forEach((participant: any, index: any) => {
+
+  participants && req.body.participants.forEach((participant: any, index: any) => {
     if (participant.name === "") {
-      delete req.body.participants[index];
+      delete participants[index];
     }
   });
-  req.body.teams.forEach((team: any, index: any) => {
+
+  teams && req.body.teams.forEach((team: any, index: any) => {
     team.participants.forEach((participant: any) => {
-      if (participant === "") delete req.body.teams[index];
+      if (participant === "") delete teams[index];
       console.log(participant);
     });
   });
 
-  const data = {
-    event,
-    participants,
-    teams,
-    platform,
-  };
   let success = true;
   let message = "Successfully registered";
-  if (!req.body)
+  
+  if (!req.body) {
     return res.status(400).json({
       success: false,
       message: "No body",
     });
+  }
 
   // Database code here
   const accountsCollection = collection(firestore, "school_login_accounts");
   const userTokenQuery = query(accountsCollection, where("userToken", "==", userToken));
   const userDocumentSnapShot = await getDocs(userTokenQuery);
-  const userDocuments: any = [];
+  const schoolIds: any = [];
 
   userDocumentSnapShot.forEach((doc) => {
-    userDocuments.push(doc);
+    schoolIds.push(doc.get("schoolId"));
   });
-  const schoolId = userDocuments[0].get("schoolId");
+
+  const schoolId = schoolIds[0];
 
   const registrationsCollection = collection(firestore, "registrations_season_2");
   const registrationsSnapshot = await getDocs(query(registrationsCollection, where("schoolId", "==", schoolId)));
@@ -151,20 +139,34 @@ export default async function logout(req: NextApiRequest, res: NextApiResponse) 
       });
     }
   }
-  res.status(200).json({
-    schoolId,
-    success,
-    message,
-  });
-  const Data: any = { ...data };
-  const vals = Object.values(data);
-  vals.forEach((val: any, i: number) => {
-    if (val === undefined) delete Data[val];
-  });
+
+  const data:any = {
+    event,
+    schoolId
+  }
+
+  if (teams) {
+    data["teams"] = participants;
+  }
+
+  if (participants) {
+    data["participants"] = participants;
+  }
+
+  if (platform) {
+    data["platform"] = platform;
+  }
+
+  delete data.userToken;
+
   if (success) {
     addDoc(registrationsCollection, {
-      ...req.body,
-      schoolId: schoolId,
+      ...data
     });
   }
+
+  res.status(200).json({
+    success,
+    message
+  });
 }
