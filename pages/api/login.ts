@@ -26,7 +26,6 @@ export default async function handler(req: any, res: any) {
     accounts.push(account);
   });
 
-  console.log(accounts);
   if (accounts.length === 0) {
     return res.status(200).json({
       success,
