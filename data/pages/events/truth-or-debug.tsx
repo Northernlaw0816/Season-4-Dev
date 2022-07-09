@@ -43,7 +43,7 @@ const TruthOrDebug = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
         prerequisites:["Intermediate knowledge of at least one of the prescribed programming languages is required.","Basic knowledge of circuit making."],
         registration: [
-            "This is a Trio (3 member) event."
+            "This is a Trio event - 2 teams per school"
         ]
     }
 }
