@@ -2,6 +2,7 @@ import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import { firestore } from "../../firebase/clientApp";
+import { titleCase } from "../../functions";
 
 export default async function register(req: NextApiRequest, res: NextApiResponse) {
   req.body.participants &&
@@ -25,7 +26,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   const { event, participants, teams, platform, userToken } = req.body;
 
   let success = true;
-  let message = `Successfully registered ${event}`;
+  let message = `Successfully registered ${titleCase(event.replace("-", " "))}`;
 
   if (!req.body) {
     return res.status(200).json({
