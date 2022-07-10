@@ -1,5 +1,5 @@
 .main {
-    color: var(--text-alt);
+    color: var(--text-white);
     text-align: center;
     padding-inline: clamp(1rem, 7.5vw, 15rem);
 
@@ -30,6 +30,10 @@
                 "phone"
                 "social";
         }
+
+        background-color: var(--inactive);
+        border-radius: 1rem;
+        padding: 1em;
 
         .contact_section {
             display: grid;
