@@ -136,7 +136,7 @@ const RegistrationForm = ({ event }: any) => {
     const response = await axios.post("/api/register", {
       ...data,
       userToken:localStorage.getItem("userToken")
-    }).then(response => response.data).catch(err => {
+    }).then((response:any) => response.data).catch((err:any) => {
       setIsError({state: true, message: err.message});
     })
 
@@ -147,23 +147,23 @@ const RegistrationForm = ({ event }: any) => {
     }
   }
 
-  // useEffect(() => {
-  // 	let timeline = anime.timeline({
-  // 		easing: "linear",
-  // 		direction: "forwards",
-  // 		delay: anime.stagger(200),
-  // 		duration: 1000,
-  // 		loop: true
-  // 	})
+  useEffect(() => {
+  	let timeline = anime.timeline({
+  		easing: "linear",
+  		direction: "forwards",
+  		delay: anime.stagger(200),
+  		duration: 1000,
+  		loop: true
+  	})
 
-  // 	timeline.add({
-  // 		targets: ".throbber_section",
-  // 		keyframes: [
-  // 			{scale: 0},
-  // 			{scale: 1}
-  // 		],
-  // 	})
-  // })
+  	timeline.add({
+  		targets: ".throbber_section",
+  		keyframes: [
+  			{scale: 0},
+  			{scale: 1}
+  		],
+  	})
+  })
 
   const {
     register,
@@ -403,7 +403,7 @@ const RegistrationForm = ({ event }: any) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className={`${styles.registration_form}`}>
+      <form onSubmit={handleSubmit(onSubmit)} className={`${styles.registration_form}`} id="registration-form">
         {isRegistering && (
           <div className={styles.disable_form_window}>
             {isError.state ? (

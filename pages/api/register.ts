@@ -66,14 +66,16 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 
 	const registrationsCollection = collection(firestore, "registrations_season_2");
 	const registrationsSnapshot = await getDocs(query(registrationsCollection, where("schoolId", "==", schoolId)));
-	const registrations: any = [];
+	const registrations: any = []
+
 	registrationsSnapshot.forEach((doc) => {
 		registrations.push(doc);
-	});
+	})
 
 	if (registrations.length > 0) {
-		const phones: any = [];
-		const tmpEvents: any = [];
+		const phones: any = []
+		const tmpEvents: any = []
+		
 		registrations.forEach((registration: any) => {
 			const teamsRef = registration.get("teams");
 			if (!tmpEvents.includes(registration.get("event"))) {
@@ -84,7 +86,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 				return res.status(400).json({
 					success,
 					message,
-				});
+				})
 			}
 
 			if (teamsRef !== undefined) {
@@ -92,8 +94,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					const membersRef = teamRef["participants"];
 					membersRef.forEach((memberRef: any) => {
 						phones.push(memberRef["phone"]);
-					});
-				});
+					})
+				})
 			} else {
 				const participants = registration.get("participants");
 				participants.forEach((participant: any) => {
