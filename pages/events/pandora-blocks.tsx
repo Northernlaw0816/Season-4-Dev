@@ -66,7 +66,7 @@ const pandoraBlocks: NextPage = () => {
           <div className={styles.card_container}>
             {PandoraBlocksData.headings.eventCoordinators.map(
               (coordinator, index) => {
-                return <ProfileCard key={index} profileObject={coordinator} colorOverrideSelector={styles.profile_card}/>;
+                return <ProfileCard key={index} profileObject={coordinator} />;
               }
             )}
           </div>

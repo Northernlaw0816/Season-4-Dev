@@ -69,7 +69,7 @@ const Otakuiz: NextPage = () => {
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
                         {OtakuizData.headings.eventCoordinators?.map((coordinator, index) => {
-                            return <ProfileCard key={index} profileObject={coordinator} colorOverrideSelector={styles.profile_card}/>
+                            return <ProfileCard key={index} profileObject={coordinator} />
                         })}
                     </div>
                 

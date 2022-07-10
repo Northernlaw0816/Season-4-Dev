@@ -183,6 +183,15 @@
         margin: 0;
       }
     }
+    
+    .profile_card {
+      background: linear-gradient(hsl(180, 100%, 20%), hsl(0, 0%, 0%) 80%);
+
+      .profile_pic img {
+        border-radius: 100%;
+        border: 0.25em solid hsl(39deg, 52%, 58%) !important;
+      }
+    }
 
     .register_link_align {
       .register_link {
@@ -255,6 +264,19 @@
           background: hsl(58, 100%, 40%);
           color: black;
         }
+      }
+    }
+    
+    .profile_card {
+      background: linear-gradient(to bottom, hsl(207, 100%, 44%), hsl(207, 100%, 15%));
+      outline: 0.25em solid white;
+      color: hsl(49, 100%, 50%);
+      font-family: "Black Ops One", cursive;
+      text-shadow: 0.2em 0.2em black;
+
+      .profile_pic img {
+        border-radius: 100%;
+        border: 0.25em solid white !important;
       }
     }
   }
@@ -406,6 +428,8 @@
     .profile_card {
       background: black;
       outline: 0.25em solid var(--accent);
+      color: var(--accent);
+      font-family: "Inconsolata", monospace;
     }
   }
 
@@ -521,6 +545,10 @@
           border-color: hsl(192, 100%, 50%);
         }
       }
+    }
+
+    .profile_card {
+      background: hsl(260, 67%, 25%);
     }
   }
 

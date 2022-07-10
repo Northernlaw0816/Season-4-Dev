@@ -26,6 +26,7 @@
   padding: 0.5rem;
   font-weight: 400;
   transition: background 250ms;
+  white-space: nowrap;
 
   &:hover,
   &:focus-visible {
@@ -67,7 +68,7 @@
   .dropdown {
     position: absolute;
     top: -900%;
-    left: 0;
+    right: 0;
     display: grid;
     min-width: 100%;
     width: max-content;
