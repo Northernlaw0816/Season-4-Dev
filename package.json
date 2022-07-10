@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "@types/animejs": "^3.1.4",
-    "@types/axios": "^0.14.0",
     "@types/fs-extra": "^9.0.13",
     "@types/node": "17.0.4",
     "@types/nodemailer": "^6.4.4",

@@ -126,8 +126,9 @@ const RegistrationForm = ({ event }: any) => {
   let [platEvent, setPlatEvent] = useState<string>("");
   let [formBody, setFormBody] = useState<any>(<></>);
   let [isRegistering, setIsRegistering] = useState<boolean>(false);
-  let [isError, setIsError] = useState({ state: false, message: "" });
-  let [isSuccess, setIsSuccess] = useState({ state: false, message: "" });
+  let [isError, setIsError] = useState(false);
+  let [isSuccess, setIsSuccess] = useState(false);
+  let [message, setMessage] = useState("");
   const router = useRouter();
 
   // Handlers
@@ -137,21 +138,21 @@ const RegistrationForm = ({ event }: any) => {
       ...data,
       userToken:localStorage.getItem("userToken")
     }).then((response:any) => response.data).catch((err:any) => {
-      setIsError({state: true, message: err.message});
+      // setIsError(true)
+      setMessage(err.response.data.message)
     })
 
-    if (!response.success) {
-      setIsError({ state: true, message: response.message });
-    } else {
-      setIsSuccess({ state: true, message: response.message });
-    }
+    // setIsError(!response.success)
+    // setIsSuccess(response.success)
+    setMessage(response.message)
+    setMessage(response.message)
   }
 
   useEffect(() => {
   	let timeline = anime.timeline({
   		easing: "linear",
   		direction: "forwards",
-  		delay: anime.stagger(200),
+  		delay: anime.stagger(100),
   		duration: 1000,
   		loop: true
   	})
@@ -160,7 +161,8 @@ const RegistrationForm = ({ event }: any) => {
   		targets: ".throbber_section",
   		keyframes: [
   			{scale: 0},
-  			{scale: 1}
+  			{scale: 1},
+  			{scale: 0}
   		],
   	})
   })
@@ -181,8 +183,9 @@ const RegistrationForm = ({ event }: any) => {
   };
 
   const goBack = () => {
-    setIsSuccess({ state: false, message: "" });
-    setIsError({ state: false, message: "" });
+    setIsSuccess(false);
+    setIsError(false);
+    setMessage("");
     setIsRegistering(false);
   };
 
@@ -406,22 +409,22 @@ const RegistrationForm = ({ event }: any) => {
       <form onSubmit={handleSubmit(onSubmit)} className={`${styles.registration_form}`} id="registration-form">
         {isRegistering && (
           <div className={styles.disable_form_window}>
-            {isError.state ? (
+            {isError ? (
               <>
-                <h2>{isError.message}</h2>
-                <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+                <h2>{message}</h2>
+                <div id="reset_btn" style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
                   <div className={styles.reset_form_btn} onClick={() => resetFields()}>
                     Reset Form
                   </div>
-                  <div className={styles.reset_form_btn} onClick={() => goBack()}>
+                  <div id="go_bck_btn" className={styles.reset_form_btn} onClick={() => goBack()}>
                     Go Back
                   </div>
                 </div>
               </>
-            ) : isSuccess.state ? (
+            ) : isSuccess ? (
               <>
-                <h2>{isSuccess.message}</h2>
-                <div className={styles.reset_form_btn} onClick={() => resetFields()}>
+                <h2>{message}</h2>
+                <div id="ok_btn" className={styles.reset_form_btn} onClick={() => resetFields()}>
                   Ok
                 </div>
               </>
@@ -479,7 +482,7 @@ const RegistrationForm = ({ event }: any) => {
           </div>
           <div className={styles.team_fields}>{formBody}</div>
           <div className={styles.submit}>
-            <input type={"submit"} value="Register" />
+            <input name="register" type={"submit"} value="Register" />
           </div>
         </div>
       </form>
