@@ -11,6 +11,10 @@
         font-size: clamp(1rem, 1.5vw, 1.5rem);
     }
 
+    h2 {
+        margin-block-end: 0;
+    }
+
     .layout {
         display: grid;
         place-items: center;
