@@ -71,6 +71,14 @@
       margin-left: 4em;
     }
 
+    @media screen and (max-width: 480px) {
+      padding: 2rem 10%;
+      .h2_p, h3, .h3_p, h4, .h4_p, h5, .h5_p {
+        font-size: 18px;
+        margin-left: 0;
+      }
+    }
+
     .button {
       background: var(--primary);
       font-size: clamp(0.75rem, 2vw, 1.25rem);
@@ -125,7 +133,6 @@
   --button-bg: linear-gradient(to bottom, hsl(39, 00%, 58%) 20%, transparent),
     hsl(39, 00%, 35%);
   .banner {
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4rem), 0 100%);
     background: url("../../public/images/events/aov_background.png"),
       linear-gradient(#006666, black 80%);
     background-size: cover;
