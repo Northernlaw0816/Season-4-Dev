@@ -6,7 +6,7 @@ import styles from '../styles/pages/Dashboard.module.scss'
 import { useEffect, useState } from "react"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { firestore } from "../firebase/clientApp"
-import { titleCase } from "../functions"
+// import { titleCase } from "../functions"
 
 export const Dashboard = () => {
 
@@ -75,7 +75,7 @@ export const Dashboard = () => {
 				
 						return (
 							<div className={styles.registration_card} key={index}>
-								<h3>{titleCase(registrationData.event.replaceAll("-", " "))}{registrationData.event === "arena-of-valor" && ` - ${titleCase(registrationData.platform)}`}</h3>
+								<h3>{registrationData.event.replaceAll("-", " ")}{registrationData.event === "arena-of-valor" && ` - ${registrationData.platform}`}</h3>
 								{registrationData.teams && <p><strong>Teams</strong></p>}
 								<div className={styles.teams_container}>
 									{registrationData.teams && registrationData.teams.map((team:any, index:number) => {
@@ -100,7 +100,7 @@ export const Dashboard = () => {
 														return (<>
 															<div key={index} style={{margin: "0 1em"}}>
 																{index > 0 && <hr/>}
-																<p><strong>Participant {index+1}:</strong> {titleCase(participant.name)}</p>
+																<p><strong>Participant {index+1}:</strong> {participant.name}</p>
 																<p><strong>Grade:</strong> {participant.grade}</p>
 																<p><strong>Phone:</strong> {participant.phone}</p>
 															</div>
@@ -117,7 +117,7 @@ export const Dashboard = () => {
 									return (<>
 										<div key={index} style={{textAlign: "left"}}>
 											{index > 0 && <hr/>}
-											<p><strong>Participant {index+1}:</strong> {titleCase(participant.name)}</p>
+											<p><strong>Participant {index+1}:</strong> {participant.name}</p>
 											<p><strong>Grade:</strong> {participant.grade}</p>
 											<p><strong>Phone:</strong> {participant.phone}</p>
 										</div>
