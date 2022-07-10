@@ -142,10 +142,12 @@ const RegistrationForm = ({ event }: any) => {
       setMessage(err.response.data.message)
     })
 
-    setIsError(!response.success)
-    setIsSuccess(response.success)
-    setMessage(response.message)
-    setMessage(response.message)
+    if (response) {
+      setIsError(!response.success)
+      setIsSuccess(response.success)
+      setMessage(response.message)
+      setMessage(response.message)
+    }
   }
 
   useEffect(() => {
