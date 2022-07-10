@@ -75,6 +75,9 @@ const Login = () => {
 				}, 1000*3600)
 			
 			}
+		} else if (response && !response.success) {
+			setIsLoading(false)
+			setMessage(response.message)
 		}
 
 		setIsLoading(false)
