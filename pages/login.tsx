@@ -41,8 +41,6 @@ const Login = () => {
 
 	const router = useRouter()
 
-	let timeout: any
-
 	const onSubmit = async (data: any) => {
 		setIsLoading(true)
 		let response = await axios.post("/api/login", {...data}).then(res => res.data).catch(err => {
@@ -63,17 +61,6 @@ const Login = () => {
 				localStorage.setItem("schoolId", userData.user.schoolId)
 				localStorage.setItem("email", userData.user.email)
 				router.push("/")
-			
-				timeout = setTimeout(async () => {
-					console.log("UH LOGOUT NOW")
-					alert("Session has timed out. Please log in again.")
-					localStorage.clear()
-					let logout = await axios.post("/api/logout", {userToken: response.userToken}).then(res => res.data).then(data => {data.success && router.push("/login")}).catch(err => {
-						console.log(err.response.data.message)
-					})
-
-				}, 1000*3600)
-			
 			}
 		} else if (response && !response.success) {
 			setIsLoading(false)
@@ -82,12 +69,6 @@ const Login = () => {
 
 		setIsLoading(false)
 	}
-
-	useEffect(() => {
-		return () => {
-			clearTimeout(timeout)
-		}
-	})
 
 	return (<>
 		<HeadTemplate title="NuTopia | Login" description="Login"/>
