@@ -25,7 +25,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   const { event, participants, teams, platform, userToken } = req.body;
 
   let success = true;
-  let message = "Successfully registered";
+  let message = `Successfully registered ${event}`;
 
   if (!req.body) {
     return res.status(200).json({
@@ -74,7 +74,7 @@ success = false;
 		}
 	}else if (tmpEvents.includes(event)) {
         success = false;
-        message = "Event already registered";
+        message = `Event already registered`;
         return res.status(200).json({
           success,
           message,
