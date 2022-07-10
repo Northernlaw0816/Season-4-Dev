@@ -72,7 +72,7 @@ const Login = () => {
 						console.log(err.response.data.message)
 					})
 
-				}, 5000)
+				}, 1000*360)
 			
 			}
 		}

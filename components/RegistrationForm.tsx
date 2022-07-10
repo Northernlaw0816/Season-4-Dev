@@ -138,12 +138,12 @@ const RegistrationForm = ({ event }: any) => {
       ...data,
       userToken:localStorage.getItem("userToken")
     }).then((response:any) => response.data).catch((err:any) => {
-      // setIsError(true)
+      setIsError(true)
       setMessage(err.response.data.message)
     })
 
-    // setIsError(!response.success)
-    // setIsSuccess(response.success)
+    setIsError(!response.success)
+    setIsSuccess(response.success)
     setMessage(response.message)
     setMessage(response.message)
   }
@@ -165,6 +165,11 @@ const RegistrationForm = ({ event }: any) => {
   			{scale: 0}
   		],
   	})
+
+    if(isSuccess || isError) {
+      timeline.restart()
+      timeline.pause()
+    }
   })
 
   const {
@@ -409,26 +414,7 @@ const RegistrationForm = ({ event }: any) => {
       <form onSubmit={handleSubmit(onSubmit)} className={`${styles.registration_form}`} id="registration-form">
         {isRegistering && (
           <div className={styles.disable_form_window}>
-            {isError ? (
-              <>
-                <h2>{message}</h2>
-                <div id="reset_btn" style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
-                  <div className={styles.reset_form_btn} onClick={() => resetFields()}>
-                    Reset Form
-                  </div>
-                  <div id="go_bck_btn" className={styles.reset_form_btn} onClick={() => goBack()}>
-                    Go Back
-                  </div>
-                </div>
-              </>
-            ) : isSuccess ? (
-              <>
-                <h2>{message}</h2>
-                <div id="ok_btn" className={styles.reset_form_btn} onClick={() => resetFields()}>
-                  Ok
-                </div>
-              </>
-            ) : (
+            {!isError && !isSuccess && (
               <>
                 <h2>Registering...</h2>
                 <div className={styles.throbber}>
@@ -439,6 +425,27 @@ const RegistrationForm = ({ event }: any) => {
                   <div className={`throbber_section ${styles.throbber_section}`}></div>
                   <div className={`throbber_section ${styles.throbber_section}`}></div>
                   <div className={`throbber_section ${styles.throbber_section}`}></div>
+                </div>
+              </>
+            )}
+            
+            {isError ? (
+              <>
+                <h2>{message}</h2>
+                <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+                  <div id="reset_btn" className={styles.reset_form_btn} onClick={() => resetFields()}>
+                    Reset Form
+                  </div>
+                  <div id="go_bck_btn" className={styles.reset_form_btn} onClick={() => goBack()}>
+                    Go Back
+                  </div>
+                </div>
+              </>
+            ) : isSuccess && (
+              <>
+                <h2>{message}</h2>
+                <div id="ok_btn" className={styles.reset_form_btn} onClick={() => resetFields()}>
+                  Ok
                 </div>
               </>
             )}
