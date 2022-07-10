@@ -76,7 +76,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
         });
       }
     });
-    console.log(phones);
+    
     if (teams) {
       teams.forEach((team: any) => {
         team.participants.forEach((participant: any, index: number) => {
