@@ -26,7 +26,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   const { event, participants, teams, platform, userToken } = req.body;
 
   let success = true;
-  let message = `Successfully registered ${titleCase(event.replace("-", " "))}`;
+  let message = `Successfully registered ${titleCase(event.replaceAll("-", " "))}`;
 
   if (!req.body) {
     return res.status(200).json({
@@ -58,49 +58,43 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   if (registrations.length > 0) {
     const phones: any = [];
     const tmpEvents: any = [];
+    const teamName: any = [];
 
     registrations.forEach((registration: any) => {
       if (registration.get("event") === "arena-of-valor") {
         tmpEvents.push(`${registration.get("event")}:${registration.get("platform")}`);
       } else tmpEvents.push(registration.get("event"));
+      phones.push(registration.get("phone"));
     });
 
-	if(event === "arena-of-valor") {
-		if(tmpEvents.includes(`${event}:${platform}`)) {
-success = false;
-          return res.status(200).json({
-            success,
-            message: `Already registered under this platform (${platform})`,
-          });
-		}
-	}else if (tmpEvents.includes(event)) {
+    if (event === "arena-of-valor") {
+      if (tmpEvents.includes(`${event}:${platform}`)) {
         success = false;
-        message = `Event already registered`;
         return res.status(200).json({
           success,
-          message,
+          message: `Already registered under this platform (${platform})`,
         });
       }
-
-    registrations.forEach((registration: any) => {
-      const teamsRef = registration.get("teams");
-      if (teamsRef !== undefined) {
-        teamsRef.forEach((teamRef: any) => {
-          const membersRef = teamRef["participants"];
-          membersRef.forEach((memberRef: any) => {
-            phones.push(memberRef["phone"]);
-          });
-        });
-      } else {
-        const participants = registration.get("participants");
-        participants.forEach((participant: any) => {
-          phones.push(participant["phone"]);
-        });
-      }
-    });
+    } else if (tmpEvents.includes(event)) {
+      success = false;
+      message = `Event already registered`;
+      return res.status(200).json({
+        success,
+        message,
+      });
+    }
 
     if (teams) {
       teams.forEach((team: any) => {
+        let teamNames: Array<any> = [];
+        if (!teamNames.includes(team.teamName) || !teamName.includes(team.teamName)) {
+          teamNames.push(team.teamName);
+          teamName.push(team.teamName);
+        } else {
+          success = false;
+          message = `Team name already registered`;
+          return res.status(200).json({ success, message });
+        }
         team.participants.forEach((participant: any, index: any) => {
           let formPhones: Array<any> = [];
           let formNames: Array<any> = [];
@@ -125,11 +119,6 @@ success = false;
             success = false;
             message = `Phone numbers cannot be same as other members (Participant ${index + 1} : ${participant.phone})`;
           }
-
-          if (formNames.includes(participant.name)) {
-            success = false;
-            message = `Name cannot be same as other members (Participant ${index + 1} : ${participant.name})`;
-          }
         });
       });
     } else {
@@ -150,11 +139,6 @@ success = false;
         } else if (formPhones.includes(participant.phone)) {
           success = false;
           message = `Phone numbers cannot be same as participants (Participant ${index + 1} : ${participant.phone})`;
-        }
-
-        if (formNames.includes(participant.name)) {
-          success = false;
-          message = `Name cannot be same as other participants (Participant ${index + 1} : ${participant.name})`;
         }
       });
     }
