@@ -69,7 +69,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 success = false;
           return res.status(200).json({
             success,
-            message: `Already registered under this platform (${registration.get("platform")})`,
+            message: `Already registered under this platform (${platform})`,
           });
 		}
 	}else if (tmpEvents.includes(event)) {
