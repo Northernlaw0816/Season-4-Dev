@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { toSlug } from "../functions"
-import { useRouter } from "next/router"
 
 //components
 import HeadTemplate from "../components/HeadTemplate"
@@ -16,11 +15,6 @@ import { useEffect, useState } from "react"
 const Registration = () => {
 
     const [userToken, setUserToken] = useState<string | null>('')
-
-    const router = useRouter()
-    
-    let query = router.query
-    let event = query.event
 
     useEffect(() => {
         setUserToken(localStorage.getItem('userToken'))
@@ -50,7 +44,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : userToken && userToken !== "undefined" ? <RegistrationForm /> : <h1>Please Login to Register</h1>}
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : userToken && userToken !== "undefined" ? <RegistrationForm /> : <h1 id={`#${toSlug("Registration Form")}`}>Please Login to Register</h1>}
 
         </Layout>
     </>)
