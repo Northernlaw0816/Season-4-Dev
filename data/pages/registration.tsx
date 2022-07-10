@@ -5,10 +5,10 @@ const Registration = {
 	commonRules: [
 		"Registrations are open for students from grades 9 to 12. Teacher in charge should fill in the details of the teams/participants from the respective school.",
 		"An individual is allowed to participate in ONLY ONE event.",
-		"Each event is to be registered SEPARATELY in the respective columns.",
+		"Each event is to be registered SEPARATELY in the form.",
 		"Only WhatsApp enabled numbers to be submitted in the registration form.",
-		"Participants are to join the Whatsapp group through the link which will be sent to your respective mail ID after registration.",
-		"Further instructions for the event will be sent via WhatsApp group ONLY.",
+		"Participants are to join the Whatsapp group through the link which will be sent to the respective phone numbers after registration.",
+		"Further instructions for the event will be sent via the WhatsApp group ONLY.",
 		"Any queries regarding registration and any problems to be addressed on the SAME DAY through EMAIL ONLY.",
 		"Participants who submit mismatched information will be disqualified."
 	],
