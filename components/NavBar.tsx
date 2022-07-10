@@ -126,9 +126,21 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
             setUserData(data)
         }
 
+        let schoolName = "..."
+
+        if(userData.schoolName) { 
+            let splitNames = userData.schoolName.split(' ')
+
+            schoolName = splitNames[0]
+
+            if (splitNames[0] === "THE") {
+                schoolName = splitNames[0] + " " + splitNames[1]
+            }
+        }
+
         return (
             <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
-                <a className={`${styles.nav_button} ${styles.active_link} ${isDropActive && styles.drop_active_link}`}>{userData.schoolName ? titleCase(userData.schoolName).split(' ')[0] : "..."}</a>
+                <a className={`${styles.nav_button} ${styles.active_link} ${isDropActive && styles.drop_active_link}`}>{schoolName}</a>
 
                 <div className={styles.dropdown}>
                     <Link href="/dashboard"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/dashboard') && styles.active_link}`}>Dashboard</a></Link>

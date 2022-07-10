@@ -3,6 +3,7 @@ import HeadTemplate from "../components/HeadTemplate";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import axios from "axios";
+import cron from "node-cron"
 
 import styles from '../styles/pages/Login.module.scss'
 import { useEffect, useState } from "react";
@@ -34,10 +35,14 @@ const Login = () => {
         handleResize()
     
         window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+        return () => {
+			window.removeEventListener('resize', handleResize)
+		}
     })
 
 	const router = useRouter()
+
+	let timeout: any
 
 	const onSubmit = async (data: any) => {
 		setIsLoading(true)
@@ -49,18 +54,36 @@ const Login = () => {
 		if (response && response.success) {
 			localStorage.setItem("userToken", response.userToken)
 
-			const userData = await axios.post("/api/user", {userToken: response.userToken}).then(res => res.data)
+			const userData = await axios.post("/api/user", {userToken: response.userToken}).then(res => res.data).catch(err => {
+				setIsLoading(false)
+				setMessage(err.response.data.message)
+			})
 
 			if (userData.success) {
 				localStorage.setItem("schoolName", userData.user.schoolName)
 				localStorage.setItem("schoolId", userData.user.schoolId)
 				localStorage.setItem("email", userData.user.email)
 				router.push("/")
+			
+				timeout = setTimeout(async () => {
+					localStorage.clear()
+					let logout = await axios.post("/api/logout", {userToken: response.userToken}).then(res => res.data).catch(err => {
+						console.log(err.response.data.message)
+					})
+
+				}, 1000*3600)
+			
 			}
 		}
 
 		setIsLoading(false)
 	}
+
+	useEffect(() => {
+		return () => {
+			clearTimeout(timeout)
+		}
+	})
 
 	return (<>
 		<HeadTemplate title="NuTopia | Login" description="Login"/>
