@@ -62,9 +62,21 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 
   const phones: any = [];
   if (allRegistrations.length > 0) {
-    allRegistrations.forEach((registration: any) => {
-      phones.push(registration.get("phone"));
+    allRegistrations.forEach((registrations: any) => {
+      if (registrations.get("teams")) {
+        registrations.get("teams").forEach((team: any) => {
+          team.participants.forEach((participant: any) => {
+            phones.push(participant.phone);
+          });
+        });
+      }
+      if(registrations.get("participants")) {
+        registrations.get("participants").forEach((participant: any) => {
+          phones.push(participant.phone);
+        });
+      }
     });
+    console.log(phones);
     if (teams) {
       teams.forEach((team: any) => {
         team.participants.forEach((participant: any, index: number) => {
@@ -96,14 +108,14 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
     if (event === "arena-of-valor") {
       if (tmpEvents.includes(`${event}:${platform}`)) {
         return res.status(200).json({
-          success:false,
+          success: false,
           message: `Already registered under this platform (${platform})`,
         });
       }
     } else if (tmpEvents.includes(event)) {
       return res.status(200).json({
-        success:false,
-        message:`Event already registered`,
+        success: false,
+        message: `Event already registered`,
       });
     }
 
@@ -115,8 +127,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
           teamName.push(team.teamName);
         } else {
           return res.status(200).json({
-            success:false,
-            message:`Team name already registered`,
+            success: false,
+            message: `Team name already registered`,
           });
         }
         team.participants.forEach((participant: any, index: any) => {

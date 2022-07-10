@@ -36,22 +36,6 @@ export default async function handler(req: any, res: any) {
     success = true;
   }
 
-  let userTokens: any[] = [];
-
-  accounts.forEach((usr) => {
-    userTokens.push(usr.get("userToken"));
-  });
-
-  if (userTokens.length > 0 && userTokens[0] !== undefined) {
-    success = false;
-    return res.status(200).json({
-      success: false,
-      message: "Already logged in on a different device",
-    });
-  } else {
-    success = true;
-  }
-
   const user = accounts[0];
   const [salt, key] = user.get("password").split(":");
   const userTokenSalt = randomBytes(16).toString("hex");
@@ -68,6 +52,22 @@ export default async function handler(req: any, res: any) {
       success: false,
       message: "Password is incorrect. Please try again",
     });
+  }
+  
+  let userTokens: any[] = [];
+
+  accounts.forEach((usr) => {
+    userTokens.push(usr.get("userToken"));
+  });
+
+  if (userTokens.length > 0 && userTokens[0] !== undefined) {
+    success = false;
+    return res.status(200).json({
+      success: false,
+      message: "Already logged in on a different device",
+    });
+  } else {
+    success = true;
   }
 
   let UserToken = userToken.toString("hex");
