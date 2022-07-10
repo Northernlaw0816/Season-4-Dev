@@ -3,7 +3,6 @@ import HeadTemplate from "../components/HeadTemplate";
 import Layout from "../components/Layout";
 import { useRouter } from "next/router";
 import axios from "axios";
-import cron from "node-cron"
 
 import styles from '../styles/pages/Login.module.scss'
 import { useEffect, useState } from "react";
@@ -66,12 +65,14 @@ const Login = () => {
 				router.push("/")
 			
 				timeout = setTimeout(async () => {
+					console.log("UH LOGOUT NOW")
+					alert("Session has timed out. Please log in again.")
 					localStorage.clear()
-					let logout = await axios.post("/api/logout", {userToken: response.userToken}).then(res => res.data).catch(err => {
+					let logout = await axios.post("/api/logout", {userToken: response.userToken}).then(res => res.data).then(data => {data.success && router.push("/login")}).catch(err => {
 						console.log(err.response.data.message)
 					})
 
-				}, 1000*3600)
+				}, 5000)
 			
 			}
 		}
