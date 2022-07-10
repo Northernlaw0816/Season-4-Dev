@@ -48,39 +48,62 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   const schoolId = schoolIds[0];
 
   const registrationsCollection = collection(firestore, "registrations_season_2");
+  const allRegistrationsSnapshot = await getDocs(registrationsCollection);
   const registrationsSnapshot = await getDocs(query(registrationsCollection, where("schoolId", "==", schoolId)));
-  const registrations: any = [];
+  const schoolRegistrations: any = [];
+  const allRegistrations: any = [];
 
-  registrationsSnapshot.forEach((doc) => {
-    registrations.push(doc);
+  registrationsSnapshot.forEach((doc: any) => {
+    schoolRegistrations.push(doc);
+  });
+  allRegistrationsSnapshot.forEach((doc: any) => {
+    allRegistrations.push(doc);
   });
 
-  if (registrations.length > 0) {
-    const phones: any = [];
+  const phones: any = [];
+  if (allRegistrations.length > 0) {
+    allRegistrations.forEach((registration: any) => {
+      phones.push(registration.get("phone"));
+    });
+    if (teams) {
+      teams.forEach((team: any) => {
+        team.participants.forEach((participant: any, index: number) => {
+          if (phones.includes(participant.phone)) {
+            return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
+          }
+        });
+      });
+    }
+    if (participants) {
+      participants.forEach((participant: any, index: number) => {
+        if (phones.includes(participant.phone)) {
+          return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
+        }
+      });
+    }
+  }
+
+  if (schoolRegistrations.length > 0) {
     const tmpEvents: any = [];
     const teamName: any = [];
 
-    registrations.forEach((registration: any) => {
+    schoolRegistrations.forEach((registration: any) => {
       if (registration.get("event") === "arena-of-valor") {
         tmpEvents.push(`${registration.get("event")}:${registration.get("platform")}`);
       } else tmpEvents.push(registration.get("event"));
-      phones.push(registration.get("phone"));
     });
 
     if (event === "arena-of-valor") {
       if (tmpEvents.includes(`${event}:${platform}`)) {
-        success = false;
         return res.status(200).json({
-          success,
+          success:false,
           message: `Already registered under this platform (${platform})`,
         });
       }
     } else if (tmpEvents.includes(event)) {
-      success = false;
-      message = `Event already registered`;
       return res.status(200).json({
-        success,
-        message,
+        success:false,
+        message:`Event already registered`,
       });
     }
 
@@ -91,9 +114,10 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
           teamNames.push(team.teamName);
           teamName.push(team.teamName);
         } else {
-          success = false;
-          message = `Team name already registered`;
-          return res.status(200).json({ success, message });
+          return res.status(200).json({
+            success:false,
+            message:`Team name already registered`,
+          });
         }
         team.participants.forEach((participant: any, index: any) => {
           let formPhones: Array<any> = [];
