@@ -16,7 +16,7 @@ const Logo = () => {
             <div className={styles.logo_img}>
                 <h1 id="welcome">Welcome To</h1>
                 <Image src={logo} alt="NuTopia Logo" quality={100} priority={true}/>
-                <h2 id="tagline"><i>‟{Main.tagline}”</i></h2>
+                <h2 id="tagline"><i>{Main.tagline}</i></h2>
             </div>
         </div>
     )

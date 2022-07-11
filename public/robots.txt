@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /sitemap.xml
+Disallow: /robots.txt
+Disallow: /*.png$
+Disallow: /*.svg$
+Disallow: /*.jpg$
+
+Sitemap: https://nutopia.in/sitemap.xml
