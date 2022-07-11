@@ -31,7 +31,7 @@ const Participants = ({ maxParticipants, teamIndex, required }: any) => {
           required={required}
           {...register(nameFieldName, {
             pattern: {
-              value: /^[a-zA-Z\s]+$/,
+              value: /^[a-zA-Z.\s]+$/,
               message: "Only letters and spaces are allowed"
             }
           })}
