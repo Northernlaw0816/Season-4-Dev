@@ -10,9 +10,6 @@ const Layout = ({skipTo, additionalClasses, overrideClasses, children}: {skipTo?
         <NavBar skipTo={skipTo}/>
         <main className={overrideClasses ? overrideClasses : `${styles.main} ${additionalClasses}`}>{children}</main>
         <Footer/>
-    </>) : 
-    (<>
-        <main className={styles.main}><HomeBanner/></main>
     </>)
 }
 
