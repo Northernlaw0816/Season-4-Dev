@@ -25,8 +25,8 @@ const EventCard = ({title, description, date, time, venue, grades, link, image, 
             </div>
             <div className={styles.info}>
                 <p id={toSlug(`${title} description`)}>{description}</p>
-                <p id={toSlug(`${title} date`)}><b>Date:</b> {date}</p>
-                <p id={toSlug(`${title} time`)}><b>Time:</b> {time}</p>
+                <p id={toSlug(`${title} date`)}><b>Date & Time:</b> {date}</p>
+                {/* <p id={toSlug(`${title} time`)}><b>Time:</b> {time}</p> */}
                 <p id={toSlug(`${title} venue`)}><b>Venue:</b> {venue}</p>
                 <p id={toSlug(`${title} grades`)}><b>Grades:</b> {grades}</p>
                 <Link href={link}><a className={styles.read_more}>Go to Event</a></Link>

@@ -12,30 +12,32 @@ const Designscape = {
     link: '/events/designscape',
 
     details: {
-        shortDescription: "A moment is beautiful by itself, but what if it could be better? What if the fate of a raw photo is in your hands? What if the image in your head surpasses the beauty of a shot?  Create a potpourri of your imagination and reality.",
-        date: Main.dates.day1,
-        time: '1:00 PM to 3:00 PM',
-        venue: 'Art Room',
+        shortDescription: "In this arena, you are the one who holds all powers- the fate of the bright colours and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
+        date: `${Main.dates.day2}`,
+        dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`,
+        time: '9:30 a.m. - 12:30 p.m.',
+        venue: 'Computer Lab (Main Block)',
         grades: '9 - 12',
         image: DS,
         accent: 'hsl(259, 67%, 25%)',
     },
-    
+
     headings: {
-        about: "A moment is beautiful by itself, but what if it could be better? What if the image in your head surpasses the beauty of nature? What if the fate of a raw photo is in your hands? The Designscape event is the perfect opportunity to use your unique magic on a photo and see what comes of it. It's the perfect place to fuse your imagination and reality. So what are you waiting for? Join this event and test your abilities!",
-        
+        about: "In this arena, you are the one who holds all powers- the fate of the bright colours and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
+
         rules: [
-            "Solo Event for Grades 9 to 12",
-            "Participants are given the choice between three topics/themes",
-            "The participant will work on the topic and come up with a design of their own",
-            "The participants are to bring their own devices and are free to use any of the suggested apps/softwares: Adobe Photoshop, Adobe Lightroom, Canva, Adobe Photoshop Elements, Snapseed, PicsArt, Photoshop Express.",
-            "A time limit of 2 hours will be given to the participants to submit their creatives."
+            "Participants are allowed to make use of any application (such as Adobe Lightroom, Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) of their choice for designing their artwork.",
+            "Participants are required to bring their own devices and accessories(Laptops,tablets).",
+            "All the participants will be given 3 hours (including the time of rendering) to create their final artwork.",
+            "The participants will be given a few topics on the spot, based on which they have to create a digital artwork.",
+            "There will be only one round conducted.", 
+            "The images after editing are to be submitted via e-mail as .jpg files."
         ],
-        
+
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
         registration: [
-            "This is a Solo event."
+            "This is a Solo event - 2 participants per school "
         ]
     }
 }

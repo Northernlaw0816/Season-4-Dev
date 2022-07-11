@@ -4,6 +4,7 @@ import styles from "../../styles/components/Socials.module.scss"
 import rishi from '../../public/images/profile/rishi.png'
 import shabesa from '../../public/images/profile/shabesa.png'
 import marudhu from '../../public/images/profile/marudhu.png'
+import rajaneesh from '../../public/images/profile/rajaneesh.png'
 import jeyasingh from '../../public/images/profile/jeyasingh.png'
 
 import IG from '../../public/images/logos/ig_logo.png'
@@ -16,7 +17,7 @@ import GH from '../../public/images/logos/gh_logo.png'
 
 const ContactUs = {
     contacts: {
-        emails: ["info@nutopia.in", "admin@nutopia.in"],
+        emails: ["info@nutopia.in"],
         phone: "+91 82200 59603",
         address: <>Yuvabharathi Public School,<br/> 17/1, Yuva Enclave, Kanuvai - Thudiyalur Road,<br/> Somayampalayam Post, Kanuvai,<br/> Coimbatore, Tamil Nadu 641108, India</>
     },
@@ -47,13 +48,18 @@ const ContactUs = {
         profiles: [
             {
                 name: "Rishi Menon",
-                roles: ["Lead Developer"],
+                roles: ["Front-End Developer"],
                 src: rishi
             },
             {
                 name: "Shabesa K. A.",
                 roles: ["Front-End Developer", "Audio Director"],
                 src: shabesa
+            },
+            {
+                name: "Rajaneesh R.",
+                roles: ["Back-End Developer"],
+                src: rajaneesh
             },
             {
                 name: "Marudhu Paandian K.",

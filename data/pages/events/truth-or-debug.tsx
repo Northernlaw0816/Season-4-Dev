@@ -15,10 +15,11 @@ const TruthOrDebug = {
     link: '/events/truth-or-debug',
 
     details: {
-        shortDescription: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug!",
-        date: `${Main.dates.day1} - ${Main.dates.day2}`,
-        time: '9:45 AM to 12:35 PM',
-        venue: 'CREYA Lab',
+        shortDescription: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
+        dateAndTime: `${Main.dates.day1} | ${Main.dates.day2}, 1:00 p.m. - 4:00 p.m.`,
+        date: `${Main.dates.day1} | ${Main.dates.day2}`,
+        time: '1:00 p.m. - 4:00 p.m.',
+        venue: 'ATAL Lab',
         grades: '9 - 12',
         image: TD,
         accent: "black",
@@ -26,60 +27,23 @@ const TruthOrDebug = {
 
     headings: {
         finalists: [
-            {
-                teamName: "RunTime Terror",
-                members: [
-                    {
-                        name: "Atul Binosh Hegde",
-                        grade: "10A"
-                    },
-                    {
-                        name: "Adithya Santhosh P.",
-                        grade: "10B"
-                    }
-                ]
-            },
-            {
-                teamName: "Theatrical Debuggers",
-                members: [
-                    {
-                        name: "Rajaneesh R.",
-                        grade: "10C"
-                    },
-                    {
-                        name: "Vijay S.",
-                        grade: "10D"
-                    }
-                ]
-            },
-            {
-                teamName: "Who's the Boss?",
-                members: [
-                    {
-                        name: "Jinay P. Shah",
-                        grade: "12B1"
-                    },
-                    {
-                        name: "M. K. Surya",
-                        grade: "12A1"
-                    }
-                ]
-            }
+            
         ],
 
-        about: "Is trouble shooting your cup of tea? Do you have razor sharp instincts to spot the error? Join the clan at the truth or debug! Let your keen eyes dart from one line to the next to spot the anomalies - as hunters do for their prey! Expect the pressure to build up as your nimble mind debugs!",
+        about: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
         
         rules: [
-            "Open for Grades 9 to 12 who have intermediate knowledge in coding and electronics.",
-            "Two participants in a team (Duo Event).",
-            "Each team will be given a desk of its own.",
-            "A bug/random problem will be given on the spot and the first participant to tap their desk with their pen/raise their hand will be given the chance to solve it first."
+            "Participants are allowed to use any programming language (provided the output is suitable).",
+            "Participants must bring their own devices and accessories (Laptops, tablets).",
+            "The participants are allowed only in teams of 3.",
+            "Internet use or getting help from other participating teams is strictly prohibited.",
+            "Components required for the circuit rounds will be provided."
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
-
+        prerequisites:["Intermediate knowledge of at least one of the prescribed programming languages is required.","Basic knowledge of circuit making."],
         registration: [
-            "This is a Duo (2 member) event."
+            "This is a Trio event - 2 teams per school"
         ]
     }
 }

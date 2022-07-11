@@ -44,6 +44,18 @@ const ArenaOfValor: NextPage = () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>
                         {ArenaOfValorData.headings.about.description}
                     </p>
+
+                <h2 id="details">Details</h2>
+                    <p className={styles.h2_p}><strong>Date and Time:</strong></p>
+                    <ul>{ArenaOfValorData.details.date.map((date, index) => {
+                        return <li key={index}><p>{date}</p></li>
+                    })}</ul>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
+                
+                <h2 id="commonGUI">Common Guidelines</h2>
+                    <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
+                        return <li key={index}><p>{rule}</p></li>
+                    })}</ul> 
                     
                     {ArenaOfValorData.headings.platforms.map((platform, index: number) => {
                         return (<div key={index}>
@@ -89,16 +101,6 @@ const ArenaOfValor: NextPage = () => {
                             </ul>
                         </div>)
                     })}
-                    
-                <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {ArenaOfValorData.details.date}</p>
-                    <p className={styles.h2_p}><strong>Time:</strong></p>
-                        <ul className={styles.h2_p}>
-                            {ArenaOfValorData.details.times.map((time, index) => {
-                                return (<li key={index}><strong>{time.name}:</strong> {time.time} </li>)
-                            })}
-                        </ul>
-                    <p className={styles.h2_p}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
                 
                 <h2 id="guidelines">Guidelines</h2>
                     <ul>{ArenaOfValorData.headings.rules.map((rule, index) => {
@@ -108,7 +110,7 @@ const ArenaOfValor: NextPage = () => {
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
                         {ArenaOfValorData.headings.eventCoordinators.map((coordinator, index) => {
-                            return <ProfileCard key={index} profileObject={coordinator}/>
+                            return <ProfileCard key={index} profileObject={coordinator} />
                         })}
                     </div> 
                 

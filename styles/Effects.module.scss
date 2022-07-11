@@ -77,7 +77,7 @@
 }
 
 .link_hover_effect {
-  &::after {
+  &::before {
     content: "";
     position: absolute;
     left: -0.75em;
@@ -87,27 +87,30 @@
     z-index: 1;
     mix-blend-mode: difference;
     background: white;
-    transition: right 100ms, top 100ms 250ms, bottom 100ms 250ms;
+    border-radius: 0;
+    transition: right 100ms, left 100ms, top 100ms 250ms, bottom 100ms 250ms, border-radius 100ms 250ms;
   }
   
   &:hover, &:focus-visible {
-    &::after {
+    &::before {
       right: -0.5em;
       top: 0;
+      left: -0.5em;
       bottom: -0.25rem;
-      transition: right 250ms 250ms, top 100ms, bottom 100ms;
+      border-radius: 0.5rem;
+      transition: right 250ms 250ms, left 250ms 250ms, top 100ms, bottom 100ms, border-radius 250ms;
     }
   }
 
   &:focus-visible {
     outline: none;
-    &::after {
+    &::before {
       border: 3px black solid;
     }
   }
 
   &:active {
-    &::after {
+    &::before {
       background: black;
     }
   }

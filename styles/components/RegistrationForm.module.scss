@@ -3,8 +3,10 @@
 	background: var(--inactive);
 	margin: 2rem auto;
 	color: var(--text-white);
+	border-radius: 1.5em;
+	overflow: hidden;
 
-	h2, h3 {
+	h2, h3, h4 {
 		text-align: center;
 		margin-block-start: 1ch;
 		margin-block-end: 1ch;
@@ -24,20 +26,17 @@
 		border: none;
 		transition: background 100ms;
 
+		border-radius: 0.5em;
+
+		transition: border-radius 500ms ease;
+    
 		&:hover, &:focus-visible {
 			background: hsl(130, 90%, 40%);
 			color: var(--text-white);
+			border-radius: 0.25em;
 			&::placeholder {
 				color: hsl(0, 0%, 90%);
 			}
-		}
-	}
-
-	input[required] {
-		border-bottom: red 4px solid;
-
-		&:valid {
-			border-bottom: none;
 		}
 	}
 
@@ -47,19 +46,22 @@
 		}
 	}
 
-	.error {
-		display: grid;
-		padding: 0.5rem 0;
-		padding-left: 1rem;
-		background-color: hsl(10, 0%, 0%);
-		border-radius: 1ch;
-		color: hsl(0, 100%, 60%);
-		text-decoration: underline;
-		text-underline-offset: 0.25ch;
+	input[required], select[required] {
+		border-bottom: rgb(255, 153, 0) 4px solid;
+	}
 
-		p {
-			margin: 0;
-		}
+	input.error, select.error {
+		display: grid;
+		border-bottom: red 4px solid;
+	}
+
+	p.error {
+		grid-area: error;
+		margin: 0;
+		background: black;
+		color: red;
+		padding: 1ch;
+		border-radius: 0.5em;
 	}
 
 	.disable_form_window {
@@ -82,17 +84,24 @@
 		.reset_form_btn {
 			background: #00cc22;
 			padding: 1ch;
+			border-radius: 0.5em;
+
+			&:hover {
+				scale: 1.1;
+				box-shadow: 0 0 1em 0 hsl(0, 0%, 0%, 50%);
+			}
 		}
 		
 		.throbber {
 			display: grid;
 			place-items: center;
 			grid-auto-flow: column;
+
 			.throbber_section {
-				scale: 0;
 				width: 1rem;
 				aspect-ratio: 1;
 				background: radial-gradient(circle at center,white 50%, transparent 50%);
+				// background: white;
 			}
 		}
 	}
@@ -100,6 +109,7 @@
 	.form_title {
 		grid-area: title;
 		padding: 1ch;
+		margin-block-start: 0;
 		background: var(--primary);
 
 		h2 {
@@ -119,7 +129,7 @@
 		grid-template-areas: "event platform";
 		gap: var(--grid-gap);
 
-		 .event_field, .platform_field {
+		.event_field, .platform_field {
 			display: grid;
 			grid-template-rows: 1fr;
 			gap: var(--grid-gap);
@@ -129,11 +139,6 @@
 			grid-template-areas: "event" "platform";
 			.event_field, .platform_field {
 				gap: calc(var(--grid-gap) / 2);
-			}
-
-			.event_field{
-				grid-template-columns: 25% auto;
-				grid-auto-flow: row;
 			}
 		}
 
@@ -179,32 +184,25 @@
 		.team_input {
 			display: grid;
 			grid-template-columns: max-content auto;
+			grid-template-areas: "label field" "error error";
 		}
 
 		.member_input {
 			display: grid;
 			grid-template-columns: max-content 1fr max-content 1fr;
 			
-			.member_error {
+			.member_errors {
 				grid-row: 3;
 				grid-column: span 4;
-			}
+				display: grid;
+				gap: 0.5em;
 
-			.error_field {
-				color: red;
-				outline: red 3px solid;
-				background: black;
-
-				&::placeholder {
+				.member_error {
+					margin: 0;
+					background: black;
 					color: red;
-				}
-
-				&:hover, &:focus-visible {
-					background: white;
-					color: black;
-					&::placeholder {
-						color: var(--text-white);
-					}
+					padding: 1ch;
+					border-radius: 0.5em;
 				}
 			}
 		}
@@ -212,20 +210,24 @@
 		.team_input, .member_input {
 			width: 100%;
 			gap: 1rem;
+			margin-block-start: 2em;
 		}
 
 		@media (max-width: 850px) {
 			.team_input, .member_input {
 				gap: 0.5rem;
 			}
+			
 			.team_input {
 				grid-template-columns: 1fr;
+				grid-template-areas: "label" "field" "error";
 			}
+
 			.member_input {
 				grid-template-columns: max-content auto;
 				grid-auto-flow: row;
 
-				.member_error {
+				.member_errors {
 					grid-row: 4;
 					grid-column: span 2;
 				}
@@ -252,8 +254,12 @@
 			font-size: clamp(1rem, 1.5vw, 1.5rem);
 			color: white;
 			font-weight: bold;
-
+      
+      border-radius: 0.5em;
+      transition: border-radius 500ms ease;
+      
 			&:hover, &:focus-visible {
+        border-radius: 0.25em;
 				background: hsl(130, 70%, 40%);
 			}
 

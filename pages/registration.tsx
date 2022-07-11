@@ -1,7 +1,5 @@
-import Head from "next/head"
 import Link from "next/link"
 import { toSlug } from "../functions"
-import { useRouter } from "next/router"
 
 //components
 import HeadTemplate from "../components/HeadTemplate"
@@ -12,22 +10,24 @@ import styles from "../styles/pages/Registration.module.scss"
 //data
 import { RegistrationData } from "../data/pages"
 import Main from "../data/Main"
+import { useEffect, useState } from "react"
 
 const Registration = () => {
 
-    const router = useRouter()
-    
-    let query = router.query
-    let event = query.event
+    const [userToken, setUserToken] = useState<string | null>('')
+
+    useEffect(() => {
+        setUserToken(localStorage.getItem('userToken'))
+    }, [])
+
 
     return (<>
         <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
 
-        <Layout skipTo="#note" overrideClasses={styles.main}>
+        <Layout overrideClasses={styles.main}>
             <h1 id="title">{RegistrationData.title}</h1>
             
-            <p id="note" style={{fontSize: "1.5em"}}>Registrations for Season 1 is CLOSED</p>
-            <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 1 is open ONLY FOR YUVABHARATHIANS</p>
+            <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 2 is open for schools in Coimbatore.</p>
             <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the <Link href={`#${toSlug("Registration Form")}`}><a>Registration Form</a></Link>.</p>
 
             <h2>Common Guidelines</h2>
@@ -44,7 +44,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : <RegistrationForm />}
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : userToken && userToken !== "undefined" ? <RegistrationForm /> : <h1 id={`#${toSlug("Registration Form")}`}>Please Login to Register</h1>}
 
         </Layout>
     </>)

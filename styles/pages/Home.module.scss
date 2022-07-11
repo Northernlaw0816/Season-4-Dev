@@ -20,31 +20,6 @@
     p {
       font-size: 24px;
     }
-
-    hr {
-      width: 90%;
-      border: none;
-      height: 4px;
-      border-radius: 100vw;
-      background: var(--text-alt);
-    }
-
-    .button {
-      background: var(--primary);
-      font-size: clamp(0.75rem, 2vw, 1.25rem);
-      padding: 1rem;
-      min-width: 10rem;
-      text-align: center;
-
-      &:focus-visible {
-        outline: 6px solid hsl(0, 0%, 0%, 50%);
-        outline-offset: -6px;
-      }
-
-      &:hover {
-        filter: brightness(1.1)
-      }
-    }
     
     .about {
       padding: 0 10%;

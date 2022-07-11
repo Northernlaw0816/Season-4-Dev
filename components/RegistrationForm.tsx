@@ -1,370 +1,561 @@
-import { useState, useEffect, useLayoutEffect} from "react"
-import { useForm } from "react-hook-form"
-import anime from "animejs"
-import { getRegistrationsCollection, registerTeam, validateFields } from "../functions"
-import { FormFields } from "../functions/interface"
-import { toSlug } from "../functions"
+import { useEffect, useState } from "react";
+import { useForm, FormProvider, useFormContext } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import anime from "animejs";
+import axios from "axios";
+import { toSlug } from "../functions";
+import { useRouter } from "next/router";
 
-//components
-import ParticipantFields from "./ParticipantFields"
 //stylesheets
-import styles from "../styles/components/RegistrationForm.module.scss"
-import Effects from "../styles/Effects.module.scss"
+import styles from "../styles/components/RegistrationForm.module.scss";
 //data
-import EventsList from "../data/EventsList"
-import {  DocumentData, getDocs, query, QueryDocumentSnapshot, where } from "firebase/firestore"
-import { useRouter } from "next/router"
+import EventsList from "../data/EventsList";
 
-const RegistrationForm = ({event}: any) => {
-	let [participantsLimit, setParticipantsLimit] = useState<number>(0)
-	let [showPlatform, setShowPlatform] = useState<boolean>(false)
-	let [showTeamName, setShowTeamName] = useState<boolean>(false)
-	let [showGame, setShowGame] = useState<boolean>(false)
-	let [isRegistering, setIsRegistering] = useState<boolean>(false)
-	let [isError, setIsError] = useState<{state:boolean, message:string}>()
-	let [isSuccess, setIsSuccess] = useState<{state:boolean, message:string}>()
-	let [defaultEvent, setDefaultEvent] = useState<string>(event)
-	let [registrations, setRegistrations] = useState<QueryDocumentSnapshot<DocumentData>[]>([])
+const Participants = ({ maxParticipants, teamIndex, required }: any) => {
+  const { register, formState: { errors }, getFieldState } = useFormContext();
+  const participants: any = [];
 
-	const { register, unregister, handleSubmit, reset, formState: {errors}, getValues, setError, clearErrors } = useForm<FormFields>({
-		mode: 'onSubmit',
-		reValidateMode: 'onChange',
-		defaultValues: {
-			event: defaultEvent,
-			platform: "default-value",
-			game: "default-value",
-			participants: []
-		}
-	})
+  for (let i = 0; i < maxParticipants; i++) {
+    let nameFieldName = `${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.name` : `participants.${teamIndex}.name`}`
+    let gradeFieldName = `${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.grade` : `participants.${teamIndex}.grade`}`
+    let phoneFieldName = `${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.phone` : `participants.${teamIndex}.phone`}`
 
-	const resetFields = () => {
-		reset()
-		setParticipantsLimit(0)
-		setShowPlatform(false)
-		unregister("platform")
-		setShowTeamName(false)
-		unregister("teamName")
-		setDefaultEvent("default-value")
-		setShowGame(false)
-		setIsRegistering(false)
-		router.reload()
-	}
+    participants.push(
+      <div key={i} className={styles.member_input}>
+        {/* NAME */}
+        <label htmlFor={nameFieldName}>
+          Participant {maxParticipants === 1 ? teamIndex + 1 : i + 1}:{" "}
+        </label>
+        <input
+          className={getFieldState(nameFieldName).error && `${styles.error}`}
+          required={required}
+          {...register(nameFieldName, {
+            pattern: {
+              value: /^[a-zA-Z\s]+$/,
+              message: "Only letters and spaces are allowed"
+            }
+          })}
+        />
+        {/* GRADE */}
+        <label htmlFor={gradeFieldName}>Grade: </label>
 
-	const handleEventValue = () => {
-		switch (getValues("event")) {
-			case "arena-of-valor":
-				setParticipantsLimit(0)
-				setShowPlatform(true)
-				setShowTeamName(true)
-				break
+        <select
+          className={getFieldState(gradeFieldName).error && `${styles.error}`}
+          required={required}
+          {...register(gradeFieldName, {
+            validate: (value: any) => {
+                if (required) {
+                  return value === "default-value" && "Grade is required" 
+                } else {
+                  return false
+                }
+              }
+          })}
+        >
+          <option value="default-value">Select Grade</option>  
+          <option value="9">9</option> 
+          <option value="10">10</option> 
+          <option value="11">11</option> 
+          <option value="12">12</option> 
+        </select>
 
-			case "truth-or-debug":
-				setParticipantsLimit(2)
-				setShowPlatform(false)
-				unregister("platform")
-				setShowTeamName(true)
-				break
+        {/* PHONE */}
+        <label htmlFor={phoneFieldName}>Phone: </label>
+        <input
+          className={getFieldState(phoneFieldName).error && `${styles.error}`}
+          required={required}
+          {...register(phoneFieldName, {
+            pattern: {
+              value: /^\d{10}$/i,
+              message: "Please enter a valid phone number",
+            },
+          })}
+        />
 
-			case "otakuiz":
-				setParticipantsLimit(2)
-				setShowPlatform(false)
-				unregister("platform")
-				setShowTeamName(true)
-				break
+        <div className={styles.member_errors}>
+          <ErrorMessage errors={errors} name={nameFieldName} render={({ messages }) =>
+            messages &&
+            Object.entries(messages).map(([type, message]) => (
+              <p className={styles.member_error} key={type}>{message}</p>
+            ))
+          }/>
+          <ErrorMessage errors={errors} name={gradeFieldName} render={({ messages }) =>
+            messages &&
+            Object.entries(messages).map(([type, message]) => (
+              message !== true && <p className={styles.member_error} key={type}>{message}</p>
+            ))
+          }/>
+          <ErrorMessage errors={errors} name={phoneFieldName} render={({ messages }) =>
+            messages &&
+            Object.entries(messages).map(([type, message]) => (
+              <p className={styles.member_error} key={type}>{message}</p>
+            ))
+          }/>
+        </div>
+      </div>,
+    );
+  }
+  return participants;
+};
 
-			case "default-value":
-				setParticipantsLimit(0)
-				setShowPlatform(false)
-				unregister("platform")
-				setShowTeamName(false)
-				unregister("teamName")
-				break
+const Teams = ({ maxTeams, maxParticipants, platEvent, index, teamTitle }: any) => {  
+  const { register, formState: { errors }, getValues, getFieldState} = useFormContext();
+  const [required, setRequired] = useState(false);
 
-			default:
-				setParticipantsLimit(1)
-				setShowPlatform(false)
-				unregister("platform")
-				setShowTeamName(false)
-				unregister("teamName")
-				break
-		}
-	}
+  const handleTeamName = () => {
+    setRequired(getValues(fieldName) !== "");
+  };
 
-	const handlePlatformValue = () => {
-		switch (getValues("platform")) {
-			case "pc":
-				setParticipantsLimit(3)
-				setShowGame(false)
-				break
-			case "mobile":
-				setParticipantsLimit(0)
-				setShowGame(true)
-				break
-			case "console":
-				setParticipantsLimit(2)
-				setShowGame(false)
-				break
-			case "default-value":
-				setParticipantsLimit(0)
-				setShowGame(false)
-				break
-			default:
-				setParticipantsLimit(0)
-				setShowGame(false)
-				break
-		}
-	}
+  useEffect(() => {
+    if (!platEvent) {
+      if (index === 0) {
+        setRequired(true);
+      }
+    }
+  });
 
-	const handleGameValue = () => {
-		if (getValues("game") === "default-value") {
-			setParticipantsLimit(0)
-		} else {
-			setParticipantsLimit(3)
-		}
-	}
+  let fieldName = `teams.${index}.teamName` 
 
-	const teamNameOnBlur = async () => {
-		// get current value of teamName field
-		const currentTeamName = getValues("teamName")	
-		// get current value of event field
-		const currentEvent = getValues("event")
-		// get registrations collection
-		const registrationsCollections = getRegistrationsCollection()
+  return (
+    <div key={index}>
+      {maxParticipants > 1 && (
+        <>
+          <hr />
+          {platEvent === "mobile" && index % 2 === 0 && <h3>{teamTitle}</h3>}
+          <h3>{platEvent === "mobile" ? `Team ${(index % 2) + 1}` : teamTitle}</h3>
 
-		// query for documents that match the current event
-		const eventQuery = query(registrationsCollections, where("event", "==", currentEvent))
-		const eventSnapshot = await getDocs(eventQuery)
 
-		// list to store registrations
-		const eventRegistrations: QueryDocumentSnapshot<DocumentData>[] = []
-		eventSnapshot.forEach((doc: any) => {
-			eventRegistrations.push(doc)
-		})
+          <div className={styles.team_input}>
+            <label htmlFor={fieldName}>Team Name: </label>
+            <input
+              className={getFieldState(fieldName).error && `${styles.error}`}
+              required={required}
+              placeholder="Min 4 characters, Maximum 32 Characters"
+              {...register(fieldName, {
+                maxLength: {
+                  value: 32,
+                  message: "Max characters in team name is 32",
+                },
+                minLength: {
+                  value: 4,
+                  message: "Min characters in team name is 4",
+                },
+                onChange: handleTeamName
+              })}
+            />
+            <ErrorMessage errors={errors} name={fieldName} render={({ messages }) =>
+              messages &&
+              Object.entries(messages).map(([type, message]) => (
+                <p className={styles.error} key={type}>{message}</p>
+              ))
+            }/>
+          </div>
+        </>
+      )}
+      <Participants
+        index={index}
+        register={register}
+        maxTeams={maxTeams}
+        maxParticipants={maxParticipants}
+        teamIndex={index}
+        getValues={getValues}
+        required={required}
+      />
+    </div>
+  );
+};
 
-		setRegistrations(eventRegistrations)
+const RegistrationForm = () => {
+  let [showPlatform, setShowPlatform] = useState<boolean>(false);
+  let [formBody, setFormBody] = useState<any>(<></>);
+  let [isRegistering, setIsRegistering] = useState<boolean>(false);
+  let [isError, setIsError] = useState(false);
+  let [isSuccess, setIsSuccess] = useState(false);
+  let [message, setMessage] = useState("");
+  const router = useRouter();
 
-		// loop through the list and check for duplicate teamName
-		registrations.map((registartion: QueryDocumentSnapshot<DocumentData>) => {
-			if (currentTeamName === registartion.get("teamName") && registartion.get("event") !== "arena-of-valor") {
-				setError("teamName", {type: "existing", message: "Team Name already exists."})
-			} else {
-				clearErrors("teamName")
-			}
-		})
-	}
+  // Handlers
+  const onSubmit = async (data: any) => {
+    setIsRegistering(true);
+    const response = await axios.post("/api/register", {
+      ...data,
+      userToken:localStorage.getItem("userToken")
+    }).then((response:any) => response.data).catch((err:any) => {
+      setIsError(true)
+      setMessage(err.response.data.message)
+    })
 
-	const onSubmit = async (data: FormFields) => {
-		// filter participants that have empty fields
-		let filteredParticipants = data.participants.filter((el:any) => {
-			el.grade = el.grade.replaceAll(' ', '').toUpperCase()
-			return el != null
-		})
+    if (response) {
+      setIsError(!response.success)
+      setIsSuccess(response.success)
+      setMessage(response.message)
+      setMessage(response.message)
+    }
+  }
 
-		// get emails from filtered participants
-		let emails = filteredParticipants.map((participant: {name: string, grade:string, email:string}) => {
-			return participant.email
-		})
+  useEffect(() => {
+  	let timeline = anime.timeline({
+  		easing: "linear",
+  		direction: "forwards",
+  		delay: anime.stagger(100),
+  		duration: 1000,
+  		loop: true
+  	})
 
-		// make sure the platform sent in the email is not undefined or default value
-		let platform: string | undefined = data.platform === undefined || "default-value" ? "" : ` - ${data.platform?.replaceAll('-', ' ').toLowerCase()}`
+  	timeline.add({
+  		targets: ".throbber_section",
+  		keyframes: [
+  			{scale: 0},
+  			{scale: 1},
+  			{scale: 0}
+  		],
+  	})
 
-		// set registration status
-		setIsRegistering(true)
-		let validationError = await validateFields(data, participantsLimit)
-		setIsError(validationError)
-		
-		if(!validationError.state) {
-			const response = await fetch(
-				`https://${process.env.NEXT_PUBLIC_MAILER_API_ENDPOINT}/mail/register`,
-				{
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-						Authorization: `Token ${process.env.NEXT_PUBLIC_MAILER_API_KEY}`
-					},
-					body : JSON.stringify({
-						recipients: [...emails, "info@nutopia.in"],
-						event: `${data.event.replaceAll('-', ' ').toUpperCase()}${platform}`,
-						isTeam: data.teamName ? true : false,
-						teamName: data.teamName ?  data.teamName : "",
-						participants: filteredParticipants,
-					})
-				}
-			).then(response => response.json()).then(data => { return data })
+    if(isSuccess || isError) {
+      timeline.restart()
+      timeline.pause()
+    }
+  })
 
-			platform = data.platform === "default-value" ? undefined : data.platform
-			let game  = data.game === "default-value" ? undefined : data.game
+    const methods = useForm({
+    mode: "onSubmit",
+    reValidateMode: "onChange",
+    criteriaMode: "all",
+    shouldUnregister: true
+  });
 
-			if (response.status === 'success') {
+  const resetFields = () => {
+    methods.reset();
+    methods.unregister("platform");
+    router.reload();
+  };
 
-				await registerTeam({
-					event: data.event,
-					...(platform) && {platform: platform},
-					...(game) && {game: game},
-					...(data.teamName) && {teamName: data.teamName},
-					participants: filteredParticipants
-				}).catch(() => resetFields)
-				setIsSuccess({state: response, message: "Successfully Registered"})
-				alert("Successfully registered")
-				alert("A Confirmation mail has been sent to your email address")
-				setIsRegistering(false)
-				resetFields()
-			} else {
-				setIsError({state: true, message: "Something went wrong. We're not sure what. Please reload and try again."})
-				console.error(response)
-			}
-		}
-	}
+  const goBack = () => {
+    setIsSuccess(false);
+    setIsError(false);
+    setMessage("");
+    setIsRegistering(false);
+  };
 
-	useEffect(() => {
-		participantsLimit < 3 && unregister("participants.2")
-		participantsLimit < 2 && unregister("participants.1")
-		participantsLimit < 1 && unregister("participants.0")
-	}, [participantsLimit, unregister])
+  const onEventPlatformChange = () => {
+    const platVal = methods.getValues("platform");
+    methods.unregister("teams");
+    methods.unregister("participants");
+    let maxTeams = 0;
+    let teams: any = [];
 
-	useEffect(() => {
-		let timeline = anime.timeline({
-			easing: "linear",
-			direction: "forwards",
-			delay: anime.stagger(200),
-			duration: 1000,
-			loop: true
-		})
+    switch (platVal) {
+      case "pc":
+        maxTeams = 2;
+        teams = [];
 
-		timeline.add({
-			targets: ".throbber_section",
-			keyframes: [
-				{scale: 0},
-				{scale: 1}
-			],
-		})
-	})
+        for (let index = 0; index < maxTeams; index++) {
+          let teamTitle = `Team ${index + 1}`;
 
-	useLayoutEffect( () => {
-		handleEventValue()
-	}, [])
+          if (index === 0) teamTitle = "Valorant";
+          if (index === 1) teamTitle = "CS:GO";
 
-	const router = useRouter()
+          teams.push(
+            <Teams
+              maxTeams={maxTeams}
+              maxParticipants={5}
+              platEvent={"pc"}
+              teamTitle={teamTitle}
+              index={index}
+            />,
+          );
+        }
+        setFormBody(teams);
+        break;
 
-	return (
-		<form className={styles.registration_form} onSubmit={handleSubmit(onSubmit)}>
-			{isRegistering && (
-				<div className={styles.disable_form_window}>
-					{
-						isError?.state ? (<>
-							<h2>{isError.message}</h2>
-							<div className={`${styles.reset_form_btn} ${Effects.button_hover_effect}`} onClick={() => router.reload()}>Reset Form</div>
-						</>) : isSuccess?.state ? (
-							<h2>{isSuccess.message}</h2>
-						) : (<>
-						<h2>Registering...</h2>
-						<div className={styles.throbber}>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-							<div className={`throbber_section ${styles.throbber_section}`}></div>
-						</div>
-					</>)}
-				</div>
-			)}
-			<div className={styles.form_title}>
-				<h2 id={toSlug("Registration Form")}>Registration Form</h2>
-			</div>
+      case "mobile":
+        maxTeams = 4;
+        teams = [];
 
-			{<div className={styles.form_fields}>
-				<div className={styles.event_field}>
-					<label>Event</label>
-					<select {...register("event", {
-						required: true,
-						onChange: handleEventValue,
-						validate: value => value !== "default-value"
-					})}>
-						<option value="default-value">Select an Event</option>
-						{
-							EventsList.map((event: any, index: number) => {
-								return <option key={index} value={toSlug(event.title)}>{event.title}</option>
-							})
-						}
-					</select>
-				</div>
+        for (let index = 0; index < maxTeams; index++) {
+          let teamTitle = `Team ${index + 1}`;
 
-				{showPlatform && <div className={styles.platform_field}>
-						<label>Platform</label>
-						<div className={styles.platform_input}>
-							<select disabled={!showPlatform} {...register("platform", {
-								required: true,
-								shouldUnregister: true,
-								onChange: handlePlatformValue,
-								validate: value => value !== "default-value"
-							})}>
-								<option value="default-value">Select a Platform</option>
-								<option value="console">Console</option>
-								<option value="mobile">Mobile</option>
-								<option value="pc">PC</option>
-							</select>
-							{showGame && (
-								<select {...register("game", {
-									required: true,
-									shouldUnregister: true,
-									onChange: handleGameValue,
-									validate: value => value !== "default-value"
-								})}>
-									<option value="default-value">Select a Game</option>
-									<option value="bgmi">Battlegrounds Mobile India</option>
-									<option value="cod">Call of Duty: Mobile</option>
-								</select>
-							)}
-						</div>
-				</div>}
-			</div>}
+          if (index === 0) teamTitle = "BattleGround Mobile India";
+          if (index === 2) teamTitle = "Call Of Duty";
 
-			<div className={styles.team_fields}>
-				<h3>Team Details</h3>
-				{showTeamName && participantsLimit > 0  && (<>
-					<div className={styles.team_input}>
-						<label htmlFor="teamName">Team Name</label>
-						<input type="text" placeholder="Team Name" {...register("teamName", {
-							required: "Team Name Is Required",
-							minLength: {
-								value: 5,
-								message: "Team Name Needs To Be At least 5 Characters."
-							},
-							onBlur: teamNameOnBlur,
-							shouldUnregister: true
-						})}/>
-					</div>
-					{errors.teamName && (
-						<span className={styles.error}>
-							<p>{errors.teamName.message}</p>
-						</span>
-					)}
-				</>)}
+          teams.push(
+            <Teams
+              maxTeams={maxTeams}
+              maxParticipants={4}
+              platEvent={"mobile"}
+              teamTitle={teamTitle}
+              index={index}
+            />,
+          );
+        }
+        setFormBody(teams);
+        break;
 
-				<hr/>
-				
-				{ participantsLimit > 0 ? (<>
-					<ParticipantFields index={0} register={register} form={{errors, getValues, setError}} participantsLimit={participantsLimit}/>
-					{
-						participantsLimit > 1 && (<>
-							<hr/>
-							<ParticipantFields index={1} register={register} form={{errors, getValues, setError}} participantsLimit={participantsLimit}/>
-							{participantsLimit > 2 && (<>
-								<hr/>
-								<ParticipantFields index={2} register={register} form={{errors, getValues, setError}} participantsLimit={participantsLimit}/>
-							</>)}
-						</>)
-					}
-				</>) : (<h3>Please Fill All The Previous Fields</h3>)}
-			</div>
+      case "console":
+        maxTeams = 2;
+        teams = [];
 
-			<div className={styles.submit}>
-				<input type="submit" value="Register"/>
-			</div>
-		</form>
-	)
-}
+        for (let index = 0; index < maxTeams; index++) {
+          let teamTitle = `Team ${index + 1}`;
 
-export default RegistrationForm
+          if (index === 0) teamTitle = "Fortnite";
+          if (index === 1) teamTitle = "Rocket League";
+
+          teams.push(
+            <Teams
+              maxTeams={maxTeams}
+              maxParticipants={2}
+              platEvent={"console"}
+              teamTitle={teamTitle}
+              index={index}
+            />,
+          );
+        }
+        setFormBody(teams);
+        break;
+
+      case "default-platform":
+        setFormBody(<></>);
+        break;
+
+      default:
+        setFormBody(<></>);
+    }
+  };
+
+  const onEventChange = () => {
+    const eventVal = methods.getValues("event");
+    methods.unregister("teams");
+    methods.unregister("participants");
+    methods.unregister("platform");
+    let maxTeams = 0;
+    let teams: any = [];
+
+    switch (eventVal) {
+      case "arena-of-valor":
+        setShowPlatform(true);
+        setFormBody(<></>);
+        break;
+
+      case "knockout":
+        maxTeams = 1;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={1}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "truth-or-debug":
+        maxTeams = 2;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={3}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "log-and-blog":
+        maxTeams = 2;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={1}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "designscape":
+        maxTeams = 2;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={1}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "otakuiz":
+        maxTeams = 1;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={3}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "bass-drop":
+        maxTeams = 2;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={1}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "pandoras-blocks":
+        maxTeams = 1;
+        teams = [];
+
+        for (let index = 0; index < maxTeams; index++) {
+          teams.push(<Teams
+            maxTeams={maxTeams}
+            maxParticipants={3}
+            index={index}
+          />);
+        }
+        setFormBody(teams);
+
+        setShowPlatform(false);
+        methods.unregister("platform");
+        break;
+
+      case "default-value":
+        setShowPlatform(false);
+        methods.unregister("platform");
+        setFormBody(<></>);
+        break;
+
+      default:
+        setShowPlatform(false);
+        methods.unregister("platform");
+        setFormBody(<></>);
+        break;
+    }
+  };
+
+  return (
+    <FormProvider {...methods}>
+      <form onSubmit={methods.handleSubmit(onSubmit)} className={`${styles.registration_form}`} id="registration-form">
+        {isRegistering && (
+          <div className={styles.disable_form_window}>
+            {!isError && !isSuccess && (
+              <>
+                <h2>Registering...</h2>
+                <div className={styles.throbber}>
+                  <div className={`throbber_section ${styles.throbber_setion}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                  <div className={`throbber_section ${styles.throbber_section}`}></div>
+                </div>
+              </>
+            )}
+
+            {isError ? (
+              <>
+                <h2>{message}</h2>
+                <div style={{ display: "flex", flexDirection: "row", gap: "1rem" }}>
+                  <div id="reset_btn" className={styles.reset_form_btn} onClick={() => resetFields()}>
+                    Reset Form
+                  </div>
+                  <div id="go_bck_btn" className={styles.reset_form_btn} onClick={() => goBack()}>
+                    Go Back
+                  </div>
+                </div>
+              </>
+            ) : isSuccess && (
+              <>
+                <h2>{message}</h2>
+                <div id="ok_btn" className={styles.reset_form_btn} onClick={() => resetFields()}>
+                  Ok
+                </div>
+              </>
+            )}
+          </div>
+        )}
+        <div>
+          <h1 className={styles.form_title}>Form Registration</h1>
+          <div className={styles.form_fields}>
+            <div className={styles.event_field}>
+              <select
+                {...methods.register("event", {
+                  required: true,
+                  onChange: onEventChange,
+                  validate: (e: any) => e !== "default-event",
+                })}
+              >
+                <option value="default-event">Select an Event</option>
+                {EventsList.map((event, index) => {
+                  return (
+                    <option value={toSlug(event.title)} key={index}>
+                      {event.title}
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+            {showPlatform && (
+              <select
+                {...methods.register("platform", {
+                  required: true,
+                  onChange: onEventPlatformChange,
+                  validate: (val) => val !== "default-platform",
+                })}
+              >
+                <option value="default-platform">Select a Platform</option>
+                <option value="pc">PC</option>
+                <option value="mobile">Mobile</option>
+                <option value="console">Console</option>
+              </select>
+            )}
+          </div>
+          <div className={styles.team_fields}>{formBody}</div>
+          <div className={styles.submit}>
+            <input name="register" type={"submit"} value="Register" />
+          </div>
+        </div>
+      </form>
+    </FormProvider>
+  );
+};
+
+export default RegistrationForm;

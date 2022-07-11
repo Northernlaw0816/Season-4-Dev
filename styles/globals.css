@@ -4,6 +4,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
+@font-face {
+  font-family: 'SoundWave';
+  src: url('/fonts/SoundWave-GOK7a.ttf');
+}
+
+@font-face {
+  font-family: 'Imagine';
+  src: url('/fonts/Imagine_Font.ttf');
+}
+
+@font-face {
+  font-family: 'Fira Code';
+  src: url('/fonts/fira_code.ttf');
+}
 
 /* Green and Aqua */
 :root {
@@ -80,6 +94,7 @@ a {
 .embed {
   margin: auto;
   width: clamp(60%, 50rem, 90%);
+  border-radius: clamp(1rem, 5vw, 2rem);
 }
 
 .embed.video {
@@ -87,5 +102,14 @@ a {
 }
 
 .embed.pdf {
-  width: clamp(50%, 50rem, 100%);
+  width: clamp(60%, 50rem, 90%);
+}
+
+hr {
+  width: 100%;
+  border: none;
+  height: 4px;
+  border-radius: 100vw;
+  background: var(--text-alt);
+  opacity: 25%;
 }

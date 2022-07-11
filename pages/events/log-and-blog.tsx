@@ -1,5 +1,4 @@
 import { NextPage } from "next"
-import Head from "next/head"
 import Image from "next/image"
 import { toSlug } from "../../functions"
 
@@ -43,19 +42,19 @@ const LogAndBlog: NextPage= () => {
                     <ul className={styles.h2_p}>{LogAndBlogData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
-                    <h3>Assessment Criteria</h3>
+                    {/* <h3>Assessment Criteria</h3>
                     <ul className={styles.h2_p}>
                         {LogAndBlogData.headings.assessment.map((assessment, index) => {
                             return <li key={index}>
                                 <p>{assessment}</p>
                             </li>
                         })}
-                    </ul>
+                    </ul> */}
                 
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
                         {LogAndBlogData.headings.eventCoordinators?.map((coordinator, index) => {
-                            return <ProfileCard key={index} profileObject={coordinator}/>
+                            return <ProfileCard key={index} profileObject={coordinator} />
                         })}
                     </div>
                     

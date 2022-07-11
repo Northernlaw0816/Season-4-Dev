@@ -13,7 +13,7 @@ const Events: NextPage = () => {
     return(<>
         <HeadTemplate title="NuTopia | Events" description="NuTopia Events"/>
 
-        <Layout skipTo="#title" overrideClasses={styles.main}>
+        <Layout overrideClasses={styles.main}>
             <h1 id="title">Events</h1>
             
             <div className={styles.cards_container}>

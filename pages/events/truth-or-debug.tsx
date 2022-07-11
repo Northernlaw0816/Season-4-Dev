@@ -1,5 +1,4 @@
 import type { NextPage } from "next"
-import Head from 'next/head'
 import Image from "next/image"
 import { toSlug } from "../../functions"
 
@@ -44,7 +43,7 @@ const TruthOrDebug: NextPage = () => {
                     {TruthOrDebugData.tagline}
                 </h2>
 
-                <h2 id="finalists">Finalists</h2>
+                {/* <h2 id="finalists">Finalists</h2>
                     {TruthOrDebugData.headings.finalists.map((finalist, index) => {
                         return(<div key={index}>
                             <h3>{finalist.teamName}</h3>
@@ -56,13 +55,13 @@ const TruthOrDebug: NextPage = () => {
                                 })}
                             </ol>
                         </div>)
-                    })}
+                    })} */}
                 
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{TruthOrDebugData.headings.about}</p>
                 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {TruthOrDebugData.details.date}</p>
+                    <p className={styles.h2_p}><strong>Date:</strong> {TruthOrDebugData.details.dateAndTime}</p>
                     <p className={styles.h2_p}><strong>Time:</strong> {TruthOrDebugData.details.time}</p>
                     <p className={styles.h2_p}><strong>Venue:</strong> {TruthOrDebugData.details.venue}</p>
 
@@ -70,11 +69,11 @@ const TruthOrDebug: NextPage = () => {
                     <ul>{TruthOrDebugData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
-               
+                    
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
                         {TruthOrDebugData.headings.eventCoordinators.map((coordinator, index) => {
-                            return <ProfileCard key={index} profileObject={coordinator}/>
+                            return <ProfileCard key={index} profileObject={coordinator} />
                         })}
                     </div>                    
                 

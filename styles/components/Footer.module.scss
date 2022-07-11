@@ -1,16 +1,18 @@
 .footer {
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1.5fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
-    "school links details"
+    "links links links"
+    "school details details"
     "copyright copyright copyright";
-  background: var(--inactive);
+
   padding: 1rem;
-  padding-bottom: 0;
   gap: 1rem;
   text-align: center;
   color: var(--text-white);
   place-items: center;
+
+  --blob-color: var(--primary);
 
   a {
     margin-bottom: 0.5rem;
@@ -29,10 +31,9 @@
     align-items: center;
     margin: 0;
     padding: 0 1rem;
-    
-    &::after {
-      display: none;
-    }
+
+    background-color: var(--blob-color);
+    border-radius: clamp(0.25rem, 3vw, 1rem);
     
     & > * {
       filter: brightness(10);
@@ -42,13 +43,7 @@
     &:hover,
     &:focus-visible {
       & > * {
-        filter: brightness(1);
-      }
-    }
-
-    &:hover {
-      & > * {
-        transform: scale(1.05);
+        filter: brightness(1.5);
       }
     }
     
@@ -58,16 +53,6 @@
         background: white;
         border: 4px black solid;
       }
-    }
-
-    &::before {
-      content: "";
-      position: absolute;
-      right: -8px;
-      top: 10%;
-      bottom: 10%;
-      width: 1px;
-      background: white;
     }
 
     .large {
@@ -99,15 +84,9 @@
     height: 100%;
     width: 100%;
     padding: 1rem;
-    &::before {
-      content: "";
-      position: absolute;
-      left: -8px;
-      top: 10%;
-      bottom: 10%;
-      width: 1px;
-      background: white;
-    }
+
+    background-color: var(--blob-color);
+    border-radius: clamp(0.25rem, 3vw, 1rem);
 
     .social {
       display: grid;
@@ -131,24 +110,6 @@
         &:hover {
           transform: scale(1.1);
         }
-
-        &.insta {
-          filter: contrast(0%) brightness(50);
-          transition: filter 100ms, transform 250ms;
-
-          &:hover{
-            filter: contrast(100%) brightness(1);
-          }
-        }
-
-        &.facebook, &.youtube {
-          filter: invert(1) saturate(0) brightness(2);
-          transition: filter 100ms, transform 250ms;
-
-          &:hover{
-            filter: invert(0) saturate(100%) brightness(1);
-          }
-        }
       }
     }
 
@@ -161,12 +122,17 @@
     width: 100%;
     display: grid;
     gap: 1rem;
+    grid-area: links;
     place-items: center;
     align-items: start;
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
       "event links_title"
       "event_links links_links";
+    padding-block: 1rem;
+
+    background-color: var(--blob-color);
+    border-radius: clamp(0.25rem, 3vw, 1rem);
 
     label {
       font-size: clamp(1rem, 2vw, 1.5rem);
@@ -192,9 +158,12 @@
     align-items: center;
     font-size: clamp(0.75rem, 2vw, 1rem);
     width: 100%;
-    border-top: 2px white solid;
     padding: 1rem 0;
     gap: 1ch;
+
+    background-color: var(--blob-color);
+    border-radius: clamp(0.25rem, 3vw, 1rem);
+
     div {
       display: flex;
       flex-wrap: wrap;
@@ -236,38 +205,22 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media(prefers-color-scheme: dark) {
   .footer {
-    grid-template-columns: 3.5fr 2fr;
-    grid-template-areas:
-      "links details"
-      "copyright copyright";
-
-    .footer_school {
-      display: none;
-    }
+    --blob-color: var(--inactive);
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 500px) {
   .footer {
     grid-template-columns: 1fr;
     grid-template-areas: 
-      "links"
       "details"
+      "links"
       "copyright";
 
-    .footer_details {
-      &::before {
-        content: "";
-        position: absolute;
-        top: -8px;
-        left: 0;
-        right: 0;
-        height: 1px;
-        width: auto;
-        background: white;
-      }
+    .footer_school {
+      display: none;
     }
   }
 }

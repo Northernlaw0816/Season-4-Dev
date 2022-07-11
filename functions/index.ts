@@ -1,6 +1,5 @@
 import getRegistrationsCollection from "./getRegistrationsCollection"
-import registerTeam from "./registerTeam"
 import toSlug from "./toSlug"
-import validateFields from "./validateFields"
+import titleCase from "./titleCase"
 
-export { getRegistrationsCollection, registerTeam, toSlug, validateFields }
+export { getRegistrationsCollection, toSlug, titleCase }

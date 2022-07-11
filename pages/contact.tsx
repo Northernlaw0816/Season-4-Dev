@@ -1,4 +1,3 @@
-import Head from "next/head"
 import Image from "next/image"
 import { toSlug } from "../functions"
 
@@ -19,7 +18,7 @@ import { ContactData } from '../data/pages'
 export const Contact = () => {
     return (<>
         <HeadTemplate title="NuTopia | Contact Us" description="View Our Contact Information"/>
-        <Layout skipTo="#address" additionalClasses={styles.main}>
+        <Layout overrideClasses={styles.main}>
             <h1 id="title">Contact Us</h1>
             <div className={styles.layout}>
                 <h2 id="school" className={styles.school_name}>Yuvabharathi Public School</h2>
