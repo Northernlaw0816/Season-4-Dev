@@ -9,7 +9,6 @@ import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
-import Effects from '../../styles/Effects.module.scss'
 //assets
 import logo from '../../public/images/events/ko_logo.png'
 //data
@@ -34,7 +33,7 @@ const KnockOut: NextPage= () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{KnockOutData.headings.about}</p> 
                 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong></p>
+                    <p className={styles.h2_p}><strong>Date and Time:</strong></p>
                     <ul>{KnockOutData.details.date.map((date, index) => {
                         return <li key={index}><p>{date}</p></li>
                     })}</ul>

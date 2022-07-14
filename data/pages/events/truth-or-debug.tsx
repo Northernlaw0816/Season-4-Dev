@@ -16,9 +16,10 @@ const TruthOrDebug = {
 
     details: {
         shortDescription: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
-        dateAndTime: `${Main.dates.day1} | ${Main.dates.day2}, 1:00 p.m. - 4:00 p.m.`,
-        date: `${Main.dates.day1} | ${Main.dates.day2}`,
-        time: '1:00 p.m. - 4:00 p.m.',
+        date: [
+            `${Main.dates.day1}, 1:00 p.m. - 4:00 p.m.`,
+            `${Main.dates.day2}, 1:00 a.m. - 4:00 p.m.`
+        ],
         venue: 'ATAL Lab',
         grades: '9 - 12',
         image: TD,
