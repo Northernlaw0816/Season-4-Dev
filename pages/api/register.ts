@@ -31,7 +31,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
     let teams = req.body.teams.filter((team: any) => {
       return team.teamName !== ""
     })
-    
+
     body.teams = teams;
   }
 
@@ -40,9 +40,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   let success = true;
   let message = "";
   if (teams) {
-    message = `Successfully registered ${teams.length} team(s) for ${titleCase(event.replaceAll("-", " "))}`;
+    message = `Successfully registered ${teams.length} team(s) for ${titleCase(event.toString().replaceAll("-", " "))}`;
   } else if (participants){
-    message = `Successfully registered ${participants.length} participant(s) for ${titleCase(event.replaceAll("-", " "))}`;
+    message = `Successfully registered ${participants.length} participant(s) for ${titleCase(event.toString().replaceAll("-", " "))}`;
   }
 
   if (!req.body) {
