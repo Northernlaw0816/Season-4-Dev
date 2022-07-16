@@ -181,7 +181,8 @@ const RegistrationForm = () => {
       userToken:localStorage.getItem("userToken")
     }).then((response:any) => response.data).catch((err:any) => {
       setIsError(true)
-      setMessage(err.response.data.message)
+      setMessage("An Unknown Error Occurred. Please Try Again Later.")
+      if (err.response.data.message) setMessage(err.response.data.message)
     })
 
     if (response) {
@@ -294,7 +295,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`;
+          let teamTitle = ""
 
           if (index === 0) teamTitle = "Fortnite";
           if (index === 3) teamTitle = "Rocket League";
