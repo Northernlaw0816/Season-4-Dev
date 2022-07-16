@@ -214,9 +214,9 @@ const ArenaOfValor = {
     registration: [
       "Registrations for each platform has to be done separately.",
       "Participants can register as ONE team for ONE game per platform.",
-      "Console (2v2) – 1 team ",
-      "Mobile	(4v4) - 2 teams",
-      "PC (5v5) - 1 team",
+      "Console: Duo Team (2 members) – 3 teams per school",
+      "Mobile:	Quad Team (4 members) - 3 teams per school",
+      "PC: Quintet Team (5 members) - 3 teams per school",
     ],
   },
 };
