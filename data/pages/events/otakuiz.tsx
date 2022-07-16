@@ -39,7 +39,7 @@ const Otakuiz = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Otakuiz"),
 
         registration: [
-            "This is a Trio event - 1 team per school"
+            "Participants register Trio Teams (3 members) - 3 teams per school"
         ]
     }
 }

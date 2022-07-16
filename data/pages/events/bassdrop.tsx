@@ -48,7 +48,7 @@ const BassDrop = {
       (coordinator) => coordinator.event === "Bass Drop"
     ),
 
-    registration: ["This is a Solo event - 2 participants per school"],
+    registration: ["This is a Solo event - 3 participants per school"],
   },
 };
 

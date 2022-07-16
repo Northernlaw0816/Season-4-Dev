@@ -61,14 +61,21 @@ const TruthOrDebug: NextPage = () => {
                     <p className={`${styles.h2_p} ${styles.description_p}`}>{TruthOrDebugData.headings.about}</p>
                 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date:</strong> {TruthOrDebugData.details.dateAndTime}</p>
-                    <p className={styles.h2_p}><strong>Time:</strong> {TruthOrDebugData.details.time}</p>
+                    <p className={styles.h2_p}><strong>Date and Time:</strong></p>
+                    <ul>{TruthOrDebugData.details.dateAndTime.map((date, index) => {
+                        return <li key={index}><p>{date}</p></li>
+                    })}</ul>
                     <p className={styles.h2_p}><strong>Venue:</strong> {TruthOrDebugData.details.venue}</p>
 
                 <h2 id="guidelines">Guidelines</h2>
                     <ul>{TruthOrDebugData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
+
+                <h2 id="prerequisites">Prerequisites</h2>
+                    <ul>{TruthOrDebugData.headings.prerequisites.map((prereq, index) => {
+                        return <li key={index}><p>{prereq}</p></li>
+                    })}</ul>
                     
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>

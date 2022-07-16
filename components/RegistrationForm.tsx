@@ -120,8 +120,8 @@ const Teams = ({ maxTeams, maxParticipants, platEvent, index, teamTitle }: any) 
       {maxParticipants > 1 && (
         <>
           <hr />
-          {platEvent === "mobile" && index % 2 === 0 && <h3>{teamTitle}</h3>}
-          <h3>{platEvent === "mobile" ? `Team ${(index % 2) + 1}` : teamTitle}</h3>
+          {platEvent && index % (maxTeams/2) === 0 && <h3>{teamTitle}</h3>}
+          <h3>{platEvent ? `Team ${(index % (maxTeams/2)) + 1}` : `Team ${index + 1}`}</h3>
 
 
           <div className={styles.team_input}>
@@ -181,13 +181,13 @@ const RegistrationForm = () => {
       userToken:localStorage.getItem("userToken")
     }).then((response:any) => response.data).catch((err:any) => {
       setIsError(true)
-      setMessage(err.response.data.message)
+      setMessage("An Unknown Error Occurred. Please Try Again Later.")
+      if (err.response.data.message) setMessage(err.response.data.message)
     })
 
     if (response) {
       setIsError(!response.success)
       setIsSuccess(response.success)
-      setMessage(response.message)
       setMessage(response.message)
     }
   }
@@ -245,14 +245,14 @@ const RegistrationForm = () => {
 
     switch (platVal) {
       case "pc":
-        maxTeams = 2;
+        maxTeams = 6;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
           let teamTitle = `Team ${index + 1}`;
 
           if (index === 0) teamTitle = "Valorant";
-          if (index === 1) teamTitle = "CS:GO";
+          if (index === 3) teamTitle = "CS:GO";
 
           teams.push(
             <Teams
@@ -268,14 +268,14 @@ const RegistrationForm = () => {
         break;
 
       case "mobile":
-        maxTeams = 4;
+        maxTeams = 6;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
           let teamTitle = `Team ${index + 1}`;
 
           if (index === 0) teamTitle = "BattleGround Mobile India";
-          if (index === 2) teamTitle = "Call Of Duty";
+          if (index === 3) teamTitle = "Call Of Duty";
 
           teams.push(
             <Teams
@@ -291,14 +291,14 @@ const RegistrationForm = () => {
         break;
 
       case "console":
-        maxTeams = 2;
+        maxTeams = 6;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`;
+          let teamTitle = ""
 
           if (index === 0) teamTitle = "Fortnite";
-          if (index === 1) teamTitle = "Rocket League";
+          if (index === 3) teamTitle = "Rocket League";
 
           teams.push(
             <Teams
@@ -337,7 +337,7 @@ const RegistrationForm = () => {
         break;
 
       case "knockout":
-        maxTeams = 1;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -350,11 +350,10 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "truth-or-debug":
-        maxTeams = 2;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -367,11 +366,10 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "log-and-blog":
-        maxTeams = 2;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -384,11 +382,10 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "designscape":
-        maxTeams = 2;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -401,11 +398,10 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "otakuiz":
-        maxTeams = 1;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -418,11 +414,10 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "bass-drop":
-        maxTeams = 2;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -435,11 +430,10 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "pandoras-blocks":
-        maxTeams = 1;
+        maxTeams = 3;
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
@@ -452,18 +446,15 @@ const RegistrationForm = () => {
         setFormBody(teams);
 
         setShowPlatform(false);
-        methods.unregister("platform");
         break;
 
       case "default-value":
         setShowPlatform(false);
-        methods.unregister("platform");
         setFormBody(<></>);
         break;
 
       default:
         setShowPlatform(false);
-        methods.unregister("platform");
         setFormBody(<></>);
         break;
     }

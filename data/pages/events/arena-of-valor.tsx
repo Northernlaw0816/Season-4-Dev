@@ -21,8 +21,10 @@ const ArenaOfValor = {
     shortDescription:
       "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intense competitive gaming event in town. For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for the battle?",
 
-    date: [`${Main.dates.day1}, 1:00 p.m. - 7:00 p.m.`,
-            `${Main.dates.day2}, 9:30 a.m. - 3:00 p.m.`],
+    date: [
+      `${Main.dates.day1}, 1:00 p.m. - 7:00 p.m.`,
+      `${Main.dates.day2}, 9:30 a.m. - 3:00 p.m.`
+    ],
 
     dateAndTime: `${Main.dates.day1}, 1:00 p.m. - 7:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 3:00 p.m.`,
 
@@ -212,9 +214,9 @@ const ArenaOfValor = {
     registration: [
       "Registrations for each platform has to be done separately.",
       "Participants can register as ONE team for ONE game per platform.",
-      "Console (2v2) – 1 team ",
-      "Mobile	(4v4) - 2 teams",
-      "PC (5v5) - 1 team",
+      "Console: Duo Team (2 members) – 3 teams per school",
+      "Mobile:	Quad Team (4 members) - 3 teams per school",
+      "PC: Quintet Team (5 members) - 3 teams per school",
     ],
   },
 };
