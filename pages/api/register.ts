@@ -5,33 +5,33 @@ import { firestore } from "../../firebase/clientApp";
 import { titleCase } from "../../functions";
 
 export default async function register(req: NextApiRequest, res: NextApiResponse) {
+  let body = req.body;
 
-  let body = req.body
+  let info = { err: false, index: 0, exe: () => {}, data: { success: false, message: `` } };
+
 
   if (req.body.participants) {
-
-    for(let participant of req.body.participants) {
+    for (let participant of req.body.participants) {
       if (participant.name !== "" && (participant.grade === "default-value" || participant.phone === "")) {
         return res.status(400).json({
           success: false,
-          message: `Please fill out all fields for ${participant.name}`
-        })
+          message: `Please fill out all fields for ${participant.name}`,
+        });
       }
     }
 
     let participants = req.body.participants.filter((participant: any) => {
-      return participant.name !== ""
+      return participant.name !== "";
     });
 
     body.participants = participants;
-
   }
 
   if (req.body.teams) {
     let teams = req.body.teams.filter((team: any) => {
-      return team.teamName !== ""
-    })
-    
+      return team.teamName !== "";
+    });
+
     body.teams = teams;
   }
 
@@ -40,8 +40,10 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   let success = true;
   let message = "";
   if (teams) {
-    message = `Successfully registered ${teams.length} team(s) for ${titleCase(event.replace(/-/g, " "))} ${platform && platform !== "default-value" ? `- ${platform}` : ""}`;
-  } else if (participants){
+    message = `Successfully registered ${teams.length} team(s) for ${titleCase(event.replace(/-/g, " "))} ${
+      platform && platform !== "default-value" ? `- ${platform}` : ""
+    }`;
+  } else if (participants) {
     message = `Successfully registered ${participants.length} participant(s) for ${titleCase(event.replace(/-/g, " "))}`;
   }
 
@@ -98,7 +100,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
       teams.forEach((team: any, index: number) => {
         team.participants.forEach((participant: any, index: number) => {
           if (phones.includes(participant.phone)) {
-            return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
+            info.err = true;
+            info.data = { success: false, message: `Phone number already in use (Participant: ${index + 1})` };
           }
         });
       });
@@ -107,7 +110,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
       participants.forEach((participant: any, index: number) => {
         if (participant.phone === "") delete participants[index];
         if (phones.includes(participant.phone)) {
-          return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
+          info.err = true;
+          info.data = { success: false, message: `Phone number already in use (Participant: ${index + 1})` };
         }
       });
     }
@@ -125,16 +129,18 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 
     if (event === "arena-of-valor") {
       if (tmpEvents.includes(`${event}:${platform}`)) {
-        return res.status(200).json({
+        info.err = true;
+        info.data = {
           success: false,
           message: `Already registered under this platform (${platform})`,
-        });
+        };
       }
     } else if (tmpEvents.includes(event)) {
-      return res.status(200).json({
+      info.err = true;
+      info.data = {
         success: false,
         message: `Event already registered`,
-      });
+      };
     }
 
     if (teams) {
@@ -144,10 +150,11 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
           teamNames.push(team.teamName);
           teamName.push(team.teamName);
         } else {
-          return res.status(200).json({
+          info.err = true;
+          info.data = {
             success: false,
             message: `Team name already registered`,
-          });
+          };
         }
         team.participants.forEach((participant: any, index: any) => {
           let formPhones: Array<any> = [];
@@ -197,7 +204,6 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
       });
     }
   }
-
   const data: any = {
     event,
     schoolId,
@@ -224,9 +230,12 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   }
 
   console.log(data);
-
-  return res.status(200).json({
-    success,
-    message,
-  });
+  if (!info.err)
+    return res.status(200).json({
+      success,
+      message,
+    });
+      else {
+    return res.status(200).json(info.data);
+  }
 }
