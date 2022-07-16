@@ -40,10 +40,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   let success = true;
   let message = "";
   if (teams) {
-    console.log(event)
     message = `Successfully registered ${teams.length} team(s) for ${titleCase(event.replace(/-/g, " "))} ${platform && platform !== "default-value" ? `- ${platform}` : ""}`;
   } else if (participants){
-    console.log(event)
     message = `Successfully registered ${participants.length} participant(s) for ${titleCase(event.replace(/-/g, " "))}`;
   }
 
@@ -225,7 +223,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
     });
   }
 
-  res.status(200).json({
+  console.log(data);
+
+  return res.status(200).json({
     success,
     message,
   });
