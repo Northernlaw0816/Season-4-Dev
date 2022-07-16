@@ -15,6 +15,10 @@ const NavLinks = [
         name: 'Contact',
         link: '/contact'
     },
+    {
+        name: 'Login',
+        link: '/login'
+    },
 ]
 
 export default NavLinks
