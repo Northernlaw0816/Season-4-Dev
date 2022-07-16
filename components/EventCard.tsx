@@ -6,7 +6,7 @@ import { toSlug } from "../functions"
 //stylesheets
 import styles from "../styles/pages/Event.module.scss"
 
-const EventCard = ({title, description, date, time, venue, grades, link, image, accent, selector}: any) => {
+const EventCard = ({title, description, date, venue, grades, link, image, accent, selector}: any) => {
     
     let card: any = useRef(null)
     

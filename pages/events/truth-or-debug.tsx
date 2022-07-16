@@ -62,7 +62,7 @@ const TruthOrDebug: NextPage = () => {
                 
                 <h2 id="details">Details</h2>
                     <p className={styles.h2_p}><strong>Date and Time:</strong></p>
-                    <ul>{TruthOrDebugData.details.date.map((date, index) => {
+                    <ul>{TruthOrDebugData.details.dateAndTime.map((date, index) => {
                         return <li key={index}><p>{date}</p></li>
                     })}</ul>
                     <p className={styles.h2_p}><strong>Venue:</strong> {TruthOrDebugData.details.venue}</p>

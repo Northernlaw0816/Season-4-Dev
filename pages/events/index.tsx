@@ -17,14 +17,13 @@ const Events: NextPage = () => {
             <h1 id="title">Events</h1>
             
             <div className={styles.cards_container}>
-                {EventsData.map(({title, description, date, venue, time, grades, link, image, accent, selector}, index) => {
+                {EventsData.map(({title, description, date, venue, grades, link, image, accent, selector}, index) => {
                     return(
                         <EventCard
                             key={`${index}_${title}`}
                             title={title}
                             description={description}
                             date={date}
-                            time={time}
                             venue={venue}
                             grades={grades}
                             link={link}
