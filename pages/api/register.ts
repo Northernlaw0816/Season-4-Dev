@@ -70,15 +70,15 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
           });
         });
       }
-      if(registrations.get("participants")) {
+      if (registrations.get("participants")) {
         registrations.get("participants").forEach((participant: any) => {
           phones.push(participant.phone);
         });
       }
     });
-    
+
     if (teams) {
-      teams.forEach((team: any) => {
+      teams.forEach((team: any, index: number) => {
         team.participants.forEach((participant: any, index: number) => {
           if (phones.includes(participant.phone)) {
             return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
@@ -88,6 +88,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
     }
     if (participants) {
       participants.forEach((participant: any, index: number) => {
+        if (participant.phone === "") delete participants[index];
         if (phones.includes(participant.phone)) {
           return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
         }
