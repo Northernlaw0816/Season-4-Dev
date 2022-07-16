@@ -28,6 +28,24 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   }
 
   if (req.body.teams) {
+
+    if (req.body.event === "arena-of-valor") {
+      req.body.teams.forEach((team:any, index:number) => {
+        let game = ""
+        switch (req.body.platform) {
+          case "pc":
+            game = index > 2 ? "CS:GO" : "Valorant"
+            break;
+          case "mobile":
+            game = index > 2 ? "CODM" : "BGMI"
+            break;
+          case "console":
+            game = index > 2 ? "Rocket League" : "Fortnite"
+        }  
+        team.game = game
+      })
+    }
+
     let teams = req.body.teams.filter((team: any) => {
       return team.teamName !== ""
     })
