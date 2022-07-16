@@ -31,7 +31,7 @@ const Participants = ({ maxParticipants, teamIndex, required }: any) => {
           required={required}
           {...register(nameFieldName, {
             pattern: {
-              value: /^[a-zA-Z\s]+$/,
+              value: /^[a-zA-Z.\s]+$/,
               message: "Only letters and spaces are allowed"
             }
           })}
@@ -43,13 +43,12 @@ const Participants = ({ maxParticipants, teamIndex, required }: any) => {
           className={getFieldState(gradeFieldName).error && `${styles.error}`}
           required={required}
           {...register(gradeFieldName, {
-            validate: (value: any) => {
-                if (required) {
-                  return value === "default-value" && "Grade is required" 
-                } else {
-                  return false
-                }
+            validate: (value: string) => {
+              if (value === "default-value" && required) {
+                return "Please select a grade";
               }
+              return undefined;
+            }
           })}
         >
           <option value="default-value">Select Grade</option>  

@@ -44,7 +44,7 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : userToken && userToken !== "undefined" ? <RegistrationForm /> : <h1 id={`#${toSlug("Registration Form")}`}>Please Login to Register</h1>}
+            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations are Closed</h1> : userToken && userToken !== "undefined" ? <RegistrationForm /> : <h1 id={`${toSlug("Registration Form")}`}>Please Login to Register</h1>}
 
         </Layout>
     </>)
