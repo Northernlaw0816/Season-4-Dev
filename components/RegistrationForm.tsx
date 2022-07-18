@@ -11,20 +11,21 @@ import styles from "../styles/components/RegistrationForm.module.scss";
 //data
 import EventsList from "../data/EventsList";
 
-const Participants = ({ maxParticipants, teamIndex, required }: any) => {
+const Participants = ({ maxParticipants, required }: any) => {
   const { register, formState: { errors }, getFieldState } = useFormContext();
   const participants: any = [];
 
   for (let i = 0; i < maxParticipants; i++) {
-    let nameFieldName = `${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.name` : `participants.${teamIndex}.name`}`
-    let gradeFieldName = `${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.grade` : `participants.${teamIndex}.grade`}`
-    let phoneFieldName = `${maxParticipants > 1 ? `teams.${teamIndex}.participants.${i}.phone` : `participants.${teamIndex}.phone`}`
+    let nameFieldName = `${maxParticipants > 1 ? `team.participants.${i}.name` : `participants.${i}.name`}`
+    let gradeFieldName = `${maxParticipants > 1 ? `team.participants.${i}.grade` : `participants.${i}.grade`}`
+    let phoneFieldName = `${maxParticipants > 1 ? `team.participants.${i}.phone` : `participants.${i}.phone`}`
+    let emailFieldName = `${maxParticipants > 1 ? `team.participants.${i}.phone` : `participants.${i}.emai`}`
 
     participants.push(
       <div key={i} className={styles.member_input}>
         {/* NAME */}
         <label htmlFor={nameFieldName}>
-          Participant {maxParticipants === 1 ? teamIndex + 1 : i + 1}:{" "}
+          Participant {`${i + 1}: `}
         </label>
         <input
           className={getFieldState(nameFieldName).error && `${styles.error}`}
@@ -97,38 +98,22 @@ const Participants = ({ maxParticipants, teamIndex, required }: any) => {
   return participants;
 };
 
-const Teams = ({ maxTeams, maxParticipants, platEvent, index, teamTitle }: any) => {  
-  const { register, formState: { errors }, getValues, getFieldState} = useFormContext();
-  const [required, setRequired] = useState(false);
+const Team = ({ maxParticipants }: any) => {  
+  const { register, formState: { errors }, getFieldState} = useFormContext();
 
-  const handleTeamName = () => {
-    setRequired(getValues(fieldName) !== "");
-  };
-
-  useEffect(() => {
-    if (!platEvent) {
-      if (index === 0) {
-        setRequired(true);
-      }
-    }
-  });
-
-  let fieldName = `teams.${index}.teamName` 
+  let fieldName = `team.teamName` 
 
   return (
-    <div key={index}>
+    <div>
       {maxParticipants > 1 && (
         <>
           <hr />
-          {platEvent && index % (maxTeams/2) === 0 && <h3>{teamTitle}</h3>}
-          <h3>{platEvent ? `Team ${(index % (maxTeams/2)) + 1}` : `Team ${index + 1}`}</h3>
-
 
           <div className={styles.team_input}>
             <label htmlFor={fieldName}>Team Name: </label>
             <input
               className={getFieldState(fieldName).error && `${styles.error}`}
-              required={required}
+              required={true}
               placeholder="Min 4 characters, Maximum 32 Characters"
               {...register(fieldName, {
                 maxLength: {
@@ -138,8 +123,7 @@ const Teams = ({ maxTeams, maxParticipants, platEvent, index, teamTitle }: any) 
                 minLength: {
                   value: 4,
                   message: "Min characters in team name is 4",
-                },
-                onChange: handleTeamName
+                }
               })}
             />
             <ErrorMessage errors={errors} name={fieldName} render={({ messages }) =>
@@ -152,25 +136,21 @@ const Teams = ({ maxTeams, maxParticipants, platEvent, index, teamTitle }: any) 
         </>
       )}
       <Participants
-        index={index}
-        register={register}
-        maxTeams={maxTeams}
         maxParticipants={maxParticipants}
-        teamIndex={index}
-        getValues={getValues}
-        required={required}
+        required={true}
       />
     </div>
   );
 };
 
 const RegistrationForm = () => {
-  let [showPlatform, setShowPlatform] = useState<boolean>(false);
+  let [showAovFields, setShowAovFields] = useState<boolean>(false);
   let [formBody, setFormBody] = useState<any>(<></>);
   let [isRegistering, setIsRegistering] = useState<boolean>(false);
   let [isError, setIsError] = useState(false);
   let [isSuccess, setIsSuccess] = useState(false);
   let [message, setMessage] = useState("");
+  let [schools, setSchools] = useState<any>();
   const router = useRouter();
 
   // Handlers
@@ -216,7 +196,20 @@ const RegistrationForm = () => {
     }
   })
 
-    const methods = useForm({
+  const getSchools = async () => {
+    const response = await axios.get("/api/schools").then((response:any) => response.data).catch((err:any) => {
+      console.log(err)
+    })
+
+    return response
+  }
+
+  useEffect(() => {
+    console.log(getSchools())
+    // setSchools(getSchools())
+  }, [])
+
+  const methods = useForm({
     mode: "onSubmit",
     reValidateMode: "onChange",
     criteriaMode: "all",
@@ -238,79 +231,20 @@ const RegistrationForm = () => {
 
   const onEventPlatformChange = () => {
     const platVal = methods.getValues("platform");
-    methods.unregister("teams");
+    methods.unregister("team");
     methods.unregister("participants");
-    let maxTeams = 0;
-    let teams: any = [];
 
     switch (platVal) {
       case "pc":
-        maxTeams = 6;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`;
-
-          if (index === 0) teamTitle = "Valorant";
-          if (index === 3) teamTitle = "CS:GO";
-
-          teams.push(
-            <Teams
-              maxTeams={maxTeams}
-              maxParticipants={5}
-              platEvent={"pc"}
-              teamTitle={teamTitle}
-              index={index}
-            />,
-          );
-        }
-        setFormBody(teams);
+        setFormBody(<Team maxParticipants={5}/>);
         break;
 
       case "mobile":
-        maxTeams = 6;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = `Team ${index + 1}`;
-
-          if (index === 0) teamTitle = "BattleGround Mobile India";
-          if (index === 3) teamTitle = "Call Of Duty";
-
-          teams.push(
-            <Teams
-              maxTeams={maxTeams}
-              maxParticipants={4}
-              platEvent={"mobile"}
-              teamTitle={teamTitle}
-              index={index}
-            />,
-          );
-        }
-        setFormBody(teams);
+        setFormBody(<Team maxParticipants={4}/>);
         break;
 
       case "console":
-        maxTeams = 6;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          let teamTitle = ""
-
-          if (index === 0) teamTitle = "Fortnite";
-          if (index === 3) teamTitle = "Rocket League";
-
-          teams.push(
-            <Teams
-              maxTeams={maxTeams}
-              maxParticipants={2}
-              platEvent={"console"}
-              teamTitle={teamTitle}
-              index={index}
-            />,
-          );
-        }
-        setFormBody(teams);
+        setFormBody(<Team maxParticipants={2}/>);
         break;
 
       case "default-platform":
@@ -324,7 +258,7 @@ const RegistrationForm = () => {
 
   const onEventChange = () => {
     const eventVal = methods.getValues("event");
-    methods.unregister("teams");
+    methods.unregister("team");
     methods.unregister("participants");
     methods.unregister("platform");
     let maxTeams = 0;
@@ -332,7 +266,7 @@ const RegistrationForm = () => {
 
     switch (eventVal) {
       case "arena-of-valor":
-        setShowPlatform(true);
+        setShowAovFields(true);
         setFormBody(<></>);
         break;
 
@@ -341,7 +275,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
+          teams.push(<Team
             maxTeams={maxTeams}
             maxParticipants={1}
             index={index}
@@ -349,7 +283,7 @@ const RegistrationForm = () => {
         }
         setFormBody(teams);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "truth-or-debug":
@@ -357,7 +291,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
+          teams.push(<Team
             maxTeams={maxTeams}
             maxParticipants={3}
             index={index}
@@ -365,7 +299,7 @@ const RegistrationForm = () => {
         }
         setFormBody(teams);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "log-and-blog":
@@ -373,7 +307,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
+          teams.push(<Team
             maxTeams={maxTeams}
             maxParticipants={1}
             index={index}
@@ -381,7 +315,7 @@ const RegistrationForm = () => {
         }
         setFormBody(teams);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "designscape":
@@ -389,7 +323,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
+          teams.push(<Team
             maxTeams={maxTeams}
             maxParticipants={1}
             index={index}
@@ -397,7 +331,7 @@ const RegistrationForm = () => {
         }
         setFormBody(teams);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "otakuiz":
@@ -405,7 +339,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
+          teams.push(<Team
             maxTeams={maxTeams}
             maxParticipants={3}
             index={index}
@@ -413,23 +347,17 @@ const RegistrationForm = () => {
         }
         setFormBody(teams);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "bass-drop":
-        maxTeams = 3;
-        teams = [];
 
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
-            maxTeams={maxTeams}
-            maxParticipants={1}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
+        setFormBody(<Team
+          maxTeams={maxTeams}
+          maxParticipants={1}
+        />);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "pandoras-blocks":
@@ -437,7 +365,7 @@ const RegistrationForm = () => {
         teams = [];
 
         for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Teams
+          teams.push(<Team
             maxTeams={maxTeams}
             maxParticipants={3}
             index={index}
@@ -445,16 +373,16 @@ const RegistrationForm = () => {
         }
         setFormBody(teams);
 
-        setShowPlatform(false);
+        setShowAovFields(false);
         break;
 
       case "default-value":
-        setShowPlatform(false);
+        setShowAovFields(false);
         setFormBody(<></>);
         break;
 
       default:
-        setShowPlatform(false);
+        setShowAovFields(false);
         setFormBody(<></>);
         break;
     }
@@ -505,6 +433,16 @@ const RegistrationForm = () => {
         <div>
           <h1 className={styles.form_title}>Form Registration</h1>
           <div className={styles.form_fields}>
+            <div className={styles.school_field}>
+              <label htmlFor="schoolName">School Name: </label>
+              <input {...methods.register("schoolName", {
+                required: true,
+                minLength: {
+                  value: 5,
+                  message: "School name must be at least 5 characters long"
+                }
+              })}/>
+            </div>
             <div className={styles.event_field}>
               <select
                 {...methods.register("event", {
@@ -523,20 +461,45 @@ const RegistrationForm = () => {
                 })}
               </select>
             </div>
-            {showPlatform && (
-              <select
-                {...methods.register("platform", {
-                  required: true,
-                  onChange: onEventPlatformChange,
-                  validate: (val) => val !== "default-platform",
-                })}
-              >
-                <option value="default-platform">Select a Platform</option>
-                <option value="pc">PC</option>
-                <option value="mobile">Mobile</option>
-                <option value="console">Console</option>
-              </select>
-            )}
+            {showAovFields && (<>
+              <div className={styles.platform_field}>
+                <select
+                  {...methods.register("platform", {
+                    required: true,
+                    onChange: onEventPlatformChange,
+                    validate: (val) => val !== "default-platform",
+                  })}
+                >
+                  <option value="default-platform">Select a Platform</option>
+                  <option value="pc">PC</option>
+                  <option value="mobile">Mobile</option>
+                  <option value="console">Console</option>
+                </select>
+              </div>
+              <div className={styles.game_field}>
+                <select
+                  {...methods.register("game", {
+                    required: true,
+                    onChange: onEventPlatformChange,
+                    validate: (val) => val !== "default-platform",
+                  })}
+                >
+                  <option value="default-platform">Select a Game</option>
+                  {methods.getValues("platform") === "pc" && (<>
+                    <option value="pc">Valorant</option>
+                    <option value="mobile">CS:GO</option>
+                  </>)}
+                  {methods.getValues("platform") === "mobile" && (<>
+                    <option value="pc">BattleGrounds Mobile India</option>
+                    <option value="mobile">Call of Duty: Mobile</option>
+                  </>)}
+                  {methods.getValues("platform") === "console" && (<>
+                    <option value="pc">Fortnite</option>
+                    <option value="mobile">Rocket League</option>
+                  </>)}
+                </select>
+              </div>
+            </>)}
           </div>
           <div className={styles.team_fields}>{formBody}</div>
           <div className={styles.submit}>
