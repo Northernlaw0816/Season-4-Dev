@@ -83,58 +83,54 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
         tmpEvents.push(`${registration.get("event")}:${registration.get("platform")}`);
       } else tmpEvents.push(registration.get("event"));
     });
-
+const filteredEvents = tmpEvents.filter((Event:any)=>event === Event)
     if (event === "arena-of-valor") {
-      if (tmpEvents.includes(`${event}:${platform}`)) {
+      if (tmpEvents.filter((Event: any) => `${event}:${platform}` === Event).length >= 3) {
         return res.status(200).json({
           success: false,
-          message: `Already registered under this platform (${platform})`,
+          message: `Reached maximum registrations for this platform (${platform})`,
         });
       }
-    } else if (tmpEvents.includes(event)) {
+    } else if (tmpEvents.filter((Event: any) => event === Event).length >=3) {
       return res.status(200).json({
         success: false,
-        message: `Event already registered`,
+        message: `Reached maximum registrations for this event`,
       });
     }
 
     if (team) {
-      team.forEach((team: any) => {
-        let teamNames: Array<any> = [];
-        if (!teamNames.includes(team.teamName) || !teamName.includes(team.teamName)) {
-          teamNames.push(team.teamName);
-          teamName.push(team.teamName);
-        } else {
-          return res.status(200).json({
-            success: false,
-            message: `Team name already registered`,
-          });
-        }
-        team.participants.forEach((participant: any, index: any) => {
-          let formPhones: Array<any> = [];
-          let formNames: Array<any> = [];
+      let teamNames: Array<any> = [];
+      if (!teamNames.includes(team.teamName) || !teamName.includes(team.teamName)) {
+        teamNames.push(team.teamName);
+        teamName.push(team.teamName);
+      } else {
+        return res.status(200).json({
+          success: false,
+          message: `Team name already registered`,
+        });
+      }
+      team.participants.forEach((participant: any, index: any) => {
+        let formPhones: Array<any> = [];
+        let formNames: Array<any> = [];
 
-          team.forEach((team: any) => {
-            team.participants.forEach((participant: any, innerIndex: any) => {
-              if (index !== innerIndex) {
-                if (participant.phone !== "") {
-                  formPhones.push(participant.phone);
-                }
-                if (participant.name !== "") {
-                  formNames.push(participant.name);
-                }
-              }
-            });
-          });
-
-          if (phones.includes(participant.phone)) {
-            success = false;
-            message = `Phone number already in use (Participant ${index + 1} : ${participant.phone})`;
-          } else if (formPhones.includes(participant.phone)) {
-            success = false;
-            message = `Phone numbers cannot be same as other members (Participant ${index + 1} : ${participant.phone})`;
+        team.participants.forEach((participant: any, innerIndex: any) => {
+          if (index !== innerIndex) {
+            if (participant.phone !== "") {
+              formPhones.push(participant.phone);
+            }
+            if (participant.name !== "") {
+              formNames.push(participant.name);
+            }
           }
         });
+
+        if (phones.includes(participant.phone)) {
+          success = false;
+          message = `Phone number already in use (Participant ${index + 1} : ${participant.phone})`;
+        } else if (formPhones.includes(participant.phone)) {
+          success = false;
+          message = `Phone numbers cannot be same as other members (Participant ${index + 1} : ${participant.phone})`;
+        }
       });
     } else {
       participants.forEach((participant: any, index: any) => {
