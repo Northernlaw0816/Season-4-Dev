@@ -34,7 +34,7 @@ const ArenaOfValor = {
     grades: "9 - 12",
     image: AoV,
     accent:
-      "linear-gradient(to bottom, hsl(180, 100%, 20%) 20%, hsl(0, 0%, 0%) 30%)",
+      "linear-gradient(to bottom, hsl(180, 100%, 20%) 20%, hsl(0, 0%, 0%) 20%)",
   },
 
   headings: {
