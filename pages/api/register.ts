@@ -6,7 +6,6 @@ import { titleCase } from "../../functions";
 
 export default async function register(req: NextApiRequest, res: NextApiResponse) {
   let body = req.body;
-  console.log(body);
 
   const { event, participants, team, platform, schoolId } = body;
 
