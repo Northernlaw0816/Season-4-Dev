@@ -5,44 +5,17 @@ import { firestore } from "../../firebase/clientApp";
 import { titleCase } from "../../functions";
 
 export default async function register(req: NextApiRequest, res: NextApiResponse) {
+  let body = req.body;
+  console.log(body);
 
-  let body = req.body
-
-  if (req.body.participants) {
-
-    for(let participant of req.body.participants) {
-      if (participant.name !== "" && (participant.grade === "default-value" || participant.phone === "")) {
-        return res.status(400).json({
-          success: false,
-          message: `Please fill out all fields for ${participant.name}`
-        })
-      }
-    }
-
-    let participants = req.body.participants.filter((participant: any) => {
-      return participant.name !== ""
-    });
-
-    body.participants = participants;
-
-  }
-
-  if (req.body.teams) {
-    let teams = req.body.teams.filter((team: any) => {
-      return team.teamName !== ""
-    })
-
-    body.teams = teams;
-  }
-
-  const { event, participants, teams, platform, userToken } = body;
+  const { event, participants, team, platform, schoolId } = body;
 
   let success = true;
   let message = "";
-  if (teams) {
-    message = `Successfully registered ${teams.length} team(s) for ${titleCase(event.toString().replaceAll("-", " "))}`;
-  } else if (participants){
-    message = `Successfully registered ${participants.length} participant(s) for ${titleCase(event.toString().replaceAll("-", " "))}`;
+  if (team) {
+    message = `Successfully registered for ${titleCase(event.toString().replaceAll("-", " "))}`;
+  } else if (participants) {
+    message = `Successfully registered for ${titleCase(event.toString().replaceAll("-", " "))}`;
   }
 
   if (!req.body) {
@@ -53,16 +26,6 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   }
 
   // Database code here
-  const accountsCollection = collection(firestore, "school_login_accounts");
-  const userTokenQuery = query(accountsCollection, where("userToken", "==", userToken));
-  const userDocumentSnapShot = await getDocs(userTokenQuery);
-  const schoolIds: any = [];
-
-  userDocumentSnapShot.forEach((doc) => {
-    schoolIds.push(doc.get("schoolId"));
-  });
-
-  const schoolId = schoolIds[0];
 
   const registrationsCollection = collection(firestore, "registrations_season_2");
   const allRegistrationsSnapshot = await getDocs(registrationsCollection);
@@ -80,13 +43,12 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   const phones: any = [];
   if (allRegistrations.length > 0) {
     allRegistrations.forEach((registrations: any) => {
-      if (registrations.get("teams")) {
-        registrations.get("teams").forEach((team: any) => {
-          team.participants.forEach((participant: any) => {
-            phones.push(participant.phone);
-          });
+      if (registrations.get("team")) {
+        registrations.get("team").participants.forEach((participant: any) => {
+          phones.push(participant.phone);
         });
       }
+
       if (registrations.get("participants")) {
         registrations.get("participants").forEach((participant: any) => {
           phones.push(participant.phone);
@@ -94,15 +56,14 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
       }
     });
 
-    if (teams) {
-      teams.forEach((team: any, index: number) => {
-        team.participants.forEach((participant: any, index: number) => {
-          if (phones.includes(participant.phone)) {
-            return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
-          }
-        });
+    if (team) {
+      team.participants.forEach((participant: any, index: number) => {
+        if (phones.includes(participant.phone)) {
+          return res.status(200).json({ success: false, message: `Phone number already in use (Participant: ${index + 1})` });
+        }
       });
     }
+
     if (participants) {
       participants.forEach((participant: any, index: number) => {
         if (participant.phone === "") delete participants[index];
@@ -137,8 +98,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
       });
     }
 
-    if (teams) {
-      teams.forEach((team: any) => {
+    if (team) {
+      team.forEach((team: any) => {
         let teamNames: Array<any> = [];
         if (!teamNames.includes(team.teamName) || !teamName.includes(team.teamName)) {
           teamNames.push(team.teamName);
@@ -153,7 +114,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
           let formPhones: Array<any> = [];
           let formNames: Array<any> = [];
 
-          teams.forEach((team: any) => {
+          team.forEach((team: any) => {
             team.participants.forEach((participant: any, innerIndex: any) => {
               if (index !== innerIndex) {
                 if (participant.phone !== "") {
@@ -203,8 +164,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
     schoolId,
   };
 
-  if (teams) {
-    data["teams"] = teams;
+  if (team) {
+    data["team"] = team;
   }
 
   if (participants) {
