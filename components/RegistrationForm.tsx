@@ -105,10 +105,9 @@ const Team = ({ maxParticipants }: any) => {
 
   return (
     <div>
+      <hr />
       {maxParticipants > 1 && (
         <>
-          <hr />
-
           <div className={styles.team_input}>
             <label htmlFor={fieldName}>Team Name: </label>
             <input
@@ -150,7 +149,7 @@ const RegistrationForm = () => {
   let [isError, setIsError] = useState(false);
   let [isSuccess, setIsSuccess] = useState(false);
   let [message, setMessage] = useState("");
-  let [schools, setSchools] = useState<any>();
+  let [schools, setSchools] = useState<any>([]);
   const router = useRouter();
 
   // Handlers
@@ -201,12 +200,14 @@ const RegistrationForm = () => {
       console.log(err)
     })
 
-    return response
+    const schools: any[] = []
+    response.message.forEach((school:any) => {schools.push(school)})
+    setSchools(schools)
+    return schools
   }
 
   useEffect(() => {
-    console.log(getSchools())
-    // setSchools(getSchools())
+    getSchools()
   }, [])
 
   const methods = useForm({
@@ -233,7 +234,7 @@ const RegistrationForm = () => {
     const platVal = methods.getValues("platform");
     methods.unregister("team");
     methods.unregister("participants");
-
+    
     switch (platVal) {
       case "pc":
         setFormBody(<Team maxParticipants={5}/>);
@@ -261,8 +262,7 @@ const RegistrationForm = () => {
     methods.unregister("team");
     methods.unregister("participants");
     methods.unregister("platform");
-    let maxTeams = 0;
-    let teams: any = [];
+    methods.unregister("game");
 
     switch (eventVal) {
       case "arena-of-valor":
@@ -271,108 +271,37 @@ const RegistrationForm = () => {
         break;
 
       case "knockout":
-        maxTeams = 3;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Team
-            maxTeams={maxTeams}
-            maxParticipants={1}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
-
+        setFormBody(<Team maxParticipants={1}/>);
         setShowAovFields(false);
         break;
 
       case "truth-or-debug":
-        maxTeams = 3;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Team
-            maxTeams={maxTeams}
-            maxParticipants={3}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
-
+        setFormBody(<Team maxParticipants={3}/>);
         setShowAovFields(false);
         break;
 
       case "log-and-blog":
-        maxTeams = 3;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Team
-            maxTeams={maxTeams}
-            maxParticipants={1}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
-
+        setFormBody(<Team maxParticipants={1}/>);
         setShowAovFields(false);
         break;
 
       case "designscape":
-        maxTeams = 3;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Team
-            maxTeams={maxTeams}
-            maxParticipants={1}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
-
+        setFormBody(<Team maxParticipants={1}/>);
         setShowAovFields(false);
         break;
 
       case "otakuiz":
-        maxTeams = 3;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Team
-            maxTeams={maxTeams}
-            maxParticipants={3}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
-
+        setFormBody(<Team maxParticipants={3}/>);
         setShowAovFields(false);
         break;
 
       case "bass-drop":
-
-        setFormBody(<Team
-          maxTeams={maxTeams}
-          maxParticipants={1}
-        />);
-
+        setFormBody(<Team maxParticipants={1}/>);
         setShowAovFields(false);
         break;
 
       case "pandoras-blocks":
-        maxTeams = 3;
-        teams = [];
-
-        for (let index = 0; index < maxTeams; index++) {
-          teams.push(<Team
-            maxTeams={maxTeams}
-            maxParticipants={3}
-            index={index}
-          />);
-        }
-        setFormBody(teams);
-
+        setFormBody(<Team maxParticipants={3}/>);
         setShowAovFields(false);
         break;
 
@@ -435,18 +364,19 @@ const RegistrationForm = () => {
           <div className={styles.form_fields}>
             <div className={styles.school_field}>
               <label htmlFor="schoolName">School Name: </label>
-              <input {...methods.register("schoolName", {
+              <select {...methods.register("schoolName", {
                 required: true,
-                minLength: {
-                  value: 5,
-                  message: "School name must be at least 5 characters long"
-                }
-              })}/>
+                validate: (e: any) => e !== "default-school"
+              })}>
+                <option value="default-school">Select School</option>
+                {schools.map((school:any, index:number) => {
+                  return <option key={index} value={school.schoolId}>{school.schoolName}</option>
+                })}
+              </select>
             </div>
             <div className={styles.event_field}>
               <select
                 {...methods.register("event", {
-                  required: true,
                   onChange: onEventChange,
                   validate: (e: any) => e !== "default-event",
                 })}
@@ -467,7 +397,12 @@ const RegistrationForm = () => {
                   {...methods.register("platform", {
                     required: true,
                     onChange: onEventPlatformChange,
-                    validate: (val) => val !== "default-platform",
+                    validate: (val) => {
+                      if(val === "default-platform") {
+                        return "Please select a platform"
+                      }
+                      return undefined
+                    }
                   })}
                 >
                   <option value="default-platform">Select a Platform</option>
@@ -481,10 +416,15 @@ const RegistrationForm = () => {
                   {...methods.register("game", {
                     required: true,
                     onChange: onEventPlatformChange,
-                    validate: (val) => val !== "default-platform",
+                    validate: (val) => {
+                      if(val === "default-game") {
+                        return "Please select your preferred game"
+                      }
+                      return undefined
+                    }
                   })}
                 >
-                  <option value="default-platform">Select a Game</option>
+                  <option value="default-game">Select a Game</option>
                   {methods.getValues("platform") === "pc" && (<>
                     <option value="pc">Valorant</option>
                     <option value="mobile">CS:GO</option>
@@ -500,6 +440,26 @@ const RegistrationForm = () => {
                 </select>
               </div>
             </>)}
+          </div>
+          <div className={styles.main_errors}>
+            <ErrorMessage errors={methods.formState.errors} name={"schoolName"} render={({ messages }) =>
+              messages &&
+              Object.entries(messages).map(([type, message]) => (
+                <p className={styles.main_error} key={type}>{message}</p>
+              ))
+            }/>
+            <ErrorMessage errors={methods.formState.errors} name={"platform"} render={({ messages }) =>
+              messages &&
+              Object.entries(messages).map(([type, message]) => (
+                <p className={styles.main_error} key={type}>{message}</p>
+              ))
+            }/>
+            <ErrorMessage errors={methods.formState.errors} name={"game"} render={({ messages }) =>
+              messages &&
+              Object.entries(messages).map(([type, message]) => (
+                message !== true && <p className={styles.main_error} key={type}>{message}</p>
+              ))
+            }/>
           </div>
           <div className={styles.team_fields}>{formBody}</div>
           <div className={styles.submit}>
