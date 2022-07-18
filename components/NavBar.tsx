@@ -19,25 +19,25 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
     const [isNavMenuOpen, setIsNavMenuOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
     const [windowWidth, setWindowWidth] = useState(0)
-	const [userToken, setUserToken] = useState<string | null>('')
     const router = useRouter()
 
-    
-    function getWindowWidth() {
+    /**
+     * Gets the window width
+     */
+    const getWindowWidth = () => {
         const {clientWidth: width} = document.body
         return width
     }
-
-    useEffect(() => {
-        setUserToken(localStorage.getItem('userToken'))
-    }, [])
     
     let navMenuDOM: any = useRef(null)
-    let toggleNavMenu = () => {
+    /**
+     * Toggle Nav Menu
+     */
+    const toggleNavMenu = () => {
         setIsNavMenuOpen(!isNavMenuOpen)
     }
 
-    function handleResize() {
+    const handleResize = () => {
         setWindowWidth(getWindowWidth())
         setIsMobile(windowWidth <= 600)
     }
@@ -69,85 +69,59 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         return () => {clearTimeout(toggleNavMenu)}
     })
 
+    /**
+     * Logs out the user and removes the token from local storage
+     * @param {boolean} onlyClient - if true, only logout on client (remove userData from localStorage)
+     * TODO - Remove this after everyone is confirmed to have been logged out
+     */
+	const logout = async (userToken:string, onlyClient?: boolean) => {
+        let response:any
+
+        if (!onlyClient) {
+            response = await axios.post('/api/logout', { userToken: userToken }).then(res => res.data)
+        }
+
+        if (response?.success || onlyClient) {
+            localStorage.removeItem("userToken")
+            localStorage.removeItem("schoolName")
+            localStorage.removeItem("schoolId")
+            localStorage.removeItem("email")
+        }
+	}
+
+    /**
+     * Checks if the user is logged in and if the userToken matches on the database
+     * log them out from client and the also the server if the userToken does match
+     * 
+     * TODO - Remove this after everyone is confirmed to have been logged out
+     */
+    const checkLogin = async () => {
+        const clientUserToken = localStorage.getItem("userToken")
+        if(clientUserToken){
+            const response = await axios.post('/api/user', { userToken: clientUserToken }).then(res => res.data).catch(err => {console.log(err)})
+            /*
+             If userData is valid, then we log them out of the database as well
+             Otherwise only the localStorage is cleared
+            */
+            logout(clientUserToken, !response?.success)
+        }
+    }
+
+    useEffect(() => {
+        checkLogin()
+    }, [])
+
     const Links = ({isMobile}: any) => {
 
         return (<>
             {NavLinks.map((link: any, index: number) => {
                 if (!isMobile && link.name === 'Events'){
                     return <EventsDropdown key={index}/>
-                } else if (!isMobile && link.name === 'Login') {
-                    return userToken && userToken !== "undefined" ? <LoggedInDropdown key={index}/> : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
-                } else if (isMobile && link.name === 'Login') {
-                    return userToken && userToken !== "undefined" ? (
-                        <>
-                            <Link href="/dashboard"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/dashboard') && styles.active_link}`}>Dashboard</a></Link>
-                            <a role="link" className={`${styles.nav_button} ${styles.drop_button}`} onClick={logout}>Logout</a>
-                        </>
-                    ) : <Link href="/login" key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/login') && styles.active_link}`}>Login</a></Link>
-                }else {
+                } else {
                     return <Link href={link.link} key={index}><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith(link.link) && styles.active_link}`}>{link.name}</a></Link>
                 }
             })}
         </>)
-    }
-
-	const logout = async () => {
-
-        const response = await axios.post('/api/logout', { userToken: userToken }).then(res => res.data)
-
-        if (response.success) {
-            localStorage.removeItem("userToken")
-            localStorage.removeItem("schoolName")
-            localStorage.removeItem("schoolId")
-            localStorage.removeItem("email")
-            router.push("/login") 
-        }
-	}
-
-    const LoggedInDropdown = () => {
-        const [isDropActive, setIsDropActive] = useState(false)
-        const [userData, setUserData] = useState<any>({
-            schoolName: "",
-            schoolId: "",
-            email: ""
-        })
-
-        useEffect(() => {
-            getUserData()
-        }, [])
-        
-        const getUserData = () => { 
-            const data = {
-                schoolName: localStorage.getItem("schoolName"),
-                schoolId: localStorage.getItem("schoolName"),
-                email: localStorage.getItem("schoolName")
-            }
-
-            setUserData(data)
-        }
-
-        let schoolName = "..."
-
-        if(userData.schoolName) { 
-            let splitNames = userData.schoolName.split(' ')
-
-            schoolName = splitNames[0]
-
-            if (splitNames[0] === "THE") {
-                schoolName = splitNames[0] + " " + splitNames[1]
-            }
-        }
-
-        return (
-            <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
-                <a className={`${styles.nav_button} ${styles.active_link} ${isDropActive && styles.drop_active_link}`}>{schoolName}</a>
-
-                <div className={styles.dropdown}>
-                    <Link href="/dashboard"><a role="link" className={`${styles.nav_button} ${styles.drop_button} ${router.pathname.startsWith('/dashboard') && styles.active_link}`}>Dashboard</a></Link>
-                    <a role="link" className={`${styles.nav_button} ${styles.drop_button}`} onClick={logout}>Logout</a>
-                </div>
-            </div>
-        )
     }
 
     const EventsDropdown = () => {
