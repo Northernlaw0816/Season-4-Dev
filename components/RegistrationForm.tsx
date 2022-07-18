@@ -363,8 +363,8 @@ const RegistrationForm = () => {
           <h1 className={styles.form_title}>Form Registration</h1>
           <div className={styles.form_fields}>
             <div className={styles.school_field}>
-              <label htmlFor="schoolName">School Name: </label>
-              <select {...methods.register("schoolName", {
+              <label htmlFor="schoolId">School Name: </label>
+              <select {...methods.register("schoolId", {
                 required: true,
                 validate: (e: any) => e !== "default-school"
               })}>
