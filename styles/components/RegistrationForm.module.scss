@@ -126,17 +126,18 @@
 		margin: var(--grid-gap) 0;
 
 		display: grid;
-		grid-template-areas: "event platform";
+		grid-template-areas: "school event" "platform game";
+		grid-template-columns: 50% 50%;
 		gap: var(--grid-gap);
 
-		.event_field, .platform_field {
+		.event_field, .platform_field, .school_field, .game_field {
 			display: grid;
 			grid-template-rows: 1fr;
 			gap: var(--grid-gap);
 		}
 
 		@media (max-width: 768px) {
-			grid-template-areas: "event" "platform";
+			grid-template-areas: "school" "event" "platform" "game";
 			.event_field, .platform_field {
 				gap: calc(var(--grid-gap) / 2);
 			}
@@ -152,6 +153,11 @@
 			grid-area: event;
 		}
 
+		.school_field {
+			grid-area: school;
+			grid-template-columns: auto 1fr;
+		}
+
 		.platform_field {
 			grid-area: platform;
 			display: grid;
@@ -162,6 +168,26 @@
 				grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
 				gap: calc(var(--grid-gap) / 2);
 			}
+		}
+
+		.game_field {
+			grid-area: game;
+		}
+	}
+
+	.main_errors {
+		grid-row: 3;
+		grid-column: span 4;
+		padding: 0 1rem;
+		display: grid;
+		gap: 0.5em;
+
+		.main_error {
+			margin: 0;
+			background: black;
+			color: red;
+			padding: 1ch;
+			border-radius: 0.5em;
 		}
 	}
 

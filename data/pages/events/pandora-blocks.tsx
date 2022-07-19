@@ -20,7 +20,7 @@ const PandoraBlocks = {
         venue: 'Online',
         grades: '9-12',
         image: PB,
-        accent: '#1d3249',  
+        accent: '#25415e',  
     },
     
     headings: {
