@@ -438,16 +438,16 @@ const RegistrationForm = () => {
                 >
                   <option value="default-game">Select a Game</option>
                   {methods.getValues("platform") === "pc" && (<>
-                    <option value="pc">Valorant</option>
-                    <option value="mobile">CS:GO</option>
+                    <option value="Valorant">Valorant</option>
+                    <option value="CS:GO">CS:GO</option>
                   </>)}
                   {methods.getValues("platform") === "mobile" && (<>
-                    <option value="pc">BattleGrounds Mobile India</option>
-                    <option value="mobile">Call of Duty: Mobile</option>
+                    <option value="BGMI">BattleGrounds Mobile India</option>
+                    <option value="COD">Call of Duty: Mobile</option>
                   </>)}
                   {methods.getValues("platform") === "console" && (<>
-                    <option value="pc">Fortnite</option>
-                    <option value="mobile">Rocket League</option>
+                    <option value="Fortnite">Fortnite</option>
+                    <option value="Rocket League">Rocket League</option>
                   </>)}
                 </select>
               </div>
