@@ -156,8 +156,7 @@ const RegistrationForm = () => {
   const onSubmit = async (data: any) => {
     setIsRegistering(true);
     const response = await axios.post("/api/register", {
-      ...data,
-      userToken:localStorage.getItem("userToken")
+      ...data
     }).then((response:any) => response.data).catch((err:any) => {
       setIsError(true)
       setMessage("An Unknown Error Occurred. Please Try Again Later.")
