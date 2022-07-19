@@ -75,7 +75,7 @@ export const Dashboard = () => {
 				
 						return (
 							<div className={styles.registration_card} key={index}>
-								<h3>{registrationData.event.replaceAll("-", " ")}{registrationData.event === "arena-of-valor" && ` - ${registrationData.platform}`}</h3>
+								<h3>{registrationData.event.replace(/-/g, " ")}{registrationData.event === "arena-of-valor" && ` - ${registrationData.platform}`}</h3>
 								{registrationData.teams && <p><strong>Teams</strong></p>}
 								<div className={styles.teams_container}>
 									{registrationData.teams && registrationData.teams.map((team:any, index:number) => {
