@@ -13,14 +13,6 @@ import Main from "../data/Main"
 import { useEffect, useState } from "react"
 
 const Registration = () => {
-
-    const [userToken, setUserToken] = useState<string | null>('')
-
-    useEffect(() => {
-        setUserToken(localStorage.getItem('userToken'))
-    }, [])
-
-
     return (<>
         <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
 
