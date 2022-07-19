@@ -14,9 +14,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
   let message = "";
 
   if (team) {
-    message = `Successfully registered for ${titleCase(event.toString().replaceAll("-", " "))}`;
+    message = `Successfully registered for ${titleCase(event.toString().replace(/-/g, " "))}`;
   } else if (participants) {
-    message = `Successfully registered for ${titleCase(event.toString().replaceAll("-", " "))}`;
+    message = `Successfully registered for ${titleCase(event.toString().replace(/-/g, " "))}`;
   }
 
   if (!req.body) {
