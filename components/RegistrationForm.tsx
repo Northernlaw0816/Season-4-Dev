@@ -363,22 +363,33 @@ const RegistrationForm = () => {
           <h1 className={styles.form_title}>Form Registration</h1>
           <div className={styles.form_fields}>
             <div className={styles.school_field}>
-              <label htmlFor="schoolId">School Name: </label>
+              <label htmlFor="schoolId" hidden>School Name: </label>
               <select {...methods.register("schoolId", {
                 required: true,
-                validate: (e: any) => e !== "default-school"
+                validate: (val) => {
+                  if(val === "default-school") {
+                    return "Please select your school"
+                  }
+                  return undefined
+                }
               })}>
-                <option value="default-school">Select School</option>
+                <option value="default-school">Select Your School</option>
                 {schools.map((school:any, index:number) => {
                   return <option key={index} value={school.schoolId}>{school.schoolName}</option>
                 })}
               </select>
             </div>
             <div className={styles.event_field}>
+              <label htmlFor="event" hidden>Event: </label>
               <select
                 {...methods.register("event", {
                   onChange: onEventChange,
-                  validate: (e: any) => e !== "default-event",
+                  validate: (val) => {
+                    if(val === "default-event") {
+                      return "Please select an event"
+                    }
+                    return undefined
+                  }
                 })}
               >
                 <option value="default-event">Select an Event</option>
@@ -393,6 +404,7 @@ const RegistrationForm = () => {
             </div>
             {showAovFields && (<>
               <div className={styles.platform_field}>
+                <label htmlFor="event" hidden>Device Platform: </label>
                 <select
                   {...methods.register("platform", {
                     required: true,
@@ -412,6 +424,7 @@ const RegistrationForm = () => {
                 </select>
               </div>
               <div className={styles.game_field}>
+                <label htmlFor="event" hidden>Preferred Game: </label>
                 <select
                   {...methods.register("game", {
                     required: true,
@@ -442,24 +455,15 @@ const RegistrationForm = () => {
             </>)}
           </div>
           <div className={styles.main_errors}>
-            <ErrorMessage errors={methods.formState.errors} name={"schoolName"} render={({ messages }) =>
-              messages &&
-              Object.entries(messages).map(([type, message]) => (
-                <p className={styles.main_error} key={type}>{message}</p>
-              ))
-            }/>
-            <ErrorMessage errors={methods.formState.errors} name={"platform"} render={({ messages }) =>
-              messages &&
-              Object.entries(messages).map(([type, message]) => (
-                <p className={styles.main_error} key={type}>{message}</p>
-              ))
-            }/>
-            <ErrorMessage errors={methods.formState.errors} name={"game"} render={({ messages }) =>
-              messages &&
-              Object.entries(messages).map(([type, message]) => (
-                message !== true && <p className={styles.main_error} key={type}>{message}</p>
-              ))
-            }/>
+            {["schoolId", "event", "platform", "game"].map((field, index) => {
+              return (
+                <ErrorMessage key={index} errors={methods.formState.errors} name={field} render={({ messages }) =>
+                  messages && Object.entries(messages).map(([type, message]) => {
+                    return <p className={styles.main_error} key={type}>{message}</p>
+                  })
+                }/>
+              )
+            })}
           </div>
           <div className={styles.team_fields}>{formBody}</div>
           <div className={styles.submit}>
