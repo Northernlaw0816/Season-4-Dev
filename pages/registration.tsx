@@ -10,7 +10,6 @@ import styles from "../styles/pages/Registration.module.scss"
 //data
 import { RegistrationData } from "../data/pages"
 import Main from "../data/Main"
-import { useEffect, useState } from "react"
 
 const Registration = () => {
     return (<>
