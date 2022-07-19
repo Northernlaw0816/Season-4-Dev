@@ -3,7 +3,7 @@ import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz,
 const Registration = {
 	title: "Pre-Registration Information",
 	commonRules: [
-		"Registrations are open for students from grades 9 to 12. Teacher in charge should fill in the details of the teams/participants from the respective school.",
+		"Registrations are open for students from grades 9 to 12.",
 		"An individual is allowed to participate in ONLY ONE event.",
 		"Each event is to be registered SEPARATELY in the form.",
 		"Only WhatsApp enabled numbers to be submitted in the registration form.",
