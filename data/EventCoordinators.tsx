@@ -46,13 +46,13 @@ import placeholder from "../public/images/profile/placeholder.png";
 
 const EventHeads = [
   {
-    name: "Sanjay A.R.",
-    grade: "12",
+    name: "Thrivikram R",
+    grade: "11",
     src: sanjayAR,
   },
   {
-    name: "ShakthiKumar S.",
-    grade: "12",
+    name: "Rithik Abhay",
+    grade: "11",
     src: shakti,
   },
 ];
