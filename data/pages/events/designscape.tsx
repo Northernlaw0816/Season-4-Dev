@@ -7,12 +7,12 @@ import DS from '../../../public/images/events/ds_logo.png'
 const Designscape = {
     title: "Designscape",
 
-    tagline: "Spell a visual magic!",
+    tagline: "All the magic starts from you",
 
     link: '/events/designscape',
 
     details: {
-        shortDescription: "In this arena, you are the one who holds all powers- the fate of the bright colours and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
+        shortDescription: "When you see something and you want to remould it to your taste, then your heart knows “I am a designer”. Designscape is a design and photo editing competition, your stage to showcase your creativity. This is a competition where you use your imagination to create an original piece from what you are given. This is your chance to explore, design and create. Show your talent and let the creativity flow.",
         date: `${Main.dates.day2}`,
         dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`,
         time: '9:30 a.m. - 12:30 p.m.',
@@ -23,21 +23,25 @@ const Designscape = {
     },
 
     headings: {
-        about: "In this arena, you are the one who holds all powers- the fate of the bright colours and the design as a whole lie in your hands.Turn your wild imaginations into virtual reality. Grab your chance to nurture creativity!",
+        about: "When you see something and you want to remould it to your taste, then your heart knows “I am a designer”. Designscape is a design and photo editing competition, your stage to showcase your creativity. This is a competition where you use your imagination to create an original piece from what you are given. This is your chance to explore, design and create. Show your talent and let the creativity flow.",
 
         rules: [
-            "Participants are allowed to make use of any application (such as Adobe Lightroom, Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) of their choice for designing their artwork.",
-            "Participants are required to bring their own devices and accessories(Laptops,tablets).",
-            "All the participants will be given 3 hours (including the time of rendering) to create their final artwork.",
-            "The participants will be given a few topics on the spot, based on which they have to create a digital artwork.",
-            "There will be only one round conducted.", 
-            "The images after editing are to be submitted via e-mail as .jpg files."
+            "Participants are allowed to use editing softwares of their choice (such as Adobe Lightroom, Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) for completing their designs. (No Canva)",
+            "The first round will be an elimination round.",
+            "Participants are supposed to bring their own gadgets for designing.",
+            "Participants will be given a maximum of two hours to work with (including the time for choosing the resources).",
+            "There will be two rounds conducted.", 
+            "Participants are supposed to work with the base image that is provided and if they don’t they will be disqualified immediately.",
+            "They can only use the topic, and theme provided to them.",
+            "AI image generators, who use such softwares will be immediately disqualified.",
+            "Students will have to submit the artwork through email as a ..png file ,  failing which they will be disqualified.",
+            "Participants should be able to explain their own designs.",
         ],
 
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
         registration: [
-            "This is a Solo event - 3 participants per school "
+            "This is a Solo event - 5 participants per school "
         ]
     }
 }
