@@ -16,7 +16,7 @@ const Designscape = {
         date: `${Main.dates.day2}`,
         dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`,
         time: '9:30 a.m. - 12:30 p.m.',
-        venue: 'Computer Lab (Main Block)',
+        venue: 'Mass Media Lab (Main Block)',
         grades: '9 - 12',
         image: DS,
         accent: 'hsl(259, 67%, 25%)',
