@@ -194,11 +194,7 @@ const ArenaOfValor = {
           "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
           "We request all the players to be on time and stay active throughout the tournament.",
           "Kindly feel free to contact us anytime during the tournament regarding any queries.",
-          "Students can use any one of the following platforms to participate - Xbox, PS or PC.",
-          "The game competitions will be run across 3 platforms in which participants can only participate in one game.",
-          "Participants are required to have a strong and stable internet connection.",
-          "In case of any accusations of other players using hacks. Players must show valid evidence such as any recording or screenshot during the event",
-          "Teams or players that have been accused of cheating shall be monitored keenly by the staff.",
+          "Players can only participate in one game in the console category",
 
         ],
       },
@@ -221,7 +217,7 @@ const ArenaOfValor = {
       "Participants can register as ONE team for ONE game per platform.",
       "Console: Duo Team (2 members) – 3 teams per school",
       "Mobile:	Quad Team (4 members) - 3 teams per school",
-      "PC: Quintet Team (5 members) - 3 teams per school",
+      "PC: Fortnite - Solo - 3 players per school | Rocket League - Trios(3 members) - 3 teams per school",
     ],
   },
 };
