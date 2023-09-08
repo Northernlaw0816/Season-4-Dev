@@ -16,7 +16,7 @@ const LogAndBlog = {
         date: `${Main.dates.day1}`,
         dateAndTime: `${Main.dates.day1}, 10:40 a.m. - 2:00  p.m.`,
         time: '10:40 a.m. - 2:00  p.m.',
-        venue: 'Computer Lab (Primary Block)',
+        venue: 'Computer Lab (Secondary Block)',
         grades: '9 - 12',
         image: LAB,
         accent: 'hsl(243, 32%, 11%)',  
@@ -28,10 +28,15 @@ const LogAndBlog = {
         
         rules: [
             "Solo event for Grades 9 to 12.",
-            "Participants are free to access the internet for resources and information.",
-            "However, any kind of plagiarism will strictly be dealt with.",
-            "Participants are given a time period of 2 hours to complete their blog in 'Blogger'.",
+            "Participants are given a time period of four hours to complete their blog in “Blogger”.",
             "Each participant will be given a computer, hence they do not have to bring their own gadgets.",
+            "Participants are free to access the internet for resources and information pertaining to their given topic",
+            "However, it is strictly frowned upon for participants to log into their personal accounts in google or otherwise",
+            "Plagiarism of any kind merits the removal of the participant from the event.",
+            "Usage of the internet for any purpose that does not resonate with their research will be strictly dealt with.",
+            "The use of apps or supplements like ChatGPT, QuillBot and ChatMaster is strictly forbidden.",
+            "Participants are advised against depending on Wikipedia for quality information.",
+
         ],
 
         assessment: [
