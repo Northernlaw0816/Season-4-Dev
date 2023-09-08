@@ -41,7 +41,7 @@ const KnockOut = {
       {
         title: "Day 1",
         rules: [
-          "Round 1 - All participants will be given a topic prior to the event and will have enough time to prepare. Each individual will be given time to introduce their take on the topic given.",
+          "Round 1 - All participants will be given a topic prior to the event through Whatsapp. Each individual will be given time to introduce their take on the topic given.",
           "Round 2 - Participants will be assigned a role and given a crisis.",
           "Everyone will present their stances on the same within a time of 60 seconds.",
           "This will be the debate round, cross talk will be allowed and the judge will be the moderator of the speech.",
