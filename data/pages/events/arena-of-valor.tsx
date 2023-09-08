@@ -6,7 +6,7 @@ import AoV from "../../../public/images/events/aov_logo.png";
 import rocket from "../../../public/images/events/aov_games/rocket_league.png";
 import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
-import cod from "../../../public/images/events/aov_games/cod.png";
+import stgys from "../../../public/images/events/aov_games/StumbleGuys.jpg";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
 import fifa from "public/images/events/aov_games/FIFA 23.png";
@@ -94,73 +94,27 @@ const ArenaOfValor = {
         name: "Mobile",
 
         description:
-          "Arena of Valor - Mobile offers intense team-based combat and strategy, all within a device that fits in the palm of your hands.",
+          "Arena of Valor - Mobile (Individual Only)",
 
         games: [
           {
-            name: "Call Of Duty Mobile",
-            participants: 4,
-            image: cod,
-            bannedItems: [
-              {
-                category: "ScoreStreaks Banned",
-                items: [
-                  "Sentry Gun",
-                  "VTOL",
-                  "Care Package",
-                  "Stealth Chopper",
-                  "Hawk X3",
-                  "Lightning Strike",
-                  "Orbital Laser",
-                ],
-              },
-
-              {
-                category: "Weapons Banned",
-                items: [
-                  "NA-45",
-                  "RYTEC AMR",
-                  "PPSH-41",
-                  "Cross-Bow",
-                  "D13 Sector",
-                  "Weapons attached with akimbo",
-                ],
-              },
-
-              {
-                category: "Lethal utility Banned",
-                items: ["Thermite", "TripMine"],
-              },
-
-              {
-                category: "Perks Banned",
-                items: ["Martyrdom", "Restock", "Persistent"],
-              },
-              {
-                category: "Operator Skills Banned",
-                items: [
-                  "H.I.V.E",
-                  "Bull Charge",
-                  "Ballistic shield",
-                  "Kinetic armour",
-                  "Tak-5",
-                ],
+            name: "Stumble Guys",
+            participants: 1,
+            image: stgys,
               },
             ],
-          },
-          {
-            name: "Battlegrounds Mobile India",
-            participants: 4,
-            image: bgmi,
-            bannedItems: [],
           },
         ],
 
         guidelines: [
-          "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",
-          "Controllers and Emulators are NOT allowed.",
-          "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
-          "The banned items for the specific game must NOT be used in any part of the event.",
+          "The event will be conducted online.",
+          "Students must arrange a proper network connection, network issues will not be encouraged.",
+          "The communication will be in an online meeting for which link will be sent to participants.",
+          "Students are requested to arrange an extra device for the online meeting.",
+          "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
+          "Inappropriate behaviour from the students may lead to disqualification.",
+          "Students should not use any emotes in the game. (eg. punching and etc )",
+          "No arguments with the head of the particular event for a rematch or other things."
         ],
       },
 
