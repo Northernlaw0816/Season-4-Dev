@@ -1,263 +1,186 @@
 // Event Heads
 // AOV
-import sidharth from "../public/images/profile/sidharth.png";
-import shakti from "../public/images/profile/shakti.png";
-import samer from "../public/images/profile/samer.png";
-import sanjaySR from "../public/images/profile/sanjay_sr.png";
-import jyothir from "../public/images/profile/jyothir.png";
-import laksh from "../public/images/profile/laksh.png";
-import shivanth from "../public/images/profile/shivanth.png";
-import surya from "../public/images/profile/surya.png"
 // KO
-import sanjayAR from "../public/images/profile/sanjay_ar.png";
-import neha from "../public/images/profile/neha.png";
 // TOD
-import marudhu from "../public/images/profile/marudhu.png";
-import rajaneesh from "../public/images/profile/rajaneesh.png";
-import thanish from "../public/images/profile/thanish.png";
 // LAB
-import pooja from "../public/images/profile/pooja.png";
-import aditi from "../public/images/profile/aditi.png";
 // DS
-import akshay from "../public/images/profile/akshay.png";
-import priya from "../public/images/profile/priya.png";
-import nadeen from "../public/images/profile/nadeen.png"
 // OTK
-import mathangi from "../public/images/profile/mathangi.png";
-import diya from "../public/images/profile/diya.png";
-import saharsh from "../public/images/profile/saharsh.png";
 // BD
-import shabesa from "../public/images/profile/shabesa.png";
-import avnitha from "../public/images/profile/avnitha.png";
-import elwin from "../public/images/profile/elwin.png";
 // PD
-import rishi from "../public/images/profile/rishi.png";
-import abishek from "../public/images/profile/abishek.png";
-import hariharan from "../public/images/profile/hariharan.png";
 // SM
-import ananya from "../public/images/profile/ananya.png";
-import nila from "../public/images/profile/nila.png";
 // PG
-import raghav from "../public/images/profile/raghav.png";
-import pranav from "../public/images/profile/pranav.png";
-import thilagan from "../public/images/profile/thilagan.png";
-import mukunda from "../public/images/profile/mukuntha.png";
-import placeholder from "../public/images/profile/placeholder.png";
-
 const EventHeads = [
   {
-    name: "Thrivikram R",
+    name: "Thrivikram R Krishnaa",
     grade: "11",
-    src: sanjayAR,
+    src: placeholder,
   },
   {
-    name: "Rithik Abhay",
+    name: "Rithik Abhay A.R",
     grade: "11",
-    src: shakti,
+    src: placeholder,
   },
 ];
 
 const EventCoordinators = [
   {
-    name: "Sidharth B.P.",
-    event: "Arena of Valor - Console",
-    grade: "Alumni",
-    src: sidharth,
-  },
-  {
-    name: "Shivanth Vinod",
-    event: "Arena of Valor - Console",
+    name: "Sharuk Sanjay",
+    event: "Arena of Valor - Mobile",
     grade: "11",
-    src: shivanth,
+    src: placeholder,
   },
   {
-    name: "ShakthiKumar S.",
+    name: "Mohammed Shafiq",
+    event: "Arena of Valor - Mobile",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Akshay Srinivasan",
+    event: "Arena of Valor - Mobile",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Tejas Kumaresan",
     event: "Arena of Valor - PC",
-    grade: "12",
-    src: shakti,
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Jyothir Krishna P.",
+    name: "Caleb Samuel S",
     event: "Arena of Valor - PC",
-    grade: "12",
-    src: jyothir,
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Samer Rahmaan R.",
-    event: "Arena of Valor - Mobile",
-    grade: "Alumni",
-    src: samer,
+    name: "Parthiv Sundar S",
+    event: "Arena of Valor - Console",
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Sanjay Shriram S.",
-    event: "Arena of Valor - Mobile",
-    grade: "12",
-    src: sanjaySR,
+    name: "Alan Astin",
+    event: "Arena of Valor - Console",
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Lakshya Arya",
-    event: "Arena of Valor - Mobile",
-    grade: "12",
-    src: laksh,
+    name: "Thrivikram R Krishnaa",
+    event: "Designscape",
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Surya",
-    event: "Arena of Valor - Mobile",
-    grade: "12",
-    src: surya,
+    name: "Mahathi Muthukumar",
+    event: "Designscape",
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Sanjay A.R.",
+    name: "Adithi N",
     event: "Knockout",
-    grade: "12",
-    src: sanjayAR,
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Neha Julius Panakkal",
+    name: "Dhairya Bagri",
     event: "Knockout",
-    grade: "12",
-    src: neha,
+    grade: "10",
+    src: placeholder,
   },
   {
-    name: "Marudhu Paandian K.",
-    event: "Truth or Debug",
-    grade: "Alumni",
-    src: marudhu,
-  },
-  {
-    name: "Rajaneesh R.",
-    event: "Truth or Debug",
+    name: "Ananya Hariharan",
+    event: "Knockout",
     grade: "11",
-    src: rajaneesh,
+    src: placeholder,
   },
   {
-    name: "Thanish Bhandari V.",
-    event: "Truth or Debug",
-    grade: "12",
-    src: thanish,
-  },
-  {
-    name: "Aditi Sandeep Kumar",
+    name: "Yashitha Ragavendra",
     event: "Log and Blog",
-    grade: "12",
-    src: aditi,
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Pooja Mahesh",
+    name: "Shruti Amrutha N",
     event: "Log and Blog",
-    grade: "12",
-    src: pooja,
+    grade: "11",
+    src: placeholder,
   },
   {
-    name: "Priya Sahana S.M.",
-    event: "Designscape",
-    grade: "12",
-    src: priya,
-  },
-  {
-    name: "Akshay Balaji S.",
-    event: "Designscape",
-    grade: "12",
-    src: akshay,
-  },
-  {
-    name: "Nadeen P.",
-    event: "Designscape",
-    grade: "12",
-    src: nadeen,
-  },
-  {
-    name: "Mathangi A. R.",
-    event: "Otakuiz",
-    grade: "12",
-    src: mathangi,
-  },
-  {
-    name: "Saharsh Thandassery",
+    name: "Aashish Sivaram",
     event: "Otakuiz",
     grade: "11",
-    src: saharsh,
+    src: placeholder,
   },
   {
-    name: "Diya Tantia S.",
+    name: "Mithun R Prem",
     event: "Otakuiz",
-    grade: "Alumni",
-    src: diya,
-  },
-  {
-    name: "Shabesa K. A.",
-    event: "Bass Drop",
-    grade: "Alumni",
-    src: shabesa,
-  },
-  {
-    name: "Avnitha Vijayakumar",
-    event: "Bass Drop",
     grade: "11",
-    src: avnitha,
+    src: placeholder,
   },
   {
-    name: "Elwin K. Jaince",
+    name: "Srishanth",
+    event: "Otakuiz",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Karthik Govindan",
+    event: "Truth or Debug",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Dhruv Sambasivan",
+    event: "Truth or Debug",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Harsh C Shah",
+    event: "Truth or Debug",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Pranav Mogan",
     event: "Bass Drop",
     grade: "12",
-    src: elwin,
+    src: placeholder,
   },
   {
-    name: "Rishi Menon",
+    name: "Daksh S",
+    event: "Bass Drop",
+    grade: "12",
+    src: placeholder,
+  },
+  {
+    name: "Atul Binosh Hedge",
     event: "Pandora's Blocks",
-    grade: "Alumni",
-    src: rishi,
+    grade: "12",
+    src: placeholder,
   },
   {
-    name: "Hariharan",
+    name: "Driti S Shah",
     event: "Pandora's Blocks",
     grade: "11",
-    src: hariharan,
-  },
-  {
-    name: "Abhishek Siddharth",
-    event: "Pandora's Blocks",
-    grade: "11",
-    src: abishek,
+    src: placeholder,
   },
 ];
 
 const MediaTeam = [
   {
-    name: "Ananya Bansal",
+    name: "Kushi Singh",
     grade: "12",
 	  roles: "Media Manager",
-    src: ananya,
+    src: placeholder,
   },
   {
     name: "Nila M.",
-    grade: "11",
+    grade: "12",
 	  roles: "Media Manager",
-    src: nila,
-  },
-  {
-    name: "Raghav Kotecha",
-    grade: "12",
-	  roles: "Videographer",
-    src: raghav,
-  },
-  {
-    name: "Pranav S.A.",
-    grade: "12",
-	  roles: "Photographer",
-    src: pranav,
-  },
-  {
-    name: "Thilagan I",
-    grade: "12",
-	  roles: "Photographer",
-    src: thilagan,
-  },
-  {
-    name: "Mukunda Shiyamalan V",
-    grade: "12",
-	  roles: "Photographer",
-    src: mukunda,
+    src: placeholder,
   },
 ];
 
