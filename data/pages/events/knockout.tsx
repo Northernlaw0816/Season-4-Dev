@@ -11,7 +11,7 @@ const KnockOut = {
 
   tagline: (
     <>
-      There Is No <span className={styles.blue}>Such Thing</span>, As
+      There Is <span className={styles.blue}>No Such Thing</span>, As
       An <span className={styles.red}>Irrelevant Argument</span>.
     </>
   ),
