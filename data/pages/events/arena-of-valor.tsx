@@ -9,7 +9,7 @@ import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
-import fifa from "../../../public/images/events/aov_games/FIFA%2023.png";
+import fifa from "public/images/events/aov_games/FIFA 23.png";
 
   
 const ArenaOfValor = {
