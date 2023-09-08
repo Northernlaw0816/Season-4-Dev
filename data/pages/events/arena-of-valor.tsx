@@ -9,7 +9,9 @@ import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
+import fifa from "../../../public/images/events/aov_games/FIFA%2023.png";
 
+  
 const ArenaOfValor = {
   title: "Arena of Valor",
 
@@ -68,25 +70,23 @@ const ArenaOfValor = {
 
         games: [
           {
-            name: "Fortnite",
+            name: "FIFA-23",
             participants: 2,
-            image: fortnite,
-            bannedItems: [],
-          },
-
-          {
-            name: "Rocket League",
-            participants: 2,
-            image: rocket,
+            image: fifa,
             bannedItems: [],
           },
         ],
 
         guidelines: [
-          "All games will be played in 2v2 format",
-          "All contestants are supposed to participate in only one game (Fortnite or Rocket league)",
-          "KEYBOARDS, MICE are NOT allowed",
-          "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
+          "Matches will be played in teams of two",
+          "Teams can choose their own clubs, in case of conflict between two or more teams, the clubs will be assigned by a coin toss.",
+          "Each match consists of 6 minute halves.",
+          "The tournament is structured such that each team competes at least two matches before the semi-finals.",
+          "Players cannot pause the game. A warning is given only the first time, if repeated the responsible team will be disqualified.",
+          "Players cannot appeal against software or hardware errors. When relevant, replay will be reviewed and action will be taken accordingly.",
+          "Verbal or physical conflict with other teams will lead to immediate disqualification.",
+          "Each player is required to bring their own (PS4) controllers.",
+          "Players are not allowed to handle the console outside the tournament and change any settings. Strict action will be taken.",
         ],
       },
 
