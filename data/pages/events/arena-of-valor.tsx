@@ -55,7 +55,7 @@ const ArenaOfValor = {
       "During an on-going tournament, players are not allowed to change their in-game name. Clan Tags before in-game names are allowed to be changed.",
       "It is prohibited to spam or use offensive messages or language on any of the  platforms and doing so may result in us taking punitive measures against you.",
       "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
-      "Participants are to join the Discord server link that will be sent to them via Whatsapp.",
+      "Participants will be be contacted through Whatsapp.",
       "Failure to comply with these rules will result in DISQUALIFICATION.",
       "The winning team should carry a screenshot of the scores at the end for proof.",
       "Match breaks will not be provided."
@@ -66,7 +66,7 @@ const ArenaOfValor = {
         name: "Console",
 
         description:
-          "Arena of Valor - Console participants get to run a gauntlet of games that truly tests their versatility and experience as players.",
+          "Arena of Valor - Console participants get to showcase their skills and strategy through discipline to the joystick .",
 
         games: [
           {
@@ -172,29 +172,34 @@ const ArenaOfValor = {
 
         games: [
           {
-            name: "Valorant",
-            participants: 5,
-            image: valorant,
+            name: "Fortnite",
+            participants: 1,
+            image: fortnite,
             bannedItems: [
             ],
           },
           {
-            name: "CSGO",
-            participants: 5,
-            image: csgo,
+            name: "Rocket League",
+            participants: 3,
+            image: rocket,
             bannedItems: [
             ],
           }
         ],
 
         guidelines: [
-          "DAY 1 - VALORANT ONLY, DAY 2 - CS:GO ONLY",
-          "All games will be played in 5v5 format.",
-          "Controllers ARE allowed.",
-          "The use of the following programs is considered cheating: Wallhacks, Aimbot. These are only examples, other programs or methods may be considered cheats as well.",
-          "Toxic behaviour will not be tolerated and will be dealt with strictly.",
-          "In case a team member is not ready by the scheduled time , an additional time of maximum 2 mins will be given after which the team will have to proceed with/without the unready team member.",
-          "All participants are to join the discord server link sent to them and use either valorant voice chat or discord voice chat.",
+          "Teams that bring in different players (without permission) that are not registered in their team will be disqualified.",
+          "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items.If any special rules apply, they shall be notified to the members.",
+          "If teams fail to join their match during the given time limit, one or both teams may be disqualified. (Additional 5 mins will be given before disqualification).",
+          "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
+          "We request all the players to be on time and stay active throughout the tournament.",
+          "Kindly feel free to contact us anytime during the tournament regarding any queries.",
+          "Students can use any one of the following platforms to participate - Xbox, PS or PC.",
+          "The game competitions will be run across 3 platforms in which participants can only participate in one game.",
+          "Participants are required to have a strong and stable internet connection.",
+          "In case of any accusations of other players using hacks. Players must show valid evidence such as any recording or screenshot during the event",
+          "Teams or players that have been accused of cheating shall be monitored keenly by the staff.",
+
         ],
       },
     ],
