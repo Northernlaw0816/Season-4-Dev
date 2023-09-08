@@ -9,6 +9,9 @@
 // PD
 // SM
 // PG
+//Place Holder Change later
+import placeholder from "../public/images/profile/placeholder.png";
+
 const EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
