@@ -9,8 +9,8 @@ const Main = {
         day2: new Date(2023, 9, 21).toDateString().split(" ").slice(1).join(" ")
     },
     registrationClosingDate: date, // month is 0 indexed; Jan is 0;
-    brochureDownload: "https://drive.google.com/u/0/uc?id=1LochKjLSKWeb0_rC4IUECCPCxMtjS3_w&export=download",
-    brochurePreview: "https://drive.google.com/file/d/1LochKjLSKWeb0_rC4IUECCPCxMtjS3_w/preview",
+    brochureDownload: "https://drive.google.com/u/0/uc?id=10re6i_oqC3SXiTLW5HEefl-bqKkeToRS&export=download",
+    brochurePreview: "https://drive.google.com/file/d/10re6i_oqC3SXiTLW5HEefl-bqKkeToRS/preview",
     updateMessage: ""
 }
 
