@@ -11,8 +11,8 @@ const KnockOut = {
 
   tagline: (
     <>
-      There Are No Tough <span className={styles.blue}>Opponents</span>, Only
-      Tough <span className={styles.red}>Issues</span>.
+      There Is No <span className={styles.blue}>Such Thing</span>, As
+      An <span className={styles.red}>Irrelevant Argument</span>.
     </>
   ),
 
@@ -20,12 +20,12 @@ const KnockOut = {
 
   details: {
     shortDescription:
-      "Knockout is a debate competition on the best of topics relating to technology and the future. Raise your words, not your voice, and stand up for your stance. Use the weapon of words to wound your opponent. A sudden rush of adrenaline coursing through your veins and the urge to blurt out the plethora of arguments running through your mind. It's not about killing your enemy, it's about making them surrender. 'Nuff said. MIC. DROP!",
+      "Who said words can't hurt? Knockout is a debate competition combining the action of arguments on topics about technology and future with the rush of being the first to think out of the box. The drama is real and the tea is at the edge of the table waiting to spill as the debate gets intense. Will the heat die down or switch directions into your words? It's not about who is the fastest, not about who is the quickest but about who is and will be THE BEST.",
     date: [`${Main.dates.day1}, 10:40 a.m. - 3:00 p.m.`,
                   `${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`],
     dateAndTime: `${Main.dates.day1}, 10:40 a.m. - 3:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 12:30 p.m.`,
     time: ``,
-    venue: "A.V. Hall",
+    venue: "Conference Hall",
     grades: "9 - 12",
     image: KO,
     accent: "black",
@@ -35,14 +35,16 @@ const KnockOut = {
     finalists: [{ name: "", grade: "" }],
 
     about:
-      "Knockout is a debate competition on the best of topics relating to technology and the future. Raise your words, not your voice, and stand up for your stance. Use the weapon of words to wound your opponent. A sudden rush of adrenaline coursing through your veins and the urge to blurt out the plethora of arguments running through your mind. It's not about killing your enemy, it's about making them surrender. 'Nuff said. MIC. DROP!",
+      "Who said words can't hurt? Knockout is a debate competition combining the action of arguments on topics about technology and future with the rush of being the first to think out of the box. The drama is real and the tea is at the edge of the table waiting to spill as the debate gets intense. Will the heat die down or switch directions into your words? It's not about who is the fastest, not about who is the quickest but about who is and will be THE BEST.",
 
     guidelines: [
       {
         title: "Day 1",
         rules: [
-          "Round 1 (Solo 1 v 1 debate) will be conducted, whose details will be announced in the WhatsaApp group.",
-          "Round 2 will be conducted with all participants, which will be an on-the-spot round.",
+          "Round 1 - All participants will be given a topic prior to the event and will have enough time to prepare. Each individual will be given time to introduce their take on the topic given.",
+          "Round 2 - Participants will be assigned a role and given a crisis.",
+          "Everyone will present their stances on the same within a time of 60 seconds.",
+          "This will be the debate round, cross talk will be allowed and the judge will be the moderator of the speech.",
           "Eliminations will take place after Round 2."
         ],
       },
@@ -50,9 +52,10 @@ const KnockOut = {
       {
           title: "Day 2",
           rules: [
-              "Two on-the-spot rounds will be conducted.",
-              "Elimination will take place after round 3",
-              "At the end of Round 4, winners will be announced."
+              "Round 3 - The remaining competitors will be divided into pairs and will have a 1v1 on a given topic on the spot.",
+              "Eliminations after round 3 - The winner of each 1v1 moves to round 4.",
+              "Round 4 - The finalists will be given a topic on the spot and will have to present their stance on the same.",
+              "Points are scrapped after every round, thus each contestant starts from 0 in every round."
           ]
       }
     ],
