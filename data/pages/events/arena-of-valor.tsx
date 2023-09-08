@@ -101,8 +101,6 @@ const ArenaOfValor = {
             name: "Stumble Guys",
             participants: 1,
             image: stgys,
-              },
-            ],
           },
         ],
 
