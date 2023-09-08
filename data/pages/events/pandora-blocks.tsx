@@ -37,7 +37,8 @@ const PandoraBlocks = {
             "The time allotted is 3 hours to build.",
             "Teams are not allowed to use any sort of hacks/cheats/clients. Use of such malpractices will result in immediate disqualification.",
             "If any participant is found to be griefing, building inappropriate structures, or disturbing / sabotaging other teams, the team will be disqualified.",
-            "We reserve the right to modify the rules at any time as deemed necessary."
+            "We reserve the right to modify the rules at any time as deemed necessary.",
+            "The event will be managed through Whatsapp and Discord"
         ],
 
         assessment: [
