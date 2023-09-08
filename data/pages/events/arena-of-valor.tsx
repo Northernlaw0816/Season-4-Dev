@@ -194,7 +194,7 @@ const ArenaOfValor = {
           "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
           "We request all the players to be on time and stay active throughout the tournament.",
           "Kindly feel free to contact us anytime during the tournament regarding any queries.",
-          "Players can only participate in one game in the console category",
+          "Players can only participate in one game in the PC category",
 
         ],
       },
