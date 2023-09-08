@@ -8,12 +8,12 @@ import PB from "../../../public/images/events/pandora_blocks.png"
 const PandoraBlocks = {
     title: "Pandora's Blocks",
 
-    tagline: "Build your curiosity",
+    tagline: "Build Beyond Imagination",
 
     link: '/events/pandora-blocks',
 
     details: {
-        shortDescription: "Welcome to the ultimate Minecraft building challenge where you will face adversity that will test your team communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
+        shortDescription: "Welcome to Pandora’s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         dateAndTime: [`${Main.dates.day1}, 10:40 a.m. - 3:00 p.m.`],
         date: `${Main.dates.day1}`,
         time: '10:40 a.m. - 3:00 p.m.',
@@ -24,20 +24,20 @@ const PandoraBlocks = {
     },
     
     headings: {
-        about: "Welcome to the ultimate Minecraft building challenge where you will face adversity that will test your team communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
+        about: "Welcome to Pandora’s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         
         rules: [
             "This is a team event. A team must have 3 players.",
             "Participants from grade 9 and above can participate.",
-            "Teams will be allotted their respective sandstone plots.",
-            "Participants are supposed to use version 1.17.1 only.", 
-            "Creative mode will be allowed to all teams.",
-            "Participants are not allowed to make changes to the island, they are only allowed to build on top of the sandstone platform.", 
-            "Participants shall not build in ways that will disturb the terrain [like making changes to the water under].",
-            "Teams are not allowed to change/move/go to another plot belonging to a different team.",
+            "Participants are supposed to use version 1.20.1 only.", 
+            "Participants are not allowed to switch Minecraft accounts during the event.",
+            "Creative mode will be allowed to all teams.", 
+            "Teams will be allotted their respective plots.",
+            "Teams are not allowed to change their plots or go to a plot belonging to a different team.",
             "The time allotted is 3 hours to build.",
             "Teams are not allowed to use any sort of hacks/cheats/clients. Use of such malpractices will result in immediate disqualification.",
-            "If any participant is found to be disturbing other teams, the team will be disqualified."
+            "If any participant is found to be griefing, building inappropriate structures, or disturbing / sabotaging other teams, the team will be disqualified.",
+            "We reserve the right to modify the rules at any time as deemed necessary."
         ],
 
         assessment: [
