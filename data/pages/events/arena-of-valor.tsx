@@ -6,7 +6,7 @@ import AoV from "../../../public/images/events/aov_logo.png";
 import rocket from "../../../public/images/events/aov_games/rocket_league.png";
 import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
-import stgys from "../../../public/images/events/aov_games/StumbleGuys.jpg";
+import stgys from "public/images/events/aov_games/StumbleGuys.jpg";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
 import fifa from "public/images/events/aov_games/FIFA 23.png";
