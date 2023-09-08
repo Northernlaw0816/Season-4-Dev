@@ -73,7 +73,6 @@ const ArenaOfValor = {
             name: "FIFA-23",
             participants: 2,
             image: fifa,
-            bannedItems: [],
           },
         ],
 
