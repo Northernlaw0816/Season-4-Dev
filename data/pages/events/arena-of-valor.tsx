@@ -157,10 +157,14 @@ const ArenaOfValor = {
         ],
 
         guidelines: [
-          "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",
-          "Controllers and Emulators are NOT allowed.",
-          "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
-          "The banned items for the specific game must NOT be used in any part of the event.",
+          "The event will be conducted online.",
+          "Students must arrange a proper network connection, network issues will not be encouraged.",
+          "The communication will be in an online meeting for which link will be sent to participants.",
+          "Students are requested to arrange an extra device for the online meeting.",
+          "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
+          "Inappropriate behaviour from the students may lead to disqualification.",
+          "Students should not use any emotes in the game. (eg. punching and etc)",
+          "No arguments with the head of the particular event for a rematch or other things.", 
         ],
       },
 
