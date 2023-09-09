@@ -171,7 +171,7 @@ const ArenaOfValor = {
       "Participants can register as ONE team for ONE game per platform.",
       "Console: Duo Team (2 members) – 3 teams per school",
       "Mobile:	Quad Team (4 members) - 3 teams per school",
-      "PC: Fortnite - Solo - 3 players per school | Rocket League - Trios(3 members) - 3 teams per school",
+      "PC: Fortnite - Solo - 3 players per school | Rocket League - Trios (3 members) - 3 teams per school",
     ],
   },
 };
