@@ -1,6 +1,6 @@
 // Event Heads
 import thrivikram from "../public/images/profile/thrivikram.png"
-import rithik from "../public/images/profile/.png"
+import rithik from "../public/images/profile/rithik.png"
 // AOV
 import akshay from "../public/images/profile/akshay.png"
 import tejas from "../public/images/profile/tejas.png"
