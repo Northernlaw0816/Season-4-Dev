@@ -1,11 +1,11 @@
 // Event Heads
-import thrivikram from "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fthrivikram.png?alt=media&token=b9415f98-4445-482a-9a2b-1cdac49cde7a"
+thrivikram:"https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fthrivikram.png?alt=media&token=b9415f98-4445-482a-9a2b-1cdac49cde7a"
 // AOV
 // KO
 // TOD
 // LAB
 // DS
-import mahathi from "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fmahathi.JPG?alt=media&token=2d32f9aa-b2ea-40f8-be0c-92eb39b85ab4"
+//import mahathi from "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fmahathi.JPG?alt=media&token=2d32f9aa-b2ea-40f8-be0c-92eb39b85ab4"
 // OTK
 // BD
 // PD
@@ -74,13 +74,13 @@ const EventCoordinators = [
     name: "Thrivikram R Krishnaa",
     event: "Designscape",
     grade: "11",
-    src: placeholder,
+    src: thrivikram,
   },
   {
     name: "Mahathi Muthukumar",
     event: "Designscape",
     grade: "11",
-    src: mahathi,
+    src: placeholder,
   },
   {
     name: "Adithi N",
