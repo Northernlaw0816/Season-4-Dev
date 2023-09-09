@@ -1,5 +1,6 @@
 // Event Heads
-thrivikram:"https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fthrivikram.png?alt=media&token=b9415f98-4445-482a-9a2b-1cdac49cde7a"
+import thrivikram:
+	src: "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fthrivikram.png?alt=media&token=b9415f98-4445-482a-9a2b-1cdac49cde7a"
 // AOV
 // KO
 // TOD
