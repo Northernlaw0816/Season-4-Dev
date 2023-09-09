@@ -8,7 +8,6 @@ import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
-import stgys from "public/images/events/aov_games/StumbleGuys.jpg";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
 import fifa from "public/images/events/aov_games/FIFA 23.png";
 
@@ -99,10 +98,55 @@ const ArenaOfValor = {
 
         games: [
           {
-            name: "Stumble Guys",
+            name: "Call Of Duty Mobile",
             participants: 4,
-            image: stgys,
-            bannedItems: [],
+            image: cod,
+            bannedItems: [
+              {
+                category: "ScoreStreaks Banned",
+                items: [
+                  "Sentry Gun",
+                  "VTOL",
+                  "Care Package",
+                  "Stealth Chopper",
+                  "Hawk X3",
+                  "Lightning Strike",
+                  "Orbital Laser",
+                ],
+              },
+
+              {
+                category: "Weapons Banned",
+                items: [
+                  "NA-45",
+                  "RYTEC AMR",
+                  "PPSH-41",
+                  "Cross-Bow",
+                  "D13 Sector",
+                  "Weapons attached with akimbo",
+                ],
+              },
+
+              {
+                category: "Lethal utility Banned",
+                items: ["Thermite", "TripMine"],
+              },
+
+              {
+                category: "Perks Banned",
+                items: ["Martyrdom", "Restock", "Persistent"],
+              },
+              {
+                category: "Operator Skills Banned",
+                items: [
+                  "H.I.V.E",
+                  "Bull Charge",
+                  "Ballistic shield",
+                  "Kinetic armour",
+                  "Tak-5",
+                ],
+              },
+            ],
           },
           {
             name: "Battlegrounds Mobile India",
