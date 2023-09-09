@@ -75,7 +75,7 @@ const ArenaOfValor: NextPage = () => {
                                     </div>
                                     <h5 id={toSlug(`${game.name} details`)}>Details</h5>
                                     <p className={styles.h5_p}>Team Size: {game.participants}</p>
-                                        </ul>
+                                </div>)
                             })}
 
                             <h4 id={toSlug(`${platform} guidelines`)}>Guidelines</h4>
