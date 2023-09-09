@@ -75,18 +75,7 @@ const ArenaOfValor: NextPage = () => {
                                     </div>
                                     <h5 id={toSlug(`${game.name} details`)}>Details</h5>
                                     <p className={styles.h5_p}>Team Size: {game.participants}</p>
-                                                return(<li key={index}>
-                                                    <p>{category.category}</p>
-                                                    <ul>
-                                                        {category.items.map((item, index) => {
-                                                            return (<li key={index}>{item}</li>)
-                                                        })}
-                                                    </ul>
-                                                </li>)
-                                            })}
                                         </ul>
-                                    </>)}
-                                </div>)
                             })}
 
                             <h4 id={toSlug(`${platform} guidelines`)}>Guidelines</h4>
