@@ -1,14 +1,28 @@
 // Event Heads
 import thrivikram from "../public/images/profile/thrivikram.png"
+import rithik from "../public/images/profile/.png"
 // AOV
+import akshay from "../public/images/profile/akshay.png"
+import tejas from "../public/images/profile/tejas.png"
+import caleb from "../public/images/profile/caleb.png"
+import shafiq from "../public/images/profile/shafiq.png"
+import sharuk from "../public/images/profile/sharuk.png"
 // KO
+import ananya from "../public/images/profile/ananya.png"
+import dhairya from "../public/images/profile/dhairya.png"
+import adithi from "../public/images/profile/adithi.png"
 // TOD
+import karthik from "../public/images/profile/karthik.png"
 // LAB
+import yashitha from "../public/images/profile/yashitha.png"
 // DS
 import mahathi from "../public/images/profile/mahathi.png"
 // OTK
 // BD
+import daksh from "../public/images/profile/daksh.png"
+import pranav from "../public/images/profile/pranav.png"
 // PD
+import driti from "../public/images/profile/driti.png"
 // SM
 // PG
 //Place Holder Change later
@@ -23,7 +37,7 @@ const EventHeads = [
   {
     name: "Rithik Abhay A.R",
     grade: "11",
-    src: placeholder,
+    src: rithik,
   },
 ];
 
@@ -32,31 +46,31 @@ const EventCoordinators = [
     name: "Sharuk Sanjay",
     event: "Arena of Valor - Mobile",
     grade: "11",
-    src: placeholder,
+    src: sharuk,
   },
   {
     name: "Mohammed Shafiq",
     event: "Arena of Valor - Mobile",
     grade: "11",
-    src: placeholder,
+    src: shafiq,
   },
   {
     name: "Akshay Srinivasan",
     event: "Arena of Valor - Mobile",
     grade: "11",
-    src: placeholder,
+    src: akshay,
   },
   {
     name: "Tejas Kumaresan",
     event: "Arena of Valor - PC",
     grade: "11",
-    src: placeholder,
+    src: tejas,
   },
   {
     name: "Caleb Samuel S",
     event: "Arena of Valor - PC",
     grade: "11",
-    src: placeholder,
+    src: caleb,
   },
   {
     name: "Parthiv Sundar S",
@@ -86,25 +100,25 @@ const EventCoordinators = [
     name: "Adithi N",
     event: "Knockout",
     grade: "11",
-    src: placeholder,
+    src: adithi,
   },
   {
     name: "Dhairya Bagri",
     event: "Knockout",
     grade: "10",
-    src: placeholder,
+    src: dhairya,
   },
   {
     name: "Ananya Hariharan",
     event: "Knockout",
     grade: "11",
-    src: placeholder,
+    src: ananya,
   },
   {
     name: "Yashitha Ragavendra",
     event: "Log and Blog",
     grade: "11",
-    src: placeholder,
+    src: yashitha,
   },
   {
     name: "Shruti Amrutha N",
@@ -134,7 +148,7 @@ const EventCoordinators = [
     name: "Karthik Govindan",
     event: "Truth or Debug",
     grade: "11",
-    src: placeholder,
+    src: karthik,
   },
   {
     name: "Dhruv Sambasivan",
@@ -152,13 +166,13 @@ const EventCoordinators = [
     name: "Pranav Mogan",
     event: "Bass Drop",
     grade: "12",
-    src: placeholder,
+    src: pranav,
   },
   {
     name: "Daksh S",
     event: "Bass Drop",
     grade: "12",
-    src: placeholder,
+    src: daksh,
   },
   {
     name: "Atul Binosh Hedge",
@@ -170,7 +184,7 @@ const EventCoordinators = [
     name: "Driti S Shah",
     event: "Pandora's Blocks",
     grade: "11",
-    src: placeholder,
+    src: driti,
   },
 ];
 
