@@ -6,6 +6,7 @@ import AoV from "../../../public/images/events/aov_logo.png";
 import rocket from "../../../public/images/events/aov_games/rocket_league.png";
 import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
+import cod from "../../../public/images/events/aov_games/cod.png";
 import stgys from "public/images/events/aov_games/StumbleGuys.jpg";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
@@ -73,6 +74,7 @@ const ArenaOfValor = {
             name: "FIFA-23",
             participants: 2,
             image: fifa,
+            bannedItems: [],
           },
         ],
 
@@ -88,11 +90,12 @@ const ArenaOfValor = {
           "Players are not allowed to handle the console outside the tournament and change any settings. Strict action will be taken.",
         ],
       },
+
       {
         name: "Mobile",
 
         description:
-          "Arena of Valor - Mobile (individual)",
+          "Arena of Valor - Mobile (Individual)",
 
         games: [
           {
@@ -110,7 +113,7 @@ const ArenaOfValor = {
           "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
           "Inappropriate behaviour from the students may lead to disqualification.",
           "Students should not use any emotes in the game. (eg. punching and etc)",
-          "No arguments with the head of the particular event for a rematch or other things."
+          "No arguments with the head of the particular event for a rematch or other things.",          
         ],
       },
 
