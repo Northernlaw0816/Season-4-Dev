@@ -7,8 +7,8 @@ import rocket from "../../../public/images/events/aov_games/rocket_league.png";
 import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
-import stgys from "public/images/events/aov_games/StumbleGuys.jpg";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
+import stgys from "public/images/events/aov_games/StumbleGuys.jpg";
 import csgo from "../../../public/images/events/aov_games/csgo.png";
 import fifa from "public/images/events/aov_games/FIFA 23.png";
 
@@ -74,6 +74,7 @@ const ArenaOfValor = {
             name: "FIFA-23",
             participants: 2,
             image: fifa,
+            bannedItems: [],
           },
         ],
 
@@ -94,25 +95,28 @@ const ArenaOfValor = {
         name: "Mobile",
 
         description:
-          "Arena of Valor - Mobile (Individual)",
+          "Arena of Valor - Mobile offers intense team-based combat and strategy, all within a device that fits in the palm of your hands.",
 
         games: [
           {
             name: "Stumble Guys",
-            participants: 1,
+            participants: 4,
             image: stgys,
+            bannedItems: [],
+          },
+          {
+            name: "Battlegrounds Mobile India",
+            participants: 4,
+            image: bgmi,
+            bannedItems: [],
           },
         ],
 
         guidelines: [
-          "The event will be conducted online.",
-          "Students must arrange a proper network connection, network issues will not be encouraged.",
-          "The communication will be in an online meeting for which link will be sent to participants.",
-          "Students are requested to arrange an extra device for the online meeting.",
-          "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
-          "Inappropriate behaviour from the students may lead to disqualification.",
-          "Students should not use any emotes in the game. (eg. punching and etc)",
-          "No arguments with the head of the particular event for a rematch or other things.",          
+          "Participants are required to have all the resources needed for the chosen games downloaded prior to the event. e.g. Maps, Skins, etc...",
+          "Controllers and Emulators are NOT allowed.",
+          "The use of ANY of the following and similar is considered cheating: Multihacks, Wallhacks, AimBots.",
+          "The banned items for the specific game must NOT be used in any part of the event.",
         ],
       },
 
@@ -127,11 +131,15 @@ const ArenaOfValor = {
             name: "Fortnite",
             participants: 1,
             image: fortnite,
+            bannedItems: [
+            ],
           },
           {
             name: "Rocket League",
             participants: 3,
             image: rocket,
+            bannedItems: [
+            ],
           }
         ],
 
