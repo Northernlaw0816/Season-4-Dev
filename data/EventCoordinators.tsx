@@ -1,11 +1,11 @@
 // Event Heads
-import thrivikram from "public/images/profile/thrivikram.png"
+import thrivikram from "../public/images/profile/thrivikram.png"
 // AOV
 // KO
 // TOD
 // LAB
 // DS
-import mahathi from "public/images/profile/mahathi.JPG"
+import mahathi from "../public/images/profile/mahathi.JPG"
 // OTK
 // BD
 // PD
