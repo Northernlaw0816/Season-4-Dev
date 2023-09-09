@@ -75,10 +75,6 @@ const ArenaOfValor: NextPage = () => {
                                     </div>
                                     <h5 id={toSlug(`${game.name} details`)}>Details</h5>
                                     <p className={styles.h5_p}>Team Size: {game.participants}</p>
-                                    {game.bannedItems?.length > 0 && (<>
-                                        <h5 className={styles.h5_p}>Banned Items:</h5>
-                                        <ul className={styles.h5_p}>
-                                            { game.bannedItems?.map((category, index) => {
                                                 return(<li key={index}>
                                                     <p>{category.category}</p>
                                                     <ul>
