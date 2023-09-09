@@ -1,5 +1,5 @@
 // Event Heads
-import thrivikram from "gs://nutopia-307e4.appspot.com/images/gallery/Students S3/thrivikram.png"
+//import thrivikram from "gs://nutopia-307e4.appspot.com/images/gallery/Students S3/thrivikram.png"
 // AOV
 // KO
 // TOD
@@ -18,7 +18,7 @@ const EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "11",
-    src: thrivikram,
+    src: "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fthrivikram.png?alt=media&token=b9415f98-4445-482a-9a2b-1cdac49cde7a",
   },
   {
     name: "Rithik Abhay A.R",
@@ -74,13 +74,13 @@ const EventCoordinators = [
     name: "Thrivikram R Krishnaa",
     event: "Designscape",
     grade: "11",
-    src: thrivikram,
+    src: "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fthrivikram.png?alt=media&token=b9415f98-4445-482a-9a2b-1cdac49cde7a",
   },
   {
     name: "Mahathi Muthukumar",
     event: "Designscape",
     grade: "11",
-    src: placeholder,
+    src: "https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/images%2Fgallery%2FStudents%20S3%2Fmahathi.JPG?alt=media&token=2d32f9aa-b2ea-40f8-be0c-92eb39b85ab4",
   },
   {
     name: "Adithi N",
