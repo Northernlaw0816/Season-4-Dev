@@ -74,8 +74,6 @@ const ArenaOfValor = {
             name: "FIFA-23",
             participants: 2,
             image: fifa,
-            bannedItems: [
-            ],
           },
         ],
 
@@ -103,8 +101,6 @@ const ArenaOfValor = {
             name: "Stumble Guys",
             participants: 1,
             image: stgys,
-            bannedItems: [
-            ],    
           },
         ],
 
@@ -131,15 +127,11 @@ const ArenaOfValor = {
             name: "Fortnite",
             participants: 1,
             image: fortnite,
-            bannedItems: [
-            ],
           },
           {
             name: "Rocket League",
             participants: 3,
             image: rocket,
-            bannedItems: [
-            ],
           }
         ],
 
