@@ -8,7 +8,7 @@ import SMProfile from "../components/SMProfile"
 //stylesheets
 import styles from "../styles/pages/About.module.scss"
 //data
-import {EventCoordinators, EventHeads, MediaTeam} from "../data/EventCoordinators"
+import {EventCoordinators, EventHeads, MediaTeam, EventMentors} from "../data/EventCoordinators"
 import { AboutData } from "../data/pages"
 
 const About = () => {
@@ -28,6 +28,15 @@ const About = () => {
             <h1 id={toSlug("event heads")}>Event Heads</h1>
                 <div className={`${styles.card_container} ${styles.event_heads}`}>
                     {EventHeads.map((profile, index) => {
+                        return <ProfileCard key={index} profileObject={profile}/>
+                    })}
+                </div>
+            
+            <hr />
+
+            <h1 id={toSlug("Event Mentors")}>Event Mentors</h1>
+                <div className={styles.card_container}>
+                    {EventMentors.map((profile, index) => {
                         return <ProfileCard key={index} profileObject={profile}/>
                     })}
                 </div>
