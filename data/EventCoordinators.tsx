@@ -87,13 +87,13 @@ const EventCoordinators = [
     name: "Tejas Kumaresan",
     event: "Arena of Valor - PC",
     grade: "11",
-    src: placeholder,
+    src: tejas,
   },
   {
     name: "Caleb Samuel S",
     event: "Arena of Valor - PC",
     grade: "11",
-    src: placeholder,
+    src: caleb,
   },
   {
     name: "Parthiv Sundar S",
