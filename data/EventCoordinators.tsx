@@ -1,34 +1,46 @@
 // Event Heads
-import thrivikram from "../public/images/profile/thrivikram.png"
-import rithik from "../public/images/profile/rithik.png"
+import thrivikram from "../public/images/photos/thrivikram.png"
+import rithik from "../public/images/photos/rithik.png"
+//teacher's incharge
+import aj from "../publick/images/photos/aj.png"
+import vk from "../publick/images/photos/vk.png"
 // AOV
-import akshay from "../public/images/profile/akshay.png"
-import tejas from "../public/images/profile/tejas.png"
-import caleb from "../public/images/profile/caleb.png"
-import shafiq from "../public/images/profile/shafiq.png"
-import sharuk from "../public/images/profile/sharuk.png"
+import akshay from "../public/images/photos/akshay.png"
+import tejas from "../public/images/photos/tejas.png"
+import caleb from "../public/images/photos/caleb.png"
+import shafiq from "../public/images/photos/shafiq.png"
+import sharuk from "../public/images/photos/sharuk.png"
+import alan from "../public/images/photos/alan.png"
+import parthiv from "../public/images/photos/parthiv.png"
 // KO
-import ananya from "../public/images/profile/ananya.png"
-import dhairya from "../public/images/profile/dhairya.png"
-import adithi from "../public/images/profile/adithi.png"
+import ananya from "../public/images/photos/ananya.png"
+import dhairya from "../public/images/photos/dhairya.png"
+import adithi from "../public/images/photos/adithi.png"
 // TOD
-import karthik from "../public/images/profile/karthik.png"
+import karthik from "../public/images/photos/karthik.png"
+import harsh from "../public/images/photos/harsh.png"
+import dhruv from "../public/images/photos/dhruv.png"
 // LAB
-import yashitha from "../public/images/profile/yashitha.png"
+import yashitha from "../public/images/photos/yashitha.png"
+import shruti from "../public/images/photos/shruti.png"
 // DS
-import mahathi from "../public/images/profile/mahathi.png"
+import mahathi from "../public/images/photos/mahathi.png"
 // OTK
+import mithun from "../public/images/photos/mithun.png"
+import aashish from "../public/images/photos/aashish.png"
+import srishanth from "../public/images/photos/srishanth.png"
 // BD
-import daksh from "../public/images/profile/daksh.png"
-import pranav from "../public/images/profile/pranav.png"
+import daksh from "../public/images/photos/daksh.png"
+import pranav from "../public/images/photos/pranav.png"
 // PD
-import driti from "../public/images/profile/driti.png"
+import driti from "../public/images/photos/driti.png"
 // SM
+import nila from "../public/images/photos/nila.png"
 // PG
 //Place Holder Change later
-import placeholder from "../public/images/profile/placeholder.png";
+import placeholder from "../public/images/photos/placeholder.png";
 
-const EventHeads = [
+const  EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "11",
@@ -38,6 +50,17 @@ const EventHeads = [
     name: "Rithik Abhay A.R",
     grade: "11",
     src: rithik,
+  },
+];
+
+const EventMentors = [
+  {
+    name: "Anand Jeysingh",
+    src: aj,
+  },
+  {
+    name: "Vinish Kumar R",
+    src: vk,
   },
 ];
 
@@ -76,13 +99,13 @@ const EventCoordinators = [
     name: "Parthiv Sundar S",
     event: "Arena of Valor - Console",
     grade: "11",
-    src: placeholder,
+    src: parthiv,
   },
   {
     name: "Alan Astin",
     event: "Arena of Valor - Console",
     grade: "11",
-    src: placeholder,
+    src: alan,
   },
   {
     name: "Thrivikram R Krishnaa",
@@ -124,25 +147,25 @@ const EventCoordinators = [
     name: "Shruti Amrutha N",
     event: "Log and Blog",
     grade: "11",
-    src: placeholder,
+    src: shruti,
   },
   {
     name: "Aashish Sivaram",
     event: "Otakuiz",
     grade: "11",
-    src: placeholder,
+    src: aashish,
   },
   {
     name: "Mithun R Prem",
     event: "Otakuiz",
     grade: "11",
-    src: placeholder,
+    src: mithun,
   },
   {
     name: "Srishanth",
     event: "Otakuiz",
     grade: "11",
-    src: placeholder,
+    src: srishanth,
   },
   {
     name: "Karthik Govindan",
@@ -154,13 +177,13 @@ const EventCoordinators = [
     name: "Dhruv Sambasivan",
     event: "Truth or Debug",
     grade: "11",
-    src: placeholder,
+    src: dhruv,
   },
   {
     name: "Harsh C Shah",
     event: "Truth or Debug",
     grade: "11",
-    src: placeholder,
+    src: harsh,
   },
   {
     name: "Pranav Mogan",
@@ -199,8 +222,8 @@ const MediaTeam = [
     name: "Nila M.",
     grade: "12",
 	  roles: "Media Manager",
-    src: placeholder,
+    src: nila,
   },
 ];
 
-export { EventCoordinators, EventHeads, MediaTeam };
+export { EventCoordinators, EventHeads, EventMentors, MediaTeam };
