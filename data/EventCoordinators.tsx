@@ -35,7 +35,7 @@ import pranav from "../public/images/photos/pranav.png"
 // PD
 import driti from "../public/images/photos/driti.png"
 // SM
-import nila from "../public/images/photos/nila.png"
+import nila from "../public/images/profile/nila.png"
 // PG
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
