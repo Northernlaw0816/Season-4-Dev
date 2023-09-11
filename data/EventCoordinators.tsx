@@ -6,8 +6,8 @@ import aj from "../public/images/photos/aj.png"
 import vk from "../public/images/photos/vk.png"
 // AOV
 import akshay from "../public/images/photos/akshay.png"
-//import tejas from "../public/images/photos/tejas.png"
-//import caleb from "../public/images/photos/caleb.png"
+import tejas from "../public/images/photos/tejas.png"
+import caleb from "../public/images/photos/caleb.png"
 import shafiq from "../public/images/photos/shafiq.png"
 import sharuk from "../public/images/photos/sharuk.png"
 import alan from "../public/images/photos/alan.png"
@@ -35,7 +35,7 @@ import pranav from "../public/images/photos/pranav.png"
 // PD
 import driti from "../public/images/photos/driti.png"
 // SM
-import nila from "../public/images/profile/nila.png"
+import nila from "../public/images/photos/nila.png"
 // PG
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
