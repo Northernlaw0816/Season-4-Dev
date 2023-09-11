@@ -2,8 +2,8 @@
 import thrivikram from "../public/images/photos/thrivikram.png"
 import rithik from "../public/images/photos/rithik.png"
 //teacher's incharge
-import aj from "../publick/images/photos/aj.png"
-import vk from "../publick/images/photos/vk.png"
+import aj from "../public/images/photos/aj.png"
+import vk from "../public/images/photos/vk.png"
 // AOV
 import akshay from "../public/images/photos/akshay.png"
 import tejas from "../public/images/photos/tejas.png"
