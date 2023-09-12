@@ -14,7 +14,7 @@ const PandoraBlocks = {
 
     details: {
         shortDescription: "Welcome to Pandora’s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
-        dateAndTime: [`${Main.dates.day1}, 10:40 a.m. - 3:00 p.m.`],
+        dateAndTime: [`${Main.dates.day1}, 10:15 a.m. - 3:00 p.m.`],
         date: `${Main.dates.day1}`,
         time: '10:15 a.m. - 3:00 p.m.',
         venue: 'Online',
