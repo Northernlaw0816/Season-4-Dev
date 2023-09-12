@@ -26,10 +26,10 @@ const ArenaOfValor = {
 
     date: [
       `${Main.dates.day1}, 1:00 p.m. - 7:00 p.m.`,
-      `${Main.dates.day2}, 9:30 a.m. - 3:00 p.m.`
+      `${Main.dates.day2}, 9:30 a.m. - 2:30 p.m.`
     ],
 
-    dateAndTime: `${Main.dates.day1}, 1:00 p.m. - 7:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 3:00 p.m.`,
+    dateAndTime: `${Main.dates.day1}, 1:00 p.m. - 7:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 2:30 p.m.`,
 
     time: "TBA",
 
