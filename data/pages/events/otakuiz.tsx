@@ -13,10 +13,10 @@ const Otakuiz = {
     
     details: {
         shortDescription: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title “Super Sannin”. It’s finally your time to prove that all those hours spent watching anime are not in vain by showing off the knowledge you’ve gained in the ultimate anime quiz. Are you ready to give Otakuiz a shot? Meet fellow weebs and have the time of your life? So join us for the ride and let’s have a blast together.",
-        date: [`${Main.dates.day1}, 10:40 a.m. - 3:00 p.m.`,
-            `${Main.dates.day2}, 10:30 a.m. - 2:30 p.m.`],
-        dateAndTime: `${Main.dates.day1}, 10:40 a.m. - 3:00 p.m. | ${Main.dates.day2}, 10:30 a.m. - 2:30 p.m`,
-        time: "10:40 a.m. - 3:00 p.m.",
+        date: [`${Main.dates.day1}, 10:30 a.m. - 3:00 p.m.`,
+            `${Main.dates.day2}, 10:30 a.m. - 3:00 p.m.`],
+        dateAndTime: `${Main.dates.day1}, 10:30 a.m. - 3:00 p.m. | ${Main.dates.day2}, 10:30 a.m. - 2:30 p.m`,
+        time: "10:30 a.m. - 3:00 p.m.",
         venue: 'Auditorium',
         grades: '9 - 12',
         image: OTK,
@@ -37,7 +37,7 @@ const Otakuiz = {
             "Participants are not allowed to bring any stationary except pens.",
             "The Otakuiz will consist of three rounds, the first being the preliminaries.",
             "The preliminaries will not include any negative marking and contestants who cleared the preliminaries will move to the advancing rounds.",
-            "The second round is a geoguessr round."
+            "The second round is a guessr round."
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Otakuiz"),
