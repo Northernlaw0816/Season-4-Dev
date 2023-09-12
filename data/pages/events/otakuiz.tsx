@@ -14,8 +14,8 @@ const Otakuiz = {
     details: {
         shortDescription: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title “Super Sannin”. It’s finally your time to prove that all those hours spent watching anime are not in vain by showing off the knowledge you’ve gained in the ultimate anime quiz. Are you ready to give Otakuiz a shot? Meet fellow weebs and have the time of your life? So join us for the ride and let’s have a blast together.",
         date: [`${Main.dates.day1}, 10:30 a.m. - 3:00 p.m.`,
-            `${Main.dates.day2}, 10:30 a.m. - 3:00 p.m.`],
-        dateAndTime: `${Main.dates.day1}, 10:30 a.m. - 3:00 p.m. | ${Main.dates.day2}, 10:30 a.m. - 2:30 p.m`,
+            `${Main.dates.day2}, 10:30 a.m. - 1:00 p.m.`],
+        dateAndTime: `${Main.dates.day1}, 10:30 a.m. - 3:00 p.m. | ${Main.dates.day2}, 10:30 a.m. - 1:00 p.m`,
         time: "10:30 a.m. - 3:00 p.m.",
         venue: 'Auditorium',
         grades: '9 - 12',
