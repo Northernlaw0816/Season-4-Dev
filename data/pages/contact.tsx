@@ -25,7 +25,7 @@ const ContactUs = {
     socials: [
         {
             name: "Instagram",
-            link: "https://www.instagram.com/nutopia_ybps/",
+            link: "https://www.instagram.com/nutopia.ybps/",
             image: IG,
             style: styles.insta
         },
