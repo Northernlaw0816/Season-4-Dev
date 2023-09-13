@@ -34,6 +34,7 @@ import daksh from "../public/images/photos/daksh.png"
 import pranav from "../public/images/photos/pranav.png"
 // PD
 import driti from "../public/images/photos/driti.png"
+import atul from "../public/images/photos/atul.png"
 // SM
 import nila from "../public/images/photos/nila.png"
 // PG
@@ -198,10 +199,10 @@ const EventCoordinators = [
     src: daksh,
   },
   {
-    name: "Atul Binosh Hedge",
+    name: "Atul Binosh Hegde",
     event: "Pandora's Blocks",
     grade: "12",
-    src: placeholder,
+    src: atul,
   },
   {
     name: "Driti S Shah",
