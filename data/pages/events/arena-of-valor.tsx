@@ -168,7 +168,7 @@ const ArenaOfValor = {
 
     registration: [
       "Registrations for each platform has to be done separately.",
-      "Participants can register as ONE team for ONE game per platform.",
+      "Participants of AOV Console can also participate in either AOV PC or AOV Mobile.",
       "Console: Duo Team (2 members) – 3 teams per school",
       "Mobile:	Solo - 5 players per school",
       "PC: Fortnite - Solo - 3 players per school | Rocket League - Trios (3 members) - 3 teams per school",
