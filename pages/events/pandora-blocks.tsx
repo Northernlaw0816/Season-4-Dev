@@ -95,7 +95,9 @@ const pandoraBlocks: NextPage = () => {
                     pathname: "https://docs.google.com/forms/d/16bgykoqV36TVsUt60xb_UDiQNK3T8PdNtUGLNyaWen8/edit",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+            
         </div>
+              </div>
       </Layout>
     </>
   );
