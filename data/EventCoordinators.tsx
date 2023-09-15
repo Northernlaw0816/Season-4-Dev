@@ -85,7 +85,7 @@ const EventCoordinators = [
     src: akshay,
   },
   {
-    name: "Tejas Kumaresan",
+    name: "Tejas Kumareshan",
     event: "Arena of Valor - PC",
     grade: "11",
     src: tejas,
