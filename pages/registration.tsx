@@ -35,8 +35,6 @@ const Registration = () => {
                 </div>)
             })}
 
-            {Main.registrationClosingDate.getTime() <= new Date().getTime()? <h1>Registrations will open on 15th September</h1> : <RegistrationForm />}
-
         </Layout>
     </>)
 }
