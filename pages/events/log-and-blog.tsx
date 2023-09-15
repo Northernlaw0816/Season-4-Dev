@@ -76,6 +76,7 @@ const LogAndBlog: NextPage= () => {
                     pathname: "https://docs.google.com/forms/d/1Qu8QKagtJhX9oyKyJQbkJpwP2mXxiESWaJLnoiKTZqg/edit",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+        </div>
             </div>
         </Layout>
     </>)
