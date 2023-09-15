@@ -76,6 +76,7 @@ const KnockOut: NextPage= () => {
                     pathname: "https://docs.google.com/forms/d/1aghaNK5JS72quAAb4s-Q7EOTis7Fg2p1GXN7kzstRng/edit",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+        </div>
             </div>
         </Layout>
     </>)
