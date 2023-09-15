@@ -157,7 +157,7 @@ const ArenaOfValor = {
     rules: [
       "Open for Grades 9 to 12.",
       "Students will participate in a series of matches of video games that they have registered for",
-      "The game competitions will be run across 3 platforms namely CONSOLE (PS4,  Xbox, etc), PC (laptop or desktop), MOBILE (smartphones, etc) in which participants can only participate in one game per platform.",
+      "The game competitions will be run across 3 platforms namely CONSOLE (PS4,  Xbox, etc), PC (laptop or desktop), MOBILE (smartphones, etc)",
       "Students can participate using any of the above platforms. Different platforms will NOT go against each other at any point.",
       "Participants are required to have a strong and stable internet connection.",
     ],
