@@ -346,6 +346,7 @@ const Designscape: NextPage = () => {
                     pathname: "https://docs.google.com/forms/d/1oQfdmJ86LJCWblO09kugsfPuNBJn6wOUEjWQxbl11eo/edit",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+      </div>
         </div>
       </Layout>
     </>
