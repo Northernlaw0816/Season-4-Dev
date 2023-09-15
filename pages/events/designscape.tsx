@@ -2,6 +2,8 @@ import { NextPage } from "next";
 import { useEffect } from "react";
 import { toSlug } from "../../functions";
 import anime from "animejs";
+import Main from "../../data/Main"
+import Link from "next/link"
 
 //components
 import HeadTemplate from "../../components/HeadTemplate";
@@ -333,7 +335,17 @@ const Designscape: NextPage = () => {
               })}
             </ul>
           </div>
-          <EventsRegisterButton event={toSlug(DesignscapeData.title)} />
+           <div className={styles.register_link_align}>
+            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
+                <a className={styles.register_link}>Registrations are not yet open</a>
+            :
+                <Link href={{
+                    pathname: "https://docs.google.com/forms/d/1oQfdmJ86LJCWblO09kugsfPuNBJn6wOUEjWQxbl11eo/edit",
+                    hash: "registration-form"
+                }} as={{
+                    pathname: "https://docs.google.com/forms/d/1oQfdmJ86LJCWblO09kugsfPuNBJn6wOUEjWQxbl11eo/edit",
+                    hash: "registration-form"
+                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
       </Layout>
     </>
