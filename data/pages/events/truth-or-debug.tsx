@@ -35,6 +35,8 @@ const TruthOrDebug = {
         
         rules: [
             "Participants are allowed to only use Python, Java, JavaScript, C, C++",
+            "Participants must know the basics of EV3s",
+            "Participants will work using the EV3 classroom app and must have it installed in their devices ",
             "Participants must bring their own devices and accessories",
             "Receiving external help is strictly prohibited.",
             "In case of malpractices, all concerned groups will be held accountable",
