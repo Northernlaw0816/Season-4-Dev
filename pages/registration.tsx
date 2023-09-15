@@ -19,7 +19,7 @@ const Registration = () => {
             <h1 id="title">{RegistrationData.title}</h1>
             
             <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 3 is open for schools in Coimbatore.</p>
-            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the <Link href={`#${toSlug("Registration Form")}`}><a>Registration Form</a></Link>.</p>
+            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the registration form under each event.</p>
 
             <h2>Common Guidelines</h2>
             <ul>
