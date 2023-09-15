@@ -56,7 +56,7 @@ const  EventHeads = [
 
 const EventMentors = [
   {
-    name: "Anand Jeysingh",
+    name: "Anand Jeyasingh",
     src: aj,
   },
   {
@@ -139,7 +139,7 @@ const EventCoordinators = [
     src: ananya,
   },
   {
-    name: "Yashitha Ragavendra",
+    name: "Yashitha Raghavendra",
     event: "Log and Blog",
     grade: "11",
     src: yashitha,
