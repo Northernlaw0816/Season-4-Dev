@@ -89,7 +89,18 @@ const TruthOrDebug: NextPage = () => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                     
-                <EventsRegisterButton event={toSlug(TruthOrDebugData.title)}/>
+               <div className={styles.register_link_align}>
+            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
+                <a className={styles.register_link}>Registrations are not yet open</a>
+            :
+                <Link href={{
+                    pathname: "https://docs.google.com/forms/d/141Aik9T-_wOW5cGBOjyvShgESM6jrEaPqLewbVpNYpM/edit",
+                    hash: "registration-form"
+                }} as={{
+                    pathname: "https://docs.google.com/forms/d/141Aik9T-_wOW5cGBOjyvShgESM6jrEaPqLewbVpNYpM/edit",
+                    hash: "registration-form"
+                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+        </div>
             </div>
         </Layout>
 
