@@ -72,7 +72,6 @@ const BassDrop: NextPage = () => {
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
             </div>
-            </div>
         </Layout>
 
     </>)
