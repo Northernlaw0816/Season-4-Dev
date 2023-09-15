@@ -4,6 +4,7 @@ import { toSlug } from "../../functions"
 import Main from "../../data/Main"
 import Link from "next/link"
 
+
 //components
 import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
@@ -65,7 +66,7 @@ const LogAndBlog: NextPage= () => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
 
-                < <div className={styles.register_link_align}>
+                 <div className={styles.register_link_align}>
             {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
