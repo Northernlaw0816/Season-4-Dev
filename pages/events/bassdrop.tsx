@@ -1,6 +1,8 @@
 import type { NextPage } from "next"
 import Image from "next/image"
 import { toSlug } from "../../functions"
+import Main from "../../data/Main"
+import Link from "next/link"
 
 //components
 import HeadTemplate from "../../components/HeadTemplate"
@@ -57,7 +59,19 @@ const BassDrop: NextPage = () => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                     
-                <EventsRegisterButton event={toSlug(BassDropData.title)}/>
+                <div className={styles.register_link_align}>
+            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
+                <a className={styles.register_link}>Registrations are not yet open</a>
+            :
+                <Link href={{
+                    pathname: "https://docs.google.com/forms/d/e/1FAIpQLSflksaLurWpfkLBJJuMmtcvmK0Hk9sBWnRppCOoMDA-E9kwhg/viewform",
+                    hash: "registration-form"
+                }} as={{
+                    pathname: "https://docs.google.com/forms/d/e/1FAIpQLSflksaLurWpfkLBJJuMmtcvmK0Hk9sBWnRppCOoMDA-E9kwhg/viewform",
+                    hash: "registration-form"
+                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+        </div>
+            </div>
             </div>
         </Layout>
 
