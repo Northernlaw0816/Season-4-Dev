@@ -34,7 +34,7 @@ const TruthOrDebug = {
         about: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
         
         rules: [
-            "Participants are allowed to only use Python, Java, JavaScript, C, C++",
+            "Participants are allowed to only use Python, Java or JavaScript",
             "Participants must know the basics of EV3s",
             "Participants will work using the EV3 classroom app and must have it installed in their devices ",
             "Participants must bring their own devices and accessories",
