@@ -1,7 +1,8 @@
 import type { NextPage } from "next"
 import Image from "next/image"
 import { toSlug } from "../../functions"
-
+import Main from "../../data/Main"
+import Link from "next/link"
 //components
 import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
@@ -76,8 +77,19 @@ const Otakuiz: NextPage = () => {
                     <ul>{OtakuizData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
-                
-                <EventsRegisterButton event={toSlug(OtakuizData.title)}/>
+
+                <div className={styles.register_link_align}>
+            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
+                <a className={styles.register_link}>Registrations are not yet open</a>
+            :
+                <Link href={{
+                    pathname: "https://docs.google.com/forms/d/1vgApRag8cwVMvE7XMJOhLJWErUO-Sy1Eer1pIktsJVw/edit",
+                    hash: "registration-form"
+                }} as={{
+                    pathname: "https://docs.google.com/forms/d/1vgApRag8cwVMvE7XMJOhLJWErUO-Sy1Eer1pIktsJVw/edit",
+                    hash: "registration-form"
+                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+        </div>
             </div>
         </Layout>
     </>)
