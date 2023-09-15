@@ -104,7 +104,18 @@ const ArenaOfValor: NextPage = () => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                 
-                <EventsRegisterButton event={toSlug(ArenaOfValorData.title)}/>
+                 <div className={styles.register_link_align}>
+            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
+                <a className={styles.register_link}>Registrations are not yet open</a>
+            :
+                <Link href={{
+                    pathname: "https://drive.google.com/file/d/1j95JuE9faDvrHhpDDBQf_Nklbn4jBU-o/view?usp=sharing",
+                    hash: "registration-form"
+                }} as={{
+                    pathname: "https://drive.google.com/file/d/1j95JuE9faDvrHhpDDBQf_Nklbn4jBU-o/view?usp=sharing",
+                    hash: "registration-form"
+                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+        </div>
             </div>
         </Layout>
     </>)
