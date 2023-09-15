@@ -1,6 +1,8 @@
 import type { NextPage } from "next"
 import Image from "next/image"
 import { toSlug } from "../../functions"
+import Main from "../../data/Main"
+import Link from "next/link"
 
 //components
 import HeadTemplate from "../../components/HeadTemplate"
