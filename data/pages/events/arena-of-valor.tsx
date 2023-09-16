@@ -134,7 +134,7 @@ const ArenaOfValor = {
           },
           {
             name: "Rocket League",
-            participants: 3,
+            participants: 2,
             image: rocket,
             bannedItems: [
             ],
@@ -171,7 +171,7 @@ const ArenaOfValor = {
       "Participants of AOV Console can also participate in either AOV PC or AOV Mobile.",
       "Console: Duo Team (2 members) – 3 teams per school",
       "Mobile:	Solo - 5 players per school",
-      "PC: Fortnite - Solo - 3 players per school | Rocket League - Trios (3 members) - 3 teams per school",
+      "PC: Fortnite - Solo - 3 players per school | Rocket League - Duos (2 members) - 3 teams per school",
     ],
   },
 };
