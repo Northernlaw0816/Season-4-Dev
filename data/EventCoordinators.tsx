@@ -214,7 +214,7 @@ const EventCoordinators = [
 
 const MediaTeam = [
   {
-    name: "Kushi Singh",
+    name: "Khushi Singh",
     grade: "12",
 	  roles: "Media Manager",
     src: placeholder,
