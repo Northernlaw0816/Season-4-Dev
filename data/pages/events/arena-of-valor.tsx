@@ -67,7 +67,7 @@ const ArenaOfValor = {
         name: "Console",
 
         description:
-          "Arena of Valor - Console participants get to showcase their skills and strategy through discipline to the joystick .",
+          "Welcome to Arena of Valor - Console (FIFA-23) where your teamwork, coordination, football knowledge and mechanical skills are put to the ultimate test in a competitive tournament.",
 
         games: [
           {
