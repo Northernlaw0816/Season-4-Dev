@@ -106,18 +106,7 @@ const ArenaOfValor: NextPage = () => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                 
-                 <div className={styles.register_link_align}>
-            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
-                <a className={styles.register_link}>Registrations are not yet open</a>
-            :
-                <Link href={{
-                    pathname: "https://drive.google.com/file/d/1j95JuE9faDvrHhpDDBQf_Nklbn4jBU-o/view",
-                    hash: ""
-                }} as={{
-                    pathname: "https://drive.google.com/file/d/1j95JuE9faDvrHhpDDBQf_Nklbn4jBU-o/view",
-                    hash: ""
-                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
-        </div>
+                 <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FMQCdvpeqe2HIPRjZLmpDE0%2FUntitled%3Ftype%3Ddesign%26mode%3Ddesign%26t%3DJDlj1opwk6gZtO0a-1" allowfullscreen></iframe>
             </div>
         </Layout>
     </>)
