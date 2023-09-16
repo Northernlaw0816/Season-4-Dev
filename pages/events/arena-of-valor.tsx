@@ -111,10 +111,10 @@ const ArenaOfValor: NextPage = () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://docs.google.com/forms/d/1vgApRag8cwVMvE7XMJOhLJWErUO-Sy1Eer1pIktsJVw/edit",
+                    pathname: "https://www.figma.com/proto/MQCdvpeqe2HIPRjZLmpDE0/Untitled?type=design&node-id=3-22&t=ErNDGZ5nYDTN6QRW-1&scaling=min-zoom&page-id=0%3A1&mode=design",
                     hash: "registration-form"
                 }} as={{
-                    pathname: "https://docs.google.com/forms/d/1vgApRag8cwVMvE7XMJOhLJWErUO-Sy1Eer1pIktsJVw/edit",
+                    pathname: "https://www.figma.com/proto/MQCdvpeqe2HIPRjZLmpDE0/Untitled?type=design&node-id=3-22&t=ErNDGZ5nYDTN6QRW-1&scaling=min-zoom&page-id=0%3A1&mode=design",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
