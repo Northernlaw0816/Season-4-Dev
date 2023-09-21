@@ -37,6 +37,7 @@ import driti from "../public/images/photos/driti.png"
 import atul from "../public/images/photos/atul.png"
 // SM
 import nila from "../public/images/photos/nila.png"
+import khushi from"../public/images/photos/khushi.png"
 // PG
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
@@ -217,7 +218,7 @@ const MediaTeam = [
     name: "Khushi Singh",
     grade: "12",
 	  roles: "Media Manager",
-    src: placeholder,
+    src: khushi,
   },
   {
     name: "Nila M.",
