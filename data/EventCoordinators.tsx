@@ -194,7 +194,7 @@ const EventCoordinators = [
     src: pranav,
   },
   {
-    name: "Daksh S",
+    name: "Daksh ",
     event: "Bass Drop",
     grade: "12",
     src: daksh,
