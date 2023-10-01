@@ -74,7 +74,7 @@ const EventCoordinators = [
     src: sharuk,
   },
   {
-    name: "Mohammed Shafiq",
+    name: "Mohamed Shafiq",
     event: "Arena of Valor - Mobile",
     grade: "11",
     src: shafiq,
