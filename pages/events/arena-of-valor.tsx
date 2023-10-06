@@ -111,10 +111,10 @@ const ArenaOfValor: NextPage = () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://drive.google.com/file/d/1_r7t45uhewa1tvTLm6FhTBaSg1QAEyg4/view",
+                    pathname: "https://drive.google.com/file/d/10J3RSxmq_eRQWw47nrmzEYWaenmQnBPD/view",
                     hash: ""
                 }} as={{
-                    pathname: "https://drive.google.com/file/d/1_r7t45uhewa1tvTLm6FhTBaSg1QAEyg4/view",
+                    pathname: "https://drive.google.com/file/d/10J3RSxmq_eRQWw47nrmzEYWaenmQnBPD/view",
                     hash: ""
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
