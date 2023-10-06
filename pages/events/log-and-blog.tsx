@@ -71,10 +71,10 @@ const LogAndBlog: NextPage= () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://docs.google.com/forms/d/1Qu8QKagtJhX9oyKyJQbkJpwP2mXxiESWaJLnoiKTZqg/edit",
+                    pathname: "https://forms.gle/ocGqTiGemTppdVTS6",
                     hash: "registration-form"
                 }} as={{
-                    pathname: "https://docs.google.com/forms/d/1Qu8QKagtJhX9oyKyJQbkJpwP2mXxiESWaJLnoiKTZqg/edit",
+                    pathname: "https://forms.gle/ocGqTiGemTppdVTS6",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
