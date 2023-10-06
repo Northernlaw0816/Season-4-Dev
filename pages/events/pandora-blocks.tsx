@@ -89,10 +89,10 @@ const pandoraBlocks: NextPage = () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://docs.google.com/forms/d/16bgykoqV36TVsUt60xb_UDiQNK3T8PdNtUGLNyaWen8/edit",
+                    pathname: "https://forms.gle/BrQcVuHAEcH29zWp6",
                     hash: "registration-form"
                 }} as={{
-                    pathname: "https://docs.google.com/forms/d/16bgykoqV36TVsUt60xb_UDiQNK3T8PdNtUGLNyaWen8/edit",
+                    pathname: "https://forms.gle/BrQcVuHAEcH29zWp6",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
             
