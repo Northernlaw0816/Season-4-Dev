@@ -340,10 +340,10 @@ const Designscape: NextPage = () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://docs.google.com/forms/d/1oQfdmJ86LJCWblO09kugsfPuNBJn6wOUEjWQxbl11eo/edit",
+                    pathname: "https://forms.gle/rRLnjQcEiLZhc8z98",
                     hash: "registration-form"
                 }} as={{
-                    pathname: "https://docs.google.com/forms/d/1oQfdmJ86LJCWblO09kugsfPuNBJn6wOUEjWQxbl11eo/edit",
+                    pathname: "https://forms.gle/rRLnjQcEiLZhc8z98",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
       </div>
