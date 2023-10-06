@@ -72,10 +72,10 @@ const KnockOut: NextPage= () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://docs.google.com/forms/d/1aghaNK5JS72quAAb4s-Q7EOTis7Fg2p1GXN7kzstRng/edit",
+                    pathname: "https://forms.gle/J2VUadVnB1VfY77K9",
                     hash: "registration-form"
                 }} as={{
-                    pathname: "https://docs.google.com/forms/d/1aghaNK5JS72quAAb4s-Q7EOTis7Fg2p1GXN7kzstRng/edit",
+                    pathname: "https://forms.gle/J2VUadVnB1VfY77K9",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
