@@ -347,11 +347,10 @@ const Designscape: NextPage = () => {
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
       </div>
-            {/* forms */}
-            <iframe style={{aspectRatio: "22/17"}} frameBorder={0} className={"embed pdf"} src={Forms.designscape} allow="autoplay"/>           
-            </div>
-        </Layout>
-    </>);
+        </div>
+      </Layout>
+    </>
+  );
 };
 
 export default Designscape;
