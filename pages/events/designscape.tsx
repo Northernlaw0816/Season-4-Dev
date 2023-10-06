@@ -351,8 +351,7 @@ const Designscape: NextPage = () => {
             <iframe style={{aspectRatio: "22/17"}} frameBorder={0} className={"embed pdf"} src={Forms.designscape} allow="autoplay"/>           
             </div>
         </Layout>
-    </>
-  );
+    </>);
 };
 
 export default Designscape;
