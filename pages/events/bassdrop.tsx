@@ -64,10 +64,10 @@ const BassDrop: NextPage = () => {
                 <a className={styles.register_link}>Registrations are not yet open</a>
             :
                 <Link href={{
-                    pathname: "https://docs.google.com/forms/d/e/1FAIpQLSflksaLurWpfkLBJJuMmtcvmK0Hk9sBWnRppCOoMDA-E9kwhg/viewform",
+                    pathname: "https://forms.gle/fmyZUdjiheCf7w7A6",
                     hash: "registration-form"
                 }} as={{
-                    pathname: "https://docs.google.com/forms/d/e/1FAIpQLSflksaLurWpfkLBJJuMmtcvmK0Hk9sBWnRppCOoMDA-E9kwhg/viewform",
+                    pathname: "https://forms.gle/fmyZUdjiheCf7w7A6",
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
