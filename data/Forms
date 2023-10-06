@@ -1,0 +1,7 @@
+const Forms = {
+    },
+    knockout: "https://docs.google.com/forms/d/e/1FAIpQLSfHly2fy1aJjUUgFS12h9-dL0HlYZE3CeGsfQ0WN4EG7bcNKA/viewform",
+    designscape: "https://docs.google.com/forms/d/e/1FAIpQLSe6S6OCygzzN5BPbDaBg3Zaa_SlGlGoeRgWUDEhSOGsndfDMw/viewform"
+}
+
+export default Forms
