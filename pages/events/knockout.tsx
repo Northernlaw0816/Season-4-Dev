@@ -80,7 +80,7 @@ const KnockOut: NextPage= () => {
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
             {/* forms */}
-            <iframe style={{aspectRatio: "22/17"}} frameBorder={0} className={"embed pdf"} src={Forms.knockout} allow="autoplay"/>           
+            <iframe style={{aspectRatio: "22/17"}} height={100%} width={100%} margin={0%} frameBorder={0} overflow={hidden} className={"embed pdf"} src={Forms.knockout} allow="autoplay"/>           
             </div>
         </Layout>
     </>)
