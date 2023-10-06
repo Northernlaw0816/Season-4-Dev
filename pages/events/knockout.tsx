@@ -79,8 +79,6 @@ const KnockOut: NextPage= () => {
                     hash: "registration-form"
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
-            {/* forms */}
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHly2fy1aJjUUgFS12h9-dL0HlYZE3CeGsfQ0WN4EG7bcNKA/viewform?embedded=true" height="720" width="800" marginHeight="0" frameBorder="0">Loading…</iframe>            
             </div>
         </Layout>
     </>)
