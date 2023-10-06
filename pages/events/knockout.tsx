@@ -80,7 +80,7 @@ const KnockOut: NextPage= () => {
                 }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
             {/* forms */}
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHly2fy1aJjUUgFS12h9-dL0HlYZE3CeGsfQ0WN4EG7bcNKA/viewform?embedded=true" width="1200" height="800">Loading…</iframe>            
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfHly2fy1aJjUUgFS12h9-dL0HlYZE3CeGsfQ0WN4EG7bcNKA/viewform?embedded=true" height="720" width="800" marginheight="0" frameborder="0">Loading…</iframe>            
             </div>
         </Layout>
     </>)
