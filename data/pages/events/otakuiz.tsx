@@ -43,7 +43,7 @@ const Otakuiz = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Otakuiz"),
 
         registration: [
-            "Participants register Trio Teams (3 members) - 3 teams per school",
+            "Participants register Trio Teams (3 members) - 5 teams per school",
             "Anime themed team names are encouraged. The team with the BEST name will receive a special prize.",
         ]
     }
