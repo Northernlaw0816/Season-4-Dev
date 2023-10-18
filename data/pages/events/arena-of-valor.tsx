@@ -112,6 +112,7 @@ const ArenaOfValor = {
           "The communication will be in an online meeting for which link will be sent to participants.",
           "Students are requested to arrange an extra device for the online meeting.",
           "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
+          "Students should not use any emotes in the game. (eg. punching,etc )",
           "Inappropriate behaviour from the students may lead to disqualification.",
           "No arguments with the head of the particular event for a rematch or other things.", 
         ],
