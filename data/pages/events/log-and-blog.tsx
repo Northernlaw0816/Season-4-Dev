@@ -15,7 +15,7 @@ const LogAndBlog = {
         shortDescription: "Can human beings and robots coexist? Can harmony be found in such a scenario?Log and Blog is an event which lets you unleash your creative writing skills. Log in, research, review and pen your refreshing thoughts.",
         date: `${Main.dates.day1}`,
         dateAndTime: `${Main.dates.day1}, 10:30 a.m. - 2:00  p.m.`,
-        time: '10:40 a.m. - 2:00  p.m.',
+        time: '10:40 a.m. - 2:30  p.m.',
         venue: 'Computer Lab (Secondary Block)',
         grades: '9 - 12',
         image: LAB,
@@ -49,7 +49,7 @@ const LogAndBlog = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Log and Blog"),
 
         registration: [
-            "This is a Solo event - 3 participants per school"
+            "This is a Solo event - 6 participants per school"
         ]
     }
 }
