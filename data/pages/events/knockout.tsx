@@ -45,7 +45,7 @@ const KnockOut = {
           "Round 2 - Participants will be assigned a role and given a crisis.",
           "Everyone will present their stances on the same within a time of 60 seconds.",
           "This will be the debate round, cross talk will be allowed and the judge will be the moderator of the speech.",
-          "Eliminations will take place after Round 2."
+          "Eliminations will take place after each round."
         ],
       },
 
