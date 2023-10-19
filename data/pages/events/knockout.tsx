@@ -49,6 +49,13 @@ const KnockOut = {
         ],
       },
 
+       {
+        title: "Round 1 Question",
+        rules: [
+          "Cryonics is the preservation of human bodies in freezing temperatures to revive them in the future. This however has raised several questions related to its safety and morality. Present your thoughts on the same by either supporting the idea or disapproving it with valid reasons and facts."
+        ],
+      },
+
       {
           title: "Day 2",
           rules: [
