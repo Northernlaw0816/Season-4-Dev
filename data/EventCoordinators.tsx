@@ -211,6 +211,18 @@ const EventCoordinators = [
     grade: "11",
     src: driti,
   },
+  {
+    name: "Sample",
+    event: "PitStop",
+    grade: "11",
+    src: placeholder,
+  },
+  {
+    name: "Sample",
+    event: "PitStop",
+    grade: "11",
+    src: placeholder,
+  },
 ];
 
 const MediaTeam = [
