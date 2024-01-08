@@ -11,6 +11,7 @@ import {
   BassDrop,
   PandoraBlocks,
 } from "./pages/events";
+import PitStop from "./pages/events/pitstop";
 
 const EventsList = [
   {
@@ -130,6 +131,21 @@ const EventsList = [
     image: PandoraBlocks.details.image,
     accent: PandoraBlocks.details.accent,
     selector: styles.pb,
+    isTeam: true,
+    maxMembers: {
+      default: 3,
+    },
+  },
+  {
+    title: PitStop.title,
+    description: PitStop.details.shortDescription,
+    date: PitStop.details.dateAndTime,
+    venue: PitStop.details.venue,
+    grades: PitStop.details.grades,
+    link: PitStop.link,
+    image: PitStop.details.image,
+    accent: PitStop.details.accent,
+    selector: styles.bd,
     isTeam: true,
     maxMembers: {
       default: 3,
