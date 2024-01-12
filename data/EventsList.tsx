@@ -10,6 +10,7 @@ import {
   Otakuiz,
   BassDrop,
   PandoraBlocks,
+  Pitstop
 } from "./pages/events";
 import PitStop from "./pages/events/pitstop";
 
@@ -137,15 +138,15 @@ const EventsList = [
     },
   },
   {
-    title: PitStop.title,
-    description: PitStop.details.shortDescription,
-    date: PitStop.details.dateAndTime,
-    venue: PitStop.details.venue,
-    grades: PitStop.details.grades,
-    link: PitStop.link,
-    image: PitStop.details.image,
-    accent: PitStop.details.accent,
-    selector: styles.bd,
+    title: Pitstop.title,
+    description: Pitstop.details.shortDescription,
+    date: Pitstop.details.dateAndTime,
+    venue: Pitstop.details.venue,
+    grades: Pitstop.details.grades,
+    link: Pitstop.link,
+    image: Pitstop.details.image,
+    accent: Pitstop.details.accent,
+    selector: styles.pb,
     isTeam: true,
     maxMembers: {
       default: 3,

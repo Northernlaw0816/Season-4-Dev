@@ -13,12 +13,11 @@ import styles from '../../styles/pages/Events.module.scss'
 //assets
 import logo from '../../public/images/events/td_logo.png'
 //data
-import { ReactChild, ReactFragment, ReactPortal, Key } from "react"
-import PitStopData from "../../data/pages/events/pitstop"
+import PitstopData from "../../data/pages/events/pitstop"
 
-const PitStop: NextPage = () => {
+const Pitstop: NextPage = () => {
     return (<>
-        <HeadTemplate title="NuTopia | PitStop" description="NuTopia Events: PitStop"/>
+        <HeadTemplate title="NuTopia | Pitstop" description="NuTopia Events: Pitstop"/>
 
         <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_td}`}>
 
@@ -32,21 +31,21 @@ const PitStop: NextPage = () => {
                 </div>
 
                 <div className={styles.logo}>
-                    <Image src={logo} alt="PitStop" quality={100} placeholder={"blur"}/>
+                    <Image src={logo} alt="Pitstop" quality={100} placeholder={"blur"}/>
                 </div>
 
                 <div className={styles.banner_text}>
-                    <h1 id="title">PitStop</h1>
+                    <h1 id="title">Pitstop</h1>
                 </div>
             </div>
 
             <div className={styles.content}>
                 <h2 id="tagline" className={styles.tagline}>
-                    {PitStopData.tagline}
+                    {PitstopData.tagline}
                 </h2>
 
                 {/* <h2 id="finalists">Finalists</h2>
-                    {TruthOrDebugData.headings.finalists.map((finalist, index) => {
+                    {PitstopData.headings.finalists.map((finalist, index) => {
                         return(<div key={index}>
                             <h3>{finalist.teamName}</h3>
                             <ol className={styles.h3_p}>
@@ -60,34 +59,34 @@ const PitStop: NextPage = () => {
                     })} */}
                 
                 <h2 id="about">About</h2>
-                    <p className={`${styles.h2_p} ${styles.description_p}`}>{PitStopData.headings.about}</p>
+                    <p className={`${styles.h2_p} ${styles.description_p}`}>{PitstopData.headings.about}</p>
                 
                 <h2 id="details">Details</h2>
                     <p className={styles.h2_p}><strong>Date and Time:</strong></p>
-                    <ul>{PitStopData.details.dateAndTime.map((date: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined, index: Key | null | undefined) => {
+                    <ul>{PitstopData.details.dateAndTime.map((date, index) => {
                         return <li key={index}><p>{date}</p></li>
                     })}</ul>
-                    <p className={styles.h2_p}><strong>Venue:</strong> {PitStopData.details.venue}</p>
+                    <p className={styles.h2_p}><strong>Venue:</strong> {PitstopData.details.venue}</p>
 
                 <h2 id="guidelines">Guidelines</h2>
-                    <ul>{PitStopData.headings.rules.map((rule: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined, index: Key | null | undefined) => {
+                    <ul>{PitstopData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
 
                 <h2 id="prerequisites">Prerequisites</h2>
-                    <ul>{PitStopData.headings.prerequisites.map((prereq: any, index: any) => {
+                    <ul>{PitstopData.headings.prerequisites.map((prereq, index) => {
                         return <li key={index}><p>{prereq}</p></li>
                     })}</ul>
                     
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>
-                        {PitStopData.headings.eventCoordinators.map((coordinator: any, index: any) => {
+                        {PitstopData.headings.eventCoordinators.map((coordinator, index) => {
                             return <ProfileCard key={index} profileObject={coordinator} />
                         })}
                     </div>                    
                 
                 <h2 id="registration">Registration</h2>
-                    <ul>{PitStopData.headings.registration.map((rule: boolean | ReactChild | ReactFragment | ReactPortal | null | undefined, index: Key | null | undefined) => {
+                    <ul>{PitstopData.headings.registration.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul>
                     
@@ -109,4 +108,4 @@ const PitStop: NextPage = () => {
     </>)
 }
 
-export default PitStop
+export default Pitstop

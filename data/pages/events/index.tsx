@@ -6,5 +6,6 @@ import Otakuiz from "./otakuiz"
 import TruthOrDebug from "./truth-or-debug"
 import BassDrop from "./bassdrop"
 import PandoraBlocks from "./pandora-blocks"
+import Pitstop from "./pitstop"
 
-export { ArenaOfValor, Designscape, KnockOut, LogAndBlog, Otakuiz, TruthOrDebug, BassDrop, PandoraBlocks }
+export { ArenaOfValor, Designscape, KnockOut, LogAndBlog, Otakuiz, TruthOrDebug, BassDrop, PandoraBlocks, Pitstop }
