@@ -39,6 +39,10 @@ import atul from "../public/images/photos/atul.png"
 import nila from "../public/images/photos/nila.png"
 import khushi from"../public/images/photos/khushi.png"
 // PG
+//PS
+import thrivikramr from "../public/images/profile/thrivikramr.png"
+import rithikar from "../public/images/profile/rithikar.png"
+
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
 
@@ -211,6 +215,24 @@ const EventCoordinators = [
     grade: "11",
     src: driti,
   },
+  {
+    name: "Rithik Abhay AR",
+    event: "PitStop",
+    grade: "12",
+    src: rithikar,
+  },
+  {
+    name: "Thrivikram R Krishnaa",
+    event: "PitStop",
+    grade: "12",
+    src: thrivikramr,
+  },
+  {
+    name: "Mahathi Muthukumar",
+    event: "PitStop",
+    grade: "12",
+    src: mahathi,
+  },
 ];
 
 const MediaTeam = [
@@ -227,5 +249,6 @@ const MediaTeam = [
     src: nila,
   },
 ];
+
 
 export { EventCoordinators, EventHeads, EventMentors, MediaTeam };

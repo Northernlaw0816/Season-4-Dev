@@ -11,7 +11,7 @@ import EventsRegisterButton from "../../components/EventRegisterButton"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
 //assets
-import logo from '../../public/images/events/ps_logo.png'
+//import logo from '../../public/images/events/ps_logo.png'
 //data
 import PitstopData from "../../data/pages/events/pitstop"
 
@@ -28,12 +28,12 @@ const Pitstop: NextPage = () => {
                     </div>
                 </div>
 
-                <div className={styles.logo}>
+{/*}                <div className={styles.logo}>
                     <Image src={logo} alt="Pitstop" quality={100} placeholder={"blur"}/>
-                </div>
+                </div>*/}
 
                 <div className={styles.banner_text}>
-                    <h1 id="title">PitStop</h1>
+                    <h1 id="title"></h1>
                 </div>
             </div>
 
@@ -71,10 +71,10 @@ const Pitstop: NextPage = () => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
 
-                <h2 id="prerequisites">Prerequisites</h2>
+{/*                <h2 id="prerequisites">Prerequisites</h2>
                     <ul>{PitstopData.headings.prerequisites.map((prereq, index) => {
                         return <li key={index}><p>{prereq}</p></li>
-                    })}</ul>
+                    })}</ul>*/}
                     
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>

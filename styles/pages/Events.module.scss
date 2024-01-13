@@ -951,12 +951,13 @@
   background: var(--background);
   .banner {
     position: relative;
-    background: url('/images/events/ps_background1.png');
+    background: url('/images/events/ps_background2.png');
     background-size: 100% 100%;
     aspect-ratio: 16/7.2;
     display: grid;
     place-items: center center;
     padding-bottom: 10rem;
+
     .logo {
       width: clamp(100px, 30% , calc(40vw));
     }
@@ -1040,15 +1041,20 @@
         }
       }
     }
-
     .profile_card {
-      background: #000000;
+      background: linear-gradient(hsl(47, 100%, 57%), hsl(0, 0%, 0%) 90%);
+      border: 0.0em solid hsl(0, 100%, 38%) !important; 
+
+      .profile_pic img {
+        border-radius: 100%;
+        border: 0.5em solid hsla(0, 0%, 0%, .5) !important;
+      }
     }
   }
   
 
   @media (prefers-color-scheme: dark) {
-    --background: #ffffff;
+    --background: #000000;
   }
 }
 
