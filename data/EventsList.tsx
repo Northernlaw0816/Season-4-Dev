@@ -143,7 +143,7 @@ const EventsList = [
     link: Pitstop.link,
     image: Pitstop.details.image,
     accent: Pitstop.details.accent,
-    selector: styles.pb,
+    selector: styles.ps,
     isTeam: true,
     maxMembers: {
       default: 3,

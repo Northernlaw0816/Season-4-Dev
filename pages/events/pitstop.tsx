@@ -30,7 +30,6 @@ const Pitstop: NextPage = () => {
 
 {/*}                <div className={styles.logo}>
                     <Image src={logo} alt="Pitstop" quality={100} placeholder={"blur"}/>
-                    COLORL: #febf01;
                 </div>*/}
 
                 <div className={styles.banner_text}>

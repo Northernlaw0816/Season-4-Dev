@@ -44,9 +44,12 @@ import dhureen from "../public/images/photos/Dhureen.png"
 import athul from "../public/images/photos/Athul.png"
 import mayank from "../public/images/photos/Mayank.png"
 // SM
-import driti from "../public/images/photos/Driti.png"
-import dikshita from"../public/images/photos/Dikshita.png"
-import ananyaY from"../public/images/photos/AnanyaY.png"
+import nila from "../public/images/photos/nila.png"
+import khushi from"../public/images/photos/khushi.png"
+// PG
+//PS
+import thrivikramr from "../public/images/profile/thrivikramr.png"
+import rithikar from "../public/images/profile/rithikar.png"
 
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
@@ -258,6 +261,24 @@ const EventCoordinators = [
     event: "Code Clash",
     grade: "11",
     src: sanjith,
+  },
+  {
+    name: "Rithik Abhay AR",
+    event: "PitStop",
+    grade: "12",
+    src: rithikar,
+  },
+  {
+    name: "Thrivikram R Krishnaa",
+    event: "PitStop",
+    grade: "12",
+    src: thrivikramr,
+  },
+  {
+    name: "Mahathi Muthukumar",
+    event: "PitStop",
+    grade: "12",
+    src: mahathi,
   },
 ];
 

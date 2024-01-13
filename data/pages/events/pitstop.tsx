@@ -10,7 +10,7 @@ import PS from '../../../public/images/events/ps_background2.png'
 const Pitstop = {
     title: "Pitstop",
 
-    tagline: (<><span className={styles.yellow}>Unleash the Dust!</span><span className={styles.red}>Feel the Thrust!</span></>),
+    tagline: (<><span className={styles.yellow}>Unleash the Dust! </span><span className={styles.red}>Feel the Thrust!</span></>),
     
     link: '/events/pitstop',
 
