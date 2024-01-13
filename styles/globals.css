@@ -19,6 +19,16 @@
   src: url('/fonts/fira_code.ttf');
 }
 
+@font-face {
+  font-family: 'Raceline';
+  src: url('/fonts/Raceline_Demo.ttf');
+}
+
+@font-face {
+  font-family: 'Sakana';
+  src: url('/fonts/Sakana.ttf');
+}
+
 /* Green and Aqua */
 :root {
   --primary: hsl(130, 100%, 40%);

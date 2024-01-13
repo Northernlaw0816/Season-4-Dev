@@ -947,6 +947,111 @@
   }
 }
 
+.main_ps {
+  background: var(--background);
+  .banner {
+    position: relative;
+    background: url('/images/events/ps_background1.png');
+    background-size: 100% 100%;
+    aspect-ratio: 16/7.2;
+    display: grid;
+    place-items: center center;
+    padding-bottom: 10rem;
+    .logo {
+      width: clamp(100px, 30% , calc(40vw));
+    }
+    
+    .banner_text {
+      font-family: "Raceline";
+      color: hsl(47, 100%, 57%);
+      h1 { font-size: clamp(1.5rem, 7vw, 6rem); }
+      word-wrap: break-word;
+      
+      @media screen and (min-width: 600px) {
+        position: static;
+        top: 0%;
+      }
+    }
+  }
+
+  .content {
+    .tagline {
+      font-family: "Sakana";
+      font-weight: normal;
+      .yellow {
+        color: hsl(53, 100%, 55%);
+      }
+      
+    }
+
+    .register_link_align {
+      .register_link {
+        position: relative;
+        color: hsl(58, 100%, 58%);
+        font-family: "Imagine";
+
+        // background: linear-gradient(hsl(0, 0%, 100%, 10%) 20%, transparent 10% 100%);
+        background: radial-gradient(
+          15em 1.5em at center 75%,
+          hsl(0, 0%, 0%, 25%) 20%,
+          transparent 10%
+        );
+
+        transition: background-position 250ms infinite steps(6);
+
+        @keyframes floaty_text {
+          from {
+            top: 0;
+          }
+
+          to {
+            top: -0.75em;
+          }
+        }
+
+        @keyframes text_pop {
+          0% {
+            transform: scaleX(0) scaleY(1);
+          }
+          50% {
+            transform: scaleX(1.1) scaleY(1.1);
+          }
+          100% {
+            transform: scale(1);
+          }
+        }
+
+        p {
+          position: relative;
+          font-weight: normal;
+          font-size: clamp(0.75rem, 5vw, 2rem);
+          animation: floaty_text 1s infinite alternate ease-in-out;
+        
+        }
+
+        &:hover {
+          background: hsl(0, 0%, 0%, 20%);
+          outline: hsl(0, 0%, 0%) groove 0.5em;
+          outline-offset: -0.5em;
+        
+          p {
+            animation: text_pop 0.25s 1 forwards linear;
+          }
+        }
+      }
+    }
+
+    .profile_card {
+      background: #000000;
+    }
+  }
+  
+
+  @media (prefers-color-scheme: dark) {
+    --background: #ffffff;
+  }
+}
+
 .card_container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
