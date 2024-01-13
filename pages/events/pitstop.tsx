@@ -11,7 +11,7 @@ import EventsRegisterButton from "../../components/EventRegisterButton"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
 //assets
-import logo from '../../public/images/events/td_logo.png'
+import logo from '../../public/images/events/ps_logo.png'
 //data
 import PitstopData from "../../data/pages/events/pitstop"
 
@@ -19,14 +19,12 @@ const Pitstop: NextPage = () => {
     return (<>
         <HeadTemplate title="NuTopia | Pitstop" description="NuTopia Events: Pitstop"/>
 
-        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_td}`}>
+        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_ps}`}>
 
             <div className={styles.banner}>
                 <div className={styles.overlay}/>
                 <div className={styles.banner_text}>
                     <div className={styles.command_line}>
-                        {`> run TD.sh`}
-                        <div className={styles.type_cursor} />
                     </div>
                 </div>
 
@@ -35,7 +33,7 @@ const Pitstop: NextPage = () => {
                 </div>
 
                 <div className={styles.banner_text}>
-                    <h1 id="title">Pitstop</h1>
+                    <h1 id="title">PitStop</h1>
                 </div>
             </div>
 

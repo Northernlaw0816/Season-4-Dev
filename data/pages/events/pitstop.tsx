@@ -5,14 +5,14 @@ import styles from '../../../styles/pages/Events.module.scss'
 import Main from '../../Main';
 import { EventCoordinators } from '../../EventCoordinators';
 //assets
-import TD from '../../../public/images/events/td_logo.png'
+import PS from '../../../public/images/events/ps_logo.png'
 
 const Pitstop = {
     title: "Pitstop",
 
-    tagline: (<><span className={styles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={styles.grey}>{`);`}</span></>),
+    tagline: (<><span className={styles.yellow}>Unleash the Dust!</span><span className={styles.red}>Feel the Thrust!</span></>),
     
-    link: '/events/truth-or-debug',
+    link: '/events/pitstop',
 
     details: {
         shortDescription: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Pitstop.",
@@ -22,7 +22,7 @@ const Pitstop = {
         ],
         venue: 'ATAL Lab',
         grades: '9 - 12',
-        image: TD,
+        image: PS,
         accent: "black",
     },
 
