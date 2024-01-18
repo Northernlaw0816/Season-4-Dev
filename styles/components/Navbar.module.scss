@@ -65,6 +65,9 @@
     }
   }
 
+
+//If NavBar overflows increase value of top in .dropdown to fix the leak 
+
   .dropdown {
     position: absolute;
     top: -1000%;
