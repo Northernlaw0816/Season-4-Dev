@@ -107,9 +107,6 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         }
     }
 
-    useEffect(() => {
-        checkLogin()
-    }, [])
 
     const Links = ({isMobile}: any) => {
 

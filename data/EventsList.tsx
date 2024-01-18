@@ -8,7 +8,6 @@ import {
   LogAndBlog,
   Designscape,
   Otakuiz,
-  BassDrop,
   PandoraBlocks,
   Pitstop
 } from "./pages/events";
@@ -104,21 +103,6 @@ const EventsList = [
     isTeam: true,
     maxMembers: {
       default: 3,
-    },
-  },
-  {
-    title: BassDrop.title,
-    description: BassDrop.details.shortDescription,
-    date: BassDrop.details.dateAndTime,
-    venue: BassDrop.details.venue,
-    grades: BassDrop.details.grades,
-    link: BassDrop.link,
-    image: BassDrop.details.image,
-    accent: BassDrop.details.accent,
-    selector: styles.bd,
-    isTeam: false,
-    maxMembers: {
-      default: 1,
     },
   },
   {
