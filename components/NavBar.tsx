@@ -128,7 +128,7 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
         const [isDropActive, setIsDropActive] = useState(false)
 
         return (
-            <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 100)}}>
+            <div className={styles.dropdown_container} onMouseEnter={() => {setIsDropActive(true)}} onMouseLeave={() => {setTimeout(() => setIsDropActive(false), 60)}}>
                 
                 <Link href="/events"><a role="link" className={`${styles.nav_button} ${router.pathname.startsWith('/events') && styles.active_link} ${isDropActive && styles.drop_active_link}`}>Events</a></Link>
                 
