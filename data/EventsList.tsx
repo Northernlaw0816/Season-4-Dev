@@ -12,6 +12,8 @@ import {
   PandoraBlocks,
   Pitstop
 } from "./pages/events";
+import Hackathon from "./pages/events/hackathon";
+
 
 const EventsList = [
   {
@@ -145,6 +147,21 @@ const EventsList = [
     link: Pitstop.link,
     image: Pitstop.details.image,
     accent: Pitstop.details.accent,
+    selector: styles.ps,
+    isTeam: true,
+    maxMembers: {
+      default: 3,
+    },
+  },
+  {
+    title: Hackathon.title,
+    description: Hackathon.details.shortDescription,
+    date: Hackathon.details.dateAndTime,
+    venue: Hackathon.details.venue,
+    grades: Hackathon.details.grades,
+    link: Hackathon.link,
+    image: Hackathon.details.image,
+    accent: Hackathon.details.accent,
     selector: styles.ps,
     isTeam: true,
     maxMembers: {
