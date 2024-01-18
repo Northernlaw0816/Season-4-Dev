@@ -1,4 +1,4 @@
-import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz, BassDrop, PandoraBlocks } from "./events"
+import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz, PandoraBlocks } from "./events"
 
 const Registration = {
 	title: "Pre-Registration Information",
@@ -37,10 +37,6 @@ const Registration = {
 		{
 			title: Otakuiz.title,
 			rules: Otakuiz.headings.registration
-		},
-		{
-			title: BassDrop.title,
-			rules: BassDrop.headings.registration
 		},
 		{
 			title: PandoraBlocks.title,

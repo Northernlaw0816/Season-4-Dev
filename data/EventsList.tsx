@@ -8,12 +8,9 @@ import {
   LogAndBlog,
   Designscape,
   Otakuiz,
-  BassDrop,
   PandoraBlocks,
   Pitstop
 } from "./pages/events";
-import Hackathon from "./pages/events/hackathon";
-
 
 const EventsList = [
   {
@@ -109,21 +106,6 @@ const EventsList = [
     },
   },
   {
-    title: BassDrop.title,
-    description: BassDrop.details.shortDescription,
-    date: BassDrop.details.dateAndTime,
-    venue: BassDrop.details.venue,
-    grades: BassDrop.details.grades,
-    link: BassDrop.link,
-    image: BassDrop.details.image,
-    accent: BassDrop.details.accent,
-    selector: styles.bd,
-    isTeam: false,
-    maxMembers: {
-      default: 1,
-    },
-  },
-  {
     title: PandoraBlocks.title,
     description: PandoraBlocks.details.shortDescription,
     date: PandoraBlocks.details.dateAndTime,
@@ -153,22 +135,6 @@ const EventsList = [
       default: 3,
     },
   },
-  {
-    title: Hackathon.title,
-    description: Hackathon.details.shortDescription,
-    date: Hackathon.details.dateAndTime,
-    venue: Hackathon.details.venue,
-    grades: Hackathon.details.grades,
-    link: Hackathon.link,
-    image: Hackathon.details.image,
-    accent: Hackathon.details.accent,
-    selector: styles.ps,
-    isTeam: true,
-    maxMembers: {
-      default: 3,
-    },
-  },
-
 ];
 
 export default EventsList;
