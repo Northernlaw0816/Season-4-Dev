@@ -12,7 +12,6 @@ import {
   PandoraBlocks,
   Pitstop
 } from "./pages/events";
-import PitStop from "./pages/events/pitstop";
 
 const EventsList = [
   {
