@@ -8,7 +8,12 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3  # Updated to v3 to use Node.js 20
+      uses: actions/checkout@v3  # Ensure we are using v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
 
     - name: Update website content
       run: |
@@ -23,12 +28,12 @@ jobs:
         sed -i 's/Code Clash/Code Clash - Similar to a hackathon, problem statements given 4 days before the event | Venue: Atal Lab/g' index.html
         sed -i 's/Tech Trivia/Tech Trivia - Similar to Otakuiz but for tech | Venue: Yoga Room/g' index.html
         sed -i 's/Event Date:.*/Event Date: 25th and 26th July 2024/g' index.html
-        echo '<footer>Updation redesign by Thrivikram R Krishnaa, Rithik Abahy A.R.<br></footer>' >> index.html
+        sed -i 's/<\/footer>/Updation redesign by Thrivikram R Krishnaa, Rithik Abahy A.R.<br><\/footer>/g' index.html
 
     - name: Commit and push changes
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git add .
+        git add index.html
         git commit -m "Updated website details for Season 4, year 2024, new event descriptions, and footer update"
         git push
