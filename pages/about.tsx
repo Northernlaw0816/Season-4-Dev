@@ -24,7 +24,7 @@ const About = () => {
 
             <hr />
 
-            <h1 id={toSlug("Event Heads")}>Event Heads</h1>
+            <h1 id={toSlug("event heads")}>Event Heads</h1>
                 <div className={`${styles.card_container} ${styles.event_heads}`}>
                     {EventHeads.map((profile, index) => {
                         return <ProfileCard key={index} profileObject={profile}/>
