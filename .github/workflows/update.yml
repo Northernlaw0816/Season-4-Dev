@@ -1,0 +1,34 @@
+name: Update Website
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Update website content
+      run: |
+        sed -i 's/Season 3/Season 4/g' index.html
+        sed -i 's/2023/2024/g' index.html
+        sed -i 's/Arena Of Valor/Arena Of Valor (Updated description)/g' index.html
+        sed -i 's/Knockout!/Knockout! (Updated description)/g' index.html
+        sed -i 's/Otakuiz/Otakuiz (Updated description)/g' index.html
+        sed -i 's/Log And Blog/Log And Blog (Updated description)/g' index.html
+        sed -i 's/Designscape/Designscape (Updated description)/g' index.html
+        sed -i 's/PitStop/PitStop - DIY RC toy car\/jeep and make it run on our track, get the real feel of car racing with a scoreboard and audience cheering up | Venue: Primary Block Center/g' index.html
+        sed -i 's/Code Clash/Code Clash - Similar to a hackathon, problem statements given 4 days before the event | Venue: Atal Lab/g' index.html
+        sed -i 's/Tech Trivia/Tech Trivia - Similar to Otakuiz but for tech | Venue: Yoga Room/g' index.html
+        sed -i 's/Event Date:.*/Event Date: 25th and 26th July 2024/g' index.html
+        echo '<footer>Updation redesign by Thrivikram R Krishnaa, Rithik Abahy A.R.<br></footer>' >> index.html
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
+        git add .
+        git commit -m "Updated website details for Season 4, year 2024, new event descriptions, and footer update"
+        git push
