@@ -8,7 +8,7 @@ const Designscape = {
     title: "Designscape",
 
     tagline: "All the magic starts from you",
-
+ 
     link: '/events/designscape',
 
     details: {
