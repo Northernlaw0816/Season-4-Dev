@@ -3,14 +3,11 @@ import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import AoV from "../../../public/images/events/aov_logo.png";
-import rocket from "../../../public/images/events/aov_games/rocket_league.png";
-import fortnite from "../../../public/images/events/aov_games/fortnite.png";
 import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
-import stgys from "public/images/events/aov_games/StumbleGuys.jpg";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
-import csgo from "../../../public/images/events/aov_games/csgo.png";
 import fifa from "public/images/events/aov_games/FIFA 23.png";
+import mc from "public/images/events/aov_games/minecraft.jpg"
 
   
 const ArenaOfValor = {
@@ -95,13 +92,19 @@ const ArenaOfValor = {
         name: "Mobile",
 
         description:
-          "Arena of Valor - Mobile (individual)",
+          "Arena of Valor - Mobile",
 
         games: [
           {
-            name: "Stumble Guys",
-            participants: 1,
-            image: stgys,
+            name: "Battlegrounds Mobile India (BGMI)",
+            participants: 4,
+            image: bgmi,
+            bannedItems: [],
+          },
+          {
+            name: "Call of Duty Mobile",
+            participants: 4,
+            image: cod,
             bannedItems: [],
           },
         ],
@@ -126,16 +129,16 @@ const ArenaOfValor = {
 
         games: [
           {
-            name: "Fortnite",
-            participants: 1,
-            image: fortnite,
+            name: "Valorant",
+            participants: 5,
+            image: valorant,
             bannedItems: [
             ],
           },
           {
-            name: "Rocket League",
+            name: "Minecraft",
             participants: 2,
-            image: rocket,
+            image: mc,
             bannedItems: [
             ],
           }
@@ -169,7 +172,7 @@ const ArenaOfValor = {
     registration: [
       "Registrations for each platform has to be done separately.",
       "Participants of AOV Console can also participate in either AOV PC or AOV Mobile.",
-      "Console: Duo Team (2 members) – 3 teams per school",
+      "Console: Duo Team (2 members)",
       "Mobile:	Solo - 5 players per school",
       "PC: Fortnite - Solo - 3 players per school | Rocket League - Duos (2 members) - 3 teams per school",
     ],
