@@ -8,10 +8,9 @@ import {
   LogAndBlog,
   Designscape,
   Otakuiz,
-  PandoraBlocks,
+  TechTrivia,
   Pitstop
 } from "./pages/events";
-
 const EventsList = [
   {
     title: ArenaOfValor.title,
@@ -106,14 +105,14 @@ const EventsList = [
     },
   },
   {
-    title: PandoraBlocks.title,
-    description: PandoraBlocks.details.shortDescription,
-    date: PandoraBlocks.details.dateAndTime,
-    venue: PandoraBlocks.details.venue,
-    grades: PandoraBlocks.details.grades,
-    link: PandoraBlocks.link,
-    image: PandoraBlocks.details.image,
-    accent: PandoraBlocks.details.accent,
+    title: TechTrivia.title,
+    description: TechTrivia.details.shortDescription,
+    date: TechTrivia.details.dateAndTime,
+    venue: TechTrivia.details.venue,
+    grades: TechTrivia.details.grades,
+    link: TechTrivia.link,
+    image: TechTrivia.details.image,
+    accent: TechTrivia.details.accent,
     selector: styles.pb,
     isTeam: true,
     maxMembers: {

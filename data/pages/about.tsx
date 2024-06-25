@@ -5,7 +5,7 @@ const About = {
       Hub For Cyber Geeks!”. NuTopia is a tech-powered STEM carnival conducted by Yuvabharathians where Knowledge, Creativity and Skills of the cyber age are
       celebrated.
     </>,
-    "Season 3 of NuTopia - 2023, presents eight exuberant events to enthral your grey cells and keep your senses engrossed in scientific quests.",
+    "Season 4 of NuTopia - 2024, presents eight exuberant events to enthral your grey cells and keep your senses engrossed in scientific quests.",
     "Press Enter and join the network to make your presence known!",
   ],
 };
