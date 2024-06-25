@@ -11,7 +11,6 @@ import {
   CodeClash,
   Pitstop
 } from "./pages/events";
-
 const EventsList = [
   {
     title: ArenaOfValor.title,

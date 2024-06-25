@@ -275,8 +275,8 @@ const EventCoordinators = [
     src: thrivikramr,
   },
   {
-    name: "Mahathi Muthukumar",
-    event: "PitStop",
+    name: "Thrivikram",
+    event: "Designscape",
     grade: "12",
     src: mahathi,
   },
