@@ -11,7 +11,7 @@ import styles from "../styles/pages/Registration.module.scss"
 import { RegistrationData } from "../data/pages"
 import Main from "../data/Main"
 
-const Registration = () => {
+const Registration = () => {            
     return (<>
         <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
 

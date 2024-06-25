@@ -5,12 +5,12 @@ import Main from "../../Main"
 
 import PB from "../../../public/images/events/pandora_blocks.png"
 
-const PandoraBlocks = {
-    title: "Pandora's Blocks",
+const TechTrivia = {
+    title: "Tech Trivia",
 
     tagline: "Build Beyond Imagination",
 
-    link: '/events/pandora-blocks',
+    link: '/events/tech-trivia',
 
     details: {
         shortDescription: "Welcome to Pandora’s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
@@ -24,7 +24,7 @@ const PandoraBlocks = {
     },
     
     headings: {
-        about: "Welcome to Pandora’s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
+        about: "Welcome to Pandora’ s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         
         rules: [
             "This is a team event. A team must have 3 players.",
@@ -48,7 +48,7 @@ const PandoraBlocks = {
             "Grammatical Accuracy",
             "Organisation"
         ],
-        
+                                                                                                                                                
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pandora's Blocks"),
 
         registration: [
@@ -57,4 +57,4 @@ const PandoraBlocks = {
     }
 }
 
-export default PandoraBlocks;
+export default TechTrivia;

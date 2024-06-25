@@ -8,20 +8,19 @@ import Link from "next/link"
 import HeadTemplate from "../../components/HeadTemplate";
 import Layout from "../../components/Layout";
 import ProfileCard from "../../components/ProfileCard";
-import EventsRegisterButton from "../../components/EventRegisterButton";
 //stylesheet
 import styles from "../../styles/pages/Events.module.scss";
 //assets
 import logo from "../../public/images/events/pandora_blocks.png";
 //data
-import PandoraBlocksData from "../../data/pages/events/pandora-blocks";
+import TechTriviaData from "../../data/pages/events/tech-trivia";
 
-const pandoraBlocks: NextPage = () => {
+const TechTrivia: NextPage = () => {
   return (
     <>
       <HeadTemplate
-        title="NuTopia | Pandora Blocks"
-        description="NuTopia Events: Pandora Blocks"
+        title="NuTopia | Tech Trivia"
+        description="NuTopia Events: Tech Trivia  "
       />
 
       <Layout
@@ -35,27 +34,27 @@ const pandoraBlocks: NextPage = () => {
             </div>
 
             <div className={styles.content}>
-                <h2 id="tagline" className={styles.tagline}>{PandoraBlocksData.tagline}</h2>
+                <h2 id="tagline" className={styles.tagline}>{TechTriviaData.tagline}</h2>
 
           <h2 id="about">About</h2>
           <p className={`${styles.h2_p} ${styles.description_p}`}>
-            {PandoraBlocksData.headings.about}
+            {TechTriviaData.headings.about}
           </p>
 
           <h2 id="details">Details</h2>
           <p className={styles.h2_p}>
-            <strong>Date:</strong> {PandoraBlocksData.details.date}
+            <strong>Date:</strong> {TechTriviaData.details.date}
           </p>
           <p className={styles.h2_p}>
-            <strong>Time:</strong> {PandoraBlocksData.details.time}
+            <strong>Time:</strong> {TechTriviaData.details.time}
           </p>
           <p className={styles.h2_p}>
-            <strong>Venue:</strong> {PandoraBlocksData.details.venue}
+            <strong>Venue:</strong> {TechTriviaData.details.venue}
           </p>
 
           <h2 id="guidelines">Guidelines</h2>
           <ul>
-            {PandoraBlocksData.headings.rules.map((rule, index) => {
+            {TechTriviaData.headings.rules.map((rule, index) => {
               return (
                 <li key={index}>
                   <p>{rule}</p>
@@ -66,7 +65,7 @@ const pandoraBlocks: NextPage = () => {
 
           <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
           <div className={styles.card_container}>
-            {PandoraBlocksData.headings.eventCoordinators.map(
+            {TechTriviaData.headings.eventCoordinators.map(
               (coordinator, index) => {
                 return <ProfileCard key={index} profileObject={coordinator} />;
               }
@@ -75,7 +74,7 @@ const pandoraBlocks: NextPage = () => {
 
           <h2 id="registration">Registration</h2>
           <ul>
-            {PandoraBlocksData.headings.registration.map((rule, index) => {
+            {TechTriviaData.headings.registration.map((rule, index) => {
               return (
                 <li key={index}>
                   <p>{rule}</p>
@@ -102,4 +101,4 @@ const pandoraBlocks: NextPage = () => {
     </>
   );
 };
-export default pandoraBlocks;
+export default TechTrivia;
