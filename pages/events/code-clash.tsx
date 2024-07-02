@@ -13,9 +13,9 @@ import styles from "../../styles/pages/Events.module.scss";
 //assets
 import logo from "../../public/images/events/pandora_blocks.png";
 //data
-import TechTriviaData from "../../data/pages/events/tech-trivia";
+import CodeClashData from "../../data/pages/events/code-clash";
 
-const TechTrivia: NextPage = () => {
+const CodeClash: NextPage = () => {
   return (
     <>
       <HeadTemplate
@@ -34,27 +34,27 @@ const TechTrivia: NextPage = () => {
             </div>
 
             <div className={styles.content}>
-                <h2 id="tagline" className={styles.tagline}>{TechTriviaData.tagline}</h2>
+                <h2 id="tagline" className={styles.tagline}>{CodeClashData.tagline}</h2>
 
           <h2 id="about">About</h2>
           <p className={`${styles.h2_p} ${styles.description_p}`}>
-            {TechTriviaData.headings.about}
+            {CodeClashData.headings.about}
           </p>
 
           <h2 id="details">Details</h2>
           <p className={styles.h2_p}>
-            <strong>Date:</strong> {TechTriviaData.details.date}
+            <strong>Date:</strong> {CodeClashData.details.date}
           </p>
           <p className={styles.h2_p}>
-            <strong>Time:</strong> {TechTriviaData.details.time}
+            <strong>Time:</strong> {CodeClashData.details.time}
           </p>
           <p className={styles.h2_p}>
-            <strong>Venue:</strong> {TechTriviaData.details.venue}
+            <strong>Venue:</strong> {CodeClashData.details.venue}
           </p>
 
           <h2 id="guidelines">Guidelines</h2>
           <ul>
-            {TechTriviaData.headings.rules.map((rule, index) => {
+            {CodeClashData.headings.rules.map((rule, index) => {
               return (
                 <li key={index}>
                   <p>{rule}</p>
@@ -65,7 +65,7 @@ const TechTrivia: NextPage = () => {
 
           <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
           <div className={styles.card_container}>
-            {TechTriviaData.headings.eventCoordinators.map(
+            {CodeClashData.headings.eventCoordinators.map(
               (coordinator, index) => {
                 return <ProfileCard key={index} profileObject={coordinator} />;
               }
@@ -74,7 +74,7 @@ const TechTrivia: NextPage = () => {
 
           <h2 id="registration">Registration</h2>
           <ul>
-            {TechTriviaData.headings.registration.map((rule, index) => {
+            {CodeClashData.headings.registration.map((rule, index) => {
               return (
                 <li key={index}>
                   <p>{rule}</p>
@@ -101,4 +101,4 @@ const TechTrivia: NextPage = () => {
     </>
   );
 };
-export default TechTrivia;
+export default CodeClash;

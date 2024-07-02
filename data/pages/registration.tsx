@@ -1,4 +1,4 @@
-import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz, TechTrivia } from "./events"
+import { ArenaOfValor, KnockOut, TruthOrDebug, LogAndBlog, Designscape, Otakuiz, CodeClash } from "./events"
 
 const Registration = {
 	title: "Pre-Registration Information",
@@ -39,8 +39,8 @@ const Registration = {
 			rules: Otakuiz.headings.registration
 		},
 		{
-			title: TechTrivia.title,
-			rules: TechTrivia.headings.registration
+			title: CodeClash.title,
+			rules: CodeClash.headings.registration
 		}
 	]
 }

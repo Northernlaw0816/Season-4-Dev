@@ -11,8 +11,8 @@ const KnockOut = {
 
   tagline: (
     <>
-      There Is <span className={styles.blue}>No Such Thing</span>, As
-      An <span className={styles.red}>Irrelevant Argument</span>.
+      Connect the <span className={styles.blue}>Dots</span>, Battle
+      your <span className={styles.red}>Thoughts</span>.
     </>
   ),
 
@@ -41,9 +41,8 @@ const KnockOut = {
       {
         title: "Day 1",
         rules: [
-          "Round 1 - All participants will be given a topic prior to the event through Whatsapp. Each individual will be given time to introduce their take on the topic given.",
-          "Round 2 - Participants will be assigned a role and given a crisis.",
-          "Everyone will present their stances on the same within a time of 60 seconds.",
+          "Round 1 - All participants will be given a topic prior to the event. Each individual will be given one minute to speak",
+          "Round 2 - A debate with the topics being announced on spot.",
           "This will be the debate round, cross talk will be allowed and the judge will be the moderator of the speech.",
           "Eliminations will take place after each round."
         ],
@@ -52,16 +51,16 @@ const KnockOut = {
        {
         title: "Round 1 Question",
         rules: [
-          "Cryonics is the preservation of human bodies in freezing temperatures to revive them in the future. This however has raised several questions related to its safety and morality. Present your thoughts on the same by either supporting the idea or disapproving it with valid reasons and facts."
+          "TBA"
         ],
       },
 
       {
           title: "Day 2",
           rules: [
-              "Round 3 - The remaining competitors will be divided into pairs and will have a 1v1 on a given topic on the spot.",
+              "Round 3 - The remaining competitors will be divided into pairs and will have a 1v1 (turn coat style) on the topic given (on spot).",
               "Eliminations after round 3 - The winner of each 1v1 moves to round 4.",
-              "Round 4 - The finalists will be given a topic on the spot and will have to present their stance on the same.",
+              "Round 4 - Grand Finale.",
               "Points are scrapped after every round, thus each contestant starts from 0 in every round."
           ]
       }

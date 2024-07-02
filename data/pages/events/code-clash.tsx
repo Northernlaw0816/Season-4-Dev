@@ -5,12 +5,12 @@ import Main from "../../Main"
 
 import PB from "../../../public/images/events/pandora_blocks.png"
 
-const TechTrivia = {
-    title: "Tech Trivia",
+const CodeClash = {
+    title: "Code Clash",
 
     tagline: "Build Beyond Imagination",
 
-    link: '/events/tech-trivia',
+    link: '/events/code-clash',
 
     details: {
         shortDescription: "Welcome to Pandora’s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
@@ -57,4 +57,4 @@ const TechTrivia = {
     }
 }
 
-export default TechTrivia;
+export default CodeClash;
