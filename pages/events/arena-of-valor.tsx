@@ -67,7 +67,7 @@ const ArenaOfValor: NextPage = () => {
                             <p className={styles.h3_p}>
                                 {platform.description}
                             </p>
-
+                            
                             {platform.games.map((game, index: number) => {
 
                                 return(<div key={index}>
@@ -86,6 +86,19 @@ const ArenaOfValor: NextPage = () => {
                                     return <li key={index}>{rule}</li>
                                 })}
                             </ul>
+                            <h4 id={toSlug(`${platform} registration`)}>Registration</h4>
+                            <ul className={styles.h4_p}>
+                                {
+                                    Object.entries(ArenaOfValorData.headings.registration).filter((key) => {
+                                        return key[0].includes(platform.name)
+                                    }).map((rules) => {
+                                        return rules[1].map((rule, index) => {
+                                            return <li key={index}>{rule}</li>
+                                        })
+                                    })
+                                }
+                            </ul>
+                            <EventsRegisterButton pathname="DEASISGFN SCAPE"/>
                         </div>)
                     })}
                 
@@ -100,23 +113,7 @@ const ArenaOfValor: NextPage = () => {
                             return <ProfileCard key={index} profileObject={coordinator} />
                         })}
                     </div> 
-                
-                <h2 id="registration">Registration</h2>
-                    <ul>{ArenaOfValorData.headings.registration.map((rule, index) => {
-                        return <li key={index}><p>{rule}</p></li>
-                    })}</ul>
-                
                  <div className={styles.register_link_align}>
-            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
-                <a className={styles.register_link}>Registrations are not yet open</a>
-            :
-                <Link href={{
-                    pathname: "https://drive.google.com/file/d/10J3RSxmq_eRQWw47nrmzEYWaenmQnBPD/view",
-                    hash: ""
-                }} as={{
-                    pathname: "https://drive.google.com/file/d/10J3RSxmq_eRQWw47nrmzEYWaenmQnBPD/view",
-                    hash: ""
-                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
         </div>
             </div>
         </Layout>

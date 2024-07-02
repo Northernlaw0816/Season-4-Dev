@@ -169,13 +169,11 @@ const ArenaOfValor = {
       coordinator.event.includes("Arena of Valor")
     ),
 
-    registration: [
-      "Registrations for each platform has to be done separately.",
-      "Participants of AOV Console can also participate in either AOV PC or AOV Mobile.",
-      "Console: Duo Team (2 members)",
-      "Mobile:	Solo - 5 players per school",
-      "PC: Fortnite - Solo - 3 players per school | Rocket League - Duos (2 members) - 3 teams per school",
-    ],
+    registration: {
+      "Console": ["Duo Team (2 members)"],
+      "Mobile":	["Solo - 5 players per school"],
+      "PC": ["Fortnite - Solo - 3 players per school", "Rocket League - Duos (2 members) - 3 teams per school"],
+    },
   },
 };
 
