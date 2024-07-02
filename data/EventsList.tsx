@@ -8,7 +8,7 @@ import {
   LogAndBlog,
   Designscape,
   Otakuiz,
-  TechTrivia,
+  CodeClash,
   Pitstop
 } from "./pages/events";
 const EventsList = [
@@ -26,7 +26,7 @@ const EventsList = [
     maxMembers: {
       default: 3,
       mobile: 4,
-      pc: 5,
+      pc: 4,
       console: 2,
     },
   },
@@ -105,14 +105,14 @@ const EventsList = [
     },
   },
   {
-    title: TechTrivia.title,
-    description: TechTrivia.details.shortDescription,
-    date: TechTrivia.details.dateAndTime,
-    venue: TechTrivia.details.venue,
-    grades: TechTrivia.details.grades,
-    link: TechTrivia.link,
-    image: TechTrivia.details.image,
-    accent: TechTrivia.details.accent,
+    title: CodeClash.title,
+    description: CodeClash.details.shortDescription,
+    date: CodeClash.details.dateAndTime,
+    venue: CodeClash.details.venue,
+    grades: CodeClash.details.grades,
+    link: CodeClash.link,
+    image: CodeClash.details.image,
+    accent: CodeClash.details.accent,
     selector: styles.pb,
     isTeam: true,
     maxMembers: {
