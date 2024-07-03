@@ -182,12 +182,15 @@
       place-items: center;
       margin: 0 4rem;
       background: hsl(60, 6%, 12%);
-      width: max-content;
       max-width: 80%;
 
       @media (max-width: 700px) {
         max-width: 100%;
         margin: 0;
+      }
+
+      img {
+        width: 100%;
       }
     }
     

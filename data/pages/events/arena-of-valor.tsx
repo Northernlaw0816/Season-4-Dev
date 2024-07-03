@@ -3,11 +3,11 @@ import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import AoV from "../../../public/images/events/aov_logo.png";
-import valorant from "../../../public/images/events/aov_games/valorant.jpg";
+/* import valorant from "../../../public/images/events/aov_games/valorant.jpg";
 import cod from "../../../public/images/events/aov_games/cod.png";
 import bgmi from "../../../public/images/events/aov_games/bgmi.png";
 import fifa from "public/images/events/aov_games/FIFA 23.png";
-import mc from "public/images/events/aov_games/minecraft.jpg"
+import mc from "public/images/events/aov_games/minecraft.jpg" */
 
   
 const ArenaOfValor = {
@@ -26,7 +26,7 @@ const ArenaOfValor = {
       `${Main.dates.day2}, 9:30 a.m. - 2:30 p.m.`
     ],
 
-    dateAndTime: `${Main.dates.day1}, 1:00 p.m. - 7:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 2:30 p.m.`,
+    dateAndTime: `${Main.dates.day1}, 10:00 p.m. - 7:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 1:30 p.m.`,
 
     time: "TBA",
 
@@ -45,7 +45,7 @@ const ArenaOfValor = {
 
     commonGuidelines: [
       "The usage of cheats, hacks, or any other third-party applications that give you an unfair advantage over your opponents will result in immediate disqualification",
-      "Teams that attempt to use players which are not registered in their team (as shown in the team profile in the Discord Bot) may be disqualified.",
+      "Teams that attempt to use players which are not registered in their team will be disqualified.",
       "Account sharing will be met with disqualification.",
       "Abusing in-game glitches that give a team an unfair advantage is not permitted. Teams caught doing so may be disqualified.",
       "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items. If any special rules apply, then they may be found in the tournament’s registration article on this website.",
@@ -61,6 +61,51 @@ const ArenaOfValor = {
 
     platforms: [
       {
+        name: "PC",
+
+        description:
+          "Arena of Valor - PC demands a sharp mind and trigger discipline.",
+
+        games: [
+          {
+            name: "Valorant",
+            participants: 5,
+            image: "Valorant.jpg",
+            bannedItems: [
+            ],
+            guidelines: [
+              "Teams that bring in different players (without permission) that are not registered in their team will be disqualified.",
+              "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items.If any special rules apply, they shall be notified to the members.",
+              "If teams fail to join their match during the given time limit, one or both teams may be disqualified. (Additional 5 mins will be given before disqualification).",
+              "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
+              "We request all the players to be on time and stay active throughout the tournament.",
+              "Kindly feel free to contact us anytime during the tournament regarding any queries.",
+              "Players can only participate in one game in the PC category",
+            ],
+          },
+          {
+            name: "Minecraft",
+            participants: 2,
+            image: "Minecraft.jpg",
+            bannedItems: [],
+            guidelines: [
+              "Teams that bring in different players (without permission) that are not registered in their team will be disqualified.",
+              "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items.If any special rules apply, they shall be notified to the members.",
+              "If teams fail to join their match during the given time limit, one or both teams may be disqualified. (Additional 5 mins will be given before disqualification).",
+              "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
+              "We request all the players to be on time and stay active throughout the tournament.",
+              "Kindly feel free to contact us anytime during the tournament regarding any queries.",
+              "Players can only participate in one game in the PC category",
+            ],
+          }
+        ],
+
+        eventCoordinators: EventCoordinators.filter((coordinator) =>
+          coordinator.event.includes("Arena of Valor - PC")
+        ),
+      },
+
+      {
         name: "Console",
 
         description:
@@ -70,22 +115,25 @@ const ArenaOfValor = {
           {
             name: "FIFA-23",
             participants: 2,
-            image: fifa,
+            image: "fifa.png",
             bannedItems: [],
+            guidelines: [
+              "Matches will be played in teams of two",
+              "Teams can choose their own clubs, in case of conflict between two or more teams, the clubs will be assigned by a coin toss.",
+              "Each match consists of 6 minute halves.",
+              "The tournament is structured such that each team competes at least two matches before the semi-finals.",
+              "Players cannot pause the game. A warning is given only the first time, if repeated the responsible team will be disqualified.",
+              "Players cannot appeal against software or hardware errors. When relevant, replay will be reviewed and action will be taken accordingly.",
+              "Verbal or physical conflict with other teams will lead to immediate disqualification.",
+              "Each player is required to bring their own (PS4) controllers.",
+              "Players are not allowed to handle the console outside the tournament and change any settings. Strict action will be taken.",
+            ],
           },
         ],
 
-        guidelines: [
-          "Matches will be played in teams of two",
-          "Teams can choose their own clubs, in case of conflict between two or more teams, the clubs will be assigned by a coin toss.",
-          "Each match consists of 6 minute halves.",
-          "The tournament is structured such that each team competes at least two matches before the semi-finals.",
-          "Players cannot pause the game. A warning is given only the first time, if repeated the responsible team will be disqualified.",
-          "Players cannot appeal against software or hardware errors. When relevant, replay will be reviewed and action will be taken accordingly.",
-          "Verbal or physical conflict with other teams will lead to immediate disqualification.",
-          "Each player is required to bring their own (PS4) controllers.",
-          "Players are not allowed to handle the console outside the tournament and change any settings. Strict action will be taken.",
-        ],
+        eventCoordinators: EventCoordinators.filter((coordinator) =>
+          coordinator.event.includes("Arena of Valor - Console")
+        ),
       },
 
       {
@@ -97,64 +145,45 @@ const ArenaOfValor = {
         games: [
           {
             name: "Battlegrounds Mobile India (BGMI)",
-            participants: 4,
-            image: bgmi,
+            participants: 3,
+            image: "bgmi.png",
             bannedItems: [],
+            guidelines: [
+              "The event will be conducted online.",
+              "Students must arrange a proper network connection, network issues will not be encouraged.",
+              "The communication will be in an online meeting for which link will be sent to participants.",
+              "Students are requested to arrange an extra device for the online meeting.",
+              "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
+              "Students should not use any emotes in the game. (eg. punching,etc )",
+              "Inappropriate behaviour from the students may lead to disqualification.",
+              "No arguments with the head of the particular event for a rematch or other things.", 
+            ],
           },
           {
             name: "Call of Duty Mobile",
             participants: 4,
-            image: cod,
+            image: "cod.png",
             bannedItems: [],
-          },
-        ],
-
-        guidelines: [
-          "The event will be conducted online.",
-          "Students must arrange a proper network connection, network issues will not be encouraged.",
-          "The communication will be in an online meeting for which link will be sent to participants.",
-          "Students are requested to arrange an extra device for the online meeting.",
-          "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
-          "Students should not use any emotes in the game. (eg. punching,etc )",
-          "Inappropriate behaviour from the students may lead to disqualification.",
-          "No arguments with the head of the particular event for a rematch or other things.", 
-        ],
-      },
-
-      {
-        name: "PC",
-
-        description:
-          "Arena of Valor - PC demands a sharp mind and trigger discipline.",
-
-        games: [
-          {
-            name: "Valorant",
-            participants: 5,
-            image: valorant,
-            bannedItems: [
+            guidelines: [
+              "The event will be conducted online.",
+              "Students must arrange a proper network connection, network issues will not be encouraged.",
+              "The communication will be in an online meeting for which link will be sent to participants.",
+              "Students are requested to arrange an extra device for the online meeting.",
+              "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
+              "Students should not use any emotes in the game. (eg. punching,etc )",
+              "Inappropriate behaviour from the students may lead to disqualification.",
+              "No arguments with the head of the particular event for a rematch or other things.", 
             ],
           },
-          {
-            name: "Minecraft",
-            participants: 2,
-            image: mc,
-            bannedItems: [
-            ],
-          }
         ],
 
-        guidelines: [
-          "Teams that bring in different players (without permission) that are not registered in their team will be disqualified.",
-          "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items.If any special rules apply, they shall be notified to the members.",
-          "If teams fail to join their match during the given time limit, one or both teams may be disqualified. (Additional 5 mins will be given before disqualification).",
-          "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
-          "We request all the players to be on time and stay active throughout the tournament.",
-          "Kindly feel free to contact us anytime during the tournament regarding any queries.",
-          "Players can only participate in one game in the PC category",
+        
 
-        ],
+        eventCoordinators: EventCoordinators.filter((coordinator) =>
+          coordinator.event.includes("Arena of Valor - Mobile")
+        ),
       },
+      
     ],
 
     rules: [
@@ -164,10 +193,6 @@ const ArenaOfValor = {
       "Students can participate using any of the above platforms. Different platforms will NOT go against each other at any point.",
       "Participants are required to have a strong and stable internet connection.",
     ],
-
-    eventCoordinators: EventCoordinators.filter((coordinator) =>
-      coordinator.event.includes("Arena of Valor")
-    ),
 
     registration: {
       "Console": ["Duo Team (2 members)"],

@@ -1,9 +1,6 @@
 import type { NextPage } from "next"
 import Image from "next/image"
 import { toSlug } from "../../functions"
-import Main from "../../data/Main"
-import Link from "next/link"
-
 //components
 import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
@@ -54,7 +51,7 @@ const ArenaOfValor: NextPage = () => {
                     })}</ul>
                     <p className={styles.h2_p}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
                 
-                <h2 id="commonGUI">Common Guidelines</h2>
+                <h2 id="common-guidelines">Common Guidelines</h2>
                     <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
@@ -73,32 +70,27 @@ const ArenaOfValor: NextPage = () => {
                                 return(<div key={index}>
                                     <h4 id={toSlug(`game ${game.name}`)}>{game.name}</h4>
                                     <div className={styles.game_logo}>
-                                        <Image src={game.image} alt={game.name} placeholder={"blur"}/>
+                                        <img src={`/images/events/aov_games/${game.image}`} alt={game.name} placeholder={"blur"}/>
                                     </div>
                                     <h5 id={toSlug(`${game.name} details`)}>Details</h5>
                                     <p className={styles.h5_p}>Team Size: {game.participants}</p>
+                                    <h5 id={toSlug(`${game.name} guidelines`)}>Guidelines</h5>
+                                    <ul className={styles.h4_p}>
+                                        {game.guidelines.map((rule, index) => {
+                                            return <li key={index}>{rule}</li>
+                                        })}
+                                    </ul>
+                                    <h5 id={toSlug(`${platform} registration`)}>Registration</h5>
+                                    <EventsRegisterButton pathname="url"/>
                                 </div>)
                             })}
-
-                            <h4 id={toSlug(`${platform} guidelines`)}>Guidelines</h4>
-                            <ul className={styles.h4_p}>
-                                {platform.guidelines.map((rule, index) => {
-                                    return <li key={index}>{rule}</li>
+                           
+                            <h4 id={toSlug("event coordinators")}>Event Coordinators</h4>
+                            <div className={styles.card_container}>
+                                {platform.eventCoordinators.map((coordinator, index) => {
+                                    return <ProfileCard key={index} profileObject={coordinator} />
                                 })}
-                            </ul>
-                            <h4 id={toSlug(`${platform} registration`)}>Registration</h4>
-                            <ul className={styles.h4_p}>
-                                {
-                                    Object.entries(ArenaOfValorData.headings.registration).filter((key) => {
-                                        return key[0].includes(platform.name)
-                                    }).map((rules) => {
-                                        return rules[1].map((rule, index) => {
-                                            return <li key={index}>{rule}</li>
-                                        })
-                                    })
-                                }
-                            </ul>
-                            <EventsRegisterButton pathname="DEASISGFN SCAPE"/>
+                            </div> 
                         </div>)
                     })}
                 
@@ -106,15 +98,6 @@ const ArenaOfValor: NextPage = () => {
                     <ul>{ArenaOfValorData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
-                
-                <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
-                    <div className={styles.card_container}>
-                        {ArenaOfValorData.headings.eventCoordinators.map((coordinator, index) => {
-                            return <ProfileCard key={index} profileObject={coordinator} />
-                        })}
-                    </div> 
-                 <div className={styles.register_link_align}>
-        </div>
             </div>
         </Layout>
     </>)
