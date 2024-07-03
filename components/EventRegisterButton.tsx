@@ -8,7 +8,7 @@ import styles from '../styles/pages/Events.module.scss'
  * Registration button on event page to redirect to registration
  * @param event - Event Title to pass as default event value
 */
-const EventsRegisterButton = ({pathname}: {pathname: string}) => {
+const EventsRegisterButton = ({pathname, text}: {pathname: string, text: string}) => {
     return(
         <div className={styles.register_link_align}>
             {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
@@ -18,7 +18,7 @@ const EventsRegisterButton = ({pathname}: {pathname: string}) => {
                     pathname,
                 }} as={{
                     pathname,
-                }}><a className={styles.register_link} target='_blank'><p>Register Here</p></a></Link>}
+                }}><a className={styles.register_link} target='_blank'><p>{text}</p></a></Link>}
         </div>
     )
 }
