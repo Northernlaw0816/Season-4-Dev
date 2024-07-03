@@ -181,16 +181,20 @@
       display: grid;
       place-items: center;
       margin: 0 4rem;
-      background: hsl(60, 6%, 12%);
-      max-width: 80%;
+      max-width: 100%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        border-radius: 1rem;
+      }
 
       @media (max-width: 700px) {
         max-width: 100%;
         margin: 0;
-      }
-
-      img {
-        width: 100%;
+        img {
+          width: 50%;
+        }
       }
     }
     
@@ -206,7 +210,7 @@
     .register_link_align {
       .register_link {
         color: black;
-        font-family: "Cinzel Decorative", serif;
+        font-family: "Cinzel", serif;
       }
     }
   }
@@ -226,6 +230,7 @@
   .banner {
     background: url("../../public/images/events/ko_background_2.png"),
       url("../../public/images/events/ko_background.png");
+    mask-image: linear-gradient(to top, transparent, black 2rem);
     background-size: 100% 100%;
     aspect-ratio: 16/8.5;
 
@@ -584,6 +589,7 @@
     z-index: 1;
     position: relative;
     background: hsl(257, 100%, 6%);
+    mask-image: linear-gradient(to top, transparent, black 2rem);
     padding-top: 4rem;
     .logo {
       z-index: 2;

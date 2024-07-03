@@ -5,7 +5,7 @@ import HeadTemplate from "../../components/HeadTemplate"
 import Layout from "../../components/Layout"
 import EventCard from "../../components/EventCard"
 //stylesheets
-import styles from '../../styles/pages/Event.module.scss'
+import styles from '../../styles/pages/EventCards.module.scss'
 //data
 import EventsData from '../../data/EventsList'
 

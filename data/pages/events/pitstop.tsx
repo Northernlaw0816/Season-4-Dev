@@ -23,7 +23,7 @@ const Pitstop = {
         venue: 'Primary Block Center',
         grades: '9 - 12',
         image: PS,
-        accent: "#370B01",
+        accent: "#febf01",
     },
 
     headings: {

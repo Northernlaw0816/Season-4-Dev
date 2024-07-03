@@ -81,7 +81,7 @@ const ArenaOfValor: NextPage = () => {
                                         })}
                                     </ul>
                                     <h5 id={toSlug(`${platform} registration`)}>Registration</h5>
-                                    <EventsRegisterButton pathname="url"/>
+                                    <EventsRegisterButton pathname="url" text={`Register for ${game.name}`}/>
                                 </div>)
                             })}
                            
@@ -93,11 +93,6 @@ const ArenaOfValor: NextPage = () => {
                             </div> 
                         </div>)
                     })}
-                
-                <h2 id="guidelines">Guidelines</h2>
-                    <ul>{ArenaOfValorData.headings.rules.map((rule, index) => {
-                        return <li key={index}><p>{rule}</p></li>
-                    })}</ul> 
             </div>
         </Layout>
     </>)
