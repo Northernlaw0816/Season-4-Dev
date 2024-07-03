@@ -196,6 +196,10 @@
           width: 50%;
         }
       }
+
+      img {
+        width: 100%;
+      }
     }
     
     .profile_card {
@@ -966,7 +970,7 @@
     display: grid;
     place-items: center center;
     padding-bottom: 10rem;
-    
+
     .logo {
       width: clamp(100px, 30% , calc(40vw));
     }
