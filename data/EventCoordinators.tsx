@@ -58,23 +58,23 @@ const  EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "12",
-    src: thrivikram,
+    src: placeholder,
   },
   {
     name: "Rithik Abhay A.R",
     grade: "12",
-    src: rithik,
+    src: placeholder,
   },
 ];
 
 const EventMentors = [
   {
     name: "Anand Jeyasingh",
-    src: aj,
+    src: placeholder,
   },
   {
     name: "Vinish Kumar R",
-    src: vk,
+    src: placeholder,
   },
 ];
 
