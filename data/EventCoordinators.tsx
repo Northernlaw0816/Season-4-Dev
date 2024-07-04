@@ -1,5 +1,5 @@
 // Event Heads
-import thrivikram from "../public/images/photos/Thrivikram.jpeg"
+import thrivikram from "..public/images/photos/Thrivikram.jpeg"
 import rithik from "../public/images/photos/Rithik.jpeg"
 //Teachers Incharge
 import aj from "../public/images/photos/aj.jpeg"
@@ -7,8 +7,8 @@ import vk from "../public/images/photos/vk.jpeg"
 // AOV
 import akshay from "../public/images/photos/Akshay.jpeg"
 import abhinav from "../public/images/photos/Abhinav.jpeg"
-import abhishek from ".../public/images/photos/Abhishek.png"
-import shafiq from ".../public/images/photos/Shafiq.jpeg"
+import abhishek from "../public/images/photos/Abhishek.png"
+import shafiq from "../public/images/photos/Shafiq.jpeg"
 import sharuk from "../public/images/photos/Sharuk.jpeg"
 import alan from "../public/images/photos/Alan.jpeg"
 import sanjay from "../public/images/photos/Sanjay.jpeg"
