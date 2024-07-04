@@ -15,10 +15,10 @@ const Pitstop = {
     link: '/events/pitstop',
 
     details: {
-        shortDescription: "Do you think you can participate in the epic battle of car racing? Can you construct you own RC Motor vehicle that has to run on dirt field with obstacle that we have set for you? If you think you are ready to put your skills to the test, participate in PitStop!",
+        shortDescription: "Pitstop, is the ultimate RC car building and racing extravaganza! An event where STEM meets RACING. Participants will design, build, and race their remote-controlled cars, pushing the limits of speed and performance.",
         dateAndTime: [
             `${Main.dates.day1}, 10:15 p.m. - 3:00 p.m.`,
-            `${Main.dates.day2}, 9:30 a.m. - 2:00 p.m.`
+            `${Main.dates.day2}, 9:30 a.m. - 1:30 p.m.`
         ],
         venue: 'Primary Block Center',
         grades: '9 - 12',
@@ -31,28 +31,22 @@ const Pitstop = {
             
         ],
 
-        about: "Do you think you can participate in the epic battle of car racing? Can you construct you own RC Motor vehicle that has to run on dirt field with obstacle that we have set for you? If you think you are ready to put your skills to the test, participate in PitStop!",
+        about: "Pitstop, is the ultimate RC car building and racing extravaganza! An event where STEM meets RACING. Participants will design, build, and race their remote-controlled cars, pushing the limits of speed and performance.",
         
         rules: [
-            "Participants are to create their own RC Motor vechicle",
-            "Participants must play fair game",
-            "Participants will be disqualified if found in malpractices",
-            "Participants must bring their model charged",
-            "Using pre-made vechicle is strictly against rules",
-            "In case of malpractices, all concerned groups will be held accountable",
-            "No more than 3 participants are allowed in a team.",
-            "Scores will be displayed live in the field set up."
+            "Each team must comprise 3-4 participants",
+            "Teams with RC cars bought or made by a third party will be disqualified",
+            "The RC has to be built before the event. (Note:- no time will be provided before or during the event for the build.)",
+            "Any kind of fuel engines will not be allowed",
+            ["The RC has to comply with the following regulations to be considered eligible for the contest:", "Must fit within the dimensions: 30cm x 30cm x 30cm", "The power supply is restricted to 24v and below.","Max Tyre Width - 50mm","Max Tyre Diameter - 80mm","Max RPM - 2000 to 300rpm"],
+            "The race track, which will be on muddy terrain, will only be revealed on the day of the event so students should build accordingly",
+            ["Teams will be marked on the following rubrics:", "Build Strength (5)", "Design (5)", "Durability (5)"],
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "PitStop"),
-/*
-        prerequisites:[
-            "Intermediate knowledge of at least one of the prescribed programming languages is required.",
-            "Basic knowledge of circuit making."
-        ], 
-*/
+
         registration: [
-            "Participants register Trio Teams (3 members) - 3 teams per school"
+            "Participants register in teams of 3 or 4"
         ]
     }
 }

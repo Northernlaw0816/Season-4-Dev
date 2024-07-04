@@ -26,13 +26,14 @@ const Designscape = {
         about: "When you see something and you want to remould it to your taste, then your heart knows “I am a designer”. Designscape is a design and photo editing competition, your stage to showcase your creativity. This is a competition where you use your imagination to create an original piece from what you are given. This is your chance to explore, design and create. Show your talent and let the creativity flow.",
 
         rules: [
-            "Participants are allowed to use editing softwares of their choice (such as Adobe Lightroom, Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) for completing their designs. (No Canva)",
-            "The first round will be an elimination round.",
+            "This event allows for individual or group participation, with a maximum of two members per group.",
+            "Participants are allowed to use editing softwares of their choice (such as Adobe ,Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) for completing their designs. (No Canva)",            
             "Participants are supposed to bring their own gadgets for designing.",
             "Participants will be given a maximum of two hours to work with (including the time for choosing the resources).",
-            "There will be two rounds conducted.", 
+            "There will be three rounds conducted.",
+            "The first round will be an elimination round.",
             "Participants are supposed to work with the base image that is provided and if they don’t they will be disqualified immediately.",
-            "They can only use the topic, and theme provided to them.",
+            "Themes are selected through a voting process done by the contestants. Theme with the most number of vote is selected as the theme for designing.",
             "AI image generators, who use such softwares will be immediately disqualified.",
             "Students will have to submit the artwork through email as a ..png file ,  failing which they will be disqualified.",
             "Participants should be able to explain their own designs.",
@@ -41,7 +42,7 @@ const Designscape = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Designscape"),
 
         registration: [
-            "This is a Solo event - 5 participants per school "
+            "This is an individual/team event"
         ]
     }
 }
