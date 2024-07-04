@@ -7,8 +7,8 @@ import vk from "../public/images/photos/vk.jpeg"
 // AOV
 import akshay from "../public/images/photos/Akshay.jpeg"
 import abhinav from "../public/images/photos/Abhinav.jpeg"
-import abhishek from "../public/images/photos/Abhishek.jpeg"
-import shafiq from "../public/images/photos/Shafiq.jpeg"
+import abhishek from ".../public/images/photos/Abhishek.png"
+import shafiq from ".../public/images/photos/Shafiq.jpeg"
 import sharuk from "../public/images/photos/Sharuk.jpeg"
 import alan from "../public/images/photos/Alan.jpeg"
 import sanjay from "../public/images/photos/Sanjay.jpeg"
@@ -55,23 +55,23 @@ const  EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "12",
-    src: placeholder,
+    src: thrivikram,
   },
   {
     name: "Rithik Abhay A.R",
     grade: "12",
-    src: placeholder,
+    src: rithik,
   },
 ];
 
 const EventMentors = [
   {
     name: "Anand Jeyasingh",
-    src: placeholder,
+    src: aj,
   },
   {
     name: "Vinish Kumar R",
-    src: placeholder,
+    src: vk,
   },
 ];
 
