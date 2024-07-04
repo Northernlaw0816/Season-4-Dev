@@ -7,12 +7,31 @@ import HomeBanner from '../components/HomeBanner'
 import Button from '../components/Button'
 //stylesheets
 import styles from '../styles/pages/Home.module.scss'
+import landingStyles from '../styles/pages/LandingPage.module.scss'
 import Effects from '../styles/Effects.module.scss'
 //data
 import { AboutData } from '../data/pages'
 import Main from '../data/Main'
 
 const Home: NextPage = () => {
+
+	const showLandingPage = false
+
+	if (showLandingPage) {
+		return <>
+			<HeadTemplate title="NuTopia | Coming Soon..." description={`Keep your eye out for Season ${Main.season}`} />
+			<div className={landingStyles.landing_banner}>
+				<div className={landingStyles.overlay}>
+					<div className={landingStyles.overlay_left}></div>
+					<div className={landingStyles.overlay_right}></div>
+				</div>
+				<div className={landingStyles.hero}>
+					<span className={landingStyles.text}>Coming Soon</span>
+				</div>
+			</div>
+		</>
+	}
+
 	return (<>
 		<HeadTemplate title="NuTopia | Yuvabharathi Public School" description={`Official NuTopia Website | Season ${Main.season}`}/>
 
