@@ -202,9 +202,11 @@ const ArenaOfValor = {
       "Participants are required to have a strong and stable internet connection.",
     ],
 
-    registration: {
-      "Console: Duos Mobile:	BGMI and COD - Trios | Free Fire - Squads PC: Valorant - Squads | Minecraft - Duos",
-    },
+    registration: [
+      "Console : Duos",
+      "Mobile :	 BGMI and COD - Trios | Free Fire - Squads",
+      "PC : Valorant - Squads | Minecraft - Duos ",
+    ],
   },
 };
 
