@@ -163,7 +163,7 @@ const EventCoordinators = [
     event: "Knockout",
     grade: "12",
     role: "Mentor",
-    src: ananya,
+    // src: ananya,
   },
   {
     name: "Adithi N",
