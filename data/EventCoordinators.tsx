@@ -7,15 +7,15 @@
 // AOV
 //import akshay from "../public/images/photos/Akshay.jpeg"
 import abhinav from "../public/images/photos/Abhinav.jpeg"
-import abhishek from "../public/images/photos/Abhishek.png"
+import abhishek from "../public/images/photos/Abhishek.jpeg"
 import shafiq from "../public/images/photos/Shafiq.jpeg"
 import sharuk from "../public/images/photos/Sharuk.jpeg"
 import alan from "../public/images/photos/Alan.jpeg"
 import sanjay from "../public/images/photos/Sanjay.jpeg"
 import siddanth from "../public/images/photos/Siddanth.jpeg"
 // KO
-import ananya from "../public/images/photos/Ananya.jpeg"
-import dhairya from "../public/images/photos/Dhairya.jpeg"
+// import ananya from "../public/images/photos/Ananya.jpeg"
+// import dhairya from "../public/images/photos/Dhairya.jpeg"
 import adithi from "../public/images/photos/Adithi.jpeg"
 import jaine from "../public/images/photos/Jaine.jpeg"
 // TOD
@@ -28,7 +28,7 @@ import krishita from "../public/images/photos/Krishita.jpeg"
 //import shruti from "../public/images/photos/Shruti.jpeg"
 // DS
 import hari from "../public/images/photos/Hari.jpeg"
-import arnav from "../public/images/photos/Arnav.jpeg"
+// import arnav from "../public/images/photos/Arnav.jpeg"
 //import mahathi from "../public/images/photos/Mahathi.jpeg"
 // OTK
 import harsha from "../public/images/photos/Harsha.jpeg"
@@ -38,7 +38,7 @@ import nebin from "../public/images/photos/Nebin.jpeg"
 // CC
 import maanya from "../public/images/photos/Maanya.jpeg"
 import prathiksha from "../public/images/photos/Prathiksha.jpeg"
-import sanjit from "../public/images/photos/Saathvik.jpeg"
+// import sanjit from "../public/images/photos/Saathvik.jpeg"
 // PS
 import dhureen from "../public/images/photos/Dhureen.jpeg"
 import athul from "../public/images/photos/Athul.jpeg"
@@ -49,7 +49,7 @@ import mayank from "../public/images/photos/Mayank.jpeg"
 //import ananyaY from"../public/images/photos/AnanyaY.jpeg"
 
 //Place Holder Change later
-import placeholder from "../public/images/photos/placeholder.jpeg";
+import placeholder from "../public/images/photos/placeholder.png";
 
 const  EventHeads = [
   {
@@ -134,7 +134,7 @@ const EventCoordinators = [
     name: "Arnav Jain",
     event: "Designscape",
     grade: "11",
-    src: arnav,
+    // src: arnav,
   },
   {
     name: "Mahathi M",
@@ -147,7 +147,7 @@ const EventCoordinators = [
     name: "Dhairya Bagri",
     event: "Knockout",
     grade: "11",
-    src: dhairya,
+    // src: dhairya,
   },
   {
     name: "Jaine Shree",
@@ -160,7 +160,7 @@ const EventCoordinators = [
     event: "Knockout",
     grade: "12",
     role: "Mentor",
-    src: ananya,
+    // src: ananya,
   },
   {
     name: "Adithi N",
@@ -257,7 +257,7 @@ const EventCoordinators = [
     name: "Sanjit",
     event: "Code Clash",
     grade: "11",
-    src: sanjit,
+    // src: sanjit,
   },
 ];
 
