@@ -1,4 +1,4 @@
-const date = new Date('July 20 2024 21:00:00 GMT+0530')
+const date = new Date('July 20 2023 21:00:00 GMT+0530')
 
 const Main = {
     year: 2024,

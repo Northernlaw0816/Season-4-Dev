@@ -67,16 +67,7 @@ const LogAndBlog: NextPage= () => {
                     })}</ul>
 
                  <div className={styles.register_link_align}>
-            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
-                <a className={styles.register_link}>Registrations are not yet open</a>
-            :
-                <Link href={{
-                    pathname: "https://forms.gle/ocGqTiGemTppdVTS6",
-                    hash: "registration-form"
-                }} as={{
-                    pathname: "https://forms.gle/ocGqTiGemTppdVTS6",
-                    hash: "registration-form"
-                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+           <EventsRegisterButton pathname="ASdhahda" text={`Register for ${LogAndBlogData.title}`}/>
         </div>
             </div>
         </Layout>

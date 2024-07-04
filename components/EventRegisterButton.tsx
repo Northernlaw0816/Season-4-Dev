@@ -12,7 +12,7 @@ const EventsRegisterButton = ({pathname, text}: {pathname: string, text: string}
     return(
         <div className={styles.register_link_align}>
             {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
-                <a className={styles.register_link}>Registrations Closed</a>
+                <a className={styles.register_link}>Registrations opening soon!</a>
             :
                 <Link href={{
                     pathname,

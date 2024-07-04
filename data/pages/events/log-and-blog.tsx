@@ -27,16 +27,13 @@ const LogAndBlog = {
 
         
         rules: [
-            "Solo event for Grades 9 to 12.",
+            "Blogs will be evaluated based on originality, credibility, relevance and adherence of the guideline.",
             "Participants are given a time period of four hours to complete their blog in “Blogger”.",
             "Each participant will be given a computer, hence they do not have to bring their own gadgets.",
-            "Participants are free to access the internet for resources and information pertaining to their given topic",
-            "However, it is strictly frowned upon for participants to log into their personal accounts in google or otherwise",
-            "Plagiarism of any kind merits the removal of the participant from the event.",
-            "Usage of the internet for any purpose that does not resonate with their research will be strictly dealt with.",
-            "The use of apps or supplements like ChatGPT, QuillBot and ChatMaster is strictly forbidden.",
-            "Participants are advised against depending on Wikipedia for quality information.",
-
+            "Blogs may include humor provided that the overall tone maintains a formal",
+            "Participants may include images, graphs and other media provided they’re credible and accurate.",
+            "Any form of cheating such as the usage of Generative AI, plagiarism, partnership and irrelevant use of the internet will result in immediate disqualification",
+            "Topics once assigned cannot be changed since topics given are completely randomizedParticipants must refrain from exceeding the time limit.",
         ],
 
         assessment: [
