@@ -1,7 +1,7 @@
 // Event Heads
 import thrivikram from "../public/images/photos/thrivikram.png"
 import rithik from "../public/images/photos/rithik.png"
-//teacher's incharge
+//Teachers Incharge
 import aj from "../public/images/photos/aj.png"
 import vk from "../public/images/photos/vk.png"
 // AOV
