@@ -40,7 +40,6 @@
 
         .profile_details{
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
             width: 100%;
 
             .info {

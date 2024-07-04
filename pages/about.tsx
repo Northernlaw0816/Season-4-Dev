@@ -4,7 +4,6 @@ import { toSlug } from "../functions"
 import HeadTemplate from "../components/HeadTemplate"
 import Layout from "../components/Layout"
 import ProfileCard from "../components/ProfileCard"
-import SMProfile from "../components/SMProfile"
 //stylesheets
 import styles from "../styles/pages/About.module.scss"
 //data
@@ -55,7 +54,7 @@ const About = () => {
             <h1 id={toSlug("Social Media Team")}>Social Media Team</h1>
                 <div className={styles.card_container}>
                     {MediaTeam.map((profile, index) => {
-                        return <SMProfile key={index} profileObject={profile}/>
+                        return <ProfileCard key={index} profileObject={profile}/>
                     })}
                 </div>
 
