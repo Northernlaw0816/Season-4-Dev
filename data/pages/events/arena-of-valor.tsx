@@ -203,9 +203,7 @@ const ArenaOfValor = {
     ],
 
     registration: {
-      "Console": ["Duos"],
-      "Mobile":	["BGMI and COD - Trios | Free Fire - Squads"],
-      "PC": ["Valorant - Squads | Minecraft - Duos"],
+      "Console: Duos Mobile:	BGMI and COD - Trios | Free Fire - Squads PC: Valorant - Squads | Minecraft - Duos",
     },
   },
 };
