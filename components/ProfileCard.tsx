@@ -5,9 +5,9 @@ import { toSlug } from "../functions"
 import styles from "../styles/components/ProfileCard.module.scss"
 import eventStyles from "../styles/pages/Events.module.scss"
 
-const ProfileCard = ({profileObject}: any) => {
+const   ProfileCard = ({profileObject}: any) => {
 
-    const {name, roles, event, src} = profileObject
+    const {name, event, roles, src} = profileObject
 
     return (
         <div className={`${styles.profile_card} ${eventStyles.profile_card}`}>
@@ -17,12 +17,12 @@ const ProfileCard = ({profileObject}: any) => {
             <div className={styles.profile_info}>
                 <h2 id={toSlug(name)} className={styles.profile_name}>{name}</h2>
                 <div className={styles.profile_details}>
-                    {event && <span className={styles.info}>
+                    {roles && <div className={styles.info}>
+                        <h3 id={toSlug(`profile ${roles}`)}>{roles}</h3>
+                    </div>}
+                    {event && <div className={styles.info}>
                         <h3 id={toSlug(`profile ${event}`)}>Event</h3><p>{event}</p>
-                    </span>}
-                    {roles && <div>{roles.map((role:string, index:number) => {
-                        return <p key={index} className={styles.role}>{role}</p>
-                    })}</div>}
+                    </div>}
                 </div>
             </div>
         </div>
