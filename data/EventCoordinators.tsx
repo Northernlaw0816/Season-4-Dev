@@ -1,11 +1,11 @@
 // Event Heads
-import thrivikram from "..public/images/photos/Thrivikram.jpeg"
-import rithik from "../public/images/photos/Rithik.jpeg"
+//import thrivikram from "../public/images/photos/Thrivikram.jpeg"
+//import rithik from "../public/images/photos/Rithik.jpeg"
 //Teachers Incharge
-import aj from "../public/images/photos/aj.jpeg"
-import vk from "../public/images/photos/vk.jpeg"
+//import aj from "../public/images/photos/aj.jpeg"
+//import vk from "../public/images/photos/vk.jpeg"
 // AOV
-import akshay from "../public/images/photos/Akshay.jpeg"
+//import akshay from "../public/images/photos/Akshay.jpeg"
 import abhinav from "../public/images/photos/Abhinav.jpeg"
 import abhishek from "../public/images/photos/Abhishek.png"
 import shafiq from "../public/images/photos/Shafiq.jpeg"
@@ -25,16 +25,16 @@ import ksharaa from "../public/images/photos/Ksharaa.jpeg"
 // LAB
 import aadees from "../public/images/photos/Aadees.jpeg"
 import krishita from "../public/images/photos/Krishita.jpeg"
-import shruti from "../public/images/photos/Shruti.jpeg"
+//import shruti from "../public/images/photos/Shruti.jpeg"
 // DS
 import hari from "../public/images/photos/Hari.jpeg"
 import arnav from "../public/images/photos/Arnav.jpeg"
-import mahathi from "../public/images/photos/Mahathi.jpeg"
+//import mahathi from "../public/images/photos/Mahathi.jpeg"
 // OTK
 import harsha from "../public/images/photos/Harsha.jpeg"
 import nebin from "../public/images/photos/Nebin.jpeg"
-import tejasvi from "../public/images/photos/Tejasvi.jpeg"
-import mithun from "../public/images/photos/Mithun.jpeg"
+//import tejasvi from "../public/images/photos/Tejasvi.jpeg"
+//import mithun from "../public/images/photos/Mithun.jpeg"
 // CC
 import maanya from "../public/images/photos/Maanya.jpeg"
 import prathiksha from "../public/images/photos/Prathiksha.jpeg"
@@ -44,9 +44,9 @@ import dhureen from "../public/images/photos/Dhureen.jpeg"
 import athul from "../public/images/photos/Athul.jpeg"
 import mayank from "../public/images/photos/Mayank.jpeg"
 // SM
-import driti from "../public/images/photos/Driti.jpeg"
-import dikshita from"../public/images/photos/Dikshita.jpeg"
-import ananyaY from"../public/images/photos/AnanyaY.jpeg"
+//import driti from "../public/images/photos/Driti.jpeg"
+//import dikshita from"../public/images/photos/Dikshita.jpeg"
+//import ananyaY from"../public/images/photos/AnanyaY.jpeg"
 
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.jpeg";
@@ -55,23 +55,23 @@ const  EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "12",
-    src: thrivikram,
+    src: placeholder,
   },
   {
     name: "Rithik Abhay A.R",
     grade: "12",
-    src: rithik,
+    src: placeholder,
   },
 ];
 
 const EventMentors = [
   {
     name: "Anand Jeyasingh",
-    src: aj,
+    src: placeholder,
   },
   {
     name: "Vinish Kumar R",
-    src: vk,
+    src: placeholder,
   },
 ];
 
@@ -92,7 +92,7 @@ const EventCoordinators = [
     name: "Akshay Srinivasan",
     event: "Arena of Valor - Mobile",
     grade: "12",
-    src: akshay,
+    src: placeholder,
   },
   {
     name: "Sanjay R",
@@ -141,7 +141,7 @@ const EventCoordinators = [
     event: "Designscape",
     grade: "12",
     role: "",
-    src: mahathi,
+    src: placeholder,
   },
   {
     name: "Dhairya Bagri",
@@ -185,7 +185,7 @@ const EventCoordinators = [
     name: "Shruti",
     event: "Log and Blog",
     grade: "12",
-    src: shruti,
+    src: placeholder,
   },
   {
     name: "Harshavardan",
@@ -203,13 +203,13 @@ const EventCoordinators = [
     name: "Tejasvi",
     event: "Otakuiz",
     grade: "11",
-    src: tejasvi,
+    src: placeholder,
   },
   {
     name: "Mithun R Prem",
     event: "Otakuiz",
     grade: "12",
-    src: mithun,
+    src: placeholder,
   },
   {
     name: "Rishaan Ranka",
@@ -266,19 +266,19 @@ const MediaTeam = [
     name: "Driti Shah",
     grade: "12",
 	  roles: "Media Manager",
-    src: driti,
+    src: placeholder,
   },
   {
     name: "Dikshita",
     grade: "12",
 	  roles: "Media Manager",
-    src: dikshita,
+    src: placeholder,
   },
   {
     name: "Ananya",
     grade: "12",
 	  roles: "Media Manager",
-    src: ananyaY,
+    src: placeholder,
   },
 ];
 
