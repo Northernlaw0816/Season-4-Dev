@@ -1,6 +1,6 @@
 // Event Heads
-import thrivikram from "../public/images/photos/Thrivikram.png"
-import rithik from "../public/images/photos/Rithik.png"
+import thrivikram from "../public/images/photos/thrivikram.png"
+import rithik from "../public/images/photos/rithik.png"
 //Teachers Incharge
 import aj from "../public/images/photos/aj.png"
 import vk from "../public/images/photos/vk.png"
