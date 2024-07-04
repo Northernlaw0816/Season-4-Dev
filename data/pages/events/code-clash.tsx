@@ -27,32 +27,32 @@ const CodeClash = {
         about: "Welcome to Pandora’ s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
         
         rules: [
-            "This is a team event. A team must have 3 players.",
-            "Two rounds will be conducted",
-            "Participants from grade 9 and above can participate.",
-            "Participants are supposed to use version 1.20.1 only.", 
-            "Participants are not allowed to switch Minecraft accounts during the event.",
-            "Creative mode will be allowed to all teams.", 
-            "Teams will be allotted their respective plots.",
-            "Teams are not allowed to change their plots or go to a plot belonging to a different team.",
-            "The time allotted is 2 hours 30 minutes to build for each round.",
-            "Teams are not allowed to use any sort of hacks/cheats/clients. Use of such malpractices will result in immediate disqualification.",
-            "If any participant is found to be griefing, building inappropriate structures, or disturbing / sabotaging other teams, the team will be disqualified.",
-            "We reserve the right to modify the rules at any time as deemed necessary.",
-            "The event will be managed through Whatsapp and Discord"
+            "No more than 3 participants are allowed in a team. (No minimum limit).",
+            "Participants will be provided with a computer to work on, hence one does not need to carry any device.",
+            "Internet usage won’t be provided unless necessary.", 
+            "Participants are free to use the following languages: JavaScript, Java, C++ and Python.",
+            "The required code editor (Visual Studio Code) and modules will be pre-installed.", 
+            "Work collaboratively within your team and do not interfere with other team’s projects/ideas.",
+            "External help especially from AIs like ChatGPT, Gemini etc. is not entertained.",
+            "In case of malpractices, all concerned groups and members will be held accountable & eliminated.",
+            "It is a 1 day event that consists of 3 rounds.",
+            ["Round 1: Error- Eradication:","Kick off the competition by showcasing your keen eye for detail! Participants will receive a sheet of code in their preferred language (from the four options previously mentioned) and will need to detect errors without system assistance. Stay sharp—eliminations may occur!"],
+            ["Round 2: Algorithm Arena:","Demonstrate your problem solving prowess in this round. You will be given specific programming tasks to solve (This will be done through means of chit). Your solutions will be evaluated based on logical thinking and the quality of the output. To qualify for the next round you must complete within the provided time!"],
+            ["Round 3: Code - Clash Showdown:","The ultimate showdown! The remaining teams, each consisting of three members, will face off in a high-stakes coding battle. The challenge? Solve the problem faster than your opponents. The clock is ticking—may the best team win!"]
+            
         ],
 
-        assessment: [
+/*        assessment: [
             "Creativity",
             "Factual Accuracy",
             "Grammatical Accuracy",
             "Organisation"
-        ],
+        ],                              */
                                                                                                                                                 
-        eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pandora's Blocks"),
+        eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Code Clash"),
 
         registration: [
-            "Participants register Trio Teams (3 members) - 3 teams per school"
+            "No more than 3 members in a team"
         ]
     }
 }

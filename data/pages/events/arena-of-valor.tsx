@@ -3,11 +3,7 @@ import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import AoV from "../../../public/images/events/aov_logo.png";
-/* import valorant from "../../../public/images/events/aov_games/valorant.jpg";
-import cod from "../../../public/images/events/aov_games/cod.png";
-import bgmi from "../../../public/images/events/aov_games/bgmi.png";
-import fifa from "public/images/events/aov_games/FIFA 23.png";
-import mc from "public/images/events/aov_games/minecraft.jpg" */
+
 
   
 const ArenaOfValor = {
@@ -171,7 +167,7 @@ const ArenaOfValor = {
               "Skins: Weapon Variants and Purchased Weapons that alter the default iron sights and/or ANY weapon properties (damage, speed, etc). Iron sight changes are NOT allowed. Cosmetic weapons are allowed BUT must use default weapon iron sights.",
               "By participating in our tournaments, all participants automatically agree that they vow to respect fellow participants.",
               "The usage of ‘jailbroken’ or ‘rooted’ devices in tournament matches is not permitted.",
-              "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action",
+              "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
             ],
           },
           {
@@ -180,14 +176,11 @@ const ArenaOfValor = {
             image: "ff.png",
             bannedItems: [],
             guidelines: [
-              "The event will be conducted online.",
-              "Students must arrange a proper network connection, network issues will not be encouraged.",
-              "The communication will be in an online meeting for which link will be sent to participants.",
-              "Students are requested to arrange an extra device for the online meeting.",
-              "If the participants do not join the meeting or does not respond to the heads they will be disqualified.",
-              "Students should not use any emotes in the game. (eg. punching,etc )",
-              "Inappropriate behaviour from the students may lead to disqualification.",
-              "No arguments with the head of the particular event for a rematch or other things.", 
+              "The tournament will be held in custom rooms.",
+              "Teams will be divided into groups depending on the number of registered teams.",
+              "Players are expected to be present at the exact times for their matches as announced.",
+              "Hacking or otherwise modifying the intended behavior of the game client is prohibited.",
+              "Impersonating an eligible player by attempting to alias them, using their account or by any other method is prohibited and will result in the aliasing player and the player they are aliasing as being removed from the tournament.",
             ],
           },
         ],
@@ -210,9 +203,9 @@ const ArenaOfValor = {
     ],
 
     registration: {
-      "Console": ["Duo Team (2 members)"],
-      "Mobile":	["Solo - 5 players per school"],
-      "PC": ["Fortnite - Solo - 3 players per school", "Rocket League - Duos (2 members) - 3 teams per school"],
+      "Console": ["Duos"],
+      "Mobile":	["BGMI and COD - Trios | Free Fire - Squads"],
+      "PC": ["Valorant - Squads | Minecraft - Duos"],
     },
   },
 };

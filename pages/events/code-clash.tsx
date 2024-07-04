@@ -14,6 +14,7 @@ import styles from "../../styles/pages/Events.module.scss";
 import logo from "../../public/images/events/pandora_blocks.png";
 //data
 import CodeClashData from "../../data/pages/events/code-clash";
+import EventsRegisterButton from "../../components/EventRegisterButton";
 
 const CodeClash: NextPage = () => {
   return (
@@ -55,13 +56,18 @@ const CodeClash: NextPage = () => {
           <h2 id="guidelines">Guidelines</h2>
           <ul>
             {CodeClashData.headings.rules.map((rule, index) => {
-              return (
-                <li key={index}>
-                  <p>{rule}</p>
+              if (typeof rule === "object") {
+                return <li key={index}>
+                    {rule[0]}
+                    <ul>
+                        {rule.map((subrule, index) => {
+                            return index > 0 && <li key={index}><p>{subrule}</p></li>
+                        })}
+                    </ul>
                 </li>
-              );
-            })}
-          </ul>
+            }
+            return <li key={index}><p>{rule}</p></li>
+        })}</ul> 
 
           <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
           <div className={styles.card_container}>
@@ -84,16 +90,7 @@ const CodeClash: NextPage = () => {
           </ul>
 
           <div className={styles.register_link_align}>
-            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
-                <a className={styles.register_link}>Registrations are not yet open</a>
-            :
-                <Link href={{
-                    pathname: "https://forms.gle/BrQcVuHAEcH29zWp6",
-                    hash: "registration-form"
-                }} as={{
-                    pathname: "https://forms.gle/BrQcVuHAEcH29zWp6",
-                    hash: "registration-form"
-                }}><a className={styles.register_link}><p>Register Here</p></a></Link>}
+           <EventsRegisterButton pathname="ASdhahda" text={`Register for ${CodeClashData.title}`}/>
             
         </div>
               </div>

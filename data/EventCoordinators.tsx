@@ -12,9 +12,9 @@ import shafiq from "../public/images/photos/Shafiq.png"
 import sharuk from "../public/images/photos/Sharuk.png"
 import alan from "../public/images/photos/Alan.png"
 import sanjay from "../public/images/photos/Sanjay.png"
-import siddanth from "../public/images/photos/Siddanth.png"
+import siddanth from "../public/images/photos/Siddhanth.png"
 // KO
-// import ananya from "../public/images/photos/Ananya.png"
+import ananya from "../public/images/photos/Ananya.png"
 // import dhairya from "../public/images/photos/Dhairya.png"
 import adithi from "../public/images/photos/Adithi.png"
 import jaine from "../public/images/photos/Jaine.png"
@@ -25,20 +25,20 @@ import ksharaa from "../public/images/photos/Ksharaa.png"
 // LAB
 import aadees from "../public/images/photos/Aadees.png"
 import krishita from "../public/images/photos/Krishita.png"
-import shruti from "../public/images/photos/Shruti.png"
+//import shruti from "../public/images/photos/Shruti.png"
 // DS
 import hari from "../public/images/photos/Hari.png"
-// import arnav from "../public/images/photos/Arnav.png"
+//import arnav from "../public/images/photos/Arnav.png"
 //import mahathi from "../public/images/photos/Mahathi.png"
 // OTK
 import harsha from "../public/images/photos/Harsha.png"
 import nebin from "../public/images/photos/Nebin.png"
 import tejasvi from "../public/images/photos/Tejasvi.png"
-import mithun from "../public/images/photos/Mithun.png"
+//import mithun from "../public/images/photos/Mithun.png"
 // CC
 import maanya from "../public/images/photos/Maanya.png"
 import prathiksha from "../public/images/photos/Prathiksha.png"
-// import sanjit from "../public/images/photos/Saathvik.png"
+import sanjith from "../public/images/photos/Sanjit.png"
 // PS
 import dhureen from "../public/images/photos/Dhureen.png"
 import athul from "../public/images/photos/Athul.png"
@@ -113,7 +113,7 @@ const EventCoordinators = [
     src: abhinav,
   },
   {
-    name: "Siddanth",
+    name: "Siddhanth",
     event: "Arena of Valor - PC",
     grade: "11",
     src: siddanth,
@@ -134,7 +134,7 @@ const EventCoordinators = [
     name: "Arnav Jain",
     event: "Designscape",
     grade: "11",
-    // src: arnav,
+    src: placeholder,
   },
   {
     name: "Mahathi M",
@@ -147,10 +147,10 @@ const EventCoordinators = [
     name: "Dhairya Bagri",
     event: "Knockout",
     grade: "11",
-    // src: dhairya,
+    src: placeholder,
   },
   {
-    name: "Jaine Shree",
+    name: "Jaine Shri K",
     event: "Knockout",
     grade: "11",
     src: jaine,
@@ -160,7 +160,7 @@ const EventCoordinators = [
     event: "Knockout",
     grade: "12",
     role: "Mentor",
-    // src: ananya,
+    src: ananya,
   },
   {
     name: "Adithi N",
@@ -176,7 +176,7 @@ const EventCoordinators = [
     src: aadees,
   },
   {
-    name: "Krishita",
+    name: "Krishita DJ",
     event: "Log and Blog",
     grade: "11",
     src: krishita,
@@ -218,7 +218,7 @@ const EventCoordinators = [
     src: rishaan,
   },
   {
-    name: "Ksharaathmika",
+    name: "Ksharaatmika",
     event: "Truth or Debug",
     grade: "11",
     src: ksharaa,
@@ -238,11 +238,11 @@ const EventCoordinators = [
   {
     name: "Dhureen",
     event: "Pitstop",
-    grade: "12",
+    grade: "11",
     src: dhureen,
   },
   {
-    name: "Maanya",
+    name: "Maanya R Jain",
     event: "Code Clash",
     grade: "11",
     src: maanya,
@@ -254,10 +254,10 @@ const EventCoordinators = [
     src: prathiksha,
   },
   {
-    name: "Sanjit",
+    name: "Sanjith",
     event: "Code Clash",
     grade: "11",
-    // src: sanjit,
+    src: sanjith,
   },
 ];
 
@@ -275,7 +275,7 @@ const MediaTeam = [
     src: placeholder,
   },
   {
-    name: "Ananya",
+    name: "Ananya Yuvaraj",
     grade: "12",
 	  roles: "Media Manager",
     src: placeholder,
