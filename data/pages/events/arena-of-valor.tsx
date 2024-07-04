@@ -3,7 +3,6 @@ import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
 //assets
 import AoV from "../../../public/images/events/aov_logo.png";
-
   
 const ArenaOfValor = {
   title: "Arena of Valor",
