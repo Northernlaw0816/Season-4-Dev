@@ -1,0 +1,130 @@
+.landing_banner {
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	z-index: 0;
+	
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: radial-gradient(50vw 100vh at -10% 70%, hsla(130, 100%, 40%, 0.09), transparent), radial-gradient(100vw 100vh at 100% 10%, hsla(47, 100%, 57%, 0.1), transparent);
+		z-index: 1;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url('/images/V.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: min(50vw, 50vh);
+		z-index: 0;
+		opacity: 0;
+		animation: flickeron 4s linear 20s infinite forwards;
+
+		@keyframes flickeron {
+			0% {
+				opacity: 25%;
+			}
+
+			5% {
+				opacity: 75%;
+			}
+
+			10% {
+				opacity: 25%;
+			}
+
+			20% {
+				opacity: 100%;
+			}
+
+			40% {
+				opacity: 75%;	
+			}
+
+			50% {
+				opacity: 100%;
+			}
+			
+			70% {
+				opacity: 100%;
+			}
+
+			80% {
+				opacity: 0;
+			}
+			
+			100% {
+				opacity: 0;
+			}
+		}
+	}
+
+	.overlay {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+
+		.overlay_left {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 40vw;
+			height: 100vh;
+			background-size: min(4vw, 4vh) min(4vw, 4vh);
+			background-image:
+				linear-gradient(to right, white 1px, transparent 1px),
+				linear-gradient(to bottom, white 1px, transparent 1px);
+			background-position: min(2vw, 2vh) min(2vw, 2vh);
+			mask-image: radial-gradient(circle at top left, black, transparent 70%);
+			opacity: 0.25;
+		}
+
+		.overlay_right {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 40vw;
+			height: 50vh;
+			background-size: min(4vw, 4vh) min(4vw, 4vh);
+			background-image:
+				linear-gradient(to right, white 1px, transparent 1px);
+			background-position: min(2vw, 2vh) min(2vw, 2vh);
+			mask-image: radial-gradient(circle at bottom right, hsla(0, 0%, 0%, 0.25), transparent 100%);
+		}
+	}
+
+	.hero {
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		
+		.text {
+			position: absolute;
+			z-index: 1;
+			color: white;
+			font-family: 'Segoe UI';
+			font-weight: 100;
+			font-size: 3rem;
+			
+			@media screen and (min-width: 500px) {
+				right: 10%;
+				bottom: 15%;
+				font-weight: 600;
+			}
+		}
+
+		img {
+			height: min(70vw, 70vh);
+			opacity: 60%;
+		}
+	}
+}
