@@ -77,6 +77,16 @@ const ArenaOfValor: NextPage = () => {
                                     <h5 id={toSlug(`${game.name} guidelines`)}>Guidelines</h5>
                                     <ul className={styles.h4_p}>
                                         {game.guidelines.map((rule, index) => {
+                                            if (typeof rule==="object"){
+                                                return <li key={index}>
+                                                    {rule[0]}
+                                                    <ul>
+                                                        {rule.map((subrule, index)=> {
+                                                            return index >0 && <li key={index}><p>{subrule}</p></li>
+                                                        })}
+                                                    </ul>
+                                                </li>
+                                            }
                                             return <li key={index}>{rule}</li>
                                         })}
                                     </ul>

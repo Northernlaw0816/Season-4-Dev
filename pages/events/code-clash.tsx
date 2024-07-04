@@ -19,8 +19,8 @@ const CodeClash: NextPage = () => {
   return (
     <>
       <HeadTemplate
-        title="NuTopia | Tech Trivia"
-        description="NuTopia Events: Tech Trivia  "
+        title="NuTopia | Code Clash"
+        description="NuTopia Events: Code Clash"
       />
 
       <Layout
