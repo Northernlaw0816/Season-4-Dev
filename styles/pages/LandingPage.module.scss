@@ -23,7 +23,7 @@
 		background-size: min(50vw, 50vh);
 		z-index: 0;
 		opacity: 0;
-		animation: flickeron 4s linear 20s infinite forwards;
+		animation: flickeron 4s linear infinite forwards;
 
 		@keyframes flickeron {
 			0% {
@@ -80,7 +80,7 @@
 				linear-gradient(to right, white 1px, transparent 1px),
 				linear-gradient(to bottom, white 1px, transparent 1px);
 			background-position: min(2vw, 2vh) min(2vw, 2vh);
-			mask-image: radial-gradient(circle at top left, black, transparent 70%);
+			mask-image: radial-gradient(100vw 50vh at top left, black, transparent 70%);
 			opacity: 0.25;
 		}
 
@@ -91,10 +91,24 @@
 			width: 40vw;
 			height: 50vh;
 			background-size: min(4vw, 4vh) min(4vw, 4vh);
-			background-image:
-				linear-gradient(to right, white 1px, transparent 1px);
+			background-image: linear-gradient(to right, white 1px, transparent 1px);
 			background-position: min(2vw, 2vh) min(2vw, 2vh);
-			mask-image: radial-gradient(circle at bottom right, hsla(0, 0%, 0%, 0.25), transparent 100%);
+			mask-image: radial-gradient(75vw 25vh at bottom right, black, transparent 100%);
+			opacity: 0.25;
+		}
+
+		.overlay_left,.overlay_right {
+			transition: mask-image 1s ease;
+		}
+
+		@media screen and (min-width: 500px) {
+			.overlay_left {
+				mask-image: radial-gradient(75vw 100vh at top left, black, transparent 70%);
+			}
+
+			.overlay_right {
+				mask-image: radial-gradient(75vw 50vh at bottom right, black, transparent 100%);
+			}
 		}
 	}
 
@@ -111,14 +125,16 @@
 			position: absolute;
 			z-index: 1;
 			color: white;
-			font-family: 'Segoe UI';
-			font-weight: 100;
-			font-size: 3rem;
+			font-family: 'Prompt', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			font-weight: 200;
+			letter-spacing: 0.175em;
+			font-size: clamp(1rem, 10vw, 3rem);
+			opacity: 50%;
 			
 			@media screen and (min-width: 500px) {
-				right: 10%;
+				right: 8%;
 				bottom: 15%;
-				font-weight: 600;
+				opacity: 100%;
 			}
 		}
 
