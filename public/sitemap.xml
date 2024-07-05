@@ -7,12 +7,6 @@
 		<priority>1.0</priority>
 	</url>
 	<url>
-		<loc>https://nutopia.in/certificates</loc>
-		<lastmod>2022-03-23T16:58:40.982Z</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>1.0</priority>
-	</url>
-	<url>
 		<loc>https://nutopia.in/contact</loc>
 		<lastmod>2022-03-23T16:58:40.982Z</lastmod>
 		<changefreq>monthly</changefreq>
@@ -26,12 +20,6 @@
 	</url>
 	<url>
 		<loc>https://nutopia.in/events</loc>
-		<lastmod>2022-03-23T16:58:40.982Z</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>1.0</priority>
-	</url>
-	<url>
-		<loc>https://nutopia.in/gallery</loc>
 		<lastmod>2022-03-23T16:58:40.982Z</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>1.0</priority>
