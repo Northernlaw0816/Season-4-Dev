@@ -35,7 +35,7 @@ const Designscape = {
             "Participants are supposed to work with the base image that is provided and if they don’t they will be disqualified immediately.",
             "Themes are selected through a voting process done by the contestants. Theme with the most number of vote is selected as the theme for designing.",
             "AI image generators, who use such softwares will be immediately disqualified.",
-            "Students will have to submit the artwork through email as a ..png file ,  failing which they will be disqualified.",
+            "Students will have to submit the artwork through email as a .png file ,  failing which they will be disqualified.",
             "Participants should be able to explain their own designs.",
         ],
 

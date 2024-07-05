@@ -50,7 +50,7 @@ const TruthOrDebug = {
             "Basic knowledge of circuit making."
         ],
         registration: [
-            "Participants register Trio Teams (3 members) - 3 teams per school"
+            "Participants register in Duo Teams"
         ]
     }
 }
