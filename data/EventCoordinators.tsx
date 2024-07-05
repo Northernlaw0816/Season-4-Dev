@@ -43,13 +43,6 @@ import sanjith from "../public/images/photos/Sanjit.png"
 import dhureen from "../public/images/photos/Dhureen.png"
 import athul from "../public/images/photos/Athul.png"
 import mayank from "../public/images/photos/Mayank.png"
-// SM
-import nila from "../public/images/photos/nila.png"
-import khushi from"../public/images/photos/khushi.png"
-// PG
-//PS
-import thrivikramr from "../public/images/profile/thrivikramr.png"
-import rithikar from "../public/images/profile/rithikar.png"
 
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
@@ -266,13 +259,13 @@ const EventCoordinators = [
     name: "Rithik Abhay AR",
     event: "PitStop",
     grade: "12",
-    src: rithikar,
+    src: placeholder,
   },
   {
     name: "Thrivikram R Krishnaa",
     event: "PitStop",
     grade: "12",
-    src: thrivikramr,
+    src: placeholder,
   },
   {
     name: "Thrivikram",
