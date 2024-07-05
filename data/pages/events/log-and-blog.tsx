@@ -32,8 +32,8 @@ const LogAndBlog = {
             "Each participant will be given a computer, hence they do not have to bring their own gadgets.",
             "Blogs may include humor provided that the overall tone maintains a formal",
             "Participants may include images, graphs and other media provided they’re credible and accurate.",
-            "Any form of cheating such as the usage of Generative AI, plagiarism, partnership and irrelevant use of the internet will result in immediate disqualification",
-            "Topics once assigned cannot be changed since topics given are completely randomizedParticipants must refrain from exceeding the time limit.",
+            "Any form of cheating such as the usage of generative AI, plagiarism, partnership and irrelevant use of the internet will result in immediate disqualification",
+            "Topics once assigned cannot be changed since topics given are completely randomized. Participants must refrain from exceeding the time limit.",
         ],
 
         assessment: [
@@ -46,7 +46,7 @@ const LogAndBlog = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Log and Blog"),
 
         registration: [
-            "This is a Solo event - 6 participants per school"
+            "This is a Solo event"
         ]
     }
 }
