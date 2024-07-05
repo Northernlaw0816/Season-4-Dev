@@ -15,7 +15,7 @@ import sanjay from "../public/images/photos/Sanjay.png"
 import siddanth from "../public/images/photos/Siddhanth.png"
 // KO
 import ananya from "../public/images/photos/Ananya.png"
-// import dhairya from "../public/images/photos/Dhairya.png"
+import dhairya from "../public/images/photos/Dhairya.png"
 import adithi from "../public/images/photos/Adithi.png"
 import jaine from "../public/images/photos/Jaine.png"
 // TOD
@@ -25,16 +25,16 @@ import ksharaa from "../public/images/photos/Ksharaa.png"
 // LAB
 import aadees from "../public/images/photos/Aadees.png"
 import krishita from "../public/images/photos/Krishita.png"
-//import shruti from "../public/images/photos/Shruti.png"
+import shruti from "../public/images/photos/Shruti.png"
 // DS
 import hari from "../public/images/photos/Hari.png"
-//import arnav from "../public/images/photos/Arnav.png"
-//import mahathi from "../public/images/photos/Mahathi.png"
+//arnav from "../public/images/photos/Arnav.png"
+import mahathi from "../public/images/photos/Mahathi.png"
 // OTK
 import harsha from "../public/images/photos/Harsha.png"
 import nebin from "../public/images/photos/Nebin.png"
 import tejasvi from "../public/images/photos/Tejasvi.png"
-//import mithun from "../public/images/photos/Mithun.png"
+import mithun from "../public/images/photos/Mithun.png"
 // CC
 import maanya from "../public/images/photos/Maanya.png"
 import prathiksha from "../public/images/photos/Prathiksha.png"
@@ -141,13 +141,13 @@ const EventCoordinators = [
     event: "Designscape",
     grade: "12",
     role: "",
-    src: placeholder,
+    src: mahathi,
   },
   {
     name: "Dhairya Bagri",
     event: "Knockout",
     grade: "11",
-    src: placeholder,
+    src: dhairya,
   },
   {
     name: "Jaine Shri K",
@@ -185,7 +185,7 @@ const EventCoordinators = [
     name: "Shruti",
     event: "Log and Blog",
     grade: "12",
-    src: placeholder,
+    src: shruti,
   },
   {
     name: "Harshavardan",
@@ -209,7 +209,7 @@ const EventCoordinators = [
     name: "Mithun R Prem",
     event: "Otakuiz",
     grade: "12",
-    src: placeholder,
+    src: mithun,
   },
   {
     name: "Rishaan Ranka",
