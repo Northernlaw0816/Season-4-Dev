@@ -278,7 +278,7 @@ const EventCoordinators = [
     name: "Thrivikram",
     event: "Designscape",
     grade: "12",
-    src: mahathi,
+    src: placeholder,
   },
 ];
 
