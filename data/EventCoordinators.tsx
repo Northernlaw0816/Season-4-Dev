@@ -1,6 +1,6 @@
 // Event Heads
-import thrivikram from "../public/images/photos/Thrivikram.png"
-import rithik from "../public/images/photos/Rithik.png"
+import thrivikram from "../public/images/photos/thrivikram.png"
+import rithik from "../public/images/photos/rithik.png"
 //Teachers Incharge
 import aj from "../public/images/photos/aj.png"
 import vk from "../public/images/photos/vk.png"
@@ -43,10 +43,6 @@ import sanjith from "../public/images/photos/Sanjit.png"
 import dhureen from "../public/images/photos/Dhureen.png"
 import athul from "../public/images/photos/Athul.png"
 import mayank from "../public/images/photos/Mayank.png"
-// SM
-import driti from "../public/images/photos/Driti.png"
-import dikshita from"../public/images/photos/Dikshita.png"
-import ananyaY from"../public/images/photos/AnanyaY.png"
 
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
@@ -258,6 +254,24 @@ const EventCoordinators = [
     event: "Code Clash",
     grade: "11",
     src: sanjith,
+  },
+  {
+    name: "Rithik Abhay AR",
+    event: "PitStop",
+    grade: "12",
+    src: placeholder,
+  },
+  {
+    name: "Thrivikram R Krishnaa",
+    event: "PitStop",
+    grade: "12",
+    src: placeholder,
+  },
+  {
+    name: "Thrivikram",
+    event: "Designscape",
+    grade: "12",
+    src: placeholder,
   },
 ];
 
