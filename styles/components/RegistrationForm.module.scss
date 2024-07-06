@@ -5,18 +5,22 @@
 	color: var(--text-white);
 	border-radius: 1.5em;
 	overflow: hidden;
+	width: 100%;
+	margin-block-start: 3rem;
 
-	h2, h3, h4 {
+	@media (min-width: 900px) {
+		width: 80%;
+	}
+
+	h2 {
+		font-size: clamp(1.5rem, 2vw, 2rem);
 		text-align: center;
 		margin-block-start: 1ch;
 		margin-block-end: 1ch;
 	}
 
-	h2 {
-		font-size: clamp(1.5rem, 2vw, 2rem);
-	}
-
 	label {
+		text-wrap: nowrap;
 		font-size: clamp(1rem, 1.5vw, 1.25rem);
 	}
 
@@ -107,10 +111,10 @@
 	}
 
 	.form_title {
-		grid-area: title;
 		padding: 1ch;
 		margin-block-start: 0;
 		background: var(--primary);
+		text-align: center;
 
 		h2 {
 			text-align: center;
@@ -118,152 +122,46 @@
 	}
 
 	.form_fields {
-
-		--grid-gap: 1rem;
-
-		grid-area: form;
-		padding: 0 var(--grid-gap);
-		margin: var(--grid-gap) 0;
-
-		display: grid;
-		grid-template-areas: "school event" "platform game";
-		grid-template-columns: repeat(2, 1fr);
-		gap: var(--grid-gap);
-
-		.event_field, .platform_field, .school_field, .game_field {
-			display: grid;
-			grid-template-rows: 1fr;
-			gap: var(--grid-gap);
-		}
-
-		@media (max-width: 768px) {
-			grid-template-areas: "school" "event" "platform" "game";
-			.event_field, .platform_field {
-				gap: calc(var(--grid-gap) / 2);
-			}
-		}
-
-		@media (max-width: 430px) {
-			.event_field, .platform_field {
-				grid-template-columns: 1fr;
-			}
-		}
-		.event_guidelines {
-			grid-column:1 / span 2;
-		}
-		.event_field {
-			grid-area: event;
-		}
-
-		.school_field {
-			grid-area: school;
-		}
-
-		.platform_field {
-			grid-area: platform;
-			display: grid;
-			grid-template-rows: auto, auto;
-
-			.platform_input {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(40%, 1fr));
-				gap: calc(var(--grid-gap) / 2);
-			}
-		}
-
-		.game_field {
-			grid-area: game;
-		}
-	}
-
-	.main_errors {
-		grid-row: 3;
-		grid-column: span 4;
-		padding: 0 1rem;
-		display: grid;
-		gap: 0.5em;
-
-		.main_error {
-			margin: 0;
-			background: black;
-			color: red;
-			padding: 1ch;
-			border-radius: 0.5em;
-		}
-	}
-
-	.team_fields {
 		grid-area: names;
 		display: grid;
 		grid-auto-flow: row;
 		padding: 0 1rem;
 		margin: 1rem 0;
 		margin-top: 0;
-		gap: 1rem;
+		column-gap: 1rem;
 
-		hr {
-			width: 90%;
-			border: none;
-			height: 4px;
-			border-radius: 100vw;
-			background: var(--text-alt);
-		  }
-
-		.team_input {
+		.form_input {
 			display: grid;
-			grid-template-columns: max-content auto;
-			grid-template-areas: "label field" "error error";
-		}
-
-		.member_input {
-			display: grid;
-			grid-template-columns: max-content 1fr max-content 1fr;
-
-			.member_errors {
-				grid-row: 3;
-				grid-column: span 4;
-				display: grid;
-				gap: 0.5em;
-
-				.member_error {
-					margin: 0;
-					background: black;
-					color: red;
-					padding: 1ch;
-					border-radius: 0.5em;
-				}
-			}
-		}
-
-		.team_input, .member_input {
+			grid-template-columns: min-content 1fr;
+			place-items: center stretch;
 			width: 100%;
 			gap: 1rem;
 			margin-block-start: 2em;
+			grid-column: span 2;
+
+			.input_error {
+				grid-column: span 2;
+				margin: 0;
+				background: black;
+				color: red;
+				padding: 1ch;
+				border-radius: 0.5em;
+			}
 		}
 
 		@media (max-width: 850px) {
-			.team_input, .member_input {
+			.form_input {
 				gap: 0.5rem;
 			}
 
-			.team_input {
-				grid-template-columns: 1fr;
-				grid-template-areas: "label" "field" "error";
-			}
-
-			.member_input {
-				grid-template-columns: max-content auto;
-				grid-auto-flow: row;
-
-				.member_errors {
-					grid-row: 4;
-					grid-column: span 2;
-				}
+			.input_errors {
+				grid-row: 4;
+				grid-column: span 2;
 			}
 		}
 
 		@media (max-width: 430px) {
-			.member_input {
+			.form_input {
 				grid-template-columns: 1fr;
 			}
 		}

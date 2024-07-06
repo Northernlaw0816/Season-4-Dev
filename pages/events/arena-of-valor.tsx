@@ -58,40 +58,38 @@ const ArenaOfValor: NextPage = () => {
                     
                     {ArenaOfValorData.headings.platforms.map((platform, index: number) => {
                         return (<div key={index}>
-                            <h3 id={toSlug(`platform ${platform.name}`)}>
+                            <h2 id={toSlug(`platform ${platform.name}`)}>
                                 {platform.name}
-                            </h3>
+                            </h2>
                             <p className={styles.h3_p}>
                                 {platform.description}
                             </p>
                             
                             {platform.games.map((game, index: number) => {
-
                                 return(<div key={index}>
-                                    <h4 id={toSlug(`game ${game.name}`)}>{game.name}</h4>
-                                    <div className={styles.game_logo}>
-                                        <img src={`/images/events/aov_games/${game.image}`} alt={game.name} placeholder={"blur"}/>
-                                    </div>
-                                    <h5 id={toSlug(`${game.name} details`)}>Details</h5>
-                                    <p className={styles.h5_p}>Team Size: {game.participants}</p>
-                                    <h5 id={toSlug(`${game.name} guidelines`)}>Guidelines</h5>
+                                    <h3 id={toSlug(`game ${game.name}`)}>{game.name}</h3>
+                                    <div className={styles.game_logo} style={{backgroundImage:`url(/images/events/aov_games/${game.image})`}}></div>
+                                    <h4 id={toSlug(`${game.name} details`)}>Details</h4>
+                                    <p className={styles.h4_p}>Team Size: {game.participants}</p>
+                                    <h4 id={toSlug(`${game.name} guidelines`)}>Guidelines</h4>
                                     <ul className={styles.h4_p}>
                                         {game.guidelines.map((rule, index) => {
                                             if (typeof rule==="object"){
                                                 return <li key={index}>
-                                                    {rule[0]}
-                                                    <ul>
-                                                        {rule.map((subrule, index)=> {
-                                                            return index >0 && <li key={index}><p>{subrule}</p></li>
-                                                        })}
-                                                    </ul>
+                                                    <p>{rule[0]}
+                                                        <ul>
+                                                            {rule.map((subrule, index)=> {
+                                                                return index >0 && <li key={index}><p>{subrule}</p></li>
+                                                            })}
+                                                        </ul>
+                                                    </p>
                                                 </li>
                                             }
-                                            return <li key={index}>{rule}</li>
+                                            return <li key={index}><p>{rule}</p></li>
                                         })}
                                     </ul>
-                                    <h5 id={toSlug(`${platform} registration`)}>Registration</h5>
-                                    <EventsRegisterButton pathname="url" text={`Register for ${game.name}`}/>
+                                    <h4 id={toSlug(`${platform} registration`)} hidden>Registration</h4>
+                                    <EventsRegisterButton text={`Register for ${game.name}`} game={ game.id }/>
                                 </div>)
                             })}
                            

@@ -8,6 +8,7 @@ import { EventCoordinators } from '../../EventCoordinators';
 import TD from '../../../public/images/events/td_logo.png'
 
 const TruthOrDebug = {
+    id: "truth-or-debug",
     title: "Truth or Debug",
 
     tagline: (<><span className={styles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={styles.grey}>{`);`}</span></>),

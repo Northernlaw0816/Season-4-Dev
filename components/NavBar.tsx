@@ -141,7 +141,7 @@ const NavBar = ({skipTo}: {skipTo?: string}) => {
     const SkipToContent = () => {
         return(
             <Link href={skipTo || ""}>
-                <a tabIndex={0} className={`${styles.skip_to_content} ${effects.button_hover_effect}`} style={Main.updateMessage !== "" ? {top: "4.5rem"} : {}} role="link">Skip to Main Content</a>
+                <a tabIndex={1} className={`${styles.skip_to_content}`} style={Main.updateMessage !== "" ? {top: "4.5rem"} : {}} role="link">Skip to Main Content</a>
             </Link>
         )
     }

@@ -8,6 +8,7 @@ import { EventCoordinators } from '../../EventCoordinators';
 import PS from '../../../public/images/events/ps_background2.png'
 
 const Pitstop = {
+    id: "pitstop",
     title: "Pitstop",
 
     tagline: (<><span className={styles.yellow}>Unleash the Dust! </span><span className={styles.red}>Feel the Thrust!</span></>),
