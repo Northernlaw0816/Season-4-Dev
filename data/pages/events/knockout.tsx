@@ -22,7 +22,7 @@ const KnockOut = {
     shortDescription:
       "Who said words can't hurt? Knockout is a debate competition combining the action of arguments on topics about technology and future with the rush of being the first to think out of the box. The drama is real and the tea is at the edge of the table waiting to spill as the debate gets intense. Will the heat die down or switch directions into your words? It's not about who is the fastest, not about who is the quickest but about who is and will be THE BEST.",
     date: [`${Main.dates.day1}, 10:30 a.m. - 3:00 p.m.`,
-                  `${Main.dates.day2}, 9:30 a.m. - 1:00 p.m.`],
+                  `${Main.dates.day2}, 9:30 a.m. - 1:30 p.m.`],
     dateAndTime: `${Main.dates.day1}, 10:30 a.m. - 3:00 p.m. | ${Main.dates.day2}, 9:30 a.m. - 1:00 p.m.`,
     time: ``,
     venue: "Conference Hall",

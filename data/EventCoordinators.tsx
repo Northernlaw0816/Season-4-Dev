@@ -265,7 +265,7 @@ const MediaTeam = [
     src: placeholder,
   },
   {
-    name: "Dikshita",
+    name: "Diksita",
     grade: "12",
 	  roles: "Media Manager",
     src: placeholder,

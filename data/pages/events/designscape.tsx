@@ -27,7 +27,7 @@ const Designscape = {
 
         rules: [
             "This event allows for individual or group participation, with a maximum of two members per group.",
-            "Participants are allowed to use editing softwares of their choice (such as Adobe ,Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) for completing their designs. (No Canva)",            
+            "Participants are allowed to use editing softwares of their choice (such as Adobe Photoshop, Snapseed, Blender, Autodesk Maya, Affinity Designer, Procreate, PicsArt, Photoshop Express, Adobe Illustrator, Cinema 4D, Houdini) for completing their designs. (No Canva)",            
             "Participants are supposed to bring their own gadgets for designing.",
             "Participants will be given a maximum of two hours to work with (including the time for choosing the resources).",
             "There will be three rounds conducted.",
@@ -35,7 +35,7 @@ const Designscape = {
             "Participants are supposed to work with the base image that is provided and if they don’t they will be disqualified immediately.",
             "Themes are selected through a voting process done by the contestants. Theme with the most number of vote is selected as the theme for designing.",
             "AI image generators, who use such softwares will be immediately disqualified.",
-            "Students will have to submit the artwork through email as a .png file ,  failing which they will be disqualified.",
+            "Students will have to submit the artwork through email as a .png file, failing which they will be disqualified.",
             "Participants should be able to explain their own designs.",
         ],
 
