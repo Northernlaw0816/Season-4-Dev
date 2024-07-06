@@ -1,9 +1,6 @@
 import { NextPage } from "next"
 import Image from "next/image"
 import { toSlug } from "../../functions"
-import Main from "../../data/Main"
-import Link from "next/link"
-
 
 //components
 import HeadTemplate from "../../components/HeadTemplate"
@@ -68,7 +65,7 @@ const KnockOut: NextPage= () => {
                     })}</ul>
                 
                 <div className={styles.register_link_align}>
-                <EventsRegisterButton pathname="ASdhahda" text={`Register for ${KnockOutData.title}`}/>
+                <EventsRegisterButton text={`Register for ${KnockOutData.title}`}/>
         </div>
             </div>
         </Layout>

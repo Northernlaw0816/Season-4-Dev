@@ -7,6 +7,7 @@ import { EventCoordinators } from "../../EventCoordinators";
 import KO from "../../../public/images/events/ko_logo.png";
 
 const KnockOut = {
+  id: "knockout",
   title: "Knockout!",
 
   tagline: (

@@ -5,6 +5,7 @@ import { EventCoordinators } from "../../EventCoordinators";
 import OTK from '../../../public/images/events/otk_logo.png'
 
 const Otakuiz = {
+    id: "otakuiz",
     title: "Otakuiz",
 
     tagline: "Give up on your dreams and make it a reality",

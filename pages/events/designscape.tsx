@@ -1,9 +1,6 @@
 import { NextPage } from "next";
 import { useEffect } from "react";
-import { toSlug } from "../../functions";
 import anime from "animejs";
-import Main from "../../data/Main"
-import Link from "next/link"
 
 //components
 import HeadTemplate from "../../components/HeadTemplate";
@@ -336,7 +333,7 @@ const Designscape: NextPage = () => {
             </ul>
           </div>
            <div className={styles.register_link_align}>
-           <EventsRegisterButton pathname="ASdhahda" text={`Register for ${DesignscapeData.title}`}/>
+           <EventsRegisterButton text={`Register for ${DesignscapeData.title}`}/>
       </div>
         </div>
       </Layout>

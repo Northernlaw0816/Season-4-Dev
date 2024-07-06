@@ -5,12 +5,10 @@ import { EventCoordinators } from "../../EventCoordinators";
 import AoV from "../../../public/images/events/aov_logo.png";
   
 const ArenaOfValor = {
+  id: "arena-of-valor",
   title: "Arena of Valor",
-
   tagline: "Grab The Clutch And Feel The Power",
-
   link: "/events/arena-of-valor",
-
   details: {
     shortDescription:
       "Lightning-fast reflexes. Split-second decisions. Thousands of hours of practice. You'll need it all to emerge victorious at Arena of Valor, the most intense competitive gaming event in town. For the first time ever an opportunity is given to the students to showcase their gaming skills. Make the most of this chance! But when the dust has settled, there will be only one victor. Are you ready for the battle?",
@@ -42,7 +40,7 @@ const ArenaOfValor = {
       "Teams that attempt to use players which are not registered in their team will be disqualified.",
       "Account sharing will be met with disqualification.",
       "Abusing in-game glitches that give a team an unfair advantage is not permitted. Teams caught doing so may be disqualified.",
-      "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items. If any special rules apply, then they may be found in the tournament’s registration article on this website.",
+      "Depending on the settings for each individual tournament, more rules may apply for every match, such as banned items. If any special rules apply, then they may be found in the tournament’s registration article.",
       "If two teams fail to schedule their match during the given time limit, one or both teams may be disqualified.",
       "During an on-going tournament, players are not allowed to change their in-game name. Clan Tags before in-game names are allowed to be changed.",
       "It is prohibited to spam or use offensive messages or language on any of the  platforms and doing so may result in us taking punitive measures against you.",
@@ -62,6 +60,7 @@ const ArenaOfValor = {
 
         games: [
           {
+            id: "valorant",
             name: "Valorant",
             participants: 5,
             image: "Valorant.jpg",
@@ -78,6 +77,7 @@ const ArenaOfValor = {
             ],
           },
           {
+            id: "minecraft",
             name: "Minecraft",
             participants: 2,
             image: "Minecraft.jpg",
@@ -109,6 +109,7 @@ const ArenaOfValor = {
 
         games: [
           {
+            id: "fifa",
             name: "FIFA-23",
             participants: 2,
             image: "fifa.png",
@@ -142,6 +143,8 @@ const ArenaOfValor = {
 
         games: [
           {
+            
+            id: "bgmi",
             name: "Battlegrounds Mobile India (BGMI)",
             participants: 3,
             image: "bgmi.png",
@@ -156,6 +159,8 @@ const ArenaOfValor = {
             ],
           },
           {
+            
+            id: "cod",
             name: "Call of Duty Mobile",
             participants: 3,
             image: "cod.png",
@@ -163,13 +168,14 @@ const ArenaOfValor = {
             guidelines: [
               "The usage of cheats, hacks, or any other third-party applications that give you an unfair advantage over your opponents will result in immediate disqualification. Teams or players may also be banned from future tournaments .",
               "Account sharing will be met with disqualification. Only the original owner of the Call of Duty: Mobile account may use it in tournaments.",
-              "Skins: Weapon Variants and Purchased Weapons that alter the default iron sights and/or ANY weapon properties (damage, speed, etc). Iron sight changes are NOT allowed. Cosmetic weapons are allowed BUT must use default weapon iron sights.",
+              ["Customisations:", "Skins, Weapon Variants and Purchased Weapons that alter the default iron sights and/or ANY weapon properties (damage, speed, etc) are NOT allowed", "Iron sight changes are NOT allowed.", "Cosmetic weapons are allowed, but MUST use default weapon iron sights."],
               "By participating in our tournaments, all participants automatically agree that they vow to respect fellow participants.",
-              "The usage of ‘jailbroken’ or ‘rooted’ devices in tournament matches is not permitted.",
-              "We reserve the right to edit the rules at any time and disqualify teams for reasons not stated in this list or take other action.",
+              "Use of ‘jailbroken’ or ‘rooted’ devices in the tournament are not permitted.",
+              "We reserve the right to modify the rules at any time, with prior notice, and disqualify or take other action against teams for reasons that may not be stated above.",
             ],
           },
           {
+            id: "freefire",
             name: "Free Fire",
             participants: 4,
             image: "ff.png",

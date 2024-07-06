@@ -6,7 +6,8 @@ import Main from "../../Main"
 import PB from "../../../public/images/events/pandora_blocks.png"
 
 const CodeClash = {
-    title: "Code Clash",
+    id: "code-klash",
+    title: "Code Klash",
 
     tagline: "Build Beyond Imagination",
 

@@ -13,6 +13,7 @@ import {
 } from "./pages/events";
 const EventsList = [
   {
+    id: ArenaOfValor.id,
     title: ArenaOfValor.title,
     description: ArenaOfValor.details.shortDescription,
     date: ArenaOfValor.details.dateAndTime,
@@ -31,6 +32,7 @@ const EventsList = [
     },
   },
   {
+    id: KnockOut.id,
     title: KnockOut.title,
     description: KnockOut.details.shortDescription,
     date: KnockOut.details.dateAndTime,
@@ -46,6 +48,7 @@ const EventsList = [
     },
   },
   {
+    id: TruthOrDebug.id,
     title: TruthOrDebug.title,
     description: TruthOrDebug.details.shortDescription,
     date: TruthOrDebug.details.dateAndTime,
@@ -60,6 +63,7 @@ const EventsList = [
     },
   },
   {
+    id: LogAndBlog.id,
     title: LogAndBlog.title,
     description: LogAndBlog.details.shortDescription,
     date: LogAndBlog.details.dateAndTime,
@@ -75,6 +79,7 @@ const EventsList = [
     },
   },
   {
+    id: Designscape.id,
     title: Designscape.title,
     description: Designscape.details.shortDescription,
     date: Designscape.details.dateAndTime,
@@ -90,6 +95,7 @@ const EventsList = [
     },
   },
   {
+    id: Otakuiz.id,
     title: Otakuiz.title,
     description: Otakuiz.details.shortDescription,
     date: Otakuiz.details.dateAndTime,
@@ -105,6 +111,7 @@ const EventsList = [
     },
   },
   {
+    id: CodeClash.id,
     title: CodeClash.title,
     description: CodeClash.details.shortDescription,
     date: CodeClash.details.dateAndTime,
@@ -120,6 +127,7 @@ const EventsList = [
     },
   },
   {
+    id: Pitstop.id,
     title: Pitstop.title,
     description: Pitstop.details.shortDescription,
     date: Pitstop.details.dateAndTime,

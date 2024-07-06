@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { useForm, FormProvider, useFormContext } from "react-hook-form";
 import { ErrorMessage } from "@hookform/error-message";
 import anime from "animejs";
 import axios from "axios";
-import { toSlug } from "../functions";
 import { useRouter } from "next/router";
 
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss";
-//data
-import EventsList from "../data/EventsList";
-import {
-	ArenaOfValor,
-	KnockOut,
-	TruthOrDebug,
-	LogAndBlog,
-	Designscape,
-	Otakuiz,
-	CodeClash,
-	Pitstop,
-} from "../data/pages/events";
-import { RegistrationData } from "../data/pages";
 
 const Participants = ({ maxParticipants, required }: any) => {
 	const {
@@ -28,16 +14,16 @@ const Participants = ({ maxParticipants, required }: any) => {
 		formState: { errors },
 		getFieldState,
 	} = useFormContext();
-	const participants: any = [];
+
+	const participantsList: ReactNode[] = [];
 
 	for (let i = 0; i < maxParticipants; i++) {
-		let nameFieldName = `${maxParticipants > 1 ? `team.participants.${i}.name` : `participants.${i}.name`}`;
-		let gradeFieldName = `${maxParticipants > 1 ? `team.participants.${i}.grade` : `participants.${i}.grade`}`;
-		let phoneFieldName = `${maxParticipants > 1 ? `team.participants.${i}.phone` : `participants.${i}.phone`}`;
-		let emailFieldName = `${maxParticipants > 1 ? `team.participants.${i}.phone` : `participants.${i}.emai`}`;
+		let nameFieldName = `${maxParticipants > 1 ? "team." : ""}participants.${i}.name`;
+		let gradeFieldName = `${maxParticipants > 1 ? "team." : ""}participants.${i}.grade`;
+		let phoneFieldName = `${maxParticipants > 1 ? "team." : ""}participants.${i}.phone`;
 
-		participants.push(
-			<div key={i} className={styles.member_input}>
+		participantsList.push(
+			<div key={i} className={styles.form_input}>
 				{/* NAME */}
 				<label htmlFor={nameFieldName}>Participant {`${i + 1}: `}</label>
 				<input
@@ -46,13 +32,13 @@ const Participants = ({ maxParticipants, required }: any) => {
 					{...register(nameFieldName, {
 						pattern: {
 							value: /^[a-zA-Z.\s]+$/,
-							message: "Only letters and spaces are allowed",
+							message: "Please enter only characters from 'A-Z'",
 						},
 					})}
 				/>
+
 				{/* GRADE */}
 				<label htmlFor={gradeFieldName}>Grade: </label>
-
 				<select
 					className={getFieldState(gradeFieldName).error && `${styles.error}`}
 					required={required}
@@ -65,10 +51,7 @@ const Participants = ({ maxParticipants, required }: any) => {
 						},
 					})}>
 					<option value="default-value">Select Grade</option>
-					<option value="9">9</option>
-					<option value="10">10</option>
-					<option value="11">11</option>
-					<option value="12">12</option>
+					{[9, 10, 11, 12].map((grade, index) => <option value={grade} key={index}>{grade}</option>)}
 				</select>
 
 				{/* PHONE */}
@@ -84,51 +67,54 @@ const Participants = ({ maxParticipants, required }: any) => {
 					})}
 				/>
 
-				<div className={styles.member_errors}>
-					<ErrorMessage
-						errors={errors}
-						name={nameFieldName}
-						render={({ messages }) =>
-							messages &&
-							Object.entries(messages).map(([type, message]) => (
-								<p className={styles.member_error} key={type}>
-									{message}
-								</p>
-							))
-						}
-					/>
-					<ErrorMessage
-						errors={errors}
-						name={gradeFieldName}
-						render={({ messages }) =>
-							messages &&
-							Object.entries(messages).map(
-								([type, message]) =>
-									message !== true && (
-										<p className={styles.member_error} key={type}>
-											{message}
-										</p>
-									),
-							)
-						}
-					/>
-					<ErrorMessage
-						errors={errors}
-						name={phoneFieldName}
-						render={({ messages }) =>
-							messages &&
-							Object.entries(messages).map(([type, message]) => (
-								<p className={styles.member_error} key={type}>
-									{message}
-								</p>
-							))
-						}
-					/>
-				</div>
-			</div>,
+				<ErrorMessage
+					errors={errors}
+					name={nameFieldName}
+					render={({ messages }) =>
+						messages &&
+						Object.entries(messages).map(([type, message]) => (
+							<p className={styles.input_error} key={type}>
+								{message}
+							</p>
+						))
+					}
+				/>
+				<ErrorMessage
+					errors={errors}
+					name={gradeFieldName}
+					render={({ messages }) =>
+						messages &&
+						Object.entries(messages).map(
+							([type, message]) =>
+								message !== true && (
+									<p className={styles.input_error} key={type}>
+										{message}
+									</p>
+								),
+						)
+					}
+				/>
+				<ErrorMessage
+					errors={errors}
+					name={phoneFieldName}
+					render={({ messages }) =>
+						messages &&
+						Object.entries(messages).map(([type, message]) => (
+							<p className={styles.input_error} key={type}>
+								{message}
+							</p>
+						))
+					}
+				/>
+			</div>
 		);
 	}
-	return participants;
+
+	return <>
+		{participantsList.map((participant) => {
+			return participant
+		})}
+	</>;
 };
 
 const Team = ({ maxParticipants }: any) => {
@@ -141,11 +127,10 @@ const Team = ({ maxParticipants }: any) => {
 	let fieldName = `team.teamName`;
 
 	return (
-		<div>
-			<hr />
+		<>
 			{maxParticipants > 1 && (
 				<>
-					<div className={styles.team_input}>
+					<div className={styles.form_input}>
 						<label htmlFor={fieldName}>Team Name: </label>
 						<input
 							className={getFieldState(fieldName).error && `${styles.error}`}
@@ -154,11 +139,11 @@ const Team = ({ maxParticipants }: any) => {
 							{...register(fieldName, {
 								maxLength: {
 									value: 32,
-									message: "Max characters in team name is 32",
+									message: "Team name must be less than 32 characters",
 								},
 								minLength: {
 									value: 4,
-									message: "Min characters in team name is 4",
+									message: "Team name must be atleast 4 characters",
 								},
 							})}
 						/>
@@ -168,7 +153,7 @@ const Team = ({ maxParticipants }: any) => {
 							render={({ messages }) =>
 								messages &&
 								Object.entries(messages).map(([type, message]) => (
-									<p className={styles.error} key={type}>
+									<p className={styles.input_error} key={type}>
 										{message}
 									</p>
 								))
@@ -178,20 +163,20 @@ const Team = ({ maxParticipants }: any) => {
 				</>
 			)}
 			<Participants maxParticipants={maxParticipants} required={true} />
-		</div>
+		</>
 	);
 };
 
-const RegistrationForm = () => {
-	let [showAovFields, setShowAovFields] = useState<boolean>(false);
+const RegistrationForm = ({title, event}: {title: string, event: string}) => {
+	const router = useRouter();
+	
+	let [schools, setSchools] = useState<any>([]);
 	let [formBody, setFormBody] = useState<any>(<></>);
+
 	let [isRegistering, setIsRegistering] = useState<boolean>(false);
 	let [isError, setIsError] = useState(false);
 	let [isSuccess, setIsSuccess] = useState(false);
 	let [message, setMessage] = useState("");
-	let [schools, setSchools] = useState<any>([]);
-	let [eventName, setEventName] = useState("default-value");
-	const router = useRouter();
 
 	// Handlers
 	const onSubmit = async (data: any) => {
@@ -203,7 +188,7 @@ const RegistrationForm = () => {
 			.then((response: any) => response.data)
 			.catch((err: any) => {
 				setIsError(true);
-				setMessage("An Unknown Error Occurred. Please Try Again Later.");
+				setMessage("An Error Occurred. Please Try Again.");
 				if (err.response.data.message) setMessage(err.response.data.message);
 			});
 
@@ -241,11 +226,13 @@ const RegistrationForm = () => {
 			.catch((err: any) => {
 				console.log(err);
 			});
-		console.log(response);
-		const schools: any[] = [];
+		
+		const schools: string[] = [];
+		
 		response.message.forEach((school: any) => {
-			schools.push(school);
+			schools.push(school as string);
 		});
+		
 		setSchools(schools);
 		return schools;
 	};
@@ -269,133 +256,57 @@ const RegistrationForm = () => {
 		setMessage("");
 		setIsRegistering(false);
 	};
-	const onGameChange = () => {
-		const platVal = methods.getValues("game");
-		methods.unregister("team");
-		methods.unregister("participants");
-		methods.unregister("game");
-		setFormBody(<></>);
-		switch (platVal) {
-			case "valorant":
-				setFormBody(<Team maxParticipants={4} />);
-				break;
-			case "bgmi":
-			case "cod":
-				setFormBody(<Team maxParticipants={3} />);
-				break;
-			case "ffm":
-				setFormBody(<Team maxParticipants={4} />);
-				break;
-			case "fifa":
-			case "minecraft":
-				setFormBody(<Team maxParticipants={2} />);
-				break;
-
-			case "default-game":
-			default:
-				setFormBody(<></>);
-				break;
-		}
-	};
-	const onEventPlatformChange = () => {
-		const platVal = methods.getValues("platform");
-		methods.unregister("team");
-		methods.unregister("participants");
-		setFormBody(<></>);
-		switch (platVal) {
-			case "pc":
-				// setFormBody(<Team maxParticipants={4} />);
-				break;
-
-			case "mobile":
-				// setFormBody(<Team maxParticipants={3} />);
-				break;
-
-			case "console":
-				// setFormBody(<Team maxParticipants={2} />);
-				break;
-
-			case "default-platform":
-			default:
-				setFormBody(<></>);
-				break;
-		}
-	};
-
-	const onEventChange = () => {
-		const eventVal = methods.getValues("event");
-		methods.unregister("team");
-		methods.unregister("participants");
-		methods.unregister("platform");
-		methods.unregister("game");
-
-		switch (eventVal) {
-			case "arena-of-valor":
-				setEventName(ArenaOfValor.title);
-				setShowAovFields(true);
-				setFormBody(<></>);
-				break;
-
-			case "knockout":
-				setEventName(KnockOut.title);
-				setFormBody(<Team maxParticipants={1} />);
-				setShowAovFields(false);
-				break;
-
-			case "truth-or-debug":
-				setEventName(TruthOrDebug.title);
-				setFormBody(<Team maxParticipants={2} />);
-				setShowAovFields(false);
-				break;
-
-			case "log-and-blog":
-				setEventName(LogAndBlog.title);
-				setFormBody(<Team maxParticipants={1} />);
-				setShowAovFields(false);
-				break;
-
-			case "designscape":
-				setEventName(Designscape.title);
-				setFormBody(<Team maxParticipants={2} />);
-				setShowAovFields(false);
-				break;
-
-			case "otakuiz":
-				setEventName(Otakuiz.title);
-				setFormBody(<Team maxParticipants={3} />);
-				setShowAovFields(false);
-				break;
-
-			case "pitstop":
-				setEventName(Pitstop.title);
-				setFormBody(<Team maxParticipants={4} />);
-				setShowAovFields(false);
-				break;
-
-			case "code-clash":
-				setEventName(CodeClash.title);
-				setFormBody(<Team maxParticipants={3} />);
-				setShowAovFields(false);
-				break;
-
-			case "default-value":
-				setEventName("");
-				setShowAovFields(false);
-				setFormBody(<></>);
-				break;
-
-			default:
-				setEventName("");
-				setShowAovFields(false);
-				setFormBody(<></>);
-				break;
-		}
-	};
 
 	useEffect(() => {
 		getSchools()
-		onEventChange()
-	}, []);
+
+		switch (event) {
+			case "arena-of-valor":
+				switch (router.query.game) {
+					case "valorant":
+					case "freefire":
+						setFormBody(<Team maxParticipants={4} />);
+						break;
+					case "bgmi":
+					case "cod":
+						setFormBody(<Team maxParticipants={3} />);
+						break;
+					case "fifa":
+					case "minecraft":
+						setFormBody(<Team maxParticipants={2} />);
+						break;
+				}
+				break;
+
+			case "knockout":
+				setFormBody(<Team maxParticipants={1} />);
+				break;
+
+			case "truth-or-debug":
+				setFormBody(<Team maxParticipants={2} />);
+				break;
+
+			case "log-and-blog":
+				setFormBody(<Team maxParticipants={1} />);
+				break;
+
+			case "designscape":
+				setFormBody(<Team maxParticipants={2} />);
+				break;
+
+			case "otakuiz":
+				setFormBody(<Team maxParticipants={3} />);
+				break;
+
+			case "pitstop":
+				setFormBody(<Team maxParticipants={4} />);
+				break;
+
+			case "code-clash":
+				setFormBody(<Team maxParticipants={3} />);
+				break;
+		}
+	}, [event, router]);
 
 	return (
 		<FormProvider {...methods}>
@@ -441,162 +352,47 @@ const RegistrationForm = () => {
 						)}
 					</div>
 				)}
-				<div>
-					<h1 className={styles.form_title}>Form Registration</h1>
-					<div className={styles.form_fields}>
-						<div className={styles.school_field}>
-							<label htmlFor="schoolId" hidden>
-								School Name:{" "}
-							</label>
-							<select
-								{...methods.register("schoolId", {
-									required: true,
-									validate: (val) => {
-										if (val === "default-school") {
-											return "Please select your school";
-										}
-										return undefined;
-									},
-								})}>
-								<option value="default-school">Select Your School</option>
-								{schools.map((school: any, index: number) => {
+				<h2 className={styles.form_title}>{title}</h2>
+				<div className={styles.form_fields}>
+					<div className={styles.form_input}>
+						<label htmlFor="schoolId">School:</label>
+						<select {...methods.register("schoolId", {
+							required: true,
+							validate: (val) => {
+								if (val === "default-school") {
+									return "Select your School";
+								}
+								return undefined;
+							},
+						})}>
+							<option value="default-school">Select Your School</option>
+							{schools.map((school: any, index: number) => {
+								return (
+									<option key={index} value={school.schoolId}>
+										{school.schoolName}
+									</option>
+								);
+							})}
+						</select>
+						<ErrorMessage
+							errors={methods.formState.errors}
+							name={"schoolId"}
+							render={({ messages }) =>
+								messages &&
+								Object.entries(messages).map(([type, message]) => {
 									return (
-										<option key={index} value={school.schoolId}>
-											{school.schoolName}
-										</option>
+										<p className={styles.input_error} key={type}>
+											{message}
+										</p>
 									);
-								})}
-							</select>
-						</div>
-						<div className={styles.event_field}>
-							<label htmlFor="event" hidden>
-								Event:{" "}
-							</label>
-							<select
-								{...methods.register("event", {
-									onChange: onEventChange,
-									validate: (val) => {
-										if (val === "default-event") {
-											return "Please select an event";
-										}
-										return undefined;
-									},
-								})}>
-								<option value="default-event">Select an Event</option>
-								{EventsList.map((event, index) => {
-									return (
-										<option value={toSlug(event.title)} key={index}>
-											{event.title}
-										</option>
-									);
-								})}
-							</select>
-						</div>
-						<div className={styles.event_guidelines}>
-							{eventName.length !== 0 && <h2>Event Guidelines</h2>}
-							{RegistrationData.eventRules
-								.filter((event: { title: string; rules: string[] }, index: number) => event.title === eventName)
-								.map((event: { title: string; rules: string[] }, index: number) => {
-									return (
-										<div key={index}>
-											<ul>
-												{event.rules.map((rule: string, index: number) => (
-													<li key={index}>
-														<p>{rule}</p>
-													</li>
-												))}
-											</ul>
-										</div>
-									);
-								})}
-						</div>
-						{showAovFields && (
-							<>
-								<div className={styles.platform_field}>
-									<label htmlFor="event" hidden>
-										Device Platform:{" "}
-									</label>
-									<select
-										{...methods.register("platform", {
-											required: true,
-											onChange: onEventPlatformChange,
-											validate: (val) => {
-												if (val === "default-platform") {
-													return "Please select a platform";
-												}
-												return undefined;
-											},
-										})}>
-										<option value="default-platform">Select a Platform</option>
-										<option value="pc">PC</option>
-										<option value="mobile">Mobile</option>
-										<option value="console">Console</option>
-									</select>
-								</div>
-								<div className={styles.game_field}>
-									<label htmlFor="event" hidden>
-										Preferred Game:{" "}
-									</label>
-									<select
-										{...methods.register("game", {
-											required: true,
-											onChange: onGameChange,
-											validate: (val) => {
-												if (val === "default-game") {
-													return "Please select your preferred game";
-												}
-												return undefined;
-											},
-										})}>
-										<option value="default-game">Select a Game</option>
-										{methods.getValues("platform") === "pc" && (
-											<>
-												<option value="valorant">Valorant</option>
-												<option value="minecraft">Minecraft</option>
-											</>
-										)}
-										{methods.getValues("platform") === "mobile" && (
-											<>
-												<option value="bgmi">BattleGrounds Mobile India</option>
-												<option value="cod">Call of Duty: Mobile</option>
-												<option value="ffm">FreeFire Max</option>
-											</>
-										)}
-										{methods.getValues("platform") === "console" && (
-											<>
-												<option value="fifa">FIFA</option>
-											</>
-										)}
-									</select>
-								</div>
-							</>
-						)}
+								})
+							}
+						/>
 					</div>
-					<div className={styles.main_errors}>
-						{["schoolId", "event", "platform", "game"].map((field, index) => {
-							return (
-								<ErrorMessage
-									key={index}
-									errors={methods.formState.errors}
-									name={field}
-									render={({ messages }) =>
-										messages &&
-										Object.entries(messages).map(([type, message]) => {
-											return (
-												<p className={styles.main_error} key={type}>
-													{message}
-												</p>
-											);
-										})
-									}
-								/>
-							);
-						})}
-					</div>
-					<div className={styles.team_fields}>{formBody}</div>
-					<div className={styles.submit}>
-						<input name="register" type={"submit"} value="Register" />
-					</div>
+					{formBody}
+				</div>
+				<div className={styles.submit}>
+					<input name="register" type={"submit"} value="Register" />
 				</div>
 			</form>
 		</FormProvider>
