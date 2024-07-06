@@ -26,7 +26,7 @@ const Registration = () => {
                 {RegistrationData.commonRules.map((rule: string, index: number) => <li key={index}><p>{rule}</p></li>)}
             </ul>
 
-            <RegistrationForm EventTitle="code-clash"/>
+            <RegistrationForm/>
 
         </Layout>
     </>)

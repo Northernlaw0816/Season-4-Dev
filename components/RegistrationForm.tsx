@@ -182,7 +182,7 @@ const Team = ({ maxParticipants }: any) => {
 	);
 };
 
-const RegistrationForm = ({EventTitle}:{EventTitle:string}) => {
+const RegistrationForm = () => {
 	let [showAovFields, setShowAovFields] = useState<boolean>(false);
 	let [formBody, setFormBody] = useState<any>(<></>);
 	let [isRegistering, setIsRegistering] = useState<boolean>(false);
@@ -190,7 +190,7 @@ const RegistrationForm = ({EventTitle}:{EventTitle:string}) => {
 	let [isSuccess, setIsSuccess] = useState(false);
 	let [message, setMessage] = useState("");
 	let [schools, setSchools] = useState<any>([]);
-	let [eventName, setEventName] = useState(EventTitle);
+	let [eventName, setEventName] = useState("default-value");
 	const router = useRouter();
 
 	// Handlers
@@ -231,8 +231,7 @@ const RegistrationForm = ({EventTitle}:{EventTitle:string}) => {
 		if (isSuccess || isError) {
 			timeline.restart();
 			timeline.pause();
-    }
-    onEventChange()
+		}
 	});
 
 	const getSchools = async () => {
@@ -250,10 +249,6 @@ const RegistrationForm = ({EventTitle}:{EventTitle:string}) => {
 		setSchools(schools);
 		return schools;
 	};
-
-	useEffect(() => {
-		getSchools();
-	}, []);
 
 	const methods = useForm({
 		mode: "onSubmit",
@@ -396,6 +391,11 @@ const RegistrationForm = ({EventTitle}:{EventTitle:string}) => {
 				break;
 		}
 	};
+
+	useEffect(() => {
+		getSchools()
+		onEventChange()
+	}, []);
 
 	return (
 		<FormProvider {...methods}>
