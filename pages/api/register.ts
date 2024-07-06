@@ -28,7 +28,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 
   // Database code here
 
-  const registrationsCollection = collection(firestore, "registrations_season_2");
+  const registrationsCollection = collection(firestore, "registration-s4");
   const allRegistrationsSnapshot = await getDocs(registrationsCollection);
   const registrationsSnapshot = await getDocs(query(registrationsCollection, where("schoolId", "==", schoolId)));
   const schoolRegistrations: any = [];

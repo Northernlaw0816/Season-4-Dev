@@ -11,13 +11,13 @@ import styles from "../styles/pages/Registration.module.scss"
 import { RegistrationData } from "../data/pages"
 import Main from "../data/Main"
 
-const Registration = () => {            
+const Registration = () => {
     return (<>
         <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
 
         <Layout overrideClasses={styles.main}>
             <h1 id="title">{RegistrationData.title}</h1>
-            
+
             <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 4 is open for schools in Coimbatore.</p>
             <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the registration form under each event.</p>
 
@@ -25,15 +25,8 @@ const Registration = () => {
             <ul>
                 {RegistrationData.commonRules.map((rule: string, index: number) => <li key={index}><p>{rule}</p></li>)}
             </ul>
-            <h2>Event Guidelines</h2>
-            {RegistrationData.eventRules.map((event:{title: string, rules: string[]}, index: number) => {
-                return (<div key={index}>
-                    <h3>{event.title}</h3>
-                    <ul>
-                        {event.rules.map((rule: string, index: number) => <li key={index}><p>{rule}</p></li>)}
-                    </ul>
-                </div>)
-            })}
+
+            <RegistrationForm EventTitle="code-clash"/>
 
         </Layout>
     </>)
