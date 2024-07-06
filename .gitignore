@@ -40,5 +40,5 @@ yarn-error.log*
 pages/sitemap-generator.xml.tsx
 
 #node
-package.json
+yarn.lock
 package-lock.json
