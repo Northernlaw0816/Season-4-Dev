@@ -1,6 +1,6 @@
 // Event Heads
-import thrivikram from "../public/images/photos/thrivikram.png"
-import rithik from "../public/images/photos/rithik.png"
+import thrivikram from "../public/images/photos/Thrivikram.png"
+import rithik from "../public/images/photos/Rithik.png"
 //Teachers Incharge
 import aj from "../public/images/photos/aj.png"
 import vk from "../public/images/photos/vk.png"
@@ -51,23 +51,23 @@ const  EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "12",
-    src: placeholder,
+    src: thrivikram,
   },
   {
     name: "Rithik Abhay A.R",
     grade: "12",
-    src: placeholder,
+    src: rithik,
   },
 ];
 
 const EventMentors = [
   {
     name: "Anand Jeyasingh",
-    src: placeholder,
+    src: aj,
   },
   {
     name: "Vinish Kumar R",
-    src: placeholder,
+    src: vk,
   },
 ];
 
@@ -88,7 +88,7 @@ const EventCoordinators = [
     name: "Akshay Srinivasan",
     event: "Arena of Valor - Mobile",
     grade: "12",
-    src: placeholder,
+    src: akshay,
   },
   {
     name: "Sanjay R",
@@ -155,7 +155,7 @@ const EventCoordinators = [
     name: "Ananya Hariharan",
     event: "Knockout",
     grade: "12",
-    role: "Mentor",
+    role: "",
     src: ananya,
   },
   {
@@ -254,24 +254,6 @@ const EventCoordinators = [
     event: "Code Clash",
     grade: "11",
     src: sanjith,
-  },
-  {
-    name: "Rithik Abhay AR",
-    event: "PitStop",
-    grade: "12",
-    src: placeholder,
-  },
-  {
-    name: "Thrivikram R Krishnaa",
-    event: "PitStop",
-    grade: "12",
-    src: placeholder,
-  },
-  {
-    name: "Thrivikram",
-    event: "Designscape",
-    grade: "12",
-    src: placeholder,
   },
 ];
 

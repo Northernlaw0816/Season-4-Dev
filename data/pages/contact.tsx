@@ -1,11 +1,11 @@
 //stylesheets
 import styles from "../../styles/components/Socials.module.scss"
 //assets
-/* import rishi from '../../public/images/profile/rishi.png'
-import shabesa from '../../public/images/profile/shabesa.png'
-import marudhu from '../../public/images/profile/marudhu.png'
-import rajaneesh from '../../public/images/profile/rajaneesh.png'
-import jeyasingh from '../../public/images/profile/jeyasingh.png' */
+import rishi from '../../public/images/photos/rishi.png'
+import shabesa from '../../public/images/photos/shabesa.png'
+import marudhu from '../../public/images/photos/marudhu.png'
+import rajaneesh from '../../public/images/photos/rajaneesh.png'
+import aj from '../../public/images/photos/jeyasingh.png'
 
 import IG from '../../public/images/logos/ig_logo.png'
 import FB from '../../public/images/logos/fb_logo.png'
@@ -49,27 +49,27 @@ const ContactUs = {
             {
                 name: "Rishi Menon",
                 roles: ["Front-End Developer"],
-                // src: rishi
+                src: rishi
             },
             {
                 name: "Shabesa K. A.",
                 roles: ["Front-End Developer", "Audio Director"],
-                // src: shabesa
+                src: shabesa
             },
             {
                 name: "Rajaneesh R.",
                 roles: ["Back-End Developer"],
-                // src: rajaneesh
+                src: rajaneesh
             },
             {
                 name: "Marudhu Paandian K.",
                 roles: ["Back-End Developer"],
-                // src: marudhu
+                src: marudhu
             },
             {
                 name: "Mr. Anand Jeyasingh",
                 roles: ["Mentor"],
-                // src: jeyasingh
+                src: aj
             }
         ],
         socials: [
