@@ -51,7 +51,11 @@ const Participants = ({ maxParticipants, required }: any) => {
 						},
 					})}>
 					<option value="default-value">Select Grade</option>
-					{[9, 10, 11, 12].map((grade, index) => <option value={grade} key={index}>{grade}</option>)}
+					{[9, 10, 11, 12].map((grade, index) => (
+						<option value={grade} key={index}>
+							{grade}
+						</option>
+					))}
 				</select>
 
 				{/* PHONE */}
@@ -106,15 +110,17 @@ const Participants = ({ maxParticipants, required }: any) => {
 						))
 					}
 				/>
-			</div>
+			</div>,
 		);
 	}
 
-	return <>
-		{participantsList.map((participant) => {
-			return participant
-		})}
-	</>;
+	return (
+		<>
+			{participantsList.map((participant) => {
+				return participant;
+			})}
+		</>
+	);
 };
 
 const Team = ({ maxParticipants }: any) => {
@@ -167,9 +173,8 @@ const Team = ({ maxParticipants }: any) => {
 	);
 };
 
-const RegistrationForm = ({title, event}: {title: string, event: string}) => {
+const RegistrationForm = ({ title, event }: { title: string; event: string }) => {
 	const router = useRouter();
-	
 	let [schools, setSchools] = useState<any>([]);
 	let [formBody, setFormBody] = useState<any>(<></>);
 
@@ -226,9 +231,9 @@ const RegistrationForm = ({title, event}: {title: string, event: string}) => {
 			.catch((err: any) => {
 				console.log(err);
 			});
-		
+
 		const schools: string[] = [];
-		
+
 		response.message.forEach((school: any) => {
 			schools.push(school as string);
 		});
@@ -258,7 +263,7 @@ const RegistrationForm = ({title, event}: {title: string, event: string}) => {
 	};
 
 	useEffect(() => {
-		getSchools()
+		getSchools();
 
 		switch (event) {
 			case "arena-of-valor":
@@ -302,7 +307,7 @@ const RegistrationForm = ({title, event}: {title: string, event: string}) => {
 				setFormBody(<Team maxParticipants={4} />);
 				break;
 
-			case "code-clash":
+			case "code-klash":
 				setFormBody(<Team maxParticipants={3} />);
 				break;
 		}
@@ -356,15 +361,16 @@ const RegistrationForm = ({title, event}: {title: string, event: string}) => {
 				<div className={styles.form_fields}>
 					<div className={styles.form_input}>
 						<label htmlFor="schoolId">School:</label>
-						<select {...methods.register("schoolId", {
-							required: true,
-							validate: (val) => {
-								if (val === "default-school") {
-									return "Select your School";
-								}
-								return undefined;
-							},
-						})}>
+						<select
+							{...methods.register("schoolId", {
+								required: true,
+								validate: (val) => {
+									if (val === "default-school") {
+										return "Select your School";
+									}
+									return undefined;
+								},
+							})}>
 							<option value="default-school">Select Your School</option>
 							{schools.map((school: any, index: number) => {
 								return (
