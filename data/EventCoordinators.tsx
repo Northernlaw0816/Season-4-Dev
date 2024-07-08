@@ -239,19 +239,19 @@ const EventCoordinators = [
   },
   {
     name: "Maanya R Jain",
-    event: "Code Clash",
+    event: "Code Klash",
     grade: "11",
     src: maanya,
   },
   {
     name: "Prathiksha",
-    event: "Code Clash",
+    event: "Code Klash",
     grade: "11",
     src: prathiksha,
   },
   {
     name: "Sanjith",
-    event: "Code Clash",
+    event: "Code Klash",
     grade: "11",
     src: sanjith,
   },

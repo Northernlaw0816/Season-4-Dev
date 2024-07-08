@@ -5,6 +5,7 @@ import { EventCoordinators } from "../../EventCoordinators";
 import DS from '../../../public/images/events/ds_logo.png'
 
 const Designscape = {
+    id: "designscape",
     title: "Designscape",
 
     tagline: "All the magic starts from you",

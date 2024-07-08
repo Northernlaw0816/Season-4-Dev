@@ -5,6 +5,7 @@ import { EventCoordinators } from "../../EventCoordinators";
 import LAB from '../../../public/images/events/lab_logo_2.png'
 
 const LogAndBlog = {
+    id: "log-and-blog",
     title: "Log and Blog",
 
     tagline: "Curate and Create!",

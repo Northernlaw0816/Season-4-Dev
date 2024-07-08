@@ -39,10 +39,6 @@
       margin-block-start: 2em;
     }
 
-    h4,
-    h5 {
-      font-size: clamp(0.5rem, 2vw, 1.125rem);
-    }
 
     p {
       font-size: 18px;
@@ -76,6 +72,12 @@
       .h2_p, h3, .h3_p, h4, .h4_p, h5, .h5_p {
         font-size: 18px;
         margin-left: 0;
+      }
+
+      ul {
+        &.h2_p, &.h3_p, &.h4_p, &.h5_p {
+          padding-left: 1em;
+        }
       }
     }
 
@@ -178,27 +180,54 @@
     }
 
     .game_logo {
-      display: grid;
+      display: flex;
       place-items: center;
+      align-items: center;
+      justify-content: center;
       margin: 0 4rem;
       max-width: 100%;
+      width: 100%;
       overflow: hidden;
+      height: auto;
+      aspect-ratio: 16 / 3;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      border-radius: 0rem;
+      margin: auto;
+      transition-property: width, aspect-ratio, border-radius, margin;
+      transition-duration: 1s;
+      transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+      position: relative;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(10px);
+        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.125), transparent);
+        transition-property: backdrop-filter, background-image;
+        transition-duration: 1s;
+        transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+      }
 
-      img {
-        width: 100%;
+      &:hover {
+        width: 70%;
+        aspect-ratio: 16 / 9;
         border-radius: 1rem;
+
+        &::after {
+          backdrop-filter: blur(0);
+          background-image: none;
+        }
       }
 
       @media (max-width: 700px) {
         max-width: 100%;
         margin: 0;
         img {
-          width: 50%;
+          width: 100%;
         }
-      }
-
-      img {
-        width: 100%;
       }
     }
     

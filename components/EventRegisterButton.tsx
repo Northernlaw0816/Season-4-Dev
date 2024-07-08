@@ -3,22 +3,33 @@ import Main from '../data/Main'
 
 //stylesheets
 import styles from '../styles/pages/Events.module.scss'
+import { UrlObject } from 'url';
+import { useRouter } from 'next/router';
+declare type Url = string | UrlObject;
 
 /**
  * Registration button on event page to redirect to registration
  * @param event - Event Title to pass as default event value
 */
-const EventsRegisterButton = ({pathname, text}: {pathname: string, text: string}) => {
+const EventsRegisterButton = ({text, game}: {text: string, game?: string}) => {
+
+    const router = useRouter()
+
+    const pathname = `${router.pathname}/register`
+
+    const href: Url = { pathname }
+    if (game) {
+        href.query = { game }
+    }
+    console.log(href)
+
+
     return(
         <div className={styles.register_link_align}>
             {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
                 <a className={styles.register_link}>Registrations opening soon!</a>
             :
-                <Link href={{
-                    pathname,
-                }} as={{
-                    pathname,
-                }}><a className={styles.register_link} target='_blank'><p>{text}</p></a></Link>}
+                <Link href={href}><a className={styles.register_link} target='_blank'><p>{text}</p></a></Link>}
         </div>
     )
 }
