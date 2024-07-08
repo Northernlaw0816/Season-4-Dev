@@ -15,7 +15,7 @@ import Main from '../data/Main'
 
 const Home: NextPage = () => {
 
-	const showLandingPage = true
+	const showLandingPage = false
 
 	if (showLandingPage) {
 		return <>
