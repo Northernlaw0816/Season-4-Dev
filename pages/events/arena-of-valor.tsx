@@ -53,8 +53,18 @@ const ArenaOfValor: NextPage = () => {
                 
                 <h2 id="common-guidelines">Common Guidelines</h2>
                     <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
+                        if (typeof rule === "object") {
+                            return <li key={index}>
+                                {rule[0]}
+                                <ul>
+                                    {rule.map((subrule, index) => {
+                                        return index > 0 && <li key={index}><p>{subrule}</p></li>
+                                    })}
+                                </ul>
+                            </li>
+                        }
                         return <li key={index}><p>{rule}</p></li>
-                    })}</ul> 
+                    })}</ul>  
                     
                     {ArenaOfValorData.headings.platforms.map((platform, index: number) => {
                         return (<div key={index}>

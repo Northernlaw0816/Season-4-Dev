@@ -48,6 +48,11 @@ const ArenaOfValor = {
       "Participants will be be contacted through Whatsapp.",
       "Failure to comply with these rules will result in DISQUALIFICATION.",
       "For online events, the winning team must carry a screenshot of the scores at the end for proof.",
+      [ "Each game has it's own rules and timings that will be informed before the event",
+        "Console : Duos || Offline Event ",
+        "Mobile :	 BGMI and COD - Trios,  Free Fire - Squads || Online Event",
+        "PC : Valorant - Squads,  Minecraft - Duos || Online Event  ",
+      ],
     ],
 
     platforms: [
@@ -205,7 +210,8 @@ const ArenaOfValor = {
     ],
 
     registration: [
-      "Console : Duos",
+      "Each game has it's own rules and timings",
+      "Console : Duos x Offline",
       "Mobile :	 BGMI and COD - Trios | Free Fire - Squads",
       "PC : Valorant - Squads | Minecraft - Duos ",
     ],

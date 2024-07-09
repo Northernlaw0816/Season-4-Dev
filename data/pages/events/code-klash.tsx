@@ -3,7 +3,7 @@ import { EventCoordinators } from "../../EventCoordinators";
 
 import Main from "../../Main";
 
-import PB from "../../../public/images/events/pandora_blocks.png";
+import ck from "../../../public/images/events/pandora_blocks.png";
 
 const CodeKlash = {
 	id: "code-klash",
@@ -21,7 +21,7 @@ const CodeKlash = {
 		time: "10:15 a.m. - 3:00 p.m.",
 		venue: "Online",
 		grades: "9-12",
-		image: PB,
+		image: ck,
 		accent: "#25415e",
 	},
 
