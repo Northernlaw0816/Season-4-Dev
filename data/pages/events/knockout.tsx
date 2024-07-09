@@ -42,7 +42,7 @@ const KnockOut = {
       {
         title: "Day 1",
         rules: [
-          "Round 1 - All participants will be given a topic prior to the event. Each individual will be given one minute to speak",
+          "Round 1 - All participants will be given a topic prior to the event. Each individual will be given one minute to speak.",
           "Round 2 - A debate with the topics being announced on spot.",
           "This will be the debate round, cross talk will be allowed and the judge will be the moderator of the speech.",
           "Eliminations will take place after each round."

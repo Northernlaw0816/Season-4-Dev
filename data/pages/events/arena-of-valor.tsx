@@ -22,7 +22,7 @@ const ArenaOfValor = {
 
     time: "TBA",
 
-    venue: "Online",
+    venue: "Online and Offline",
     grades: "9 - 12",
     image: AoV,
     accent:
@@ -36,7 +36,7 @@ const ArenaOfValor = {
     },
 
     commonGuidelines: [
-      "The usage of cheats, hacks, or any other third-party applications that give you an unfair advantage over your opponents will result in immediate disqualification",
+      "The usage of cheats, hacks, or any other third-party applications that give you an unfair advantage over your opponents will result in immediate disqualification.",
       "Teams that attempt to use players which are not registered in their team will be disqualified.",
       "Account sharing will be met with disqualification.",
       "Abusing in-game glitches that give a team an unfair advantage is not permitted. Teams caught doing so may be disqualified.",

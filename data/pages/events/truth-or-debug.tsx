@@ -38,7 +38,7 @@ const TruthOrDebug = {
             "Use of the internet and electronic gadgets is strictly prohibited.",
             "No cross-talk will be entertained.",
             "Participants carry only the necessary stationary;  papers will be provided.",
-            "The Quiz master's decisions shall be final",
+            "The Quiz master's decisions shall be final.",
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
