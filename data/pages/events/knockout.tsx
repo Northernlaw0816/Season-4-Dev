@@ -71,7 +71,7 @@ const KnockOut = {
       (coordinator) => coordinator.event === "Knockout"
     ),
 
-    registration: ["This is a Solo event."],
+    registration: ["This is an individual event."],
   },
 };
 
