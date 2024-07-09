@@ -11,7 +11,7 @@ const Pitstop = {
     id: "pitstop",
     title: "Pitstop",
 
-    tagline: (<><span className={styles.yellow}>Unleash the Dust! </span><span className={styles.red}>Feel the Thrust!</span></>),
+    tagline: (<><span className={styles.yellow}>It's Lightsout! </span><span className={styles.red}>And Away We GO!</span></>),
     
     link: '/events/pitstop',
 
@@ -47,7 +47,7 @@ const Pitstop = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pitstop"),
 
         registration: [
-            "Participants register in teams of 3 or 4"
+            "Participants register in teams of 3."
         ]
     }
 }

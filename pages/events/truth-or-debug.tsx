@@ -70,11 +70,6 @@ const TruthOrDebug: NextPage = () => {
                     <ul>{TruthOrDebugData.headings.rules.map((rule, index) => {
                         return <li key={index}><p>{rule}</p></li>
                     })}</ul> 
-
-                <h2 id="prerequisites">Prerequisites</h2>
-                    <ul>{TruthOrDebugData.headings.prerequisites.map((prereq, index) => {
-                        return <li key={index}><p>{prereq}</p></li>
-                    })}</ul>
                     
                 <h2 id={toSlug("event coordinators")}>Event Coordinators</h2>
                     <div className={styles.card_container}>

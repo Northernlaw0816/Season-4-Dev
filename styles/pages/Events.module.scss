@@ -337,8 +337,9 @@
 .main_td {
   background: var(--background);
   --green: 130, 100%, 60%;
-  --accent: hsl(var(--green));
-  --button-bg: hsl(130, 100%, 50%);
+  --blue: 219.92, 96%, 50%;
+  --accent: hsl(var(--blue));
+  --button-bg: rgb(6, 42, 116);
   .banner {
     position: relative;
     background: hsl(0, 0%, 7.5%);
@@ -346,7 +347,7 @@
     --blur-radius: clamp(1px, 0.5vw, 2px);
 
     .logo {
-      filter: blur(calc(var(--blur-radius) / 1.5));
+      filter: blur(calc(var(--blur-radius) / 2));
     }
 
     .banner_text {
@@ -360,7 +361,7 @@
         position: relative;
         padding-left: 30%;
         margin-top: 1em;
-        background: hsl(var(--green), 75%);
+        background: hsl(var(--blue), 75%);
         font-size: clamp(1rem, 3vw, 2rem);
 
         &::after {
@@ -393,7 +394,7 @@
       h1 {
         text-align: center;
         font-size: clamp(1.5rem, 4vw, 4rem);
-        color: hsl(var(--green));
+        color: hsl(var(--blue));
       }
     }
 
@@ -405,7 +406,7 @@
       pointer-events: none;
       touch-action: none;
       filter: blur(var(--blur-radius));
-      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png"),
+      background: none,
         linear-gradient(
           to top,
           hsl(0, 0%, 0%, 20%) 0 25%,

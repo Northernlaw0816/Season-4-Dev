@@ -27,7 +27,7 @@ const CodeKlash = {
 
 	headings: {
 		about:
-			"Welcome to Pandora’ s Blocks, where creativity flourishes and virtual worlds come to life! Here, you will face adversities that will test your team’s communication, synergy and time management. Your goal is to build the most magnificent monument relevant to the theme in the given time and area. The creators of the most theme-relevant, unique, creative and swiftly built monument takes it all.",
+			"Do you think you can participate in the battle royale of coding? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Code Klash!.",
 
 		rules: [
 			"No more than 3 participants are allowed in a team. (No minimum limit).",
@@ -62,7 +62,7 @@ const CodeKlash = {
 
 		eventCoordinators: EventCoordinators.filter((coordinator) => coordinator.event === "Code Klash"),
 
-		registration: ["No more than 3 members in a team"],
+		registration: ["Participants register in teams of three."],
 	},
 };
 

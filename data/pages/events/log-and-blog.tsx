@@ -51,7 +51,7 @@ const LogAndBlog = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Log and Blog"),
 
         registration: [
-            "This is a Solo event"
+            "This is a Solo event."
         ]
     }
 }
