@@ -15,8 +15,8 @@ const Designscape = {
     details: {
         shortDescription: "When you see something and you want to remould it to your taste, then your heart knows “I am a designer”. Designscape is a design and photo editing competition, your stage to showcase your creativity. This is a competition where you use your imagination to create an original piece from what you are given. This is your chance to explore, design and create. Show your talent and let the creativity flow.",
         date: `${Main.dates.day2}`,
-        dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 1:30 p.m.`,
-        time: '9:30 a.m. - 2:00 p.m.',
+        dateAndTime: `${Main.dates.day2}, 9:30 a.m. - 2:30 p.m.`,
+        time: '9:00 a.m. - 2:30 p.m.',
         venue: 'Mass Media Lab (Main Block)',
         grades: '9 - 12',
         image: DS,

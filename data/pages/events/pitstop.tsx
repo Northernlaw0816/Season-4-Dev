@@ -19,7 +19,6 @@ const Pitstop = {
         shortDescription: "Pitstop, is the ultimate RC car building and racing extravaganza! An event where STEM meets RACING. Participants will design, build, and race their remote-controlled cars, pushing the limits of speed and performance.",
         dateAndTime: [
             `${Main.dates.day1}, 10:15 p.m. - 3:00 p.m.`,
-            `${Main.dates.day2}, 9:30 a.m. - 1:30 p.m.`
         ],
         venue: 'Primary Block Center',
         grades: '9 - 12',
