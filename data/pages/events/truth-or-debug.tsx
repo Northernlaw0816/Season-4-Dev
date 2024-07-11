@@ -11,11 +11,11 @@ const TruthOrDebug = {
     id: "truth-or-debug",
     title: "Truth or Debug",
 
-    tagline: "Quiz ON",
+    tagline: "Unleash Your Inner Genius!",
     link: '/events/truth-or-debug',
 
     details: {
-        shortDescription: "",
+        shortDescription: "It's time to ignite your curiosity and showcase your mastery of science, technology, engineering, and math! Truth or Debug is a thrilling competition that will put your problem-solving skills to the test. Join us on a journey through the realms of innovation, discovery, and critical thinking. Will you emerge as the ultimate STEM champion?.",
         dateAndTime: [
             `${Main.dates.day1}, 10:00 p.m. - 3:00 p.m.`,
         ],
@@ -30,7 +30,7 @@ const TruthOrDebug = {
             
         ],
 
-        about: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
+        about: "It's time to ignite your curiosity and showcase your mastery of science, technology, engineering, and math! Truth or Debug is a thrilling competition that will put your problem-solving skills to the test. Join us on a journey through the realms of innovation, discovery, and critical thinking. Will you emerge as the ultimate STEM champion?.",
         
         rules: [
             "The quiz is entirely themed around STEM (Science, Tech, Engineering, Math).",

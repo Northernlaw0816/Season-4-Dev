@@ -16,10 +16,10 @@ const CodeKlash = {
 	details: {
 		shortDescription:
 			"Do you think you can participate in the battle royale of coding? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Code Klash!",
-		dateAndTime: [`${Main.dates.day1}, 10:00 a.m. - 2:00 p.m.`],
-		date: `${Main.dates.day1}`,
+		dateAndTime: [`${Main.dates.day2}, 10:00 a.m. - 2:00 p.m.`],
+		date: `${Main.dates.day2}`,
 		time: "10:00 a.m. - 2:00 p.m.",
-		venue: "Online",
+		venue: "Computer Lab (Secondary Block)",
 		grades: "9-12",
 		image: ck,
 		accent: "#25415e",

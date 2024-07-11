@@ -16,11 +16,11 @@ const Pitstop = {
     link: '/events/pitstop',
 
     details: {
-        shortDescription: "Pitstop, is the ultimate RC car building and racing extravaganza! An event where STEM meets RACING. Participants will design, build, and race their remote-controlled cars, pushing the limits of speed and performance.",
+        shortDescription: "Pitstop is the ultimate RC car building and racing extravaganza! An event where STEM meets RACING. Participants will design, build, and race their remote-controlled cars, pushing the limits of speed and performance.",
         dateAndTime: [
             `${Main.dates.day1}, 10:15 p.m. - 3:00 p.m.`,
         ],
-        venue: 'Primary Block Center',
+        venue: 'Near the skating rink',
         grades: '9 - 12',
         image: PS,
         accent: "#febf01",

@@ -103,12 +103,13 @@
                 place-items: center end;
                 padding: 0;
                 padding-top: 30%;
-                padding-left: 40%;
+                padding-left: 70%;
 
                 & > * {
                     position: absolute;
                     bottom: 10%;
-                    right: -10%;
+                    right: +20%;
+
                 }
             }
 

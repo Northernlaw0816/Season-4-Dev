@@ -338,8 +338,8 @@
   background: var(--background);
   --green: 130, 100%, 60%;
   --blue: 219.92, 96%, 50%;
-  --accent: hsl(var(--blue));
-  --button-bg: rgb(6, 42, 116);
+  --accent: hsl(var(--green));
+  --button-bg: rgb(10, 134, 35);
   .banner {
     position: relative;
     background: hsl(0, 0%, 7.5%);
@@ -352,7 +352,7 @@
 
     .banner_text {
       filter: blur(calc(var(--blur-radius) / 1.5));
-      font-family: "Inconsolata", monospace;
+      font-family: "Inconsolata", monospace;  
       font-weight: 800;
       display: block;
 
@@ -455,10 +455,11 @@
 
   .content {
     .tagline {
-      color: var(--text-alt);
+      color: hsl(144, 63%, 46%);
       font-family: "Inconsolata", monospace;
-      font-weight: 800;
-      font-size: clamp(16px, 3vw, 1.5rem);
+      font-weight: normal;
+      font-size: clamp(32px, 5vw, 3.0rem);
+      padding: 2rem;
       margin: auto;
       width: fit-content;
       .grey {

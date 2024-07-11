@@ -13,7 +13,7 @@ const LogAndBlog = {
     link: '/events/log-and-blog',
 
     details: {
-        shortDescription: "Can human beings and robots coexist? Can harmony be found in such a scenario?Log and Blog is an event which lets you unleash your creative writing skills. Log in, research, review and pen your refreshing thoughts.",
+        shortDescription: "Ignite your inner writer! Log and Blog is an event which lets you unleash your creative writing skills. Log in, research, review and pen your refreshing thoughts.",
         date: `${Main.dates.day1}`,
         dateAndTime: `${Main.dates.day1}, 10:30 a.m. - 2:00  p.m.`,
         time: '10:00 a.m. - 3:00  p.m.',
