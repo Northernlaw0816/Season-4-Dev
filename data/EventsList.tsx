@@ -52,6 +52,7 @@ const EventsList = [
 		title: TruthOrDebug.title,
 		description: TruthOrDebug.details.shortDescription,
 		date: TruthOrDebug.details.dateAndTime,
+		venue: TruthOrDebug.details.venue,	
 		grades: TruthOrDebug.details.grades,
 		link: TruthOrDebug.link,
 		image: TruthOrDebug.details.image,
