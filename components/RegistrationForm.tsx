@@ -4,11 +4,11 @@ import { ErrorMessage } from "@hookform/error-message";
 import anime from "animejs";
 import axios from "axios";
 import { useRouter } from "next/router";
-
+import Schools from "../data/SchoolsList";
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss";
 
-const Participants = ({ maxParticipants, required }: any) => {
+const Participants = ({ maxParticipants, required, index }: any) => {
 	const {
 		register,
 		formState: { errors },
@@ -18,14 +18,14 @@ const Participants = ({ maxParticipants, required }: any) => {
 	const participantsList: ReactNode[] = [];
 
 	for (let i = 0; i < maxParticipants; i++) {
-		let nameFieldName = `${maxParticipants > 1 ? "team." : ""}participants.${i}.name`;
-		let gradeFieldName = `${maxParticipants > 1 ? "team." : ""}participants.${i}.grade`;
-		let phoneFieldName = `${maxParticipants > 1 ? "team." : ""}participants.${i}.phone`;
+		let nameFieldName = `${maxParticipants > 1 ? `teams.${index}.` : ""}participants.${index}.${i}.name`;
+		let gradeFieldName = `${maxParticipants > 1 ? `teams.${index}.` : ""}participants.${index}.${i}.grade`;
+		let phoneFieldName = `${maxParticipants > 1 ? `teams.${index}.` : ""}participants.${index}.${i}.phone`;
 
 		participantsList.push(
-			<div key={i} className={styles.form_input}>
+			<div className={styles.form_input} key={`PLD${i}.${index}`}>
 				{/* NAME */}
-				<label htmlFor={nameFieldName}>Participant {`${i + 1}: `}</label>
+				<label htmlFor={nameFieldName}>Participant Name {`${i + 1}: `}</label>
 				<input
 					className={getFieldState(nameFieldName).error && `${styles.error}`}
 					required={required}
@@ -123,69 +123,111 @@ const Participants = ({ maxParticipants, required }: any) => {
 	);
 };
 
-const Team = ({ maxParticipants }: any) => {
+const Team = ({ maxParticipants, index }: any) => {
 	const {
 		register,
 		formState: { errors },
 		getFieldState,
 	} = useFormContext();
 
-	let fieldName = `team.teamName`;
+	let fieldName = `teams.${index}.teamName`;
 
 	return (
 		<>
+			<hr key={`hr${index}`} />
 			{maxParticipants > 1 && (
-				<>
-					<div className={styles.form_input}>
-						<label htmlFor={fieldName}>Team Name: </label>
-						<input
-							className={getFieldState(fieldName).error && `${styles.error}`}
-							required={true}
-							placeholder="Min 4 characters, Maximum 32 Characters"
-							{...register(fieldName, {
-								maxLength: {
-									value: 32,
-									message: "Team name must be less than 32 characters",
-								},
-								minLength: {
-									value: 4,
-									message: "Team name must be atleast 4 characters",
-								},
-							})}
-						/>
-						<ErrorMessage
-							errors={errors}
-							name={fieldName}
-							render={({ messages }) =>
-								messages &&
-								Object.entries(messages).map(([type, message]) => (
-									<p className={styles.input_error} key={type}>
-										{message}
-									</p>
-								))
-							}
-						/>
-					</div>
-				</>
+				<div className={styles.form_input} key={`T${index}`}>
+					<label htmlFor={fieldName}>Team Name: {`${index + 1}: `}</label>
+					<input
+						className={getFieldState(fieldName).error && `${styles.error}`}
+						required={true}
+						placeholder="Min 4 characters, Maximum 32 Characters"
+						{...register(fieldName, {
+							maxLength: {
+								value: 32,
+								message: "Team name must be less than 32 characters",
+							},
+							minLength: {
+								value: 4,
+								message: "Team name must be atleast 4 characters",
+							},
+						})}
+					/>
+					<ErrorMessage
+						errors={errors}
+						name={fieldName}
+						render={({ messages }) =>
+							messages &&
+							Object.entries(messages).map(([type, message]) => (
+								<p className={styles.input_error} key={type}>
+									{message}
+								</p>
+							))
+						}
+					/>
+				</div>
 			)}
-			<Participants maxParticipants={maxParticipants} required={true} />
+			<Participants
+				maxParticipants={maxParticipants}
+				required={true}
+				index={index}
+				key={`P${maxParticipants}${index}`}
+			/>
 		</>
 	);
 };
 
-const RegistrationForm = ({ title, event }: { title: string; event: string }) => {
+const RegistrationForm = ({ title, eventName }: { title: string; eventName: string }) => {
 	const router = useRouter();
-	let [schools, setSchools] = useState<any>([]);
-	let [formBody, setFormBody] = useState<any>(<></>);
-
+	let [schools, setSchools] = useState<{ schoolId: string; schoolName: string }[]>([]);
+	let [Participants, setParticipants] = useState<number[]>([]);
 	let [isRegistering, setIsRegistering] = useState<boolean>(false);
 	let [isError, setIsError] = useState(false);
 	let [isSuccess, setIsSuccess] = useState(false);
 	let [message, setMessage] = useState("");
+	let [platform, setPlatform] = useState("");
+	let [group, setGroup] = useState("");
 
 	// Handlers
 	const onSubmit = async (data: any) => {
+		const isTeamEvent = ["arena-of-valor", "truth-or-debug", "otakuiz", "code-klash", "pitstop"].includes(eventName);
+		data["eventName"] = eventName;
+		data["game"] = router.query.game ?? "";
+		data["isTeam"] = isTeamEvent;
+		data["currentGroup"] = group;
+		data["schoolName"] = schools.find((school) => school.schoolId === data?.schoolId)?.schoolName;
+		data["platform"] = platform;
+
 		setIsRegistering(true);
+		if (data.isTeam) {
+			const TeamNameListSize = new Set(data.teams.map((team: any) => team.teamName)).size;
+			if (data.teams.length !== TeamNameListSize) {
+				setIsError(true);
+				setIsSuccess(false);
+				setMessage(`Cannot use same Team Name for multiple teams.`);
+				return;
+			}
+			data.teams.forEach((team: any, index: number) => {
+				if (isError) return;
+				const phoneListSize = new Set(team.participants.flat().map((participant: any) => participant.phone)).size;
+				if (phoneListSize !== team.participants.flat().length) {
+					setIsError(true);
+					setIsSuccess(false);
+					setMessage(`Cannot use same phone number for multiple participants. (Check Team ${index + 1})`);
+					return;
+				}
+			});
+		} else {
+			const phoneListSize = new Set(data.participants.flat().map((participant: any) => participant.phone)).size;
+			if (phoneListSize !== data.participants.flat().length) {
+				setIsError(true);
+				setIsSuccess(false);
+				setMessage(`Cannot use same phone number for multiple participants.`);
+				return;
+			}
+		}
+		if (isError) return;
+
 		const response = await axios
 			.post("/api/register", {
 				...data,
@@ -194,7 +236,8 @@ const RegistrationForm = ({ title, event }: { title: string; event: string }) =>
 			.catch((err: any) => {
 				setIsError(true);
 				setMessage("An Error Occurred. Please Try Again.");
-				if (err.response.data.message) setMessage(err.response.data.message);
+				if (err.response.data.message)
+					setMessage(err?.response?.data?.message ?? "An Error Occurred. Please Try Again.");
 			});
 
 		if (response) {
@@ -225,19 +268,10 @@ const RegistrationForm = ({ title, event }: { title: string; event: string }) =>
 	});
 
 	const getSchools = async () => {
-		const response = await axios
-			.get("/api/schools")
-			.then((response: any) => response.data)
-			.catch((err: any) => {
-				console.log(err);
-			});
-
-		const schools: string[] = [];
-
-		response.message.forEach((school: any) => {
-			schools.push(school as string);
+		const schools: { schoolId: string; schoolName: string }[] = Schools.map((school) => {
+			return { schoolId: school.schoolId, schoolName: school.schoolName };
 		});
-		
+
 		setSchools(schools);
 		return schools;
 	};
@@ -248,7 +282,6 @@ const RegistrationForm = ({ title, event }: { title: string; event: string }) =>
 		criteriaMode: "all",
 		shouldUnregister: true,
 	});
-
 	const resetFields = () => {
 		methods.reset();
 		methods.unregister("platform");
@@ -265,53 +298,134 @@ const RegistrationForm = ({ title, event }: { title: string; event: string }) =>
 	useEffect(() => {
 		getSchools();
 
-		switch (event) {
+		switch (eventName) {
 			case "arena-of-valor":
+				/* Set Participants and Group */
 				switch (router.query.game) {
 					case "valorant":
 					case "freefire":
-						setFormBody(<Team maxParticipants={4} />);
+						setParticipants([4]);
+						setGroup("D");
 						break;
 					case "bgmi":
 					case "cod":
-						setFormBody(<Team maxParticipants={3} />);
+						setParticipants([3]);
+						setGroup("D");
 						break;
 					case "fifa":
 					case "minecraft":
-						setFormBody(<Team maxParticipants={2} />);
+						setParticipants([2]);
+						setGroup("C");
+						break;
+				}
+				/* Set Platform */
+				switch (router.query.game) {
+					case "valorant":
+					case "minecraft":
+						setPlatform("pc");
+						break;
+					case "fifa":
+						setPlatform("console");
+						break;
+					case "cod":
+					case "bgmi":
+					case "freefire":
+						setPlatform("mobile");
 						break;
 				}
 				break;
 
 			case "knockout":
-				setFormBody(<Team maxParticipants={1} />);
+				setParticipants([1]);
+				setGroup("C");
 				break;
 
 			case "truth-or-debug":
-				setFormBody(<Team maxParticipants={2} />);
+				setParticipants([2]);
+				setGroup("A");
 				break;
 
 			case "log-and-blog":
-				setFormBody(<Team maxParticipants={1} />);
+				setParticipants([1]);
+				setGroup("A");
 				break;
 
 			case "designscape":
-				setFormBody(<Team maxParticipants={2} />);
+				setParticipants([1]);
+				setGroup("B");
 				break;
 
 			case "otakuiz":
-				setFormBody(<Team maxParticipants={3} />);
+				setParticipants([3]);
+				setGroup("C");
 				break;
 
 			case "pitstop":
-				setFormBody(<Team maxParticipants={4} />);
+				setParticipants([4]);
+				setGroup("A");
 				break;
 
 			case "code-klash":
-				setFormBody(<Team maxParticipants={3} />);
+				setParticipants([3]);
+				setGroup("B");
 				break;
 		}
-	}, [event, router]);
+	}, [eventName, router]);
+	const addNewTeam = () => {
+		let newTeam;
+		let participantCount = 1;
+		switch (eventName) {
+			case "arena-of-valor":
+				switch (router.query.game) {
+					case "valorant":
+					case "freefire":
+						participantCount = 4;
+						break;
+					case "bgmi":
+					case "cod":
+						participantCount = 3;
+						break;
+					case "fifa":
+					case "minecraft":
+						participantCount = 2;
+						break;
+				}
+				break;
+
+			case "knockout":
+				participantCount = 1;
+				break;
+
+			case "truth-or-debug":
+				participantCount = 2;
+				break;
+
+			case "log-and-blog":
+				participantCount = 1;
+				break;
+
+			case "designscape":
+				participantCount = 1;
+				break;
+
+			case "otakuiz":
+				participantCount = 3;
+				break;
+
+			case "pitstop":
+				participantCount = 4;
+				break;
+
+			case "code-klash":
+				participantCount = 3;
+				break;
+		}
+		setParticipants([...Participants, participantCount]);
+	};
+	const removeTeam = () => {
+		if (Participants.length > 1) Participants.splice(-1, 1);
+		setParticipants([...Participants]);
+	};
 
 	return (
 		<FormProvider {...methods}>
@@ -372,7 +486,7 @@ const RegistrationForm = ({ title, event }: { title: string; event: string }) =>
 								},
 							})}>
 							<option value="default-school">Select Your School</option>
-							{schools.map((school: any, index: number) => {
+							{schools.map((school: { schoolId: string; schoolName: string }, index: number) => {
 								return (
 									<option key={index} value={school.schoolId}>
 										{school.schoolName}
@@ -395,7 +509,22 @@ const RegistrationForm = ({ title, event }: { title: string; event: string }) =>
 							}
 						/>
 					</div>
-					{formBody}
+					{Participants.map((participantCount: any, index: number) => {
+						return <Team maxParticipants={participantCount} key={`T${participantCount}.${index}`} index={index} />;
+					})}
+				</div>
+				<hr />
+				<div className={styles.addteam}>
+					<input name="addteam" type={"button"} onClick={addNewTeam} value="Add Team" />
+				</div>
+				<div className={styles.removeteam}>
+					<input
+						name="removeteam"
+						type={"button"}
+						onClick={removeTeam}
+						value="Remove Team"
+						disabled={Participants.length === 1 ? true : false}
+					/>
 				</div>
 				<div className={styles.submit}>
 					<input name="register" type={"submit"} value="Register" />

@@ -40,8 +40,7 @@ export default function Register() {
 	}
 	if (eventId === "arena-of-valor") {
 		const EventPageURL = router.pathname.replace("[slug]", eventId).replace("register", "");
-		console.log(EventPageURL);
-		// console.log(findGame(game));
+
 		if (!findGame(game)) {
 			router.replace(EventPageURL);
 			router.reload();
@@ -71,11 +70,33 @@ export default function Register() {
 					<>
 						<h2 id="guidelines">Event Common Guidelines</h2>
 						<ul>
-							{ArenaOfValor.headings.commonGuidelines.map((rule: string, index: number) => (
-								<li key={index}>
-									<p>{rule}</p>
-								</li>
-							))}
+							{ArenaOfValor.headings.commonGuidelines.map((rule: any, index: number) => {
+								if (typeof rule === "object") {
+									return (
+										<li key={index}>
+											<p>
+												{rule[0]}
+												<ul>
+													{rule.map((subrule: any, index: number) => {
+														return (
+															index > 0 && (
+																<li key={index}>
+																	<p>{subrule}</p>
+																</li>
+															)
+														);
+													})}
+												</ul>
+											</p>
+										</li>
+									);
+								}
+								return (
+									<li key={index}>
+										<p>{rule}</p>
+									</li>
+								);
+							})}
 						</ul>
 						<h2 id="guidelines">Event Guidelines</h2>
 						{[findGame(game)].map((game: any, index: number) => {
@@ -181,7 +202,7 @@ export default function Register() {
 				)}
 
 				<RegistrationForm
-					event={eventId}
+					eventName={eventId}
 					title={`${Event?.title}: ${Event?.id === "arena-of-valor" ? findGame(game)?.name : ""}`}
 				/>
 			</Layout>

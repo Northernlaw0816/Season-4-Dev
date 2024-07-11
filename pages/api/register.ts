@@ -1,200 +1,325 @@
-import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
-
+import {
+	addDoc,
+	collection,
+	DocumentSnapshot,
+	documentId,
+	getDocs,
+	query,
+	where,
+	updateDoc,
+	setDoc,
+	doc,
+} from "firebase/firestore";
+import Util from "util";
 import type { NextApiRequest, NextApiResponse } from "next";
-
+import schools from "../../data/SchoolsList";
 import { firestore } from "../../firebase/clientApp";
 import { titleCase } from "../../functions";
+interface Participant {
+	name: string;
+	grade: string;
+	phone: string;
+	selectedGroups: string[];
+	selectableGroups: string[];
+}
+interface Team {
+	teamName?: string;
+	participants?: Participant[];
+}
+interface Event {
+	eventName: string;
+	isTeam: boolean;
+	platform: string;
+	game: string;
+	teams?: Team[];
+	participants?: Participant[];
+}
+interface Events {
+	[eventName: string]: Event;
+}
+interface SchoolData {
+	schoolId: string;
+	schoolName: string;
+	events: Events;
+}
 
 export default async function register(req: NextApiRequest, res: NextApiResponse) {
-  let body = req.body;
+	let body = req.body;
 
-  const { event, participants, team, platform, schoolId, game } = body;
+	const { eventName, participants, teams, platform, schoolId, schoolName, game, isTeam, currentGroup } = body;
+	const CurrentRegistrationTeams: Team[] = teams;
+	const CurrentRegistrationParticipants: Participant[] = participants;
+	let success = true;
+	let message = "";
+	message = `Successfully registered for ${titleCase(eventName.replace(/-/g, " "))}`;
 
-  let success = true;
-  let message = "";
+	if (!req.body) {
+		return res.status(200).json({
+			success: success,
+			message: "No body",
+		});
+	}
+	const ParticipantPermission = (
+		currentGroup: string,
+		selectableGroups: string[] | undefined,
+		selectedGroups: string[] | undefined,
+	) => {
+		if (!selectableGroups) selectableGroups = ["A", "B", "C", "D"];
+		if (!selectedGroups) selectedGroups = [];
+		// Check if group already exists in registered groups
+		if (selectedGroups.includes(currentGroup))
+			return {
+				reason: "is already in the current group event",
+				canParticipate: false,
+				selectableGroups,
+				selectedGroups,
+			};
+		// Check if group can be selected
+		if (!selectableGroups.includes(currentGroup))
+			return {
+				reason: "cannot join this group event",
+				canParticipate: false,
+				selectableGroups,
+				selectedGroups,
+			};
+		// Include current group in selectedGroup list
+		selectedGroups.push(currentGroup);
+		switch (currentGroup) {
+			case "A": {
+				selectableGroups = selectableGroups.filter((grp) => grp === "B" || grp === "D");
+				break;
+			}
+			case "B": {
+				selectableGroups = selectableGroups.filter((grp) => grp === "A" || grp === "D");
+				break;
+			}
+			case "C": {
+				selectableGroups = selectableGroups.filter((grp) => grp === "D");
+				break;
+			}
+			case "D": {
+				selectableGroups = selectableGroups.filter((grp) => grp === "A" || grp === "B" || grp === "C");
+				break;
+			}
+		}
+		const data = {
+			reason: "",
+			canParticipate: true,
+			selectedGroups,
+			selectableGroups,
+		};
+		return data;
+	};
+	const AllRegistrationCollections = collection(firestore, "registrations-s4");
+	const AllRegistrationDocuments = await getDocs(AllRegistrationCollections);
 
-  if (team) {
-    message = `Successfully registered for ${titleCase(event.toString().replace(/-/g, " "))}`;
-  } else if (participants) {
-    message = `Successfully registered for ${titleCase(event.toString().replace(/-/g, " "))}`;
-  }
+	const AllSchoolsRegistration: DocumentSnapshot[] = AllRegistrationDocuments.docs.map((doc) => doc);
+	let isError = false;
+	let UpdatedData: SchoolData = {
+		schoolId: schoolId,
+		schoolName: schoolName,
+		events: {
+			[eventName]: {
+				eventName,
+				game,
+				platform,
+				isTeam,
+				teams: [],
+				participants: [],
+			},
+		},
+	};
+	if (AllSchoolsRegistration.length === 0) {
+		if (isTeam) {
+			const Teams: Team[] = [];
+			CurrentRegistrationTeams.forEach((RegisteredTeam) => {
+				const Participants: Participant[] = [];
+				const checkParticipant = (participant: Participant) => {
+					const permission = ParticipantPermission(
+						currentGroup,
+						participant?.selectableGroups,
+						participant?.selectedGroups,
+					);
+					if (!permission.canParticipate) {
+						isError = true;
+						success = false;
+						message = `${participant.name} ${permission.reason}`;
+						return;
+					}
+					participant["selectableGroups"] = permission.selectableGroups;
+					participant["selectedGroups"] = permission.selectedGroups;
+					Participants.push(participant);
+				};
+				RegisteredTeam.participants?.flat()?.forEach((RegisteredParticipant) => {
+					checkParticipant(RegisteredParticipant);
+				});
+				Teams.push({ teamName: RegisteredTeam.teamName, participants: Participants });
+			});
+			UpdatedData.events[`${eventName}`].teams = Teams;
+		} else {
+			const Participants: Participant[] = [];
+			const checkParticipant = (participant: Participant) => {
+				const permission = ParticipantPermission(
+					currentGroup,
+					participant?.selectableGroups,
+					participant?.selectedGroups,
+				);
+				if (!permission.canParticipate) {
+					isError = true;
+					success = false;
+					message = `${participant.name} ${permission.reason}`;
+					return;
+				}
+				console.log(Util.inspect(participant, false, null, true));
+				participant["selectableGroups"] = permission.selectableGroups;
+				participant["selectedGroups"] = permission.selectedGroups;
+				Participants.push(participant);
+			};
+			CurrentRegistrationParticipants.flat().forEach((RegisteredParticipant) => {
+				checkParticipant(RegisteredParticipant);
+			});
+			UpdatedData.events[`${eventName}`].participants = Participants;
+		}
+	}
+	AllSchoolsRegistration.forEach((Rschool) => {
+		if (isError) return;
+		const events: Event[] = Object.values(Rschool.get("events")) as Event[];
+		events.forEach((event) => {
+			UpdatedData.events = { ...UpdatedData.events, ...{ [event.eventName]: { ...event } } };
+			if (isError) return;
+			if (isTeam) {
+				const TeamNames = events
+					.filter((event) => {
+						if (event.game) return event.eventName === eventName && event.game === game;
+						else return event.eventName === eventName;
+					})?.[0]
+					?.teams?.map((team: any) => team.teamName);
+				const Teams: Team[] = [];
+				CurrentRegistrationTeams?.forEach((RegisteredTeam, RegisteredTeamIndex) => {
+					if (isError) return;
+					if (TeamNames?.includes(RegisteredTeam.teamName)) {
+						isError = true;
+						success = false;
+						message = `Team Name already exists! (Check Team ${
+							RegisteredTeamIndex + 1
+						})\nPlease use a different Team Name`;
+						return;
+					}
+					const Participants: Participant[] = [];
+					const checkParticipant = (participant: Participant) => {
+						const permission = ParticipantPermission(
+							currentGroup,
+							participant?.selectableGroups,
+							participant?.selectedGroups,
+						);
+						if (!permission.canParticipate) {
+							isError = true;
+							success = false;
+							message = `${participant.name} ${permission.reason}`;
+							return;
+						}
+						participant["selectableGroups"] = permission.selectableGroups;
+						participant["selectedGroups"] = permission.selectedGroups;
+						Participants.push(participant);
+					};
+					const checkParticipantOnRegisteredEvents = (RegisteredParticipant: Participant) => {
+						let isParticipantChecked = false;
+						event.teams?.forEach((team) => {
+							if (isError) return;
+							team.participants;
+							team.participants?.forEach((participant) => {
+								if (participant.phone === RegisteredParticipant.phone) {
+									checkParticipant(participant);
+									isParticipantChecked = true;
+								}
+							});
+						});
+						event.participants?.forEach((participant) => {
+							if (participant.phone === RegisteredParticipant.phone) {
+								checkParticipant(participant);
+								isParticipantChecked = true;
+							}
+						});
+						if (!isParticipantChecked) {
+							checkParticipant(RegisteredParticipant);
+						}
+					};
+					RegisteredTeam.participants?.flat().forEach((RegisteredParticipant) => {
+						if (isError) return;
+						checkParticipantOnRegisteredEvents(RegisteredParticipant);
+					});
+					Teams.push({ teamName: RegisteredTeam.teamName, participants: Participants });
+				});
+				UpdatedData.events[`${eventName}`].teams = Teams;
+			} else {
+				const Participants: Participant[] = [];
+				const checkParticipant = (participant: Participant) => {
+					const permission = ParticipantPermission(
+						currentGroup,
+						participant?.selectableGroups,
+						participant?.selectedGroups,
+					);
+					if (!permission.canParticipate) {
+						isError = true;
+						success = false;
+						message = `${participant.name} ${permission.reason}`;
+						return;
+					}
+					console.log(Util.inspect(participant, false, null, true));
+					participant["selectableGroups"] = permission.selectableGroups;
+					participant["selectedGroups"] = permission.selectedGroups;
+					console.log(Util.inspect(participant, false, null, true));
+					Participants.push(participant);
+				};
+				const checkParticipantOnRegisteredEvents = (RegisteredParticipant: Participant) => {
+					let isParticipantChecked = false;
+					event.teams?.forEach((team) => {
+						if (isError) return;
+						team.participants?.forEach((participant) => {
+							if (participant.phone === RegisteredParticipant.phone) {
+								checkParticipant(participant);
+								isParticipantChecked = true;
+							}
+						});
+					});
+					event.participants?.forEach((participant) => {
+						if (participant.phone === RegisteredParticipant.phone) {
+							checkParticipant(participant);
+							isParticipantChecked = true;
+						}
+					});
+					if (!isParticipantChecked) {
+						checkParticipant(RegisteredParticipant);
+					}
+				};
+				CurrentRegistrationParticipants?.flat()?.forEach((RegisteredParticipant) => {
+					if (isError) return;
+					checkParticipantOnRegisteredEvents(RegisteredParticipant);
+				});
+				UpdatedData.events[`${eventName}`].participants = Participants;
+			}
+		});
+	});
 
-  if (!req.body) {
-    return res.status(200).json({
-      success: false,
-      message: "No body",
-    });
-  }
-
-  // Database code here
-
-  const registrationsCollection = collection(firestore, "registration-s4");
-  const allRegistrationsSnapshot = await getDocs(registrationsCollection);
-  const registrationsSnapshot = await getDocs(query(registrationsCollection, where("schoolId", "==", schoolId)));
-  const schoolRegistrations: any = [];
-  const allRegistrations: any = [];
-
-  registrationsSnapshot.forEach((doc: any) => {
-    schoolRegistrations.push(doc);
-  });
-  allRegistrationsSnapshot.forEach((doc: any) => {
-    allRegistrations.push(doc);
-  });
-
-  const phones: any = [];
-  if (allRegistrations.length > 0) {
-    allRegistrations.forEach((registrations: any) => {
-      if (registrations.get("team")) {
-        registrations.get("team").participants.forEach((participant: any) => {
-          phones.push(participant.phone);
-        });
-      }
-
-      if (registrations.get("participants")) {
-        registrations.get("participants").forEach((participant: any) => {
-          phones.push(participant.phone);
-        });
-      }
-    });
-
-    if (team) {
-      team.participants.forEach((participant: any, index: number) => {
-        if (phones.includes(participant.phone)) {
-          return res.status(200).json({
-            success: false,
-            message: `Phone number already in use (Participant: ${index + 1})`,
-          });
-        }
-      });
-    }
-
-    if (participants) {
-      participants.forEach((participant: any, index: number) => {
-        if (participant.phone === "") delete participants[index];
-        if (phones.includes(participant.phone)) {
-          return res.status(200).json({
-            success: false,
-            message: `Phone number already in use (Participant: ${index + 1})`,
-          });
-        }
-      });
-    }
-  }
-
-  if (schoolRegistrations.length > 0) {
-    const tmpEvents: any = [];
-    const tmpGames: any = [];
-    const teamName: any = [];
-
-    schoolRegistrations.forEach((registration: any) => {
-      if (registration.get("event") === "arena-of-valor") {
-        tmpEvents.push(`${registration.get("event")}:${registration.get("platform")}`);
-        tmpEvents.push(registration.get("game"));
-      } else tmpEvents.push(registration.get("event"));
-    });
-
-    if (event === "arena-of-valor") {
-      if (tmpGames.filter((Game: any) => Game === game).length >= 3) {
-        return res.status(200).json({ success: false, message: `Reached the maximum registrations for this game (${game}) from your school` });
-      }
-      if (tmpEvents.filter((Event: any) => `${event}:${platform}` === Event).length >= 3) {
-        return res.status(200).json({
-          success: false,
-          message: `Reached maximum registrations for this platform (${platform}) from your school`,
-        });
-      }
-    } else if (tmpEvents.filter((Event: any) => event === Event).length >= 3) {
-      return res.status(200).json({
-        success: false,
-        message: `Reached maximum registrations for this event from your school`,
-      });
-    }
-
-    if (team) {
-      let teamNames: Array<any> = [];
-      if (!teamNames.includes(team.teamName) || !teamName.includes(team.teamName)) {
-        teamNames.push(team.teamName);
-        teamName.push(team.teamName);
-      } else {
-        return res.status(200).json({
-          success: false,
-          message: `Team name already registered`,
-        });
-      }
-      team.participants.forEach((participant: any, index: any) => {
-        let formPhones: Array<any> = [];
-        let formNames: Array<any> = [];
-
-        team.participants.forEach((participant: any, innerIndex: any) => {
-          if (index !== innerIndex) {
-            if (participant.phone !== "") {
-              formPhones.push(participant.phone);
-            }
-            if (participant.name !== "") {
-              formNames.push(participant.name);
-            }
-          }
-        });
-
-        if (phones.includes(participant.phone)) {
-          success = false;
-          message = `Phone number already in use (Participant ${index + 1} : ${participant.phone})`;
-        } else if (formPhones.includes(participant.phone)) {
-          success = false;
-          message = `Phone numbers cannot be same as other members (Participant ${index + 1} : ${participant.phone})`;
-        }
-      });
-    } else {
-      participants.forEach((participant: any, index: any) => {
-        let formPhones: any = [];
-        let formNames: any = [];
-
-        participants.forEach((participant: any, innerIndex: any) => {
-          if (index !== innerIndex) {
-            formPhones.push(participant.phone);
-            formNames.push(participant.name);
-          }
-        });
-
-        if (phones.includes(participant.phone)) {
-          success = false;
-          message = `Phone number already in use (Participant ${index + 1} : ${participant.phone})`;
-        } else if (formPhones.includes(participant.phone)) {
-          success = false;
-          message = `Phone numbers cannot be same as participants (Participant ${index + 1} : ${participant.phone})`;
-        }
-      });
-    }
-  }
-
-  const data: any = {
-    event,
-    schoolId,
-  };
-
-  if (team) {
-    data["team"] = team;
-  }
-
-  if (participants) {
-    data["participants"] = participants;
-  }
-
-  if (platform) {
-    data["platform"] = platform;
-    data["game"] = game;
-  }
-
-  delete data.userToken;
-
-  if (success) {
-    addDoc(registrationsCollection, {
-      ...data,
-    });
-  }
-
-  res.status(200).json({
-    success,
-    message,
-  });
+	if (success) {
+		const DocumentRef = doc(firestore, `registrations-s4`, `${UpdatedData.schoolId}`);
+		console.log(Util.inspect(UpdatedData, false, null, true));
+		try {
+			await updateDoc(DocumentRef, {
+				schoolId: UpdatedData.schoolId,
+				schoolName: UpdatedData.schoolName,
+				events: UpdatedData?.events,
+			});
+		} catch (error) {
+			await setDoc(DocumentRef, {
+				schoolId: UpdatedData.schoolId,
+				schoolName: UpdatedData.schoolName,
+				events: UpdatedData?.events,
+			});
+		}
+	}
+	return res.status(200).json({
+		success,
+		message,
+	});
 }
