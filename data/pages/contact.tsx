@@ -53,7 +53,7 @@ const ContactUs = {
             },
             {
                 name: "Shabesa K. A.",
-                roles: ["Front-End Developer", "Audio Director"],
+                roles: ["Front-End Developer", " Audio Director"],
                 src: shabesa
             },
             {
