@@ -121,7 +121,7 @@ const EventsList = [
 		link: CodeKlash.link,
 		image: CodeKlash.details.image,
 		accent: CodeKlash.details.accent,
-		selector: styles.pb,
+		selector: styles.ck,
 		isTeam: true,
 		maxMembers: {
 			default: 3,

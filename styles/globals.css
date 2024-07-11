@@ -7,6 +7,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap');
 @font-face {
+  font-family: 'Absolut';
+  src: url('/fonts/absolut-headline.ttf');
+}
+
+@font-face {
   font-family: 'SoundWave';
   src: url('/fonts/SoundWave-GOK7a.ttf');
 }

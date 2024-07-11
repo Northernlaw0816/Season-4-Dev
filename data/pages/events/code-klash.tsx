@@ -3,13 +3,13 @@ import { EventCoordinators } from "../../EventCoordinators";
 
 import Main from "../../Main";
 
-import ck from "../../../public/images/events/pandora_blocks.png";
+import ck from "../../../public/images/events/ck_logo.png";
 
 const CodeKlash = {
 	id: "code-klash",
 	title: "Code Klash",
 
-	tagline: "Build Beyond Imagination",
+	tagline: "",
 
 	link: "/events/code-klash",
 
@@ -22,7 +22,7 @@ const CodeKlash = {
 		venue: "Computer Lab (Secondary Block)",
 		grades: "9-12",
 		image: ck,
-		accent: "#25415e",
+		accent: "#141615",
 	},
 
 	headings: {

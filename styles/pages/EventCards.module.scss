@@ -108,8 +108,7 @@
                 & > * {
                     position: absolute;
                     bottom: 10%;
-                    right: +20%;
-
+                    right: 20%;
                 }
             }
 
@@ -150,8 +149,14 @@
                 
             }
 
-            .pb {
-                background: no-repeat center 100%/100% url('/images/events/pb_background.png');
+            .ck {
+                background: no-repeat center 100%/100% url('/images/events/ck_background.png');
+                & > * {
+                    position: relative;
+                    scale: 0.75;
+                    top: -5%;
+                    filter: drop-shadow(0 1.25vh 0.5vw rgba(0, 0, 0, 0.5))
+                }
             }
 
             .ps {

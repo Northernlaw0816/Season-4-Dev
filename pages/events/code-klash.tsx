@@ -8,8 +8,9 @@ import Layout from "../../components/Layout";
 import ProfileCard from "../../components/ProfileCard";
 //stylesheet
 import styles from "../../styles/pages/Events.module.scss";
+import eventStyles from "../../styles/pages/events/ck.module.scss";
 //assets
-import logo from "../../public/images/events/pandora_blocks.png";
+import logo from "../../public/images/events/ck_logo.png";
 //data
 import EventsRegisterButton from "../../components/EventRegisterButton";
 import CodeKlashData from "../../data/pages/events/code-klash";
@@ -19,15 +20,15 @@ const CodeKlash: NextPage = () => {
 		<>
 			<HeadTemplate title="NuTopia | Code Klash" description="NuTopia Events: Code Klash" />
 
-			<Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_pb}`}>
-				<div className={styles.banner}>
-					<div className={styles.logo}>
-						<Image src={logo} alt="Pandora's Blocks" quality={100} placeholder={"blur"} layout={"responsive"} />
+			<Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.ck} ${eventStyles.main}`}>
+				<div className={`${styles.banner} ${eventStyles.banner}`}>
+					<div className={`${styles.logo} ${eventStyles.logo}`}>
+						<Image src={logo} alt="Code Klash Logo" quality={100} placeholder={"blur"} layout={"responsive"} />
 					</div>
 				</div>
 
 				<div className={styles.content}>
-					<h2 id="tagline" className={styles.tagline}>
+					<h2 id="tagline" className={`${styles.tagline} ${eventStyles.tagline}`}>
 						{CodeKlashData.tagline}
 					</h2>
 
@@ -50,17 +51,14 @@ const CodeKlash: NextPage = () => {
 						{CodeKlashData.headings.rules.map((rule, index) => {
 							if (typeof rule === "object") {
 								return (
-									<li key={index}>
-										{rule[0]}
+									<li key={index}> {rule[0]}
 										<ul>
-											{rule.map((subrule, index) => {
-												return (
+											{rule.map((subrule, index) => { return (
 													index > 0 && (
 														<li key={index}>
 															<p>{subrule}</p>
 														</li>
-													)
-												);
+													));
 											})}
 										</ul>
 									</li>
@@ -94,7 +92,7 @@ const CodeKlash: NextPage = () => {
 
 					<div className={styles.register_link_align}>
 						<EventsRegisterButton text={`Register for ${CodeKlashData.title}`} />
-					</div>
+					</div>	
 				</div>
 			</Layout>
 		</>
