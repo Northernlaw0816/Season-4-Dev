@@ -806,7 +806,7 @@
 }
 
 .ck {
-  background: var(--background);
+  background:(--background);
   --accent: #fee026;
 
   .content {
@@ -814,7 +814,7 @@
       .register_link {
         position: relative;
         color: #141615;
-        font-family: "absolut";
+        font-family: "absolute";
 
         // background: linear-gradient(hsl(0, 0%, 100%, 10%) 20%, transparent 10% 100%);
         background-color: var(--accent);
@@ -840,7 +840,7 @@
     }
 
     .profile_card {
-      background: #fee026;
+      background: linear-gradient(#fee026 45%, #00E44A);
       color: #141615;
     }
   }
@@ -850,7 +850,7 @@
   background: var(--background);
   .banner {
     position: relative;
-    background: url('/images/events/ps_background2.png');
+    background: url('/images/events/ps_background.png');
     background-size: 100% 100%;
     aspect-ratio: 16/7.2;
     display: grid;
@@ -858,7 +858,7 @@
     padding-bottom: 10rem;
 
     .logo {
-      width: clamp(100px, 30% , calc(40vw));
+      // width: clamp(100px, 100% , calc(40vw));
     }
     
     .banner_text {

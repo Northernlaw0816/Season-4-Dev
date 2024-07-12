@@ -5,7 +5,7 @@ import styles from '../../../styles/pages/Events.module.scss'
 import Main from '../../Main';
 import { EventCoordinators } from '../../EventCoordinators';
 //assets
-import PS from '../../../public/images/events/ps_background2.png'
+import PS from '../../../public/images/events/ps_logo.png'
 
 const Pitstop = {
     id: "pitstop",
