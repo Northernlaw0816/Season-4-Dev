@@ -17,7 +17,7 @@ const TruthOrDebug = {
     details: {
         shortDescription: "It's time to ignite your curiosity and showcase your mastery of science, technology, engineering, and math! Truth or Debug is a thrilling competition that will put your problem-solving skills to the test. Join us on a journey through the realms of innovation, discovery, and critical thinking. Will you emerge as the ultimate STEM champion?.",
         dateAndTime: [
-            `${Main.dates.day1}, 10:00 p.m. - 3:00 p.m.`,
+            `${Main.dates.day1}, 10:00 a.m. - 3:00 p.m.`,
         ],
         venue: 'AV Lab',
         grades: '9 - 12',
