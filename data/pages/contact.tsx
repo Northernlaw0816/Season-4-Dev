@@ -58,7 +58,7 @@ const ContactUs = {
             },
             {
                 name: "Rajaneesh R.",
-                roles: ["Back-End Developer"],
+                roles: ["Full-Stack Developer"],
                 src: rajaneesh
             },
             {
