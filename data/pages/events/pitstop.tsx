@@ -11,7 +11,7 @@ const Pitstop = {
     id: "pitstop",
     title: "Pitstop",
 
-    tagline: (<><span className={styles.yellow}>It's Lightsout! </span><span className={styles.red}>And Away We GO!</span></>),
+    tagline: (<><span className={styles.yellow}>It's Lights out! </span><span className={styles.red}>And Away We GO!</span></>),
     
     link: '/events/pitstop',
 
