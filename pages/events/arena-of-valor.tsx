@@ -56,7 +56,7 @@ const ArenaOfValor: NextPage = () => {
                     <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
                         if (typeof rule === "object") {
                             return <li key={index}>
-                                {rule[0]}
+                                <p>{rule[0]}</p>
                                 <ul>
                                     {rule.map((subrule, index) => {
                                         return index > 0 && <li key={index}><p>{subrule}</p></li>
@@ -87,13 +87,12 @@ const ArenaOfValor: NextPage = () => {
                                         {game.guidelines.map((rule, index) => {
                                             if (typeof rule==="object"){
                                                 return <li key={index}>
-                                                    <p>{rule[0]}
-                                                        <ul>
-                                                            {rule.map((subrule, index)=> {
-                                                                return index >0 && <li key={index}><p>{subrule}</p></li>
-                                                            })}
-                                                        </ul>
-                                                    </p>
+                                                    <p>{rule[0]}</p>
+                                                    <ul>
+                                                        {rule.map((subrule, index)=> {
+                                                            return index >0 && <li key={index}><p>{subrule}</p></li>
+                                                        })}
+                                                    </ul>
                                                 </li>
                                             }
                                             return <li key={index}><p>{rule}</p></li>

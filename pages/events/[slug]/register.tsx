@@ -81,20 +81,18 @@ export default function Register() {
 								if (typeof rule === "object") {
 									return (
 										<li key={index}>
-											<p>
-												{rule[0]}
-												<ul>
-													{rule.map((subrule: any, index: number) => {
-														return (
-															index > 0 && (
-																<li key={index}>
-																	<p>{subrule}</p>
-																</li>
-															)
-														);
-													})}
-												</ul>
-											</p>
+											<p>{rule[0]}</p>
+											<ul>
+												{rule.map((subrule: any, index: number) => {
+													return (
+														index > 0 && (
+															<li key={index}>
+																<p>{subrule}</p>
+															</li>
+														)
+													);
+												})}
+											</ul>
 										</li>
 									);
 								}
@@ -121,20 +119,18 @@ export default function Register() {
 											if (typeof rule === "object") {
 												return (
 													<li key={index}>
-														<p>
-															{rule[0]}
-															<ul>
-																{rule.map((subrule: any, index: number) => {
-																	return (
-																		index > 0 && (
-																			<li key={index}>
-																				<p>{subrule}</p>
-																			</li>
-																		)
-																	);
-																})}
-															</ul>
-														</p>
+														<p>{rule[0]}</p>
+														<ul>
+															{rule.map((subrule: any, index: number) => {
+																return (
+																	index > 0 && (
+																		<li key={index}>
+																			<p>{subrule}</p>
+																		</li>
+																	)
+																);
+															})}
+														</ul>
 													</li>
 												);
 											}
@@ -183,7 +179,7 @@ export default function Register() {
 									if (typeof rule === "object") {
 										return (
 											<li key={index}>
-												{rule[0]}
+												<p>{rule[0]}</p>
 												<ul>
 													{rule.map((subrule, index) => {
 														return (

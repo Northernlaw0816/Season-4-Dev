@@ -51,14 +51,15 @@ const CodeKlash: NextPage = () => {
 						{CodeKlashData.headings.rules.map((rule, index) => {
 							if (typeof rule === "object") {
 								return (
-									<li key={index}> {rule[0]}
+									<li key={index}>
+										<p>{rule[0]}</p>
 										<ul>
 											{rule.map((subrule, index) => { return (
-													index > 0 && (
-														<li key={index}>
-															<p>{subrule}</p>
-														</li>
-													));
+												index > 0 && (
+													<li key={index}>
+														<p>{subrule}</p>
+													</li>
+												));
 											})}
 										</ul>
 									</li>

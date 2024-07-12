@@ -42,7 +42,7 @@ const LogAndBlog: NextPage= () => {
                     <ul className={styles.h2_p}>{LogAndBlogData.headings.rules.map((rule, index) => {
                         if (typeof rule === "object") {
                             return <li key={index}>
-                                {rule[0]}
+                                <p>{rule[0]}</p>
                                 <ul>
                                     {rule.map((subrule, index) => {
                                         return index > 0 && <li key={index}><p>{subrule}</p></li>
