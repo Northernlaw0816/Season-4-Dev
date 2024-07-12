@@ -1,11 +1,4 @@
-import {
-	collection,
-	DocumentSnapshot,
-	getDocs,
-	updateDoc,
-	setDoc,
-	doc,
-} from "firebase/firestore";
+import { collection, DocumentSnapshot, getDocs, updateDoc, setDoc, doc } from "firebase/firestore";
 import Nunjucks from "nunjucks";
 import Util from "util";
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -68,9 +61,10 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 	let message = "";
 	message = `Successfully registered for ${titleCase(
 		eventName.replace(/-/g, " "),
-	)}\nEmail has been sent regarding registration details.`;
+	)}<br/>Email has been sent regarding registration details.`;
 
 	if (!req.body) {
+		success = false;
 		return res.status(200).json({
 			success: success,
 			message: "No body",
@@ -150,9 +144,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 	if (AllSchoolsRegistration.length === 0) {
 		if (isTeam) {
 			const Teams: Team[] = [];
-			console.log(Util.inspect(CurrentRegistrationTeams, false, null, true));
 			CurrentRegistrationTeams.forEach((RegisteredTeam) => {
-				console.log(1, RegisteredTeam.participants?.filter((v) => v)?.flat());
 				const Participants: Participant[] = [];
 				const checkParticipant = (participant: Participant) => {
 					const permission = ParticipantPermission(
@@ -167,7 +159,6 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 
 						return;
 					}
-					console.log(participant, permission);
 					if (!participant?.selectableGroups) participant["selectableGroups"] = [];
 					if (!participant?.selectedGroups) participant["selectedGroups"] = [];
 					participant["selectableGroups"] = permission.selectableGroups;
@@ -197,7 +188,6 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					message = `${participant.name} ${permission.reason}`;
 					return;
 				}
-				console.log(Util.inspect(participant, false, null, true));
 				if (!participant?.selectableGroups) participant["selectableGroups"] = [];
 				if (!participant?.selectedGroups) participant["selectedGroups"] = [];
 				participant["selectableGroups"] = permission.selectableGroups;
@@ -231,7 +221,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 						success = false;
 						message = `Team Name already exists! (Check Team ${
 							RegisteredTeamIndex + 1
-						})\nPlease use a different Team Name`;
+						})<br/>Please use a different Team Name`;
 						return;
 					}
 					const Participants: Participant[] = [];
@@ -302,10 +292,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 							message = `${participant.name} can't register for this event as they are already registered for ${event.eventName}, which is taking place at the same time.`;
 						return;
 					}
-					console.log(Util.inspect(participant, false, null, true));
 					participant["selectableGroups"] = permission.selectableGroups;
 					participant["selectedGroups"] = permission.selectedGroups;
-					console.log(Util.inspect(participant, false, null, true));
 					Participants.push(participant);
 				};
 				const checkParticipantOnRegisteredEvents = (RegisteredParticipant: Participant) => {
@@ -340,7 +328,6 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 
 	if (success) {
 		const DocumentRef = doc(firestore, `registrations-s4`, `${UpdatedData.schoolEmail}`);
-		console.log(Util.inspect(UpdatedData, false, null, true));
 		try {
 			await updateDoc(DocumentRef, {
 				schoolId: UpdatedData.schoolId,
@@ -361,10 +348,13 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 				from: '"NuTopia" <info@nutopia.in>',
 				to: UpdatedData.schoolEmail,
 				cc: [`${process.env.MAILER_EMAIL}`],
-				subject: `NuTopia - ${Object.values(UpdatedData.events).map((event) => (titleCase(event.eventName))).join(", ")} Registration successful`,
+				subject: `NuTopia - ${Object.values(UpdatedData.events)
+					.map((event) => titleCase(event.eventName))
+					.join(", ")} Registration successful`,
 				html: Nunjucks.renderString(htmlBody, {
-					UpdatedData,
+					...UpdatedData,
 					...{
+						schoolName: UpdatedData.schoolName,
 						events: Object.values(UpdatedData.events).map((event) => {
 							return { ...event, eventName: titleCase(event.eventName) };
 						}),
