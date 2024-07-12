@@ -1,37 +1,51 @@
-import Link from "next/link"
-import { toSlug } from "../functions"
+import Link from "next/link";
+import { toSlug } from "../functions";
 
 //components
-import HeadTemplate from "../components/HeadTemplate"
-import Layout from "../components/Layout"
-import RegistrationForm from "../components/RegistrationForm"
+import HeadTemplate from "../components/HeadTemplate";
+import Layout from "../components/Layout";
+import RegistrationForm from "../components/RegistrationForm";
 //stylesheets
-import styles from "../styles/pages/Registration.module.scss"
+import styles from "../styles/pages/Registration.module.scss";
 //data
-import { RegistrationData } from "../data/pages"
-import Main from "../data/Main"
-import Button from "../components/Button"
+import { RegistrationData } from "../data/pages";
+import Main from "../data/Main";
+import Button from "../components/Button";
 
 const Registration = () => {
-    return (<>
-        <HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia"/>
+	return (
+		<>
+			<HeadTemplate title="NuTopia | Registration" description="Register for the events featured in NuTopia" />
 
-        <Layout overrideClasses={styles.main}>
-            <h1 id="title">{RegistrationData.title}</h1>
+			<Layout overrideClasses={styles.main}>
+				<h1 id="title">{RegistrationData.title}</h1>
 
-            <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 4 is open for schools in Coimbatore.</p>
-            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines under each event before proceeding to fill the registration form.</p>
+				<p id="note" style={{ fontSize: "1.5em" }}>
+					NuTopia - Season 4 is open for schools in Coimbatore.
+				</p>
+				<p id="note" style={{ fontSize: "1.5em" }}>
+					Please read the given guidelines under each event before proceeding to fill the registration form.
+				</p>
 
-            <h2 id="guidelines">Guidelines</h2>
-            <ul>
-                {RegistrationData.commonRules.map((rule: string, index: number) => <li key={index}><p>{rule}</p></li>)}
-            </ul>
+				<h2 id="guidelines">Guidelines</h2>
+				<ul>
+					{RegistrationData.commonRules.map((rule: any, index: number) => {
+						if (typeof rule === "string")
+							return (
+								<li key={index}>
+									<p>{rule}</p>
+								</li>
+							);
+						return rule;
+					})}
+				</ul>
 
-            <h2 id="registration">Registration</h2>
-            <p>To register for an event:</p>
-            <Button href="/events" text="Browse Events"/>
-        </Layout>
-    </>)
-}
+				<h2 id="registration">Registration</h2>
+				<p>To register for an event:</p>
+				<Button href="/events" text="Browse Events" />
+			</Layout>
+		</>
+	);
+};
 
-export default Registration
+export default Registration;

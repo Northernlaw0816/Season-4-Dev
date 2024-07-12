@@ -544,14 +544,14 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 				</div>
 				<hr />
 				<div className={styles.addteam}>
-					<input name="addteam" type={"button"} onClick={addNewTeam} value="Add Team" />
+					<input name="addteam" type={"button"} onClick={addNewTeam} value="Add New Team" />
 				</div>
 				<div className={styles.removeteam}>
 					<input
 						name="removeteam"
 						type={"button"}
 						onClick={removeTeam}
-						value="Remove Team"
+						value="Remove Previous Team"
 						disabled={Participants.length === 1 ? true : false}
 					/>
 				</div>

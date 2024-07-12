@@ -10,12 +10,12 @@ import {
 	setDoc,
 	doc,
 } from "firebase/firestore";
-import Nunjucks from "nunjucks"
+import Nunjucks from "nunjucks";
 import Util from "util";
 import type { NextApiRequest, NextApiResponse } from "next";
 import schools from "../../data/SchoolsList";
-import axios from "axios"
-import * as Nodemailer from "nodemailer"
+import axios from "axios";
+import * as Nodemailer from "nodemailer";
 import { firestore } from "../../firebase/clientApp";
 import { titleCase } from "../../functions";
 interface Participant {
@@ -51,21 +51,22 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 	const MailTransport = Nodemailer.createTransport({
 		host: "smtpout.secureserver.net",
 		secure: true,
-		secureConnection: false, // TLS requires secureConnection to be false	
+		secureConnection: false, // TLS requires secureConnection to be false
 		tls: {
-			ciphers: 'SSLv3'
+			ciphers: "SSLv3",
 		},
 		requireTLS: true,
 		port: 465,
 		debug: false,
 		auth: {
 			user: process.env.MAILER_EMAIL,
-			pass: process.env.MAILER_PASSWORD
-		}
+			pass: process.env.MAILER_PASSWORD,
+		},
 	} as Nodemailer.SendMailOptions);
 	let body = req.body;
 
-	const { schoolId, schoolName, schoolEmail, eventName, participants, teams, platform, game, isTeam, currentGroup } = body;
+	const { schoolId, schoolName, schoolEmail, eventName, participants, teams, platform, game, isTeam, currentGroup } =
+		body;
 	const CurrentRegistrationTeams: Team[] = teams;
 	const CurrentRegistrationParticipants: Participant[] = participants;
 	let success = true;
@@ -152,7 +153,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 	if (AllSchoolsRegistration.length === 0) {
 		if (isTeam) {
 			const Teams: Team[] = [];
+			console.log(Util.inspect(CurrentRegistrationTeams, false, null, true));
 			CurrentRegistrationTeams.forEach((RegisteredTeam) => {
+				console.log(1, RegisteredTeam.participants?.filter((v) => v)?.flat());
 				const Participants: Participant[] = [];
 				const checkParticipant = (participant: Participant) => {
 					const permission = ParticipantPermission(
@@ -166,16 +169,19 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 						message = `${participant.name} ${permission.reason}`;
 						return;
 					}
-					console.log(permission)
-					if(!participant?.selectableGroups) participant["selectableGroups"] = []
-					if(!participant?.selectedGroups) participant["selectedGroups"] = []
+					console.log(participant, permission);
+					if (!participant?.selectableGroups) participant["selectableGroups"] = [];
+					if (!participant?.selectedGroups) participant["selectedGroups"] = [];
 					participant["selectableGroups"] = permission.selectableGroups;
 					participant["selectedGroups"] = permission.selectedGroups;
 					Participants.push(participant);
 				};
-				RegisteredTeam.participants?.flat()?.forEach((RegisteredParticipant) => {
-					checkParticipant(RegisteredParticipant);
-				});
+				RegisteredTeam.participants
+					?.filter((v) => v)
+					?.flat()
+					?.forEach((RegisteredParticipant) => {
+						checkParticipant(RegisteredParticipant);
+					});
 				Teams.push({ teamName: RegisteredTeam.teamName, participants: Participants });
 			});
 			UpdatedData.events[`${eventName}`].teams = Teams;
@@ -194,8 +200,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					return;
 				}
 				console.log(Util.inspect(participant, false, null, true));
-				if(!participant?.selectableGroups) participant["selectableGroups"] = []
-				if(!participant?.selectedGroups) participant["selectedGroups"] = []
+				if (!participant?.selectableGroups) participant["selectableGroups"] = [];
+				if (!participant?.selectedGroups) participant["selectedGroups"] = [];
 				participant["selectableGroups"] = permission.selectableGroups;
 				participant["selectedGroups"] = permission.selectedGroups;
 				Participants.push(participant);
@@ -225,8 +231,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					if (TeamNames?.includes(RegisteredTeam.teamName)) {
 						isError = true;
 						success = false;
-						message = `Team Name already exists! (Check Team ${RegisteredTeamIndex + 1
-							})\nPlease use a different Team Name`;
+						message = `Team Name already exists! (Check Team ${
+							RegisteredTeamIndex + 1
+						})\nPlease use a different Team Name`;
 						return;
 					}
 					const Participants: Participant[] = [];
@@ -268,10 +275,13 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 							checkParticipant(RegisteredParticipant);
 						}
 					};
-					RegisteredTeam.participants?.flat().forEach((RegisteredParticipant) => {
-						if (isError) return;
-						checkParticipantOnRegisteredEvents(RegisteredParticipant);
-					});
+					RegisteredTeam.participants
+						?.filter((v) => v)
+						?.flat()
+						.forEach((RegisteredParticipant) => {
+							if (isError) return;
+							checkParticipantOnRegisteredEvents(RegisteredParticipant);
+						});
 					Teams.push({ teamName: RegisteredTeam.teamName, participants: Participants });
 				});
 				UpdatedData.events[`${eventName}`].teams = Teams;
@@ -342,8 +352,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 				schoolEmail: UpdatedData.schoolEmail,
 				events: UpdatedData?.events,
 			});
-		}
-		finally {
+		} finally {
 			const htmlBody = `<head>
 	<style>
 
@@ -394,11 +403,11 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 			padding: 1ch;
 			text-align: center;
 		}
-		
+
 		th {
 			background: #00cc22;
 		}
-		
+
 		td {
 			background: hsl(0, 0%, 0%, 50%);
 			padding: 0.5em;
@@ -491,7 +500,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 							<td>{{ team.teamName }}</td>
 							<td class="rows participants-list">
 								{% for participant in team.participants %}
-									<p>{{ participant.name }} - {{participant.grade}}</p>
+									<p>{{ participant.name }} - {{participant.grade}} - {{participant.phone}}</p>
 								{% endfor %}
 							</td>
 						</tr>
@@ -502,19 +511,21 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					<tr>
 						<th>Name</th>
 						<th>Grade</th>
+						<th>Phone</th>
 					</tr>
 					{% set cls = cycler("row_normal", "row_highlight") %}
 					{% for participant in event.participants %}
 						<tr class="{{ cls.next() }}">
 							<td>{{ participant.name }}</td>
 							<td>{{ participant.grade }}</td>
+							<td>{{ participant.phone }}</td>
 						</tr>
 					{% endfor %}
 				</table>
 				{% endif %}
-			
+
 			{% endfor %}
-			
+
 			<p>For any change in the registration kindly write to <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a></p>
 			<p>Looking for forward to your presence!</p>
 		</div>
@@ -558,13 +569,20 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 		</p>
 		<p class="copyright">&copy; <a href="https://yuvabharathi.in" style="color: #00cc22">Yuvabharathi Public School</a> 2022. All Rights Reserved.</p>
 	</div>
-</body>`
+</body>`;
 			MailTransport.sendMail({
 				from: '"NuTopia" <info@nutopia.in>',
 				to: UpdatedData.schoolEmail,
 				cc: [`${process.env.MAILER_EMAIL}`],
 				subject: `Nutopia STEM Carnival Registrations Successful`,
-				html: Nunjucks.renderString(htmlBody, {UpdatedData, ...{events:Object.values(UpdatedData.events)}}),
+				html: Nunjucks.renderString(htmlBody, {
+					UpdatedData,
+					...{
+						events: Object.values(UpdatedData.events).map((event) => {
+							return { ...event, eventName: titleCase(eventName) };
+						}),
+					},
+				}),
 			})
 				.then(() => (success = true))
 				.catch((e) => {
