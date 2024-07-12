@@ -1,11 +1,14 @@
+import { ReactNode } from "react";
 import { useRouter } from "next/router";
-import { ReactNode, useEffect, useState } from "react";
+import { toSlug } from "../../../functions";
+//components
 import HeadTemplate from "../../../components/HeadTemplate";
 import Layout from "../../../components/Layout";
 import RegistrationForm from "../../../components/RegistrationForm";
+//stylesheets
 import styles from "../../../styles/pages/Registration.module.scss";
+//data
 import EventsList from "../../../data/EventsList";
-import { toSlug } from "../../../functions";
 import {
 	ArenaOfValor,
 	CodeKlash,
@@ -60,11 +63,15 @@ export default function Register() {
 				</p>
 				<h2 id="guidelines">Guidelines</h2>
 				<ul>
-					{RegistrationData.commonRules.map((rule: string, index: number) => (
-						<li key={index}>
-							<p>{rule}</p>
-						</li>
-					))}
+					{RegistrationData.commonRules.map((rule: string | ReactNode, index: number) => {
+						if (typeof rule === "string")
+							return (
+								<li key={index}>
+									<p>{rule}</p>
+								</li>
+							);
+						return <div className={styles.info_image} key={index}>{rule}</div>;
+					})}
 				</ul>
 				{eventId === ArenaOfValor.id && (
 					<>
