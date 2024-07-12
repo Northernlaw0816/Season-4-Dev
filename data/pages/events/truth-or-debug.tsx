@@ -11,17 +11,15 @@ const TruthOrDebug = {
     id: "truth-or-debug",
     title: "Truth or Debug",
 
-    tagline: (<><span className={styles.grey}>{`print(`}</span>{`"`}I have not failed, I have found 10,000 ways how not to solve a problem{`"`}<span className={styles.grey}>{`);`}</span></>),
-    
+    tagline: "Unleash Your Inner Genius!",
     link: '/events/truth-or-debug',
 
     details: {
-        shortDescription: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
+        shortDescription: "It's time to ignite your curiosity and showcase your mastery of science, technology, engineering, and math! Truth or Debug is a thrilling competition that will put your problem-solving skills to the test. Join us on a journey through the realms of innovation, discovery, and critical thinking. Will you emerge as the ultimate STEM champion?.",
         dateAndTime: [
-            `${Main.dates.day1}, 10:15 p.m. - 3:00 p.m.`,
-            `${Main.dates.day2}, 9:30 a.m. - 2:00 p.m.`
+            `${Main.dates.day1}, 10:00 p.m. - 3:00 p.m.`,
         ],
-        venue: 'ATAL Lab',
+        venue: 'AV Lab',
         grades: '9 - 12',
         image: TD,
         accent: "black",
@@ -32,26 +30,24 @@ const TruthOrDebug = {
             
         ],
 
-        about: "Do you think you can participate in the battle royale of coding and circuit making? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Truth or Debug.",
+        about: "It's time to ignite your curiosity and showcase your mastery of science, technology, engineering, and math! Truth or Debug is a thrilling competition that will put your problem-solving skills to the test. Join us on a journey through the realms of innovation, discovery, and critical thinking. Will you emerge as the ultimate STEM champion?.",
         
         rules: [
-            "Participants are allowed to only use Python, Java or JavaScript",
-            "Participants must know the basics of EV3s",
-            "Participants will work using the EV3 classroom app and must have it installed in their devices ",
-            "Participants must bring their own devices and accessories",
-            "Receiving external help is strictly prohibited.",
-            "In case of malpractices, all concerned groups will be held accountable",
-            "No more than 3 participants are allowed in a team.",
-            "Components required for the circuit rounds will be provided."
+            "The quiz is entirely themed around STEM (Science, Tech, Engineering, Math).",
+            "The participants are to enroll themselves in pairs, with appropriate team names.",
+            "Use of the internet and electronic gadgets is strictly prohibited.",
+            "No cross-talk will be entertained.",
+            "Participants carry only the necessary stationary;  papers will be provided.",
+            "The Quiz master's decisions shall be final.",
         ],
         
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Truth or Debug"),
-        prerequisites:[
+        /*prerequisites:[
             "Intermediate knowledge of at least one of the prescribed programming languages is required.",
             "Basic knowledge of circuit making."
-        ],
+        ],*/    
         registration: [
-            "Participants register in Duo Teams"
+            "Participants register in teams of two."
         ]
     }
 }

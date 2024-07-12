@@ -337,8 +337,9 @@
 .main_td {
   background: var(--background);
   --green: 130, 100%, 60%;
+  --blue: 219.92, 96%, 50%;
   --accent: hsl(var(--green));
-  --button-bg: hsl(130, 100%, 50%);
+  --button-bg: rgb(10, 134, 35);
   .banner {
     position: relative;
     background: hsl(0, 0%, 7.5%);
@@ -346,12 +347,12 @@
     --blur-radius: clamp(1px, 0.5vw, 2px);
 
     .logo {
-      filter: blur(calc(var(--blur-radius) / 1.5));
+      filter: blur(calc(var(--blur-radius) / 2));
     }
 
     .banner_text {
       filter: blur(calc(var(--blur-radius) / 1.5));
-      font-family: "Inconsolata", monospace;
+      font-family: "Inconsolata", monospace;  
       font-weight: 800;
       display: block;
 
@@ -405,7 +406,7 @@
       pointer-events: none;
       touch-action: none;
       filter: blur(var(--blur-radius));
-      background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png"),
+      background: none,
         linear-gradient(
           to top,
           hsl(0, 0%, 0%, 20%) 0 25%,
@@ -454,10 +455,11 @@
 
   .content {
     .tagline {
-      color: var(--text-alt);
+      color: hsl(144, 63%, 46%);
       font-family: "Inconsolata", monospace;
-      font-weight: 800;
-      font-size: clamp(16px, 3vw, 1.5rem);
+      font-weight: normal;
+      font-size: clamp(32px, 5vw, 3.0rem);
+      padding: 2rem;
       margin: auto;
       width: fit-content;
       .grey {
@@ -803,189 +805,44 @@
   }
 }
 
-.main_bd {
-  background: var(--background);
-  --accent: #d400ff;
-  --button-bg: black;
-
-  .banner {
-    position: relative;
-    background: center center/100% no-repeat url('/images/events/bd_background.png');
-    
-    .banner_text {
-      font-family: "SoundWave";
-      color: hsl(58, 100%, 58%);
-      h1 { font-size: clamp(1.5rem, 7vw, 6rem); }
-      word-wrap: break-word;
-      
-      @media screen and (min-width: 600px) {
-        position: absolute;
-        top: 20%;
-      }
-    }
-  }
+.ck {
+  background:(--background);
+  --accent: #fee026;
 
   .content {
-    .tagline {
-      font-family: "SoundWave";
-      font-weight: normal;
-    }
-
-    .register_link_align {
-      .register_link {
-        background: var(--button-bg);
-        color: hsl(58, 100%, 58%);
-        font-family: "SoundWave";
-        
-        --outline-width: 0.15em;
-        
-        transition: outline 250ms ease, outline-offset 250ms ease;
-        outline: 0 solid var(--accent);
-        outline-offset: 0;
-
-        @keyframes text_bop {
-          0% {
-            transform: scale(1) rotate(0deg);
-          }
-          
-          25% {
-            transform: scale(1.1) rotate(5deg);
-          }
-
-          50% {
-            transform: scale(1) rotate(0deg);
-          }
-
-          75% {
-            transform: scale(1.1) rotate(-5deg);
-          }
-          
-          100% {
-            transform: scale(1) rotate(0deg);
-          }
-        }
-
-        p {
-          font-weight: normal;
-          font-size: clamp(0.75rem, 5vw, 2rem);
-        }
-
-        &:hover {
-          background: var(--button-bg);
-          outline: var(--outline-width) solid var(--accent);
-          outline-offset: calc(-1 * var(--outline-width));
-
-          animation: text_bop 750ms ease-in infinite;
-        }
-      
-      }
-    }
-
-    .profile_card {
-      background: black;
-      outline: 0.25em solid var(--accent);
-    }
-  }
-  
-
-  @media (prefers-color-scheme: dark) {
-    --background: black;
-  }
-}
-
-.main_pb {
-  background: var(--background);
-  --accent: #ca88d7;
-  --button-bg: black;
-
-  .banner {
-    position: relative;
-    background: center center/100% no-repeat url('/images/events/pb_background.png');
-    
-    .banner_text {
-      font-family: "SoundWave";
-      color: hsl(58, 100%, 58%);
-      h1 { font-size: clamp(1.5rem, 7vw, 6rem); }
-      word-wrap: break-word;
-      
-      @media screen and (min-width: 600px) {
-        position: absolute;
-        top: 20%;
-      }
-    }
-  }
-
-  .content {
-    .tagline {
-      font-family: "Imagine";
-      font-weight: normal;
-    }
-
     .register_link_align {
       .register_link {
         position: relative;
-        color: hsl(58, 100%, 58%);
-        font-family: "Imagine";
+        color: #141615;
+        font-family: "absolute";
 
         // background: linear-gradient(hsl(0, 0%, 100%, 10%) 20%, transparent 10% 100%);
-        background: radial-gradient(
-          15em 1.5em at center 75%,
-          hsl(0, 0%, 0%, 25%) 20%,
-          transparent 10%
-        );
+        background-color: var(--accent);
 
-        transition: background-position 250ms infinite steps(6);
-
-        @keyframes floaty_text {
-          from {
-            top: 0;
-          }
-
-          to {
-            top: -0.75em;
-          }
-        }
-
-        @keyframes text_pop {
-          0% {
-            transform: scaleX(0) scaleY(1);
-          }
-          50% {
-            transform: scaleX(1.1) scaleY(1.1);
-          }
-          100% {
-            transform: scale(1);
-          }
-        }
+        transition-property: border-radius, transform;
+        transition-duration: 150ms;
+        transition-timing-function: ease;
 
         p {
           position: relative;
           font-weight: normal;
           font-size: clamp(0.75rem, 5vw, 2rem);
-          animation: floaty_text 1s infinite alternate ease-in-out;
         
         }
 
         &:hover {
-          background: hsl(0, 0%, 0%, 20%);
-          outline: hsl(0, 0%, 60%) groove 0.5em;
-          outline-offset: -0.5em;
-        
-          p {
-            animation: text_pop 0.25s 1 forwards linear;
-          }
+          background-color: black;
+          color: #0de545;
+          border-radius: 1rem;
+          transform: skewX(-22.5deg)
         }
       }
     }
 
     .profile_card {
-      background: #577d93;
+      background: linear-gradient(#fee026 45%, #00E44A);
+      color: #141615;
     }
-  }
-  
-
-  @media (prefers-color-scheme: dark) {
-    --background: #25415e;
   }
 }
 
@@ -993,7 +850,7 @@
   background: var(--background);
   .banner {
     position: relative;
-    background: url('/images/events/ps_background2.png');
+    background: url('/images/events/ps_background.png');
     background-size: 100% 100%;
     aspect-ratio: 16/7.2;
     display: grid;
@@ -1001,7 +858,7 @@
     padding-bottom: 10rem;
 
     .logo {
-      width: clamp(100px, 30% , calc(40vw));
+      // width: clamp(100px, 100% , calc(40vw));
     }
     
     .banner_text {

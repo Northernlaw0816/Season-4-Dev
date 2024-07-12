@@ -24,7 +24,8 @@
 		font-size: clamp(1rem, 1.5vw, 1.25rem);
 	}
 
-	input:not([type="Submit"]), select {
+	input:not([type="Submit"]),
+	select {
 		box-sizing: border-box;
 		padding: 1ch;
 		border: none;
@@ -34,7 +35,8 @@
 
 		transition: border-radius 500ms ease;
 
-		&:hover, &:focus-visible {
+		&:hover,
+		&:focus-visible {
 			background: hsl(130, 90%, 40%);
 			color: var(--text-white);
 			border-radius: 0.25em;
@@ -44,17 +46,21 @@
 		}
 	}
 
-	input, select {
-		&:focus, &:focus-visible {
+	input,
+	select {
+		&:focus,
+		&:focus-visible {
 			outline: black 3px solid;
 		}
 	}
 
-	input[required], select[required] {
+	input[required],
+	select[required] {
 		border-bottom: rgb(255, 153, 0) 4px solid;
 	}
 
-	input.error, select.error {
+	input.error,
+	select.error {
 		display: grid;
 		border-bottom: red 4px solid;
 	}
@@ -75,9 +81,7 @@
 		place-items: center;
 		user-select: none;
 		align-content: center;
-		background:
-			radial-gradient(circle at center, hsl(0, 0%, 0%, 50%) 50%, transparent),
-			#003c4780;
+		background: radial-gradient(circle at center, hsl(0, 0%, 0%, 50%) 50%, transparent), #003c4780;
 		backdrop-filter: blur(5px);
 
 		h2 {
@@ -104,7 +108,7 @@
 			.throbber_section {
 				width: 1rem;
 				aspect-ratio: 1;
-				background: radial-gradient(circle at center,white 50%, transparent 50%);
+				background: radial-gradient(circle at center, white 50%, transparent 50%);
 				// background: white;
 			}
 		}
@@ -148,7 +152,10 @@
 				border-radius: 0.5em;
 			}
 		}
-
+		hr {
+			grid-column: span 2;
+			margin-top: 2rem;
+		}
 		@media (max-width: 850px) {
 			.form_input {
 				gap: 0.5rem;
@@ -167,6 +174,8 @@
 		}
 	}
 
+	.addteam,
+	.removeteam,
 	.submit {
 		grid-area: submit;
 		display: grid;
@@ -181,15 +190,17 @@
 			color: white;
 			font-weight: bold;
 
-      border-radius: 0.5em;
-      transition: border-radius 500ms ease;
+			border-radius: 0.5em;
+			transition: border-radius 500ms ease;
 
-			&:hover, &:focus-visible {
-        border-radius: 0.25em;
+			&:hover,
+			&:focus-visible {
+				border-radius: 0.25em;
 				background: hsl(130, 70%, 40%);
 			}
 
-			&:invalid, &:disabled {
+			&:invalid,
+			&:disabled {
 				filter: saturate(0);
 			}
 		}

@@ -21,12 +21,11 @@ const EventsRegisterButton = ({text, game}: {text: string, game?: string}) => {
     if (game) {
         href.query = { game }
     }
-    console.log(href)
 
 
     return(
         <div className={styles.register_link_align}>
-            {Main.registrationClosingDate.getTime() <= new Date().getTime() ? 
+            {Main.registrationClosingDate.getTime() <= new Date().getTime() ?
                 <a className={styles.register_link}>Registrations opening soon!</a>
             :
                 <Link href={href}><a className={styles.register_link} target='_blank'><p>{text}</p></a></Link>}

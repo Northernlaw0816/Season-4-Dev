@@ -18,10 +18,11 @@ const   ProfileCard = ({profileObject}: any) => {
                 <h2 id={toSlug(name)} className={styles.profile_name}>{name}</h2>
                 <div className={styles.profile_details}>
                     {roles && <div className={styles.info}>
-                        <h3 id={toSlug(`profile ${roles}`)}>{roles}</h3>
+                        <p id={toSlug(`profile ${roles}`)}>{roles}</p>
                     </div>}
                     {event && <div className={styles.info}>
-                        <h3 id={toSlug(`profile ${event}`)}>Event</h3><p>{event}</p>
+                        <h3 id={toSlug(`profile ${event}`)}>Event</h3>
+                        <p>{event}</p>
                     </div>}
                 </div>
             </div>

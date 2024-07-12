@@ -21,14 +21,13 @@ import jaine from "../public/images/photos/Jaine.png"
 // TOD
 import rishaan from "../public/images/photos/Rishaan.png"
 import ksharaa from "../public/images/photos/Ksharaa.png"
-
 // LAB
 import aadees from "../public/images/photos/Aadees.png"
 import krishita from "../public/images/photos/Krishita.png"
 import shruti from "../public/images/photos/Shruti.png"
 // DS
 import hari from "../public/images/photos/Hari.png"
-//arnav from "../public/images/photos/Arnav.png"
+import arnav from "../public/images/photos/Arnav.png"
 import mahathi from "../public/images/photos/Mahathi.png"
 // OTK
 import harsha from "../public/images/photos/Harsha.png"
@@ -43,7 +42,10 @@ import sanjith from "../public/images/photos/Sanjit.png"
 import dhureen from "../public/images/photos/Dhureen.png"
 import athul from "../public/images/photos/Athul.png"
 import mayank from "../public/images/photos/Mayank.png"
-
+// SM
+import ananyaY from "../public/images/photos/AnanyaY.png"
+import diksita from "../public/images/photos/Diksita.png"
+import driti from "../public/images/photos/Driti.png"
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
 
@@ -130,7 +132,7 @@ const EventCoordinators = [
     name: "Arnav Jain",
     event: "Designscape",
     grade: "11",
-    src: placeholder,
+    src: arnav,
   },
   {
     name: "Mahathi M",
@@ -199,7 +201,7 @@ const EventCoordinators = [
     name: "Tejasvi",
     event: "Otakuiz",
     grade: "11",
-    src: placeholder,
+    src: tejasvi,
   },
   {
     name: "Mithun R Prem",
@@ -239,19 +241,19 @@ const EventCoordinators = [
   },
   {
     name: "Maanya R Jain",
-    event: "Code Clash",
+    event: "Code Klash",
     grade: "11",
     src: maanya,
   },
   {
     name: "Prathiksha",
-    event: "Code Clash",
+    event: "Code Klash",
     grade: "11",
     src: prathiksha,
   },
   {
     name: "Sanjith",
-    event: "Code Clash",
+    event: "Code Klash",
     grade: "11",
     src: sanjith,
   },
@@ -262,19 +264,19 @@ const MediaTeam = [
     name: "Driti Shah",
     grade: "12",
 	  roles: "Media Manager",
-    src: placeholder,
+    src: driti,
   },
   {
-    name: "Dikshita",
+    name: "Diksita",
     grade: "12",
 	  roles: "Media Manager",
-    src: placeholder,
+    src: diksita,
   },
   {
     name: "Ananya Yuvaraj",
     grade: "12",
 	  roles: "Media Manager",
-    src: placeholder,
+    src: ananyaY,
   },
 ];
 
