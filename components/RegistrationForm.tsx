@@ -5,6 +5,7 @@ import anime from "animejs";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Schools from "../data/SchoolsList";
+import crypto from "crypto"
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss";
 
@@ -187,17 +188,28 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 	let [message, setMessage] = useState("");
 	let [platform, setPlatform] = useState("");
 	let [group, setGroup] = useState("");
-
+	interface Participant {
+		name: string;
+		grade: string;
+		phone: string;
+		selectedGroups: string[];
+		selectableGroups: string[];
+	}
+	interface Team {
+		teamName?: string;
+		participants?: Participant[];
+	}
+	interface Data { eventName: string; game?: string; isTeam: boolean; currentGroup: string; schoolName: string; schoolId?: string; platform: string; teams: Team[]; participants: Participant[] }
 	// Handlers
-	const onSubmit = async (data: any) => {
+	const onSubmit = async (evdata: any) => {
+		const data: Data = evdata as Data
 		const isTeamEvent = ["arena-of-valor", "truth-or-debug", "otakuiz", "code-klash", "pitstop"].includes(eventName);
 		data["eventName"] = eventName;
-		data["game"] = router.query.game ?? "";
+		data["game"] = router.query.game as string ?? "";
 		data["isTeam"] = isTeamEvent;
 		data["currentGroup"] = group;
-		data["schoolName"] = schools.find((school) => school.schoolId === data?.schoolId)?.schoolName;
 		data["platform"] = platform;
-
+		data["schoolId"] = `${data["schoolName"].toLowerCase().replaceAll(" ", "")}@nutopia.in`
 		setIsRegistering(true);
 		if (data.isTeam) {
 			const TeamNameListSize = new Set(data.teams.map((team: any) => team.teamName)).size;
@@ -227,7 +239,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 			}
 		}
 		if (isError) return;
-
+		console.log(data["teams"])
 		const response = await axios
 			.post("/api/register", {
 				...data,
@@ -474,29 +486,46 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 				<h2 className={styles.form_title}>{title}</h2>
 				<div className={styles.form_fields}>
 					<div className={styles.form_input}>
-						<label htmlFor="schoolId">School:</label>
-						<select
-							{...methods.register("schoolId", {
-								required: true,
-								validate: (val) => {
-									if (val === "default-school") {
-										return "Select your School";
-									}
-									return undefined;
-								},
-							})}>
-							<option value="default-school">Select Your School</option>
-							{schools.map((school: { schoolId: string; schoolName: string }, index: number) => {
-								return (
-									<option key={index} value={school.schoolId}>
-										{school.schoolName}
-									</option>
-								);
+						<label htmlFor="schoolName">School:</label>
+						<input
+							className={methods.getFieldState("schoolName").error && `${styles.error}`}
+							required={true}
+							placeholder="Enter School Name"
+							{...methods.register("schoolName", {
+								required: true
 							})}
-						</select>
+						/>
 						<ErrorMessage
 							errors={methods.formState.errors}
-							name={"schoolId"}
+							name={"schoolName"}
+							render={({ messages }) =>
+								messages &&
+								Object.entries(messages).map(([type, message]) => {
+									return (
+										<p className={styles.input_error} key={type}>
+											{message}
+										</p>
+									);
+								})
+							}
+						/>
+						<label htmlFor="schoolEmail">School Email:</label>
+						<input
+							className={methods.getFieldState("schoolEmail").error && `${styles.error}`}
+							required={true}
+							placeholder="Enter School Name"
+							{...methods.register("schoolEmail", {
+								required: true,
+								pattern: {
+									// Email Regex
+									value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
+									message: "Enter a valid Email ID"
+								}
+							})}
+						/>
+						<ErrorMessage
+							errors={methods.formState.errors}
+							name={"schoolEmail"}
 							render={({ messages }) =>
 								messages &&
 								Object.entries(messages).map(([type, message]) => {

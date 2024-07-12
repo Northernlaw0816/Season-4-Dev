@@ -1,0 +1,254 @@
+import Nunjucks from "nunjucks"
+const UpdatedData = {
+    schoolId: 'yuvabharathipublicschool@nutopia.in',
+    schoolName: 'Yuvabharathi Public School',
+    schoolEmail: 'rajaneeshr2006@gmail.com',
+    events: {
+        'truth-or-debug': {
+            eventName: 'truth-or-debug',
+            game: '',
+            platform: '',
+            isTeam: true,
+            teams: [
+                {
+                    teamName: 'adasdasda',
+                    participants: [
+                        {
+                            name: 'fasdfasdsd',
+                            grade: '12',
+                            phone: '0192837465',
+                            selectableGroups: ['B', 'D'],
+                            selectedGroups: ['A']
+                        },
+                        {
+                            name: 'dsadfsdag',
+                            grade: '11',
+                            phone: '7890656576',
+                            selectableGroups: ['B', 'D'],
+                            selectedGroups: ['A']
+                        }
+                    ]
+                }
+            ],
+            participants: []
+        }
+    }
+}
+const htmlBody = `<head>
+<style>
+
+    .body_container {
+        padding: 5% 10%;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: white;
+    }
+
+    .email_body {
+        border-radius: 1.5rem;
+        overflow: hidden;
+    }
+
+    .email_header {
+        background-color: #00cc22;
+        padding: 20px 20px 10px 20px;
+    }
+
+    .email_header a > img {
+        width: min(max(5rem, 50%), 20rem);
+        height: auto;
+    }
+
+    .email_content {
+        background: #003c47;
+        padding: 2ch;
+    }
+
+    p {
+        font-size: 1.15rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        margin: 1rem 0;
+    }
+
+    th, td {
+        padding: 1ch;
+        text-align: center;
+    }
+    
+    th {
+        background: #00cc22;
+    }
+    
+    td {
+        background: hsl(0, 0%, 0%, 50%);
+        padding: 0.5em;
+    }
+
+    td > p {
+        padding: 1ch;
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    .rows {
+        display: grid;
+        grid-template-rows: repeat(auto-fit, 1fr);
+    }
+
+    .row_highlight {
+        background: hsl(0, 0%, 50%, 50%);
+    }
+
+    .email_footer {
+        color: white;
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 2rem;
+        border-radius: 1.5em;
+        background: #003c47;
+        padding: 1em
+    }
+
+    .links {
+        width: 75%;
+        padding: 2em;
+        margin: 1em auto;
+        justify-content: center;
+    }
+
+    .link {
+        margin: 0;
+        padding: 0;
+        background: transparent;
+    }
+
+    .icon_link {
+        width: 40px;
+        height: 40px;
+    }
+
+    .icon_link > img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .address {
+        font-size: 0.95em;
+    }
+
+    .copyright {
+        font-size: 1rem;
+    }
+</style>
+</head>
+<body class="body_container">
+<div class="email_body">
+    <header class="email_header">
+        <a href="https://nutopia.in"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" /></a>
+    </header>
+    <div class="email_content">
+        <h2>Dear {{ schoolName }},</h2>
+
+        <p>Thank you for your registration and welcome to <strong>Nutopia Season 4</strong>!</p>
+
+        <p>This e-mail acknowledges the registration of participants from your domain.</p>
+
+        <p>Find the details below :</p>
+
+        {% for event in events %}
+            <h3>
+                {{ event.name }}
+            </h3>
+            {% if event.isTeam %}
+            <table id="{{ event.eventName }}">
+                <tr>
+                    <th>Team Name</th>
+                    <th>Participants</th>
+                </tr>
+                {% set cls = cycler("row_normal", "row_highlight") %}
+                {% for team in event.teams %}
+                    <tr class="{{ cls.next() }}">
+                        <td>{{ event.teamName }}</td>
+                        <td class="rows participants-list">
+                            {% for participant in team.participants %}
+                                <p>{{ participant.name }} - {{participant.grade}}</p>
+                            {% endfor %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% else %}
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Grade</th>
+                </tr>
+                {% set cls = cycler("row_normal", "row_highlight") %}
+                {% for participant in event.participants %}
+                    <tr class="{{ cls.next() }}">
+                        <td>{{ participant.name }}</td>
+                        <td>{{ participant.grade }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        
+        {% endfor %}
+        
+        <p>For any change in the registration kindly write to <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a></p>
+        <p>Looking for forward to your presence!</p>
+    </div>
+</div>
+<div class="email_footer">
+    <table class="links">
+        <tr>
+            <td class="link">
+                <a href="https://nutopia.in" class="icon_link"><img style="background: #00cc22; border-radius: 4px;" src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnu-square.png?alt=media&token=bb190de1-7e16-4319-9205-22d383b2b57b" /></a>
+            </td>
+            <td class="link">
+                <a href="https://www.facebook.com/NuTopia-106903048559461/?ref=page_internal" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Ffb_logo.png?alt=media&token=ac998233-c94e-4dc7-a028-5e0cc0b03dbb" /></a>
+            </td>
+            <td class="link">
+                <a href="https://www.instagram.com/nutopia_ybps/" class="icon_link"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fig_logo.png?alt=media&token=813105d6-da10-41f3-b391-557fa43c5352" /></a>
+            </td>
+            <td class="link">
+                <a href="https://www.youtube.com/channel/UC6gMtIVvbPDfVsR4e1Knx9A" class="icon_link filter_2"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fyt_logo.png?alt=media&token=c8d25c89-a12f-4a50-8e07-1c18e97c0a8f" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td class="link">
+                Website
+            </td>
+            <td class="link">
+                FaceBook
+            </td>
+            <td class="link">
+                Instagram
+            </td>
+            <td class="link">
+                YouTube
+            </td>
+        </tr>
+    </table>
+    <p class="address">
+        Yuvabharathi Public School,<br/>
+        17/1, Yuva Enclave, Kanuvai - Thudiyalur Road,<br/>
+        Somayampalayam Post, Kanuvai,<br/>
+        Coimbatore, Tamil Nadu 641108, India
+    </p>
+    <p class="copyright">&copy; <a href="https://yuvabharathi.in" style="color: #00cc22">Yuvabharathi Public School</a> 2022. All Rights Reserved.</p>
+</div>
+</body>`
+const form = Nunjucks.renderString(htmlBody, {UpdatedData, ...{events:Object.values(UpdatedData.events)}})
+console.log(form);
+console.log(htmlBody === form)

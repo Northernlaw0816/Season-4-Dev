@@ -68,7 +68,7 @@
 	p.error {
 		grid-area: error;
 		margin: 0;
-		background: black;
+		background: #000000b3;
 		color: red;
 		padding: 1ch;
 		border-radius: 0.5em;
@@ -146,7 +146,7 @@
 			.input_error {
 				grid-column: span 2;
 				margin: 0;
-				background: black;
+				background: #000000b3;
 				color: red;
 				padding: 1ch;
 				border-radius: 0.5em;
