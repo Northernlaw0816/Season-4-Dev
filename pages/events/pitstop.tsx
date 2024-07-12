@@ -9,7 +9,7 @@ import EventsRegisterButton from "../../components/EventRegisterButton";
 //stylesheet
 import styles from "../../styles/pages/Events.module.scss";
 //assets
-//import logo from '../../public/images/events/ps_logo.png'
+import logo from '../../public/images/events/ps_logo.png'
 //data
 import PitstopData from "../../data/pages/events/pitstop";
 
@@ -25,13 +25,12 @@ const Pitstop: NextPage = () => {
 						<div className={styles.command_line}></div>
 					</div>
 
-					{/*}                <div className={styles.logo}>
-                    <Image src={logo} alt="Pitstop" quality={100} placeholder={"blur"}/>
-                    COLORL: #febf01;
-                </div>*/}
+					<div className={styles.logo}>
+						<Image src={logo} alt="Pitstop" quality={100} placeholder={"blur"}/>
+					</div>
 
 					<div className={styles.banner_text}>
-						<h1 id="title"></h1>
+						<h1 id="title">PITSTOP</h1>
 					</div>
 				</div>
 

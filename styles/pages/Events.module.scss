@@ -850,7 +850,7 @@
   background: var(--background);
   .banner {
     position: relative;
-    background: url('/images/events/ps_background2.png');
+    background: url('/images/events/ps_background.png');
     background-size: 100% 100%;
     aspect-ratio: 16/7.2;
     display: grid;
@@ -858,7 +858,7 @@
     padding-bottom: 10rem;
 
     .logo {
-      width: clamp(100px, 30% , calc(40vw));
+      // width: clamp(100px, 100% , calc(40vw));
     }
     
     .banner_text {
