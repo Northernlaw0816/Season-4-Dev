@@ -356,7 +356,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					...{
 						schoolName: UpdatedData.schoolName,
 						events: Object.values(UpdatedData.events).map((event) => {
-							return { ...event, eventName: titleCase(event.eventName) };
+							return { ...event, eventName: titleCase(event.eventName.replace("-", " ")) };
 						}),
 					},
 				}),
