@@ -42,3 +42,4 @@ pages/sitemap-generator.xml.tsx
 #node
 yarn.lock
 package-lock.json
+test.*

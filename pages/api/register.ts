@@ -71,7 +71,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 	const CurrentRegistrationParticipants: Participant[] = participants;
 	let success = true;
 	let message = "";
-	message = `Successfully registered for ${titleCase(eventName.replace(/-/g, " "))}`;
+	message = `Successfully registered for ${titleCase(
+		eventName.replace(/-/g, " "),
+	)}\nEmail has been sent regarding registration details.`;
 
 	if (!req.body) {
 		return res.status(200).json({
@@ -89,7 +91,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 		// Check if group already exists in registered groups
 		if (selectedGroups.includes(currentGroup))
 			return {
-				reason: "is already in the current group event",
+				reason: "is already registered in the current event.",
 				canParticipate: false,
 				selectableGroups,
 				selectedGroups,
@@ -97,7 +99,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 		// Check if group can be selected
 		if (!selectableGroups.includes(currentGroup))
 			return {
-				reason: "cannot join this group event",
+				reason: "cannot join this event",
 				canParticipate: false,
 				selectableGroups,
 				selectedGroups,
@@ -167,6 +169,7 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 						isError = true;
 						success = false;
 						message = `${participant.name} ${permission.reason}`;
+
 						return;
 					}
 					console.log(participant, permission);
@@ -247,6 +250,9 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 							isError = true;
 							success = false;
 							message = `${participant.name} ${permission.reason}`;
+							if (permission.reason === "cannot join this event")
+								message = `${participant.name} can't register for this event as they are already registered for ${event.eventName}, which is taking place at the same time.
+`;
 							return;
 						}
 						participant["selectableGroups"] = permission.selectableGroups;
@@ -297,6 +303,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 						isError = true;
 						success = false;
 						message = `${participant.name} ${permission.reason}`;
+						if (permission.reason === "cannot join this event")
+							message = `${participant.name} can't register for this event as they are already registered for ${event.eventName}, which is taking place at the same time.`;
 						return;
 					}
 					console.log(Util.inspect(participant, false, null, true));
@@ -584,10 +592,8 @@ export default async function register(req: NextApiRequest, res: NextApiResponse
 					},
 				}),
 			})
-				.then(() => (success = true))
-				.catch((e) => {
-					success = false;
-				});
+				.then(() => {})
+				.catch((e) => {});
 		}
 	}
 	return res.status(200).json({
