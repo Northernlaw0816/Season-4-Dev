@@ -128,132 +128,25 @@
   }
 }
 
-.main_aov {
-  background: var(--background);
+.aov {
   --accent: linear-gradient(to top, hsl(39, 52%, 58%) 20%, transparent),
-    hsl(39, 52%, 35%);
+  hsl(39, 52%, 35%);
   --button-bg: linear-gradient(to bottom, hsl(39, 00%, 58%) 20%, transparent),
-    hsl(39, 00%, 35%);
-  .banner {
-    background: url("../../public/images/events/aov_background.png"),
-      linear-gradient(#006666, black 80%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-blend-mode: darken, normal;
+  hsl(39, 00%, 35%);
 
-    .banner_text {
-      background: linear-gradient(
-        to bottom,
-        hsl(39, 52%, 58%) 20%,
-        hsl(39, 52%, 20%)
-      );
-      background-clip: text;
+  .profile_card {
+    background: linear-gradient(hsl(180, 100%, 20%), hsl(0, 0%, 0%) 80%);
 
-      h1 {
-        font-family: "Cinzel Decorative", serif;
-        color: transparent;
-        font-size: clamp(1rem, 8vw, 5rem);
-        font-weight: 900;
-
-        span {
-          color: transparent;
-          font-size: clamp(1rem, 6vw, 4rem);
-          background: linear-gradient(
-            to bottom,
-            hsl(0, 0%, 58%),
-            hsl(0, 0%, 40%)
-          );
-          background-clip: text;
-        }
-      }
+    .profile_pic img {
+      border-radius: 100%;
+      border: 0.25em solid hsl(39deg, 52%, 58%) !important;
     }
   }
 
-  .content {
-    .tagline {
+  .register_link_align {
+    .register_link {
       color: black;
-      font-family: "Cinzel Decorative", serif;
-      font-size: clamp(15px, 3vw, 1.5rem);
-      text-align: center;
-      text-transform: capitalize;
-    }
-
-    .game_logo {
-      display: flex;
-      place-items: center;
-      align-items: center;
-      justify-content: center;
-      margin: 0 4rem;
-      max-width: 100%;
-      width: 100%;
-      overflow: hidden;
-      height: auto;
-      aspect-ratio: 16 / 3;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      border-radius: 0rem;
-      margin: auto;
-      transition-property: width, aspect-ratio, border-radius, margin;
-      transition-duration: 1s;
-      transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-      position: relative;
-      
-      &::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        backdrop-filter: blur(10px);
-        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.125), transparent);
-        transition-property: backdrop-filter, background-image;
-        transition-duration: 1s;
-        transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
-      }
-
-      &:hover {
-        width: 70%;
-        aspect-ratio: 16 / 9;
-        border-radius: 1rem;
-
-        &::after {
-          backdrop-filter: blur(0);
-          background-image: none;
-        }
-      }
-
-      @media (max-width: 700px) {
-        max-width: 100%;
-        margin: 0;
-        img {
-          width: 100%;
-        }
-      }
-    }
-    
-    .profile_card {
-      background: linear-gradient(hsl(180, 100%, 20%), hsl(0, 0%, 0%) 80%);
-
-      .profile_pic img {
-        border-radius: 100%;
-        border: 0.25em solid hsl(39deg, 52%, 58%) !important;
-      }
-    }
-
-    .register_link_align {
-      .register_link {
-        color: black;
-        font-family: "Cinzel", serif;
-      }
-    }
-  }
-
-  @media (prefers-color-scheme: dark) {
-    --background: black;
-    .content {
-      .tagline {
-        color: hsl(0, 0%, 60%);
-      }
+      font-family: "Cinzel", serif;
     }
   }
 }

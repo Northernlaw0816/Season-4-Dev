@@ -8,6 +8,7 @@ import EventsRegisterButton from "../../components/EventRegisterButton"
 import ProfileCard from "../../components/ProfileCard"
 //stylesheet
 import styles from '../../styles/pages/Events.module.scss'
+import eventStyles from '../../styles/pages/events/aov.module.scss'
 //assets
 import logo from '../../public/images/events/aov_logo.png'
 //data
@@ -18,9 +19,9 @@ const ArenaOfValor: NextPage = () => {
     return (<>
         <HeadTemplate title="NuTopia | Arena of Valor" description="NuTopia Events: Arena of Valor"/>
 
-        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.main_aov}`}>
+        <Layout skipTo="#tagline" overrideClasses={`${styles.main} ${styles.aov} ${eventStyles.main}`}>
             
-            <div className={styles.banner}>
+            <div className={`${styles.banner} ${eventStyles.banner}`}>
                 
                 <div className={styles.logo}>
                     
@@ -28,7 +29,7 @@ const ArenaOfValor: NextPage = () => {
                 
                 </div>
                 
-                <div className={styles.banner_text}>
+                <div className={`${eventStyles.banner_text}`}>
                     
                     <h1 id="title">Arena <span>Of</span> Valor</h1>
                 
@@ -37,7 +38,7 @@ const ArenaOfValor: NextPage = () => {
             </div>
             
             <div className={styles.content}>
-                <h2 id="tagline" className={styles.tagline}>{ArenaOfValorData.tagline}</h2>
+                <h2 id="tagline" className={eventStyles.tagline}>{ArenaOfValorData.tagline}</h2>
                 
                 <h2 id="about">About</h2>
                     <p className={`${styles.h2_p} ${styles.description_p}`}>
@@ -45,11 +46,11 @@ const ArenaOfValor: NextPage = () => {
                     </p>
 
                 <h2 id="details">Details</h2>
-                    <p className={styles.h2_p}><strong>Date and Time:</strong></p>
+                    <p className={`${styles.h2_p}`}><strong>Date and Time:</strong></p>
                     <ul>{ArenaOfValorData.details.date.map((date, index) => {
                         return <li key={index}><p>{date}</p></li>
                     })}</ul>
-                    <p className={styles.h2_p}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
+                    <p className={`${styles.h2_p}`}><strong>Venue:</strong> {ArenaOfValorData.details.venue}</p>
                 
                 <h2 id="common-guidelines">Common Guidelines</h2>
                     <ul>{ArenaOfValorData.headings.commonGuidelines.map((rule, index) => {
@@ -71,18 +72,18 @@ const ArenaOfValor: NextPage = () => {
                             <h2 id={toSlug(`platform ${platform.name}`)}>
                                 {platform.name}
                             </h2>
-                            <p className={styles.h3_p}>
+                            <p className={`${styles.h3_p}`}>
                                 {platform.description}
                             </p>
                             
                             {platform.games.map((game, index: number) => {
                                 return(<div key={index}>
                                     <h3 id={toSlug(`game ${game.name}`)}>{game.name}</h3>
-                                    <div className={styles.game_logo} style={{backgroundImage:`url(/images/events/aov_games/${game.image})`}}></div>
+                                    <div className={`${eventStyles.game_logo}`} style={{backgroundImage:`url(/images/events/aov_games/${game.image})`}}></div>
                                     <h4 id={toSlug(`${game.name} details`)}>Details</h4>
-                                    <p className={styles.h4_p}>Team Size: {game.participants}</p>
+                                    <p className={`${styles.h4_p}`}>Team Size: {game.participants}</p>
                                     <h4 id={toSlug(`${game.name} guidelines`)}>Guidelines</h4>
-                                    <ul className={styles.h4_p}>
+                                    <ul className={`${styles.h4_p}`}>
                                         {game.guidelines.map((rule, index) => {
                                             if (typeof rule==="object"){
                                                 return <li key={index}>
@@ -104,7 +105,7 @@ const ArenaOfValor: NextPage = () => {
                             })}
                            
                             <h4 id={toSlug("event coordinators")}>Event Coordinators</h4>
-                            <div className={styles.card_container}>
+                            <div className={`${styles.card_container}`}>
                                 {platform.eventCoordinators.map((coordinator, index) => {
                                     return <ProfileCard key={index} profileObject={coordinator} />
                                 })}
