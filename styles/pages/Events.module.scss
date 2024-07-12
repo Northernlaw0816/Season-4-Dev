@@ -814,7 +814,7 @@
       .register_link {
         position: relative;
         color: #141615;
-        font-family: "absolute";
+        font-family: "absolut";
 
         // background: linear-gradient(hsl(0, 0%, 100%, 10%) 20%, transparent 10% 100%);
         background-color: var(--accent);
@@ -840,7 +840,7 @@
     }
 
     .profile_card {
-      background: #fee026;
+      background: linear-gradient(#fee026 45%, #00E44A);
       color: #141615;
     }
   }
