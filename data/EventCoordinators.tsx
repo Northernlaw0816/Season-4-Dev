@@ -24,7 +24,6 @@ import ksharaa from "../public/images/photos/Ksharaa.png"
 // LAB
 import aadees from "../public/images/photos/Aadees.png"
 import krishita from "../public/images/photos/Krishita.png"
-import shruti from "../public/images/photos/Shruti.png"
 // DS
 import hari from "../public/images/photos/Hari.png"
 import arnav from "../public/images/photos/Arnav.png"
@@ -33,7 +32,6 @@ import mahathi from "../public/images/photos/Mahathi.png"
 import harsha from "../public/images/photos/Harsha.png"
 import nebin from "../public/images/photos/Nebin.png"
 import tejasvi from "../public/images/photos/Tejasvi.png"
-import mithun from "../public/images/photos/Mithun.png"
 // CC
 import maanya from "../public/images/photos/Maanya.png"
 import prathiksha from "../public/images/photos/Prathiksha.png"
@@ -180,12 +178,6 @@ const EventCoordinators = [
     src: krishita,
   },
   {
-    name: "Shruti",
-    event: "Log and Blog",
-    grade: "12",
-    src: shruti,
-  },
-  {
     name: "Harshavardan",
     event: "Otakuiz",
     grade: "11",
@@ -202,12 +194,6 @@ const EventCoordinators = [
     event: "Otakuiz",
     grade: "11",
     src: tejasvi,
-  },
-  {
-    name: "Mithun R Prem",
-    event: "Otakuiz",
-    grade: "12",
-    src: mithun,
   },
   {
     name: "Rishaan Ranka",
