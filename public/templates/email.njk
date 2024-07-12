@@ -37,22 +37,22 @@
 		}
 
 		table {
-			width: 100%;
+			width: 90%;
 			border-collapse: collapse;
 			border-radius: 0.75rem;
 			overflow: hidden;
-			margin: 1rem 0;
+			margin: 1rem auto;
 		}
 
 		th, td {
 			padding: 1ch;
 			text-align: center;
 		}
-		
+
 		th {
 			background: #00cc22;
 		}
-		
+
 		td {
 			background: hsl(0, 0%, 0%, 50%);
 			padding: 0.5em;
@@ -113,6 +113,10 @@
 		.copyright {
 			font-size: 1rem;
 		}
+
+		.im {
+			color: white !important;
+		}
 	</style>
 </head>
 <body class="body_container">
@@ -121,17 +125,16 @@
 			<a href="https://nutopia.in"><img src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" /></a>
 		</header>
 		<div class="email_content">
-			<h2>Dear {{ schoolName }},</h2>
+			<h3>Dear {{ schoolName }},</h3>
 
-			<p>Thank you for your registration and welcome to <strong>Nutopia Season 4</strong>!</p>
+			<p>Welcome to <strong>NuTopia Season 4</strong>!</p>
 
-			<p>This e-mail acknowledges the registration of participants from your domain.</p>
-
-			<p>Find the details below :</p>
+			<p>Thank you for register for NuTopia. Please find the details below: </p>
 
 			{% for event in events %}
+				<p></p>
 				<h3>
-					{{ event.name }}
+					{{ event.eventName }}
 				</h3>
 				{% if event.isTeam %}
 				<table id="{{ event.eventName }}">
@@ -142,10 +145,10 @@
 					{% set cls = cycler("row_normal", "row_highlight") %}
 					{% for team in event.teams %}
 						<tr class="{{ cls.next() }}">
-							<td>{{ event.teamName }}</td>
+							<td>{{ team.teamName }}</td>
 							<td class="rows participants-list">
 								{% for participant in team.participants %}
-									<p>{{ participant.name }} - {{participant.grade}}</p>
+									<p>{{ participant.name }} - {{participant.grade}} - {{participant.phone}}</p>
 								{% endfor %}
 							</td>
 						</tr>
@@ -156,21 +159,23 @@
 					<tr>
 						<th>Name</th>
 						<th>Grade</th>
+						<th>Phone</th>
 					</tr>
 					{% set cls = cycler("row_normal", "row_highlight") %}
 					{% for participant in event.participants %}
 						<tr class="{{ cls.next() }}">
 							<td>{{ participant.name }}</td>
 							<td>{{ participant.grade }}</td>
+							<td>{{ participant.phone }}</td>
 						</tr>
 					{% endfor %}
 				</table>
 				{% endif %}
-			
+
 			{% endfor %}
-			
-			<p>For any change in the registration kindly write to <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a></p>
-			<p>Looking for forward to your presence!</p>
+
+			<p>For queries regarding this registration, please contact us at <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a>.</p>
+			<p>We hope to see you soon!</p>
 		</div>
 	</div>
 	<div class="email_footer">
@@ -210,6 +215,6 @@
 			Somayampalayam Post, Kanuvai,<br/>
 			Coimbatore, Tamil Nadu 641108, India
 		</p>
-		<p class="copyright">&copy; <a href="https://yuvabharathi.in" style="color: #00cc22">Yuvabharathi Public School</a> 2022. All Rights Reserved.</p>
+		<p class="copyright">&copy; <a href="https://yuvabharathi.in" style="color: #00cc22">Yuvabharathi Public School</a> 2024. All Rights Reserved.</p>
 	</div>
 </body>
