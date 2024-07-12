@@ -9,7 +9,7 @@ const CodeKlash = {
 	id: "code-klash",
 	title: "Code Klash",
 
-	tagline: "",
+	tagline: "Code, Compete, Conquer!",
 
 	link: "/events/code-klash",
 
