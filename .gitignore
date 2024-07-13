@@ -43,3 +43,4 @@ pages/sitemap-generator.xml.tsx
 yarn.lock
 package-lock.json
 test.*
+data.json
