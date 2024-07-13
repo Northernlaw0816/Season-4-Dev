@@ -1,16 +1,27 @@
+import Image from "next/image";
+import EventTimingsList from "../../public/images/events/timings_list.png";
 import { ArenaOfValor, CodeKlash, Designscape, KnockOut, LogAndBlog, Otakuiz, Pitstop, TruthOrDebug } from "./events";
 
 const Registration = {
 	title: "Pre-Registration Information",
 	commonRules: [
 		"Registrations are open for students from grades 9 to 12.",
-		"An individual is allowed to participate multiple events, provided they follow the registration logic described below.",
+		"An individual is allowed to participate in multiple events, provided they don't have overlapped timing.",
 		"Each event is to be registered SEPARATELY in the form.",
-		"Only WhatsApp enabled numbers to be submitted in the registration form.",
+		"Only WhatsApp ENABLED phone numbers to be submitted in the registration form.",
 		"Participants are to join the Whatsapp group through the link which will be sent to the respective phone numbers after registration.",
 		"Further instructions for the event will be sent via the WhatsApp group ONLY.",
-		"Any queries regarding registration and any problems to be addressed on the SAME DAY through EMAIL ONLY.",
+		"Any queries or problems regarding registration to be addressed on the SAME DAY through EMAIL ONLY.",
 		"Participants who submit mismatched information will be disqualified.",
+		"Participants may only register for events that are NOT being conducted at OVERLAPPING timings.",
+		<Image
+			src={EventTimingsList}
+			alt={`Event Timings List`}
+			quality={80}
+			key={"Event Registation List"}
+			placeholder={"blur"}
+			layout={"responsive"}
+		/>,
 	],
 
 	eventRules: [
