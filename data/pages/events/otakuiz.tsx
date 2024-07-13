@@ -34,8 +34,8 @@ const Otakuiz = {
         rules: [
             "Participants can take part in groups of 2-3 members, each with distinct team names.",
             "The use of any gadgets or the internet is strictly prohibited to respect fair play.",
-            "Participants are only allowed to converse within their teams. They should not confer with any other groups in the middle of any rounds.            ",
-            ["The event consists of a preliminary round followed by 3 main rounds, namely :","Rapid Fire","Jeopardy","1vs1 Battle","],
+            "Participants are only allowed to converse within their teams. They should not confer with any other groups in the middle of any rounds.",
+            ["The event consists of a preliminary round followed by 3 main rounds, namely :","Rapid Fire","Jeopardy","1vs1 Battle",],
             "The preliminaries will not include any negative marking and contestants who cleared the preliminaries will move to the advancing rounds.",
             "If any of the questions in the main rounds are answered incorrectly or left unanswered by a team, the question will be passed onto the next. If there are no correct answers, the question will be skipped.",
             "Upon any unfair means committed, which include shouting out the answers, the team will be warned and then disqualified.",
