@@ -67,7 +67,7 @@ const ArenaOfValor = {
             id: "valorant",
             name: "Valorant",
             participants: 4,
-            image: "Valorant.jpg",
+            image: "valorant.jpg",
             bannedItems: [
             ],
             guidelines: [
@@ -84,7 +84,7 @@ const ArenaOfValor = {
             id: "minecraft",
             name: "Minecraft",
             participants: 2,
-            image: "Minecraft.jpg",
+            image: "minecraft.jpg",
             bannedItems: [],
             guidelines: [
               "This is a team event with each team comprising of 2 players",
