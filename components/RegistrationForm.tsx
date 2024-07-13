@@ -5,7 +5,7 @@ import anime from "animejs";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Schools from "../data/SchoolsList";
-import crypto from "crypto"
+import crypto from "crypto";
 //stylesheets
 import styles from "../styles/components/RegistrationForm.module.scss";
 
@@ -182,6 +182,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 	const router = useRouter();
 	let [schools, setSchools] = useState<{ schoolId: string; schoolName: string }[]>([]);
 	let [Participants, setParticipants] = useState<number[]>([]);
+	let [isSubmitDisabled, setisSubmitDisabled] = useState(false);
 	let [isRegistering, setIsRegistering] = useState<boolean>(false);
 	let [isError, setIsError] = useState(false);
 	let [isSuccess, setIsSuccess] = useState(false);
@@ -199,17 +200,30 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 		teamName?: string;
 		participants?: Participant[];
 	}
-	interface Data { eventName: string; game?: string; isTeam: boolean; currentGroup: string; schoolName: string; schoolId?: string; platform: string; teams: Team[]; participants: Participant[] }
+	interface Data {
+		eventName: string;
+		gameName?: string;
+		isTeam: boolean;
+		isGame: boolean;
+		currentGroup: string;
+		schoolName: string;
+		schoolId?: string;
+		platform: string;
+		teams: Team[];
+		participants: Participant[];
+	}
 	// Handlers
 	const onSubmit = async (evdata: any) => {
-		const data: Data = evdata as Data
+		setisSubmitDisabled(true);
+		const data: Data = evdata as Data;
 		const isTeamEvent = ["arena-of-valor", "truth-or-debug", "otakuiz", "code-klash", "pitstop"].includes(eventName);
 		data["eventName"] = eventName;
-		data["game"] = router.query.game as string ?? "";
+		data["gameName"] = (router.query.game as string) ?? "";
+		data["isGame"] = data["gameName"] !== "" ? true : false;
 		data["isTeam"] = isTeamEvent;
 		data["currentGroup"] = group;
 		data["platform"] = platform;
-		data["schoolId"] = `${data["schoolName"].toLowerCase().replaceAll(" ", "")}@nutopia.in`
+		data["schoolId"] = `${data["schoolName"].toLowerCase().replaceAll(" ", "")}@nutopia.in`;
 		setIsRegistering(true);
 		if (data.isTeam) {
 			const TeamNameListSize = new Set(data.teams.map((team: any) => team.teamName)).size;
@@ -221,8 +235,13 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 			}
 			data.teams.forEach((team: any, index: number) => {
 				if (isError) return;
-				const phoneListSize = new Set(team.participants.flat().map((participant: any) => participant.phone)).size;
-				if (phoneListSize !== team.participants.flat().length) {
+				const phoneListSize = new Set(
+					team.participants
+						.filter((v: any) => v)
+						.flat()
+						.map((participant: any) => participant.phone),
+				).size;
+				if (phoneListSize !== team.participants.filter((v: any) => v).flat().length) {
 					setIsError(true);
 					setIsSuccess(false);
 					setMessage(`Cannot use same phone number for multiple participants. (Check Team ${index + 1})`);
@@ -230,8 +249,13 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 				}
 			});
 		} else {
-			const phoneListSize = new Set(data.participants.flat().map((participant: any) => participant.phone)).size;
-			if (phoneListSize !== data.participants.flat().length) {
+			const phoneListSize = new Set(
+				data.participants
+					.filter((v: any) => v)
+					.flat()
+					.map((participant: any) => participant.phone),
+			).size;
+			if (phoneListSize !== data.participants.filter((v: any) => v).flat().length) {
 				setIsError(true);
 				setIsSuccess(false);
 				setMessage(`Cannot use same phone number for multiple participants.`);
@@ -239,7 +263,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 			}
 		}
 		if (isError) return;
-		console.log(data["teams"])
+		console.log(data["teams"]);
 		const response = await axios
 			.post("/api/register", {
 				...data,
@@ -297,6 +321,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 	const resetFields = () => {
 		methods.reset();
 		methods.unregister("platform");
+		setisSubmitDisabled(false);
 		router.reload();
 	};
 
@@ -305,6 +330,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 		setIsError(false);
 		setMessage("");
 		setIsRegistering(false);
+		setisSubmitDisabled(false);
 	};
 
 	useEffect(() => {
@@ -492,7 +518,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 							required={true}
 							placeholder="Enter School Name"
 							{...methods.register("schoolName", {
-								required: true
+								required: true,
 							})}
 						/>
 						<ErrorMessage
@@ -519,8 +545,8 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 								pattern: {
 									// Email Regex
 									value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g,
-									message: "Enter a valid Email ID"
-								}
+									message: "Enter a valid Email ID",
+								},
 							})}
 						/>
 						<ErrorMessage
@@ -556,7 +582,7 @@ const RegistrationForm = ({ title, eventName }: { title: string; eventName: stri
 					/>
 				</div>
 				<div className={styles.submit}>
-					<input name="register" type={"submit"} value="Register" />
+					<input name="register" type={"submit"} value="Register" disabled={isSubmitDisabled} />
 				</div>
 			</form>
 		</FormProvider>

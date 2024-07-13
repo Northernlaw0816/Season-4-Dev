@@ -35,7 +35,7 @@ const LogAndBlog = {
 				"In the given time participants are to research and write out their blogs simultaneously. There is no separate time for research.",
 			],
 			"Each participant will be given a computer, hence they do not have to bring their own gadgets.",
-			"Blogs may include humor provided that the overall tone maintains a formal.",
+			"Blogs may include humor provided that the overall tone remains formal.",
 			"Participants are advised to maintain a consistent stance throughout the blog on the given topic.",
 			"Participants may include images, graphs and other media provided they’re credible and accurate.",
 			"Any form of cheating such as the usage of generative AI, plagiarism, partnership and irrelevant use of the internet will result in immediate disqualification",
