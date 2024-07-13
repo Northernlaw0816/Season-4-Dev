@@ -24,17 +24,18 @@
 
 		.email_content {
 			background: #003c47;
-			padding: 2ch;
+			padding: 1px;
 		}
 
 		p {
 			font-size: 1.15rem;
+			margin-inline: 2ch;
 		}
 
 		h3 {
 			font-size: 1.25rem;
 		}
-
+		
 		table {
 			width: 90%;
 			border-collapse: collapse;
@@ -49,35 +50,11 @@
 			text-align: center;
 		}
 
-		th {
-			background: #00cc22;
-		}
-
-		td {
-			background: hsl(0, 0%, 0%, 50%);
-			padding: 0.5em;
-		}
-
-		td>p {
-			padding: 1ch;
-			margin: 0;
-			font-size: 1rem;
-		}
-
-		.rows {
-			display: grid;
-			grid-template-rows: repeat(auto-fit, 1fr);
-		}
-
-		.row_highlight {
-			background: hsl(0, 0%, 50%, 50%);
-		}
-
 		.email_footer {
 			color: white;
 			text-align: center;
 			font-size: 0.9rem;
-			margin-top: 2rem;
+			margin-top: 1rem;
 			border-radius: 1.5em;
 			background: #003c47;
 			padding: 1em
@@ -106,6 +83,28 @@
 			height: 38px;
 		}
 
+		.image_anchor {
+			background-color: #00cc22;
+			display: grid;
+			position: relative;
+			width: 100%;
+			left: -1rem;
+			right: -1rem;
+			padding: 1.5rem 1rem 1rem;
+			place-items: center;
+		}
+
+		.image_anchor > img {
+			width: 40%;
+			display: block;
+			user-select: none;
+			transition: width 100ms ease;
+		}
+
+		.image_anchor:hover > img {
+			width: 50%;
+		}
+
 		.address {
 			display: block;
 			font-size: 0.95em;
@@ -126,61 +125,25 @@
 
 <body class="body_container">
 	<div class="email_body">
-		<header class="email_header">
-			<a href="https://nutopia.in"><img
-					src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" /></a>
-		</header>
 		<div class="email_content">
-			<h3>Dear {{ schoolName }},</h3>
+			<p>Dear {{ schoolName }},</p>
 
-			<p>Welcome to <strong>NuTopia Season 4</strong>!</p>
+			<p>Greetings from <strong>Team NuTopia</strong>!</p>
 
-			<p>Thank you for register for NuTopia. Please find the details below: </p>
+			<p><strong>Yuvabharathi Public School</strong> is thrilled to announce Season 4 of the inter-school STEM Carnival,</p>
+			<a href="https://nutopia.in" class="image_anchor">
+				<img  src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" />
+			</a>
+			<p>
+				Returning for its third year, we are excited to present eight dynamic events that reflect the current kaleidoscopic view of technology.
+			</p>
+			<p>
+				We would like to invite everyone, from IT geeks and gamers to writers and artists, from grades 9 to 12 from schools in and around the Coimbatore.
+			</p>
+			<p>
+				Season 4 is scheduled for July 25th and 26th, 2024, at Yuvabharathi Public School, Coimbatore.
+			</p>
 
-			{% for event in events %}
-			<p></p>
-			<h3>
-				{{ event.eventName }}
-			</h3>
-			{% if event.isTeam %}
-			<table id="{{ event.eventName }}">
-				<tr>
-					<th>Team Name</th>
-					<th>Participants</th>
-				</tr>
-				{% set cls = cycler("row_normal", "row_highlight") %}
-				{% for team in event.teams %}
-				<tr class="{{ cls.next() }}">
-					<td>{{ team.teamName }}</td>
-					<td class="rows participants-list">
-						{% for participant in team.participants %}
-						<p>{{ participant.name }} - {{participant.grade}} - {{participant.phone}}</p>
-						{% endfor %}
-					</td>
-				</tr>
-				{% endfor %}
-			</table>
-			{% else %}
-			<table>
-				<tr>
-					<th>Name</th>
-					<th>Grade</th>
-					<th>Phone</th>
-				</tr>
-				{% set cls = cycler("row_normal", "row_highlight") %}
-				{% for participant in event.participants %}
-				<tr class="{{ cls.next() }}">
-					<td>{{ participant.name }}</td>
-					<td>{{ participant.grade }}</td>
-					<td>{{ participant.phone }}</td>
-				</tr>
-				{% endfor %}
-			</table>
-			{% endif %}
-
-			{% endfor %}
-
-			<p>For queries regarding this registration, please contact us at <a href="mailto:info@nutopia.in" style="color: #00cc22;">info@nutopia.in</a>.</p>
 			<p>We hope to see you soon!</p>
 		</div>
 	</div>
