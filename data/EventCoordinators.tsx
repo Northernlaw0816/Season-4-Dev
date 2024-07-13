@@ -47,7 +47,7 @@ import driti from "../public/images/photos/Driti.png"
 //Place Holder Change later
 import placeholder from "../public/images/photos/placeholder.png";
 
-const  EventHeads = [
+const EventHeads = [
   {
     name: "Thrivikram R Krishnaa",
     grade: "12",
