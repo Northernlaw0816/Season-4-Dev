@@ -60,11 +60,15 @@ export default function Register() {
 				</p>
 				<h2 id="guidelines">Guidelines</h2>
 				<ul>
-					{RegistrationData.commonRules.map((rule: string, index: number) => (
-						<li key={index}>
-							<p>{rule}</p>
-						</li>
-					))}
+					{RegistrationData.commonRules.map((rule: string | ReactNode, index: number) => {
+						if (typeof rule === "string")
+							return (
+								<li key={index}>
+									<p>{rule}</p>
+								</li>
+							);
+						return <div className={styles.info_image} key={index}>{rule}</div>;
+					})}
 				</ul>
 				{eventId === ArenaOfValor.id && (
 					<>
