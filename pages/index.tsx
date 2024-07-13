@@ -40,9 +40,9 @@ const Home: NextPage = () => {
 		{/* <HomeGallery/> */}
 		<div className={styles.content_container}>
 			{/* trailer */}
-			<iframe className={"embed video"} src="https://www.youtube.com/embed/9zXfdEVTX_o" title="Nutopia Season 4" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+			<iframe className={"embed video"} src="https://www.youtube.com/embed/aTuLESQhBYM" title="NuTopia Season 4 Teaser | Yuvabharathi Public School" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
 
-			<h1>Welcome to NuTopia</h1>
+			<h1>Welcome to NuTopia</h1> 
 
 			{/* content */}
 			<div className={styles.about}>{AboutData.whoWeAre.map((para, index) => {
