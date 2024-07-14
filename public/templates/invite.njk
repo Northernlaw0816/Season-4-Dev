@@ -117,17 +117,28 @@
 		.event_cards {
 			width: 100%;
 		}
+
+		.event_card_container {
+			display: inline-block;
+			width: calc(25% - 1rem);
+			margin: 0.5rem 0.5rem;
+			text-align: center;
+		}
 		
 		.event_card {
-			display: inline-grid;
-			width: calc(25% - 1rem);
+			display: inline-block;
+			width: 100%;
 			background-color: #00cc22;
 			background-size: cover;
 			border-radius: 1rem;
 			box-shadow: 0 0.5vh 10px rgba(0, 0, 0, 0.25);
 			overflow: hidden;
 			height: 10rem;
-			margin: 0.5rem 0.5rem;
+		}
+
+		.event_card_container > p {
+			display: inline-block;
+			margin-top: 1ch;
 		}
 		
 		.event_card > img {
@@ -169,10 +180,14 @@
 			.body_container {
 				padding: 0;
 			}
-			.event_card {
+
+			.event_card_container {
 				width: calc(50% - 0.5rem);
-				height: 25vw; 
 				margin: 0.25rem 0.25rem;
+			}
+
+			.event_card {
+				height: 25vw; 
 			}
 		}
 
@@ -191,7 +206,7 @@
 
 		.event_card.ck {
 			background: no-repeat center/cover url('https://www.nutopia.in/images/events/ck_background.png');
-			padding: 0 1% 0 2%;
+			padding: 0 2% 0 4%;
 		}
 
 		.event_card.ps {
@@ -236,25 +251,49 @@
 				<hr style="background-color: hsl(0, 0%, 100%, 30%); height: 4px; border: none; border-radius: 2px; margin: 2.5rem 2ch;"/>
 				<p style="font-size: 1.5rem">Join us for our third year with <strong style="font-weight: 600;">Eight Exhilarating Events</strong>:</p>
 				<div class="event_cards">
-					<a class="event_card aov" style="margin-left: 0;" href="https://nutopia.in/events/arena-of-valor">
-						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faov_logo.7d059bac.png&w=1920&q=50"/>
-						</a><a class="event_card ko" href="https://nutopia.in/events/knockout">
-						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fko_logo.d4d743df.png&w=1920&q=50"/>
-					</a><a class="event_card tod" href="https://nutopia.in/events/truth-or-debug">
-						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftd_logo.09267360.png&w=1920&q=50"/>
-					</a><a class="event_card lab" style="margin-right: 0;" href="https://nutopia.in/events/log-and-blog">
-						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flab_logo_2.4e5c5334.png&w=1920&q=50"/>
-					</a>
+					<span class="event_card_container">
+						<a class="event_card aov" style="margin-left: 0;" href="https://nutopia.in/events/arena-of-valor">
+							<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faov_logo.7d059bac.png&w=1920&q=50"/>
+						</a>
+						<p>Arena of Valor</p>
+					</span><span class="event_card_container">
+						<a class="event_card ko" href="https://nutopia.in/events/knockout">
+							<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fko_logo.d4d743df.png&w=1920&q=50"/>
+						</a>
+						<p>Knockout!</p>
+					</span><span class="event_card_container">
+						<a class="event_card tod" href="https://nutopia.in/events/truth-or-debug">
+							<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftd_logo.09267360.png&w=1920&q=50"/>
+						</a>
+						<p>Truth or Debug</p>
+					</span><span class="event_card_container">
+						<a class="event_card lab" style="margin-right: 0;" href="https://nutopia.in/events/log-and-blog">
+							<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flab_logo_2.4e5c5334.png&w=1920&q=50"/>
+						</a>
+						<p>Log and Blog</p>
+					</span>
 
+				<span class="event_card_container">
 					<a class="event_card ds" style="margin-left: 0;" href="https://nutopia.in/events/design-scape">
 						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fds_logo.3164ad00.png&w=1920&q=50"/>
-					</a><a class="event_card otk" href="https://nutopia.in/events/otakuiz">
+					</a>
+					<p>Designscape</p>
+				</span><span class="event_card_container">
+					<a class="event_card otk" href="https://nutopia.in/events/otakuiz">
 						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fotk_logo.bbeefddb.png&w=1920&q=50"/>
-					</a><a class="event_card ck" href="https://nutopia.in/events/code-klash">
+					</a>
+					<p>Otakuiz</p>
+				</span><span class="event_card_container">
+					<a class="event_card ck" href="https://nutopia.in/events/code-klash">
 						<img src="http://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fck_logo.4a90d2eb.png&w=1920&q=50"/>
-					</a><a class="event_card ps" style="margin-right: 0;" href="https://nutopia.in/events/pitstop">
+					</a>
+					<p>Code Klash</p>
+				</span><span class="event_card_container">
+					<a class="event_card ps" style="margin-right: 0;" href="https://nutopia.in/events/pitstop">
 						<img src="http://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fps_logo.94721a79.png&w=1920&q=50"/>
 					</a>
+					<p>Pitstop</p>
+				</span>
 				</div>
 				<p style="font-size: 1rem; text-align: center;">Click to visit the event pages</p>
 				<p>We hope to see you soon!</p>
