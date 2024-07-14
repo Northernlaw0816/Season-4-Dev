@@ -1,37 +1,40 @@
 <head>
 	<style>
+		* {
+			box-sizing: border-box;
+		}
+		
 		.body_container {
-			padding: 5% 10%;
-			margin: 0;
+			padding: 5% 5%;
+			margin: auto;
 			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 			color: white;
+			max-width: 900px;
 		}
-
+		
 		.email_body {
 			border-radius: 1.5rem;
 			overflow: hidden;
 		}
-
+		
 		.email_header {
 			background-color: #00cc22;
 			padding: 20px 20px 10px 20px;
 		}
-
+		
 		.email_header a>img {
 			width: min(max(5rem, 50%), 20rem);
 			height: auto;
 		}
-
+		
 		.email_content {
 			background: #003c47;
-			padding: 1px;
 		}
-
+		
 		p {
-			font-size: 1.15rem;
-			margin-inline: 2ch;
+			font-size: 1.25rem;
 		}
-
+		
 		h3 {
 			font-size: 1.25rem;
 		}
@@ -43,13 +46,13 @@
 			overflow: hidden;
 			margin: 1rem auto;
 		}
-
+		
 		th,
 		td {
 			padding: 1ch;
 			text-align: center;
 		}
-
+		
 		.email_footer {
 			color: white;
 			text-align: center;
@@ -57,54 +60,48 @@
 			margin-top: 1rem;
 			border-radius: 1.5em;
 			background: #003c47;
-			padding: 1em
+			padding: 1em;
 		}
-
+		
 		.links {
 			width: 75%;
 			padding: 2em;
 			margin: 1em auto;
 			justify-content: center;
 		}
-
+		
 		.link {
 			margin: 0;
 			padding: 0;
 			background: transparent;
 		}
-
+		
 		.icon_link {
 			width: 40px;
 			height: 40px;
 		}
-
+		
 		.icon_link>img {
 			width: 38px;
 			height: 38px;
 		}
-
+		
 		.image_anchor {
 			background-color: #00cc22;
-			display: grid;
-			position: relative;
 			width: 100%;
-			left: -1rem;
-			right: -1rem;
 			padding: 1.5rem 1rem 1rem;
-			place-items: center;
+			text-align: center;
 		}
 
-		.image_anchor > img {
+		.image_anchor a {
+			display: inline-block;
 			width: 40%;
-			display: block;
-			user-select: none;
-			transition: width 100ms ease;
 		}
 
-		.image_anchor:hover > img {
-			width: 50%;
+		.image_anchor img {
+			width: 100%;
 		}
-
+		
 		.address {
 			display: block;
 			font-size: 0.95em;
@@ -112,39 +109,157 @@
 			margin: auto;
 			width: max-content;
 		}
-
+		
 		.copyright {
 			font-size: 1rem;
 		}
+		
+		.event_cards {
+			width: 100%;
+		}
+		
+		.event_card {
+			display: inline-grid;
+			width: calc(25% - 1rem);
+			background-color: #00cc22;
+			background-size: cover;
+			border-radius: 1rem;
+			box-shadow: 0 0.5vh 10px rgba(0, 0, 0, 0.25);
+			overflow: hidden;
+			height: 10rem;
+			margin: 0.5rem 0.5rem;
+		}
+		
+		.event_card > img {
+			width: 100%;
+			height: 100%;
+			object-fit: scale-down;
+			display: block;
+		}
+		
+		.event_card.aov {
+			background: no-repeat center/contain url('https://www.nutopia.in/_next/static/media/aov_background.285d9236.png'), linear-gradient(#066,#000 80%);
+			background-blend-mode: darken, normal;
+		}
+		
+		.event_card.ko {
+			background: no-repeat center/cover url('https://nutopia.in//_next/static/media/ko_background_2.5b0839ac.png'), no-repeat center/cover url('https://nutopia.in/_next/static/media/ko_background.997196a0.png');
+			padding:0 3%;
+		}
 
+		.event_card.tod {
+			background: no-repeat 50%/95% 95% url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/86186/crt.png'),linear-gradient(to left,#000 3%,transparent 3% 97%,#000 97% 100%),linear-gradient(to bottom,#000 3%,transparent 3% 97%,#000 97% 100%),linear-gradient(to top,rgba(0,0,0,.2) 0 25%,hsla(0,0%,100%,.1) 120%),repeating-linear-gradient(rgba(0,0,0,.3) 0 clamp(0.5rem,1vw,1rem),transparent clamp(0.5rem,1vw,1rem) calc(clamp(0.5rem,1vw,1rem) * 2)),#131313;
+		}
+
+		.event_card.lab {
+			background: linear-gradient(transparent 0%, hsl(0, 0%, 2%) 15% 60%, transparent 100%), linear-gradient(to top, hsl(243, 31%, 11%) 5%, hsl(243, 31%, 39%) 50%, transparent 50% 100%);
+			background-color: hsl(243, 32%, 11%);
+		}
+
+		@media screen and (max-width: 800px) {
+			table {
+				width: 100%;
+			}
+
+			.image_anchor a {
+				display: inline-block;
+				width: 75%;
+			}
+
+			.body_container {
+				padding: 0;
+			}
+			.event_card {
+				width: calc(50% - 0.5rem);
+				height: 25vw; 
+				margin: 0.25rem 0.25rem;
+			}
+		}
+
+		.event_card.ds {
+			background: #31156c;
+		}
+		
+		.event_card.otk {
+			background: no-repeat center/cover url('https://www.nutopia.in/images/events/otk_background.png');
+		}
+
+		.event_card.otk > img {
+			object-fit: contain;
+			object-position: center;
+		}
+
+		.event_card.ck {
+			background: no-repeat center/cover url('https://www.nutopia.in/images/events/ck_background.png');
+			padding: 0 1% 0 2%;
+		}
+
+		.event_card.ps {
+			background: no-repeat center/cover url('https://www.nutopia.in/images/events/ps_background.png');
+		}
+
+		.event_card.ps > img {
+			object-fit: cover;
+			object-position: center;
+		}
+		
+		.event_card.button {
+			color: white;
+			text-decoration: none;
+			font-weight: bold;
+			font-size: 1rem;
+		}
+	</style>
+</head>
+<body class="body_container">
+	<style>
 		.im {
 			color: white !important;
 		}
 	</style>
-</head>
-
-<body class="body_container">
+	<p style="font-size: 2rem; color: black; text-align: center">Hey <strong>{{ schoolName }}!</strong></p>
 	<div class="email_body">
 		<div class="email_content">
-			<p>Dear {{ schoolName }},</p>
+			<div style="padding: 2ch 2ch 0; text-align: center">
+				<p style="font-size: 1.5rem; font-weight: 600">Greetings from Team NuTopia</p>
+				<p ><strong>Yuvabharathi Public School</strong> is thrilled to announce Season 4 of Coimbatore's first ever STEM Carnival</p>
+			</div>
+			<div class="image_anchor">
+				<a href="https://nutopia.in"><img  src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" /></a>
+			</div>
+			<div style="padding: 0 2rem; padding-bottom: 2ch; text-align: center;">
+				<h1>We're turning 3! 🥳🥳🥳</h1>
+				<p style="font-size: 1rem; text-align: center">Fun Fact: Seasons 1 and 2 were both held in 2022</p>
+				<p style="font-size: 2.5rem; font-weight: 600; margin-top: 1ch; margin-bottom: 1ch;">Inviting ALL students!</p>
+				<p style="text-align: justify;">From Geeks and Gamers to Writers and Artists, of <strong style="font-weight: 600;">Grades 9 thru 12</strong> from schools in and around Coimbatore. Season 4 is scheduled for 25 & 26 July / 2024, at Yuvabharathi Public School, Coimbatore</p>
+				<p><a href="https://nutopia.in/registration/" style="background-color: #00cc22; color: white; padding: 1ch 2ch; border-radius: 1ch; text-decoration: none">Register Here!</a></p>
+				<hr style="background-color: hsl(0, 0%, 100%, 30%); height: 4px; border: none; border-radius: 2px; margin: 2.5rem 2ch;"/>
+				<p style="font-size: 1.5rem">Join us for our third year with <strong style="font-weight: 600;">Eight Exhilarating Events</strong>:</p>
+				<div class="event_cards">
+					<a class="event_card aov" style="margin-left: 0;" href="https://nutopia.in/events/arena-of-valor">
+						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Faov_logo.7d059bac.png&w=1920&q=50"/>
+						</a><a class="event_card ko" href="https://nutopia.in/events/knockout">
+						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fko_logo.d4d743df.png&w=1920&q=50"/>
+					</a><a class="event_card tod" href="https://nutopia.in/events/truth-or-debug">
+						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ftd_logo.09267360.png&w=1920&q=50"/>
+					</a><a class="event_card lab" style="margin-right: 0;" href="https://nutopia.in/events/log-and-blog">
+						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Flab_logo_2.4e5c5334.png&w=1920&q=50"/>
+					</a>
 
-			<p>Greetings from <strong>Team NuTopia</strong>!</p>
-
-			<p><strong>Yuvabharathi Public School</strong> is thrilled to announce Season 4 of the inter-school STEM Carnival,</p>
-			<a href="https://nutopia.in" class="image_anchor">
-				<img  src="https://firebasestorage.googleapis.com/v0/b/nutopia-307e4.appspot.com/o/email-assets%2Fnutopia-horizontal.png?alt=media&token=d792df57-14f0-4448-83a7-9a31fffc53f6" />
-			</a>
-			<p>
-				Returning for its third year, we are excited to present eight dynamic events that reflect the current kaleidoscopic view of technology.
-			</p>
-			<p>
-				We would like to invite everyone, from IT geeks and gamers to writers and artists, from grades 9 to 12 from schools in and around the Coimbatore.
-			</p>
-			<p>
-				Season 4 is scheduled for July 25th and 26th, 2024, at Yuvabharathi Public School, Coimbatore.
-			</p>
-
-			<p>We hope to see you soon!</p>
+					<a class="event_card ds" style="margin-left: 0;" href="https://nutopia.in/events/design-scape">
+						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fds_logo.3164ad00.png&w=1920&q=50"/>
+					</a><a class="event_card otk" href="https://nutopia.in/events/otakuiz">
+						<img src="https://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fotk_logo.bbeefddb.png&w=1920&q=50"/>
+					</a><a class="event_card ck" href="https://nutopia.in/events/code-klash">
+						<img src="http://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fck_logo.4a90d2eb.png&w=1920&q=50"/>
+					</a><a class="event_card ps" style="margin-right: 0;" href="https://nutopia.in/events/pitstop">
+						<img src="http://www.nutopia.in/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fps_logo.94721a79.png&w=1920&q=50"/>
+					</a>
+				</div>
+				<p style="font-size: 1rem; text-align: center;">Click to visit the event pages</p>
+				<p>We hope to see you soon!</p>
+				<p>For further details regarding the itinerary and registrations, refer to: <a href="https://nutopia.in/" style="color: #00cc22;">nutopia.in</a></p>
+			</div>
 		</div>
 	</div>
 	<div class="email_footer">
@@ -190,6 +305,6 @@
 			Kanuvai,<br />
 			Coimbatore, Tamil Nadu 641108
 		</p>
-		<p class="copyright">&copy; <a href="https://nutopia.in" style="color: #00cc22">Team NuTopia</a> 2024. All Rights Reserved.</p>
+		<p class="copyright">&copy; <a href="https://nutopia.in/about" style="color: #00cc22">Team NuTopia</a> 2024. All Rights Reserved.</p>
 	</div>
 </body>
