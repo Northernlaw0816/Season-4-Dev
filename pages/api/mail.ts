@@ -44,7 +44,7 @@ export default async function mail(req: NextApiRequest, res: NextApiResponse) {
 			from: '"NuTopia" <info@nutopia.in>',
 			subject: `Nutopia Season 4 Official Invite`,
 			to: school.schoolEmail,
-			cc: [`${process.env.MAILER_EMAIL}`],
+			cc: [`${process.env.MAILER_EMAIL}`, "nutopia.ybps@gmail.com"],
 			html: nunjucks.renderString(htmlBody, school),
 		})
 			.then(() => {
