@@ -38,7 +38,6 @@ export default async function mail(req: NextApiRequest, res: NextApiResponse) {
 	}
 	const getMail = getNextMailAddress(schoolData);
 	const sendMail = async () => {
-		if (!canSendEmail) return;
 		// const { schoolName, schoolEmail } = getMail.next().value as { schoolEmail: string; schoolName: string };
 		const school = getMail.next().value as { schoolEmail: string; schoolName: string };
 		await Mail.sendMail({
@@ -62,10 +61,9 @@ export default async function mail(req: NextApiRequest, res: NextApiResponse) {
 			});
 	};
 
-	schoolData.forEach(async (school, index) => {
-		canSendEmail = true;
+	for (let i = 0; i < schoolData.length; i++) {
 		await sendMail();
-	});
+	}
 	res.status(200).json({
 		success,
 		message: `Successfully sent mail to ${schoolData.map((school) => school.schoolEmail).join(", ")}`,
