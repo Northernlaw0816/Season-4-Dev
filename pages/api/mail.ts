@@ -28,20 +28,46 @@ export default async function mail(req: NextApiRequest, res: NextApiResponse) {
 			success,
 			message: "No body",
 		});
-	const body: { schoolEmail: string; schoolName: string } = req.body;
-	await Mail.sendMail({
-		from: '"NuTopia" <info@nutopia.in>',
-		subject: `Nutopia Season 4 Official Invite`,
-		to: body.schoolEmail,
-		cc: [`${process.env.MAILER_EMAIL}`],
-		html: nunjucks.renderString(htmlBody, body),
-	})
-		.then(() => {
-			success = true;
+	const schoolData: { schoolEmail: string; schoolName: string }[] = req.body;
+	let canSendEmail = false;
+
+	function* getNextMailAddress(data: { schoolEmail: string; schoolName: string }[]) {
+		for (let i = 0; i < data.length; i++) {
+			yield data[i];
+		}
+	}
+	const getMail = getNextMailAddress(schoolData);
+	const sendMail = async () => {
+		if (!canSendEmail) return;
+		// const { schoolName, schoolEmail } = getMail.next().value as { schoolEmail: string; schoolName: string };
+		const school = getMail.next().value as { schoolEmail: string; schoolName: string };
+		await Mail.sendMail({
+			from: '"NuTopia" <info@nutopia.in>',
+			subject: `Nutopia Season 4 Official Invite`,
+			to: school.schoolEmail,
+			cc: [`${process.env.MAILER_EMAIL}`],
+			html: nunjucks.renderString(htmlBody, school),
 		})
-		.catch((e: any) => {});
+			.then(() => {
+				console.log(Mail.isIdle());
+				const date = new Date();
+				console.log(
+					`Email sent to ${school.schoolEmail} at ${date.getHours() - 12}:${date.getMinutes()}:${date.getSeconds()}`,
+				);
+				success = true;
+				canSendEmail = false;
+			})
+			.catch((e: any) => {
+				console.log(e);
+			});
+	};
+
+	schoolData.forEach(async (school, index) => {
+		canSendEmail = true;
+		await sendMail();
+	});
 	res.status(200).json({
 		success,
-		message: `Successfully sent mail to ${body.schoolEmail}`,
+		message: `Successfully sent mail to ${schoolData.map((school) => school.schoolEmail).join(", ")}`,
 	});
 }
