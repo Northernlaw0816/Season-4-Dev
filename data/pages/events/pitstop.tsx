@@ -46,7 +46,7 @@ const Pitstop = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pitstop"),
 
         registration: [
-            "Participants register in teams of 3."
+            "Participants register in teams of 3 or 4."
         ]
     }
 }
