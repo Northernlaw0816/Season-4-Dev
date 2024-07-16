@@ -6,7 +6,7 @@ import * as Nodemailer from "nodemailer";
 import { firestore } from "../../firebase/clientApp";
 import { titleCase } from "../../functions";
 import fs from "fs-extra";
-const mailBody = fs.readFileSync("public/templates/register.njk").toString();
+const mailBody = fs.readFileSync("../../public/templates/register.njk").toString();
 interface Participant {
 	name: string;
 	grade: string;
