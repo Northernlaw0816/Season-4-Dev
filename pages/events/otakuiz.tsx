@@ -87,7 +87,7 @@ const Otakuiz: NextPage = () => {
                     })}</ul>
 
                 <div className={styles.register_link_align}>
-           <EventsRegisterButton text={`Register for ${OtakuizData.title}`}/>
+                <EventsRegisterButton pathname="" text={`Register for ${OtakuizData.title}`} />
         </div>
             </div>
         </Layout>

@@ -128,7 +128,7 @@ const Pitstop: NextPage = () => {
 					</ul>
 
 					<div className={styles.register_link_align}>
-						<EventsRegisterButton text={`Register for ${PitstopData.title}`} />
+					<EventsRegisterButton pathname="" text={`Register for ${PitstopData.title}`} />
 					</div>
 				</div>
 			</Layout>
