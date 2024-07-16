@@ -34,7 +34,7 @@ const Pitstop = {
         about: "Pitstop is the ultimate RC car building and racing extravaganza! An event where STEM meets RACING. Participants will design, build, and race their remote-controlled cars, pushing the limits of speed and performance.",
         
         rules: [
-            "Each team must comprise 3-4 participants.",
+            "Each team must comprise 3 participants.",
             "Teams with RC cars bought or made by a third party will be disqualified.",
             "The RC has to be built before the event. (Note:- no time will be provided before or during the event for the build.)",
             "Any kind of fuel engines will not be allowed.",
