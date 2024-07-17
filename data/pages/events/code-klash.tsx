@@ -30,7 +30,6 @@ const CodeKlash = {
 			"Do you think you can participate in the battle royale of coding? Can you create a program, not only error-free but in a jiffy? If you think you're ready to put your skills to the test, participate in Code Klash!",
 
 		rules: [
-			"No more than 3 participants are allowed in a team. (No minimum limit).",
 			"Participants will be provided with a computer to work on, hence one does not need to carry any device.",
 			"Internet usage won’t be provided unless necessary.",
 			"Participants are free to use the following languages: JavaScript, Java, C++ and Python.",
