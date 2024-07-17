@@ -6,14 +6,12 @@ const Registration = {
 	title: "Pre-Registration Information",
 	commonRules: [
 		"Registrations are open for students from grades 9 to 12.",
-		"An individual is allowed to participate in multiple events, provided they don't have overlapped timings.",
-		"Each event is to be registered SEPARATELY in the form.",
+		"An individual is allowed to participate in multiple events, provided that the events are not conducted during the same hours.",
 		"Only WhatsApp ENABLED phone numbers to be submitted in the registration form.",
 		"Participants are to join the Whatsapp group through the link which will be sent to the respective phone numbers after registration.",
 		"Further instructions for the event will be sent via the WhatsApp group ONLY.",
 		"Any queries or problems regarding registration to be addressed on the SAME DAY through EMAIL ONLY.",
 		"Participants who submit mismatched information will be disqualified.",
-		"Participants may only register for events that are NOT being conducted at OVERLAPPING timings.",
 		<Image
 			src={EventTimingsList}
 			alt={`Event Timings List`}

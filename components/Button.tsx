@@ -1,11 +1,30 @@
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
+import styles from '../styles/components/Button.module.scss';
+import { createPopup } from '@typeform/embed';
+import '@typeform/embed/build/css/popup.css';
 
-import styles from '../styles/components/Button.module.scss'
+const Button: React.FC<{ text?: string; children?: React.ReactNode; href?: string }> = ({
+  text,
+  children,
+  href,
+}) => {
+  const { open } = createPopup('UBaQ2F2X');
 
-const Button = ({text, children, href, onClick}: {text?: string, children?: any, href?: string, onClick?: any}) => {
-	return(
-		<Link href={href ? href : ""}><a className={styles.button} onClick={onClick}>{children ? children : text}</a></Link>
-	)
-}
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault(); // Prevent default anchor tag behavior (scrolling to top)
 
-export default Button
+    // Open the Typeform popup
+    open();
+  };
+
+  return (
+    <Link href={href ? href : ""}>
+      <a href="#" className={styles.button} onClick={handleClick}>
+        {children ? children : text}
+      </a>
+    </Link>
+  );
+};
+
+export default Button;

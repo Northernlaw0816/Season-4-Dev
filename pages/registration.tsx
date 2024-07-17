@@ -36,8 +36,7 @@ const Registration = () => {
             </ul>
 
             <h2 id="registration">Registration</h2>
-            <p>The registration form for each event can be found under the event's respective page</p>
-            <Button href="/events" text="Browse Events"/>
+            <Button>Register Here</Button>
         </Layout>
     </>)
 }
