@@ -32,7 +32,7 @@ const Otakuiz = {
         about: "Welcome to Otakuiz, the ultimate competition to crown the true, most worthy team of the title “Super Sannin”. It’s finally your time to prove that all those hours spent watching anime are not in vain by showing off the knowledge you’ve gained in the ultimate anime quiz. Are you ready to give Otakuiz a shot? Meet fellow weebs and have the time of your life? So join us for the ride and let’s have a blast together.",
             
         rules: [
-            "Participants can take part in groups of 2-3 members, each with distinct team names.",
+            "Participants can take part in groups of 3 members, each with distinct team names.",
             "The use of any gadgets or the internet is strictly prohibited to respect fair play.",
             "Participants are only allowed to converse within their teams. They should not confer with any other groups in the middle of any rounds.",
             ["The event consists of a preliminary round followed by 3 main rounds, namely :","Rapid Fire","Jeopardy","1vs1 Battle",],
