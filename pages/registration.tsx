@@ -20,7 +20,7 @@ const Registration = () => {
         <Layout overrideClasses={styles.main}>
             <h1 id="title">{RegistrationData.title}</h1>
             <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 4 is open to all schools!</p>
-            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the registration form under each event.</p>
+            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the registration form.</p>
 
             <h2 id="guidelines">Guidelines</h2>
             <ul>
