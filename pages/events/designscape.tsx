@@ -333,7 +333,7 @@ const Designscape: NextPage = () => {
             </ul>
           </div>
            <div className={styles.register_link_align}>
-           <EventsRegisterButton pathname="https://docs.google.com/forms/d/e/1FAIpQLSdworOM4eC18IPgddxiaR1h5ccYV_dsp6BV0pUx1ziP7fA6TQ/viewform" text={`Register for ${DesignscapeData.title}`} />
+           <EventsRegisterButton pathname="https://docs.google.com/forms/d/e/1FAIpQLSfM_hvTEqC5GrblnTwyl9a0acU1-n4WXtUpF3yAnpqtlc0kHA/viewform" text={`Register for ${DesignscapeData.title}`} />
       </div>
         </div>
       </Layout>
