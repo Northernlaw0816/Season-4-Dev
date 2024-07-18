@@ -1,3 +1,4 @@
+
 //data
 import Main from "../../Main";
 import { EventCoordinators } from "../../EventCoordinators";
@@ -92,9 +93,9 @@ const ArenaOfValor = {
               "Participants are supposed to use version 1.20.2 Java edition only.",
               "Participants are not permitted to change username and accounts.",
               "Discord and Whatsapp are the means of communication. We require your gaming device to have a functional camera and microphone. We may also require screen sharing at times.",
-              "Three rounds will be conducted over the course of 2 days.",
+              "Three rounds will be conducted during this one day event.",
               ["Round 1 : Parkour", "A single parkour course will be the challenge for all teams.","A team will be given only one run through where both of the members must complete the course.",],
-              ["Round 2 : Build", "Each team will be allotted a 4x4 chunk with signs indicating the teams and school name.","Creative mode will be set for everyone. Teams will be given 1.5 hours to build based on the given topic.","If any participant is found to be griefing - such as building inappropriate structures or sabotaging other teams, or using mods/plugins - the team will be disqualified from the round."],
+              ["Round 2 : Build", "Each team will be allotted a 3x3 chunk with signs indicating the teams and school name.","Creative mode will be set for everyone. Teams will be given 1.5 hours to build based on the given topic.","If any participant is found to be griefing - such as building inappropriate structures or sabotaging other teams, or using mods/plugins - the team will be disqualified from the round."],
               ["Round 3 : Battle Royale","Survival mode with normal difficulty will be set for everyone.","A total of 3 matches will be conducted where the teams must gather resources and be the last team standing while the zone shrinks periodically.","Loot Boxes will be present throughout the map.","Points are earned through placements and eliminations."],
             ],
           }

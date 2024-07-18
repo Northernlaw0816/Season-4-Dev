@@ -1,4 +1,3 @@
-
 //stylesheets
 import styles from '../../../styles/pages/Events.module.scss'
 //data
@@ -46,7 +45,7 @@ const Pitstop = {
         eventCoordinators: EventCoordinators.filter(coordinator => coordinator.event === "Pitstop"),
 
         registration: [
-            "Participants register in teams of three."
+            "Participants register in teams of 3."
         ]
     }
 }
