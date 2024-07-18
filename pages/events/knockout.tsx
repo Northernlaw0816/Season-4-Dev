@@ -65,7 +65,7 @@ const KnockOut: NextPage= () => {
                     })}</ul>
                 
                 <div className={styles.register_link_align}>
-                <EventsRegisterButton pathname="https://forms.gle/ZGWZGWDvSWPDfLcM6" text={`Register for ${KnockOutData.title}`} />
+                <EventsRegisterButton pathname="https://docs.google.com/forms/d/e/1FAIpQLSdworOM4eC18IPgddxiaR1h5ccYV_dsp6BV0pUx1ziP7fA6TQ/viewform" text={`Register for ${KnockOutData.title}`} />
         </div>
             </div>
         </Layout>

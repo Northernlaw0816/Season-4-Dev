@@ -74,7 +74,7 @@ const LogAndBlog: NextPage= () => {
                     })}</ul>
 
                  <div className={styles.register_link_align}>
-                 <EventsRegisterButton pathname="" text={`Register for ${LogAndBlogData.title}`} />
+                 <EventsRegisterButton pathname="https://docs.google.com/forms/d/e/1FAIpQLScqSMvv0UOFk43HApZujUrOYYGiIfrEn_CbWBar0F1VTaOfxQ/viewform" text={`Register for ${LogAndBlogData.title}`} />
         </div>
             </div>
         </Layout>
