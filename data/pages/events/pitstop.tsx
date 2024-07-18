@@ -1,4 +1,3 @@
-
 //stylesheets
 import styles from '../../../styles/pages/Events.module.scss'
 //data

@@ -19,11 +19,8 @@ const Registration = () => {
 
         <Layout overrideClasses={styles.main}>
             <h1 id="title">{RegistrationData.title}</h1>
-
-            <h2 id="note" style={{fontSize: "2em", color: "#e30e35", textAlign: "center"}}>Registrations are temporarily closed due to technical difficulties.</h2>
-            <h2 id="note" style={{fontSize: "2em", color: "#e30e35", textAlign: "center"}}>We are sorry for the inconvenience.</h2>
             <p id="note" style={{fontSize: "1.5em"}}>NuTopia - Season 4 is open to all schools!</p>
-            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines under each event before proceeding to fill the registration form.</p>
+            <p id="note" style={{fontSize: "1.5em"}}>Please read the given guidelines before proceeding to fill the registration form.</p>
 
             <h2 id="guidelines">Guidelines</h2>
             <ul>

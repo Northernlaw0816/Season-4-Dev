@@ -91,7 +91,7 @@ const CodeKlash: NextPage = () => {
 					</ul>
 
 					<div className={styles.register_link_align}>
-						<EventsRegisterButton text={`Register for ${CodeKlashData.title}`} />
+					<EventsRegisterButton pathname="https://docs.google.com/forms/d/e/1FAIpQLSctqydrj102vBaYE1HhBOFbCV0Zh4cUM-mR8CbL8S--06pRCg/viewform" text={`Register for ${CodeKlashData.title}`} />
 					</div>	
 				</div>
 			</Layout>

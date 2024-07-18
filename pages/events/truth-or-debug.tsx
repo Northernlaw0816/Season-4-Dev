@@ -84,7 +84,7 @@ const TruthOrDebug: NextPage = () => {
                     })}</ul>
                     
                     <div className={styles.register_link_align}>
-                    <EventsRegisterButton text={`Register for ${TruthOrDebugData.title}`}/>
+                    <EventsRegisterButton pathname="https://docs.google.com/forms/d/e/1FAIpQLSePJItWZXG2twCHss0PVNUcmmVU5BpHA54IiwHoZRCW9zHTZw/viewform" text={`Register for ${TruthOrDebugData.title}`} />
         </div>
             </div>
         </Layout>
