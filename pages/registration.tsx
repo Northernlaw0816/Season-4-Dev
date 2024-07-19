@@ -37,9 +37,10 @@ const Registration = () => {
 
                 <EventSelection />
 
-                <h2 id="registration">Registration</h2>
+                <h2 id="registration">Registration</h2> 
                 <p>To register for an event:</p>
                 <Button href="/events" text="Browse Events"/>
+                <p></p>
             </Layout>
         </>
     );

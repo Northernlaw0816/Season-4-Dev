@@ -11,6 +11,9 @@
 	h2 {
 		text-align: left;
 	}
+	h4 {
+		text-align: left;
+	}
 
 	ul {
 		padding-left: clamp(2rem, 4vw, 4rem);
@@ -21,10 +24,12 @@
 	}
 
 	.info_image {
-		width: 80%;
+		width: 90%;
+		padding-left: 5%;
 
 		@media screen and (max-width: 780px) {
 			width: 100%;
+			position: relative;
 		}
 	}
 }
