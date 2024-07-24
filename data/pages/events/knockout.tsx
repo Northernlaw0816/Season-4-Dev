@@ -52,7 +52,7 @@ const KnockOut = {
        {
         title: "Round 1 Question",
         rules: [
-          "TBA"
+          "Space colonization has been a fair topic of discussion. Some say it's better to get Planet B ready and some look into the adverse effects it could have on human beings. What do you say? Have a broad spectrum and be open to all possibilities."
         ],
       },
 
