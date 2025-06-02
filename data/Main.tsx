@@ -13,5 +13,5 @@ const Main = {
     brochurePreview: "https://drive.google.com/file/d/1kaXpgWyoBEAQvdYJqTvc6mSA6wM-Mqf_/preview",
     updateMessage: ""
 }
-
+//niceeee
 export default Main
